@@ -111,7 +111,11 @@ export default function StartupsPage() {
     <>
       <PageHero
         eyebrow="For founders and CEOs"
-        title="Your hiring partner from seed to scale."
+        title={
+          <>
+            Your hiring partner from <span className="text-gradient">seed to scale</span>.
+          </>
+        }
         intro="Hiring engineers is one of the most important things you'll do. We run your searches like part of your team, so you can focus on building."
       >
         <Button href={bookingHref} variant="brand">
