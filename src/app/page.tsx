@@ -68,11 +68,13 @@ const reasons = [
 ];
 
 // Illustrative only: shows what working with us looks like. Not real searches.
+// `step` is how far along each role is (1 to 4), matching the steps in hiringSteps.
+const hiringSteps = ["Planning", "Shortlist", "Interviews", "Offer"];
 const exampleBoard = [
-  { role: "Founding AI Engineer", stage: "Shortlist sent", tone: "bg-brand-soft text-brand-dark" },
-  { role: "Senior Backend Engineer", stage: "Interviewing", tone: "bg-amber-50 text-amber-800" },
-  { role: "Platform Engineer", stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
-  { role: "Full-Stack Engineer", stage: "Planning", tone: "bg-slate-100 text-slate-700" },
+  { role: "Full-Stack Engineer", step: 1, stage: "Planning the role", tone: "bg-slate-100 text-slate-700" },
+  { role: "Founding AI Engineer", step: 2, stage: "Shortlist sent", tone: "bg-brand-soft text-brand-dark" },
+  { role: "Senior Backend Engineer", step: 3, stage: "Interviewing", tone: "bg-amber-50 text-amber-800" },
+  { role: "Platform Engineer", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
 ];
 
 export default function Home() {
@@ -118,15 +120,37 @@ export default function Home() {
 
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
             <div className="rounded-2xl border border-line bg-white p-5 shadow-[0_20px_60px_-20px_rgba(11,16,32,0.25)]">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-medium">Your hiring plan</p>
-                <p className="text-xs text-muted">Example</p>
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="font-semibold">What working with us looks like</p>
+                  <p className="mt-0.5 text-sm text-muted">One startup, four engineering roles</p>
+                </div>
+                <span className="shrink-0 rounded-full border border-line px-2 py-0.5 text-xs text-muted">Example</span>
               </div>
-              <ul className="mt-4 divide-y divide-line">
+
+              {/* Step labels */}
+              <div className="mt-5 grid grid-cols-4 gap-1 text-center text-[11px] font-medium text-muted">
+                {hiringSteps.map((label) => (
+                  <span key={label}>{label}</span>
+                ))}
+              </div>
+
+              <ul className="mt-2 divide-y divide-line">
                 {exampleBoard.map((item) => (
-                  <li key={item.role} className="flex items-center justify-between gap-3 py-3.5">
-                    <span className="text-[15px]">{item.role}</span>
-                    <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${item.tone}`}>{item.stage}</span>
+                  <li key={item.role} className="py-3.5">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-[15px] font-medium">{item.role}</span>
+                      <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${item.tone}`}>{item.stage}</span>
+                    </div>
+                    {/* Progress: one segment per step */}
+                    <div className="mt-2.5 grid grid-cols-4 gap-1" aria-label={`Step ${item.step} of 4`}>
+                      {hiringSteps.map((label, i) => (
+                        <span
+                          key={label}
+                          className={`h-1.5 rounded-full ${i < item.step ? "bg-gradient-to-r from-violet to-blue" : "bg-line"}`}
+                        />
+                      ))}
+                    </div>
                   </li>
                 ))}
               </ul>
