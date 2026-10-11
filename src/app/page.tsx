@@ -105,7 +105,7 @@ export default function Home() {
               full-stack, and platform, from your first engineer to your fiftieth.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={bookingHref}>
+              <Button href={bookingHref} variant="brand">
                 Book a call <Arrow />
               </Button>
               <Button href="/roles" variant="secondary">

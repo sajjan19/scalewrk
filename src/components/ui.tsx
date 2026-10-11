@@ -7,7 +7,7 @@ import { Fragment, type ReactNode } from "react";
 type ButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "light";
+  variant?: "primary" | "secondary" | "light" | "brand";
   className?: string;
 };
 
@@ -15,6 +15,7 @@ const buttonStyles = {
   primary: "bg-ink text-white hover:bg-ink/85",
   secondary: "bg-white text-ink ring-1 ring-line hover:ring-ink/30",
   light: "bg-white text-ink hover:bg-white/90",
+  brand: "btn-brand", // logo gradient, used for every "Book a call" button
 };
 
 export function Button({ href, children, variant = "primary", className = "" }: ButtonProps) {

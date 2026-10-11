@@ -16,7 +16,7 @@ export function MobileBookBar() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur lg:hidden">
       <Link
         href={bookingHref}
-        className="flex min-h-12 items-center justify-center rounded-xl bg-ink text-[15px] font-medium text-white"
+        className="btn-brand flex min-h-12 items-center justify-center rounded-xl text-[15px] font-medium"
       >
         Book a 20-minute call
       </Link>

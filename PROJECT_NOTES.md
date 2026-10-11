@@ -49,6 +49,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | `line` | `#E6E8F0` | Borders |
 | `mist` | `#F5F7FB` | Alternating section background |
 | `brand` | `#4F46E5` | Links, eyebrows, focus rings |
+| `.btn-brand` | violet → blue gradient | All "Book a call" buttons |
 | `violet` → `blue` | `#7A2FF5` → `#0D6EFD` | Logo gradient |
 
 - **Font:** Geist (via `next/font`, self-hosted at build time). Headlines semibold with tight tracking.
@@ -141,3 +142,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Footer social links now have icons (`src/components/SocialIcons.tsx`). Placeholder phone `(555) 555-0123` added to footer and Contact page (kept out of the vCard and structured data so a fake number isn't saved or indexed).
 - **2026-10-10:** All footer links (company, contact, privacy, email, phone, social) turn logo blue (`#0D6EFD`) on hover. Mail and phone icons added to footer and Contact page.
 - **2026-10-10:** Widened section headings (max-w-4xl) and intro text (max-w-3xl) so headings fit on one line on desktop. Set in `SectionHeading` / `PageHero` in `src/components/ui.tsx`.
+- **2026-10-10:** Every "Book a call" button uses the logo gradient (`.btn-brand` in `globals.css`, `variant="brand"` on `Button`). Other buttons stay ink.

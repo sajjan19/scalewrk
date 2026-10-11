@@ -29,7 +29,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href={bookingHref} className="rounded-lg bg-ink px-4 py-2 text-[15px] font-medium text-white transition hover:bg-ink/85">
+          <Link href={bookingHref} className="btn-brand rounded-lg px-4 py-2 text-[15px] font-medium">
             Book a call
           </Link>
         </nav>
@@ -59,7 +59,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Link href={bookingHref} onClick={() => setOpenOn(null)} className="mt-4 flex min-h-12 items-center justify-center rounded-xl bg-ink text-[15px] font-medium text-white">
+          <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn-brand mt-4 flex min-h-12 items-center justify-center rounded-xl text-[15px] font-medium">
             Book a call
           </Link>
         </nav>

@@ -62,7 +62,7 @@ export default function PartnersPage() {
         <Button href="#partner-form">
           Become a partner <Arrow />
         </Button>
-        <Button href={bookingHref} variant="secondary">
+        <Button href={bookingHref} variant="brand">
           Book a call
         </Button>
       </PageHero>

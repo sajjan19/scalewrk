@@ -39,7 +39,7 @@ export default function MeetPage() {
 
         <a
           href="#book"
-          className="mt-8 flex min-h-14 items-center justify-center rounded-xl bg-ink text-base font-medium text-white"
+          className="btn-brand mt-8 flex min-h-14 items-center justify-center rounded-xl text-base font-medium"
         >
           Book a 20-minute call
         </a>

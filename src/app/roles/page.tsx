@@ -20,7 +20,7 @@ export default function RolesPage() {
         title="Engineers for every layer of your stack."
         intro="We recruit technical roles only, for venture-backed startups from seed through Series C+. Here's what we hire and what we screen for."
       >
-        <Button href={bookingHref}>
+        <Button href={bookingHref} variant="brand">
           Hire for a role <Arrow />
         </Button>
       </PageHero>

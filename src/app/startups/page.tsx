@@ -94,7 +94,7 @@ export default function StartupsPage() {
         title="Your embedded hiring partner, from seed to scale."
         intro="Hiring engineers is the most important thing you'll do this year, and the easiest to get wrong. Scalewrk runs your technical searches like part of your team, so you can stay focused on building."
       >
-        <Button href={bookingHref}>
+        <Button href={bookingHref} variant="brand">
           Book a call <Arrow />
         </Button>
       </PageHero>

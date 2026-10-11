@@ -20,7 +20,7 @@ export function CtaBand({
           <div className="relative max-w-2xl">
             <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
             <p className="mt-4 text-lg leading-relaxed text-white/75">{body}</p>
-            <Button href={bookingHref} variant="light" className="mt-8 w-full sm:w-auto">
+            <Button href={bookingHref} variant="brand" className="mt-8 w-full sm:w-auto">
               Book a call <Arrow />
             </Button>
           </div>
