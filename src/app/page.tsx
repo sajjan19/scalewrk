@@ -121,12 +121,9 @@ export default function Home() {
 
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
             <div className="rounded-2xl border border-line bg-white p-5 shadow-[0_20px_60px_-20px_rgba(11,16,32,0.25)]">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-semibold">What working with us looks like</p>
-                  <p className="mt-0.5 text-sm text-muted">We track every role from plan to offer</p>
-                </div>
-                <span className="shrink-0 rounded-full border border-line px-2 py-0.5 text-xs text-muted">Example</span>
+              <div>
+                <p className="font-semibold">What working with us looks like</p>
+                <p className="mt-0.5 text-sm text-muted">We track every role from plan to offer</p>
               </div>
 
               {/* Step labels */}
