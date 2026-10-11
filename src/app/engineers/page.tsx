@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { AppliedJob } from "@/components/AppliedJob";
+import { PrimaryRole } from "@/components/PrimaryRole";
 import { Field, FileField, Form, Select, TextArea } from "@/components/Form";
 import { ArrowRight, Briefcase, Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
-import { roles } from "@/content/roles";
 import { visibleJobs } from "@/content/jobs";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -101,7 +101,7 @@ export default function EngineersPage() {
               required
               placeholder="https://www.linkedin.com/in/yourname"
             />
-            <Select label="Primary role" name="role" required options={[...roles.map((r) => r.name), "Other"]} />
+            <PrimaryRole />
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Where you live now" name="location" placeholder="Los Angeles, CA" autoComplete="address-level2" />
               <Select label="How you want to work" name="work_preference" options={["Remote", "Hybrid", "In office", "Open to any"]} />
