@@ -34,7 +34,7 @@ export const founders: Founder[] = [
     name: "Mandeep Sajjan",
     title: "Co-founder",
     initials: "MS",
-    photo: "/founders/mandeep.jpg",
+    photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver",
     bio: [
       "Mandeep has a background in tech and sales. Mandeep works directly with founders to understand what they're building and who they need.",
