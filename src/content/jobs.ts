@@ -33,6 +33,7 @@ export type Job = {
   whatYoullNeed: string[];
   niceToHave: string[];
   interviewSteps: string[];
+  posted: string; // date posted, YYYY-MM-DD (newest show first)
   example: boolean;
 };
 
@@ -66,6 +67,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Fintech or accounting experience", "Early-stage startup experience"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the CEO", "Take-home project", "Meet the team"],
+    posted: "2026-10-09",
     example: true,
   },
   {
@@ -97,6 +99,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Healthcare data experience (FHIR, HL7)", "HIPAA or SOC 2 experience"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the CTO", "System design interview", "Meet the team"],
+    posted: "2026-10-08",
     example: true,
   },
   {
@@ -128,6 +131,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Experience at a developer tools company", "Go programming"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the platform lead", "Technical deep dive", "Meet the team"],
+    posted: "2026-10-07",
     example: true,
   },
   {
@@ -159,6 +163,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Fintech experience", "Mobile web or React Native"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the head of engineering", "Pair-programming session", "Meet the team"],
+    posted: "2026-10-06",
     example: true,
   },
   {
@@ -190,6 +195,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Edge or embedded ML", "Robotics or logistics experience"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the ML lead", "ML technical interview", "Onsite visit"],
+    posted: "2026-10-03",
     example: true,
   },
   {
@@ -221,6 +227,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Experience with AI or ML products", "Time at a fast-growing startup"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the VP of Engineering", "Leadership interview", "Meet the team"],
+    posted: "2026-10-10",
     example: true,
   },
   {
@@ -252,6 +259,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Climate or energy experience", "Data visualization"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the CTO", "Paid one-day project", "Meet the founders"],
+    posted: "2026-10-02",
     example: true,
   },
   {
@@ -283,6 +291,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Spark or Kafka", "E-commerce experience"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the data lead", "Technical interview", "Meet the team"],
+    posted: "2026-10-01",
     example: true,
   },
   {
@@ -314,6 +323,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["HealthKit experience", "Apple Watch apps"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the head of mobile", "Take-home project", "Meet the team"],
+    posted: "2026-09-30",
     example: true,
   },
   {
@@ -345,6 +355,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Experience at a SaaS startup", "Penetration testing"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the CTO", "Security deep dive", "Meet the team"],
+    posted: "2026-09-29",
     example: true,
   },
   {
@@ -376,6 +387,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Insurance or fintech experience", "Event-driven systems"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the VP of Engineering", "System design interview", "Meet the team"],
+    posted: "2026-09-26",
     example: true,
   },
   {
@@ -407,6 +419,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["LLM experience", "Legal tech experience"],
     interviewSteps: ["Intro call with Scalewrk", "Coffee with the founders", "Work together for a day", "Offer"],
+    posted: "2026-10-09",
     example: true,
   },
   {
@@ -438,6 +451,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Fintech or banking experience", "Go or Python"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the SRE lead", "Incident scenario interview", "Meet the team"],
+    posted: "2026-09-25",
     example: true,
   },
   {
@@ -469,6 +483,7 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Proptech or real estate experience", "Series A to B growth experience"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the CEO", "Meet the leadership team", "Founder dinner"],
+    posted: "2026-10-05",
     example: true,
   },
 ];
@@ -476,4 +491,15 @@ export const jobs: Job[] = [
 // Show the example listings on the site (turn off once you have real jobs)
 export const showExampleJobs = true;
 
-export const visibleJobs = jobs.filter((j) => !j.example || showExampleJobs);
+export const visibleJobs = jobs
+  .filter((j) => !j.example || showExampleJobs)
+  .sort((a, b) => b.posted.localeCompare(a.posted)); // newest first
+
+export function latestJobs(count: number) {
+  return visibleJobs.slice(0, count);
+}
+
+// "2026-10-09" → "Oct 9"
+export function formatPosted(date: string) {
+  return new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+}

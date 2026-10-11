@@ -17,11 +17,13 @@ import {
 } from "lucide-react";
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
+import { JobCard } from "@/components/JobCard";
 import { LogoMark } from "@/components/Logo";
 import { Arrow, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
 import { IconBadge, StepTimeline } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
+import { latestJobs } from "@/content/jobs";
 import { founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -41,10 +43,11 @@ const stages = [
 ];
 
 const steps = [
-  { icon: Phone, title: "Intro call", body: ["20 minutes", "Tell us who you need"] },
-  { icon: Target, title: "Plan the role", body: ["Skills and must-haves", "Pay range", "How we pitch the role"] },
-  { icon: ListChecks, title: "Shortlist", body: ["A few great people", "No piles of resumes"] },
-  { icon: Handshake, title: "Hire", body: ["Help with interviews", "Help with the offer", "You only pay when you hire"] },
+  // Same wording as the process on the For Startups page
+  { icon: Phone, title: "Kickoff call", body: ["We learn what you're building", "Who you need first"] },
+  { icon: Target, title: "Plan the role", body: ["Skills and interview steps", "Pay and the pitch", "You approve it before we start"] },
+  { icon: ListChecks, title: "Shortlist", body: ["A few strong people", "Notes on why each one fits"] },
+  { icon: Handshake, title: "Interview and hire", body: ["We handle scheduling", "We collect feedback", "We help you make the offer"] },
 ];
 
 const reasons = [
@@ -231,8 +234,25 @@ export default function Home() {
         </ul>
       </Section>
 
-      {/* Why Scalewrk */}
+      {/* Latest jobs (newest 3 from src/content/jobs.ts) */}
       <Section tone="mist">
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
+          <Link href="/jobs" className="inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
+            View all jobs <Arrow />
+          </Link>
+        </div>
+        <ul className="mt-10 space-y-3">
+          {latestJobs(3).map((job) => (
+            <li key={job.slug}>
+              <JobCard job={job} />
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Why Scalewrk */}
+      <Section>
         <SectionHeading
           eyebrow="Why Scalewrk"
           title="A specialist, not a staffing agency"
@@ -259,8 +279,8 @@ export default function Home() {
       </Section>
 
       {/* Founder credibility */}
-      <Section>
-        <div className="grid items-center gap-8 rounded-3xl border border-line p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
+      <Section tone="mist">
+        <div className="grid items-center gap-8 rounded-3xl border border-line bg-white p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
           <div>
             <div className="mb-5 flex -space-x-3">
               {founders.map((f) =>
@@ -290,7 +310,7 @@ export default function Home() {
       </Section>
 
       {/* Partners and engineers */}
-      <Section tone="mist">
+      <Section>
         <div className="grid gap-4 md:grid-cols-2">
           <Link href="/partners" className="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
             <IconBadge icon={Handshake} size="lg" />
