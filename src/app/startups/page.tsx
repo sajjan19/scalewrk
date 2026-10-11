@@ -24,7 +24,7 @@ export const metadata = pageMetadata({
 });
 
 const process = [
-  { icon: Phone, title: "Kickoff call", body: ["What you're building", "Who you need first"] },
+  { icon: Phone, title: "Kickoff call", body: ["We learn what you're building", "Who you need first"] },
   { icon: Target, title: "Plan the role", body: ["Skills and interview steps", "Pay and the pitch", "You approve it before we start"] },
   { icon: Search, title: "Find people", body: ["Engineers who aren't on job boards", "We screen every one first"] },
   { icon: ListChecks, title: "Shortlist", body: ["A few strong people", "Notes on why each one fits"] },
