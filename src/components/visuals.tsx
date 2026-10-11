@@ -52,7 +52,7 @@ export function StepTimeline({ steps }: { steps: Step[] }) {
   );
 }
 
-// A row with a green check or a gray cross, for quick comparisons
+// A row with a green check or a red cross, for quick comparisons
 export function YesNo({ yes, children }: { yes: boolean; children: React.ReactNode }) {
   return (
     <span className="flex items-start gap-2.5">
@@ -61,7 +61,7 @@ export function YesNo({ yes, children }: { yes: boolean; children: React.ReactNo
           <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-label="Yes" />
         </span>
       ) : (
-        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-slate-100 text-slate-500">
+        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-red-100 text-red-600">
           <X className="h-3.5 w-3.5" strokeWidth={2.5} aria-label="No" />
         </span>
       )}
