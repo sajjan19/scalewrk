@@ -24,12 +24,12 @@ export const metadata = pageMetadata({
 });
 
 const process = [
-  { icon: Phone, title: "Kickoff call", body: "We learn what you're building and who you need first." },
-  { icon: Target, title: "Plan the role", body: "We agree on skills, interview steps, pay and the pitch. You approve it before we start." },
-  { icon: Search, title: "Find people", body: "We reach great engineers who aren't on job boards. We screen every one first." },
-  { icon: ListChecks, title: "Shortlist", body: "You get a few strong people with notes on why each one fits." },
-  { icon: Handshake, title: "Interview and hire", body: "We handle scheduling, collect feedback and help you make the offer." },
-  { icon: Repeat, title: "Stay with you", body: "We already know your team, so every next hire starts faster." },
+  { icon: Phone, title: "Kickoff call", body: ["What you're building", "Who you need first"] },
+  { icon: Target, title: "Plan the role", body: ["Skills and interview steps", "Pay and the pitch", "You approve it before we start"] },
+  { icon: Search, title: "Find people", body: ["Engineers who aren't on job boards", "We screen every one first"] },
+  { icon: ListChecks, title: "Shortlist", body: ["A few strong people", "Notes on why each one fits"] },
+  { icon: Handshake, title: "Interview and hire", body: ["We handle scheduling", "We collect feedback", "We help you make the offer"] },
+  { icon: Repeat, title: "Stay with you", body: ["We already know your team", "Every next hire starts faster"] },
 ];
 
 const columns = ["In-house only", "Big agency", "Scalewrk"];
@@ -130,7 +130,14 @@ export default function StartupsPage() {
                 <span className="font-mono text-sm text-muted">0{i + 1}</span>
               </div>
               <p className="mt-5 text-lg font-semibold">{step.title}</p>
-              <p className="mt-1 leading-relaxed text-body">{step.body}</p>
+              <ul className="mt-2 space-y-1.5">
+                {step.body.map((point) => (
+                  <li key={point} className="flex gap-2 leading-snug text-body">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ol>
