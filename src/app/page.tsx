@@ -121,12 +121,7 @@ export default function Home() {
 
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
             <div className="rounded-2xl border border-line bg-white p-5 shadow-[0_20px_60px_-20px_rgba(11,16,32,0.25)]">
-              <div className="flex items-center gap-3 rounded-xl bg-mist p-3 text-sm text-body">
-                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white ring-1 ring-line">
-                  <LogoMark className="h-4 w-auto" />
-                </span>
-                One recruiting partner for every engineering role.
-              </div>
+              <p className="font-semibold">We track every role from plan to offer</p>
 
               {/* Step labels */}
               <div className="mt-5 grid grid-cols-4 gap-1 text-center text-[11px] font-medium text-muted">
@@ -154,6 +149,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-2 flex items-center gap-3 rounded-xl bg-mist p-3 text-sm text-body">
+                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white ring-1 ring-line">
+                  <LogoMark className="h-4 w-auto" />
+                </span>
+                One recruiting partner for every engineering role.
+              </div>
             </div>
           </div>
         </Container>
