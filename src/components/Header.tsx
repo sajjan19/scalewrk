@@ -28,7 +28,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`relative rounded-lg px-3 py-2 text-[15px] transition-colors ${
-                  active ? "bg-brand-soft font-medium text-brand" : "text-body hover:bg-brand-soft hover:text-brand"
+                  active ? "font-medium text-brand" : "text-body hover:bg-brand-soft hover:text-brand"
                 }`}
               >
                 {item.label}
