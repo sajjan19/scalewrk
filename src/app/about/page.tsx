@@ -40,25 +40,30 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {founders.map((f) => (
             <article key={f.name} className="flex flex-col rounded-2xl border border-line p-6 sm:p-8">
-              <div className="flex items-center gap-4">
-                {f.photo ? (
-                  <Image src={f.photo} alt={f.name} width={80} height={80} className="h-20 w-20 rounded-full object-cover" />
-                ) : (
-                  <div
-                    className="flex h-20 w-20 flex-none items-center justify-center rounded-full bg-gradient-to-br from-violet to-blue text-xl font-semibold text-white"
-                    aria-hidden="true"
-                    title="PLACEHOLDER: founder photo"
-                  >
-                    {f.initials}
-                  </div>
-                )}
-                <div>
-                  <h3 className="text-xl font-semibold">{f.name}</h3>
-                  <p className="text-body">{f.title}</p>
-                  <p className="text-sm text-muted">
-                    <Text>{f.location}</Text>
-                  </p>
+              {f.photo ? (
+                // Photos show in black and white so the two headshots match. Remove "grayscale" for color.
+                <Image
+                  src={f.photo}
+                  alt={`${f.name}, ${f.title} of Scalewrk`}
+                  width={800}
+                  height={800}
+                  sizes="(min-width: 1152px) 520px, (min-width: 768px) 45vw, 100vw"
+                  className="aspect-[4/3] w-full rounded-xl bg-mist object-cover object-[50%_35%] grayscale"
+                />
+              ) : (
+                <div
+                  className="flex aspect-[4/3] w-full items-center justify-center rounded-xl bg-gradient-to-br from-violet to-blue text-5xl font-semibold text-white"
+                  aria-hidden="true"
+                  title="PLACEHOLDER: founder photo"
+                >
+                  {f.initials}
                 </div>
+              )}
+              <div className="mt-6">
+                <h3 className="text-2xl font-semibold tracking-tight">{f.name}</h3>
+                <p className="mt-1 text-body">
+                  {f.title} · <Text>{f.location}</Text>
+                </p>
               </div>
 
               <div className="mt-6 space-y-4 leading-relaxed text-body">

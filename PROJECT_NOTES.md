@@ -68,6 +68,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | TikTok etc. appear only as "Punit has recruited for…" | They're founders' past work, not Scalewrk clients |
 | Home hero card is labeled "Example" | Illustrative UI, not real searches |
 | Bios avoid pronouns | Pronouns not confirmed; safe default |
+| Founder photos shown in black and white (CSS `grayscale`) | The two headshots differ (one B&W, one color), so matching them looks cohesive. Remove `grayscale` in `about/page.tsx` and `page.tsx` for color |
 | Cache Components turned off in `next.config.ts` | Site is fully static; the classic model is simpler to edit |
 | Vercel Web Analytics | Cookie-free, so no consent banner needed |
 | One social preview image per page (`opengraph-image.tsx`) | Strong, page-specific link cards on LinkedIn, X, and Slack. Generated at build time with Geist fonts from `src/assets/fonts/` |
@@ -110,6 +111,7 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 - [x] vCard download on /meet (`public/scalewrk.vcf`)
 - [x] Vercel Web Analytics
 - [x] Checked on mobile (375px) and desktop; production build and lint pass
+- [x] Founder headshots: large photos on About, small avatars in the Home founder strip
 - [x] Pushed to GitHub: https://github.com/sajjan19/scalewrk (`main`)
 
 ### Still a placeholder / next steps
@@ -127,3 +129,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 ## 8. Change log
 - **2026-10-10:** Initial build: all pages, components, SEO, social images, forms, and notes. Pushed to GitHub.
 - **2026-10-10:** Dummy `PLACEHOLDER` links for Calendly and forms (with `isSet()` fallback); added TODO.md reminders list.
+- **2026-10-10:** Added founder headshots (cropped to 800×800 JPG in `public/founders/`); larger photo layout on About; avatars on Home.

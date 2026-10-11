@@ -23,10 +23,10 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Punit: other companies recruited for (bio line + "Experience recruiting for" list)
 - [ ] Punit: location
 - [ ] Punit: LinkedIn URL
-- [ ] Punit: photo (square, 600×600 or larger) → put it in `public/founders/punit.jpg` and set `photo: "/founders/punit.jpg"`
+- [x] Punit: photo (`public/founders/punit.jpg`)
 - [ ] Mandeep: one more bio line about prior roles
 - [ ] Mandeep: LinkedIn URL
-- [ ] Mandeep: photo → `public/founders/mandeep.jpg`
+- [x] Mandeep: photo (`public/founders/mandeep.jpg`)
 
 ## Pricing (`src/app/startups/page.tsx` → Engagement model)
 

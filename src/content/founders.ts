@@ -1,7 +1,7 @@
 /*
   Co-founder cards on the About page.
-  To add a photo: put the image in /public/founders/ (e.g. punit.jpg, square, at least 600×600)
-  and set `photo: "/founders/punit.jpg"`. Leave photo empty to show initials.
+  Photos live in /public/founders/ (square, at least 600×600). To swap one, replace the file
+  or change `photo`. Leave photo empty ("") to show initials instead.
   Text inside [square brackets] renders as a highlighted PLACEHOLDER on the site.
 */
 
@@ -21,7 +21,7 @@ export const founders: Founder[] = [
     name: "Punit Singh",
     title: "Co-founder",
     initials: "PS",
-    photo: "", // PLACEHOLDER
+    photo: "/founders/punit.jpg",
     location: "[PLACEHOLDER: location]",
     bio: [
       "Punit has been in tech recruitment since 2018, hiring engineers for high-growth companies including TikTok and [PLACEHOLDER: other companies].",
@@ -34,7 +34,7 @@ export const founders: Founder[] = [
     name: "Mandeep Sajjan",
     title: "Co-founder",
     initials: "MS",
-    photo: "", // PLACEHOLDER
+    photo: "/founders/mandeep.jpg",
     location: "Vancouver",
     bio: [
       "Mandeep brings a background in tech and sales to recruiting, and works directly with founders to understand what they're building and who they need.",

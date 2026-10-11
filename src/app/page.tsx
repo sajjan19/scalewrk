@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { LogoMark } from "@/components/Logo";
@@ -224,6 +225,20 @@ export default function Home() {
       <Section>
         <div className="grid items-center gap-8 rounded-3xl border border-line p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
           <div>
+            <div className="mb-5 flex -space-x-3">
+              {founders.map((f) =>
+                f.photo ? (
+                  <Image
+                    key={f.name}
+                    src={f.photo}
+                    alt={f.name}
+                    width={112}
+                    height={112}
+                    className="h-14 w-14 rounded-full object-cover ring-4 ring-white grayscale"
+                  />
+                ) : null,
+              )}
+            </div>
             <p className="text-sm font-medium text-brand">Founder-led</p>
             <p className="mt-3 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
               Our co-founder Punit Singh has recruited engineers since 2018, for companies including{" "}
