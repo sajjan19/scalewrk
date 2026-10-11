@@ -372,7 +372,7 @@ export const jobs: Job[] = [
     teamSize: "250 people",
     summary: "Lead the design of systems that price and sell insurance online.",
     aboutCompany:
-      "A Series C company that makes buying business insurance simple and fast. It's growing quickly across the US.",
+      "A Series C company that makes buying business insurance simple and fast. It's growing quickly across the US and Canada.",
     whatYoullDo: [
       "Lead the design of key backend systems",
       "Break big projects into clear steps for the team",
