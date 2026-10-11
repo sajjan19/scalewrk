@@ -57,9 +57,9 @@ export function isSet(value: string) {
 
 export const nav = [
   { href: "/startups", label: "For Startups" },
+  { href: "/engineers", label: "For Engineers" },
   { href: "/roles", label: "Roles" },
   { href: "/partners", label: "Partners" },
-  { href: "/engineers", label: "For Engineers" },
   { href: "/about", label: "About" },
 ];
 

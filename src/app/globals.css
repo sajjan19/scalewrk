@@ -63,6 +63,14 @@ body {
   stroke: url(#brand-gradient);
 }
 
+/* Horizontal scroll rows without a visible scrollbar (arrows show instead) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Visible marker for content we still need to fill in. Search the code for "PLACEHOLDER". */
 .placeholder {
   background: #fff7e6;

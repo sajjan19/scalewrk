@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
+import { RoleJumpBar } from "@/components/RoleJumpBar";
 import { Arrow, Button, CheckList, PageHero, Section } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
@@ -26,21 +27,8 @@ export default function RolesPage() {
         </Button>
       </PageHero>
 
-      {/* Jump links */}
-      <div className="sticky top-16 z-30 border-b border-line bg-white/95 backdrop-blur">
-        <nav aria-label="Roles" className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-5 py-3 sm:px-8">
-          {roles.map((role) => (
-            <a
-              key={role.slug}
-              href={`#${role.slug}`}
-              className="flex shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-sm text-body transition hover:border-brand/40 hover:bg-brand-soft hover:text-brand"
-            >
-              <role.icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
-              {role.name}
-            </a>
-          ))}
-        </nav>
-      </div>
+      {/* Jump links (scrollable, highlights the role you're reading) */}
+      <RoleJumpBar />
 
       <Section>
         <div className="space-y-6">
