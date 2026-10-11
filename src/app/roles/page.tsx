@@ -19,7 +19,11 @@ export default function RolesPage() {
     <>
       <PageHero
         eyebrow="Roles we hire"
-        title="Engineers for your whole stack."
+        title={
+          <>
+            Engineers for your <span className="text-gradient">whole stack</span>.
+          </>
+        }
         intro="We only hire engineers for venture-backed startups. Here's who we hire and what we look for."
       >
         <Button href={bookingHref} variant="brand">

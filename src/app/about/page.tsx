@@ -36,7 +36,11 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Scalewrk"
-        title="Recruiters who speak engineering."
+        title={
+          <>
+            Recruiters who <span className="text-gradient">speak engineering</span>.
+          </>
+        }
         intro="Great hires come from recruiters who understand the work and stick around. We meet founders at tech events, learn what they're building and become the team they call for every engineer."
       />
 

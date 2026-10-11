@@ -14,7 +14,11 @@ export default function JobsPage() {
     <>
       <PageHero
         eyebrow="Jobs"
-        title="Startups hiring now."
+        title={
+          <>
+            Startups <span className="text-gradient">hiring now</span>.
+          </>
+        }
         intro="Tap a role to see the details. We keep company names private until your first call."
       />
 

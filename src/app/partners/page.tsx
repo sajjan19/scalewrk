@@ -58,7 +58,11 @@ export default function PartnersPage() {
     <>
       <PageHero
         eyebrow="For VCs, accelerators, lawyers and fractional CFOs"
-        title="A tech recruiter you can send your founders to."
+        title={
+          <>
+            A tech recruiter you can <span className="text-gradient">send your founders to</span>.
+          </>
+        }
         intro="We work with the people founders already trust to help their companies hire great engineers."
       >
         <Button href="#partner-form">

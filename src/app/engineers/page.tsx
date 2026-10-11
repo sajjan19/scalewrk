@@ -26,7 +26,9 @@ export default function EngineersPage() {
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         <div>
           <Eyebrow>For engineers</Eyebrow>
-          <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">Find your next startup role.</h1>
+          <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+            Find your <span className="text-gradient">next startup role</span>.
+          </h1>
           <p className="mt-5 text-lg leading-relaxed text-body sm:text-xl">
             We work with startups across the US that need great engineers. Share your profile. We&apos;ll reach out when we
             find a startup where you can thrive.

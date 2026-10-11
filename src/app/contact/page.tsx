@@ -20,7 +20,7 @@ export default function ContactPage() {
         <Container>
           <Eyebrow>Book a call</Eyebrow>
           <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-            Let&apos;s talk about who you&apos;re hiring.
+            Let&apos;s talk about <span className="text-gradient">who you&apos;re hiring</span>.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">
             Pick a time for a 20-minute call with a Scalewrk co-founder. Bring your hiring plan or just one role.
