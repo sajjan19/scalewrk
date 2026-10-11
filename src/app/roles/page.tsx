@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
-import { JobList } from "@/components/JobList";
 import { RoleJumpBar } from "@/components/RoleJumpBar";
 import { Arrow, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
@@ -28,17 +27,17 @@ export default function RolesPage() {
         </Button>
       </PageHero>
 
-      {/* Open roles (job listings from src/content/jobs.ts) */}
-      <Section id="open-roles" tone="mist" className="scroll-mt-16">
-        <SectionHeading
-          eyebrow="Open roles"
-          title="Startups hiring now"
-          intro="Tap a role to see the details. We keep company names private until your first call."
-        />
-        <div className="mt-10">
-          <JobList />
+      {/* Link to the jobs board */}
+      <div className="border-b border-line bg-mist">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <p className="text-body">
+            <span className="font-medium text-ink">Engineer looking for a job?</span> See startups hiring now.
+          </p>
+          <Link href="/jobs" className="inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark">
+            View open jobs <Arrow />
+          </Link>
         </div>
-      </Section>
+      </div>
 
       <Section className="!pb-0">
         <SectionHeading eyebrow="Roles we hire" title="Every type of engineer" intro="Here's who we hire and what we look for." />

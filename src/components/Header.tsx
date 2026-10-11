@@ -21,7 +21,7 @@ export function Header() {
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
-            const active = pathname === item.href;
+            const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
             return (
               <Link
                 key={item.href}
@@ -65,7 +65,7 @@ export function Header() {
         <nav id="mobile-menu" aria-label="Main" className="border-t border-line bg-white px-5 pb-6 lg:hidden">
           <ul className="divide-y divide-line">
             {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => {
-              const active = pathname === item.href;
+              const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
               return (
                 <li key={item.href}>
                   <Link

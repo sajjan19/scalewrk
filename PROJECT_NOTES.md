@@ -25,12 +25,13 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 |---|---|---|---|
 | `/` | Home: hero, who we work with (stages), how it works (4 steps), roles, why Scalewrk, founder credibility, partner/engineer split, CTA | Logo | Yes |
 | `/startups` | For founders: 6-step process, in-house vs. agency vs. Scalewrk comparison, fee-per-hire engagement model (pricing placeholders), FAQ | Yes | Yes |
-| `/roles` | "Open roles" job board with filters (from `src/content/jobs.ts`), then 9 role families with typical titles and "what we look for"; jump links | Yes | Yes |
+| `/jobs` | Jobs board with filters (from `src/content/jobs.ts`) + "share your profile" prompt | Yes | Yes |
+| `/roles` | Link to /jobs, then 9 role families with typical titles and "what we look for"; jump links | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
 | `/about` | Story, two founder cards (Punit first), values | Yes | Yes |
 | `/contact` | Calendly embed (`#book`) + contact form | Footer, "Book a call" buttons | Yes |
-| `/jobs/<slug>` | One page per job listing: company (described, not named), what you'll do, needs, nice to have, interview steps, summary box + Apply (prefills the engineers form) | Via Roles page | Real jobs only |
+| `/jobs/<slug>` | One page per job listing: company (described, not named), what you'll do, needs, nice to have, interview steps, summary box + Apply (prefills the engineers form) | Via Jobs page | Real jobs only |
 | `/meet` | Event QR-code landing page: "Great meeting you", booking, save contact (vCard) | No | **No** (`noindex`) |
 | `/privacy` | Short privacy note (needs legal review) | Footer | Yes |
 
@@ -154,5 +155,6 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** New photo for Mandeep (`public/founders/mandeep-sajjan.jpg`, 1280×960, color). Tip: when replacing a photo, use a new filename so browsers and Vercel don't show the old cached one.
 - **2026-10-10:** Contact form shows "Open to relocating?" when the visitor picks Engineer (`ContactReason.tsx`).
 - **2026-10-10:** Job board: `src/content/jobs.ts`, `JobList.tsx` (filters), `/jobs/[slug]` pages, Apply → engineers form with the job prefilled (`AppliedJob.tsx`). Mobile bottom bar says "Apply for this role" on job pages. Founders' location now "Vancouver, Canada".
+- **2026-10-10:** Jobs moved to their own page `/jobs`, added to the menu after For Engineers (menu also highlights Jobs on job detail pages). Added an example Engineering Manager listing. AI/ML icon changed to Sparkles. Tip: if the local preview shows a "Hydration failed" error after edits, restart it; running `npm run build` while it's running makes it stale.
 - **2026-10-10:** Roles page jump bar is now `RoleJumpBar.tsx`: purple chips, faded edges and arrows when there's more to scroll, and the chip for the role on screen is highlighted. Nav order changed to For Startups, For Engineers, Roles, Partners, About.
 - **2026-10-10:** Footer link hover changed from solid blue to the logo gradient (text and icons): `.link-gradient` in `globals.css`, with `#brand-gradient` defined in `Footer.tsx`.

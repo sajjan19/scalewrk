@@ -7,8 +7,8 @@ import {
   CheckCircle2,
   DollarSign,
   MapPin,
+  ListChecks,
   PieChart,
-  Sparkles,
   TrendingUp,
   Users,
 } from "lucide-react";
@@ -71,9 +71,9 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
       {/* Header */}
       <section className="border-b border-line pt-8 pb-10 sm:pt-12 sm:pb-14">
         <Container>
-          <Link href="/roles#open-roles" className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:text-brand-dark">
+          <Link href="/jobs" className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:text-brand-dark">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-            All open roles
+            All jobs
           </Link>
           <div className="mt-6 flex items-start gap-4 sm:gap-5">
             <span className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-brand-soft text-brand">
@@ -106,7 +106,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
               <p className="leading-relaxed text-body">{job.aboutCompany}</p>
             </JobSection>
 
-            <JobSection icon={Sparkles} title="What you'll do">
+            <JobSection icon={ListChecks} title="What you'll do">
               <List items={job.whatYoullDo} />
             </JobSection>
 

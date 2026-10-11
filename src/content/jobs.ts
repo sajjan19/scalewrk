@@ -1,7 +1,7 @@
 /*
   OPEN ROLES (job listings)
   ─────────────────────────
-  Shown on the Roles page and at /jobs/<slug>.
+  Shown on the Jobs page (/jobs) and at /jobs/<slug>.
 
   These are EXAMPLE listings to preview the layout. They are not real jobs.
   While `showExampleJobs` is true they appear with an "Example listing" label and
@@ -183,6 +183,36 @@ export const jobs: Job[] = [
     ],
     niceToHave: ["Edge or embedded ML", "Robotics or logistics experience"],
     interviewSteps: ["Intro call with Scalewrk", "Call with the ML lead", "ML technical interview", "Onsite visit"],
+    example: true,
+  },
+  {
+    slug: "engineering-manager-ai-platform",
+    title: "Engineering Manager",
+    role: "leadership",
+    company: "AI customer support platform",
+    stage: "Series B",
+    location: "Seattle, WA",
+    workType: "Hybrid",
+    salary: "$220k – $260k",
+    equity: "0.1% – 0.3%",
+    teamSize: "120 people",
+    summary: "Lead a team of 8 engineers building AI that answers customer questions.",
+    aboutCompany:
+      "A Series B company whose AI handles customer support for online stores. The engineering team is growing and needs its next manager.",
+    whatYoullDo: [
+      "Lead and grow a team of about 8 engineers",
+      "Hire great people and help each engineer grow",
+      "Work with product to plan what the team builds next",
+      "Keep the team shipping fast without burning out",
+    ],
+    whatYoullNeed: [
+      "2+ years managing engineers",
+      "A strong engineering background before management",
+      "Experience hiring and running 1:1s",
+      "Clear and kind communication",
+    ],
+    niceToHave: ["Experience with AI or ML products", "Time at a fast-growing startup"],
+    interviewSteps: ["Intro call with Scalewrk", "Call with the VP of Engineering", "Leadership interview", "Meet the team"],
     example: true,
   },
 ];

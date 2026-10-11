@@ -4,7 +4,7 @@
   Icons: pick any name from lucide.dev/icons and import it below.
 */
 import type { LucideIcon } from "lucide-react";
-import { BrainCircuit, Cloud, Database, LayoutTemplate, Layers, Server, ShieldCheck, Smartphone, Users } from "lucide-react";
+import { Cloud, Database, LayoutTemplate, Layers, Server, ShieldCheck, Smartphone, Sparkles, Users } from "lucide-react";
 
 export type Role = {
   slug: string;
@@ -19,7 +19,7 @@ export const roles: Role[] = [
   {
     slug: "ai-ml",
     name: "AI / ML Engineers",
-    icon: BrainCircuit,
+    icon: Sparkles,
     summary: "Engineers who build and ship AI and machine learning products.",
     titles: ["AI Engineer", "Machine Learning Engineer", "Applied Scientist", "MLOps Engineer", "LLM / GenAI Engineer"],
     screenFor: [
