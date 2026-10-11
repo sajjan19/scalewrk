@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { Logo } from "./Logo";
-import { SocialIcon, type SocialNetwork } from "./SocialIcons";
+import { MailIcon, PhoneIcon, SocialIcon, type SocialNetwork } from "./SocialIcons";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -13,10 +13,18 @@ export function Footer() {
           <p className="mt-4 max-w-xs leading-relaxed">
             Tech recruiting for venture-backed startups across the US, from seed through Series C and beyond.
           </p>
-          <a href={`mailto:${site.email}`} className="mt-4 block w-fit text-white hover:underline">
+          <a
+            href={`mailto:${site.email}`}
+            className="mt-5 flex w-fit items-center gap-3 text-white transition-colors hover:text-blue"
+          >
+            <MailIcon className="h-4 w-4" />
             {site.email}
           </a>
-          <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="mt-2 block w-fit text-white hover:underline">
+          <a
+            href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
+            className="mt-3 flex w-fit items-center gap-3 text-white transition-colors hover:text-blue"
+          >
+            <PhoneIcon className="h-4 w-4" />
             {site.phone}
           </a>
         </div>
@@ -26,13 +34,13 @@ export function Footer() {
           <ul className="mt-4 space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-white">
+                <Link href={item.href} className="transition-colors hover:text-blue">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/contact" className="transition-colors hover:text-blue">
                 Contact
               </Link>
             </li>
@@ -71,7 +79,7 @@ export function Footer() {
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <Link href="/privacy" className="hover:text-white">
+          <Link href="/privacy" className="transition-colors hover:text-blue">
             Privacy
           </Link>
         </div>

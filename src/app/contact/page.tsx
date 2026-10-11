@@ -1,5 +1,6 @@
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { Field, Form, Select, TextArea } from "@/components/Form";
+import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
 import { Container, Eyebrow } from "@/components/ui";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -38,10 +39,15 @@ export default function ContactPage() {
               Send us a note and we&apos;ll reply within one business day. Or reach us directly:
             </p>
             <div className="mt-6 space-y-2 text-lg">
-              <a href={`mailto:${site.email}`} className="block w-fit font-medium text-brand hover:text-brand-dark">
+              <a href={`mailto:${site.email}`} className="flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">
+                <MailIcon />
                 {site.email}
               </a>
-              <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="block w-fit font-medium text-brand hover:text-brand-dark">
+              <a
+                href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
+                className="flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark"
+              >
+                <PhoneIcon />
                 {site.phone}
               </a>
             </div>
