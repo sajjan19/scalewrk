@@ -1,8 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  BrainCircuit,
+  Building2,
+  CircleDollarSign,
+  Code2,
+  Handshake,
+  HeartHandshake,
+  ListChecks,
+  Phone,
+  Rocket,
+  Sprout,
+  Target,
+  TrendingUp,
+  UserCheck,
+} from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { LogoMark } from "@/components/Logo";
 import { Arrow, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
+import { IconBadge, StepTimeline } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { founders } from "@/content/founders";
@@ -11,64 +27,43 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Scalewrk | Startup Tech Recruiter for Venture-Backed Startups",
   description:
-    "Scalewrk is a startup tech recruiter for venture-backed companies across the US. We hire AI/ML, backend, full-stack, frontend, and DevOps engineers from seed to Series C+.",
+    "Scalewrk is a startup tech recruiter for venture-backed companies across the US. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C+.",
   path: "/",
   absoluteTitle: true,
 });
 
 const stages = [
-  {
-    name: "Seed",
-    body: "Your first engineers set the bar for everyone after them. We find builders who thrive in ambiguity and own whole problems.",
-  },
-  {
-    name: "Series A",
-    body: "You've found signal. Now the team has to grow without slowing down shipping. We run your searches in parallel so you stay focused on product.",
-  },
-  {
-    name: "Series B",
-    body: "Specialists, tech leads, and first-time managers. We hire for depth and help you build a bench that can scale.",
-  },
-  {
-    name: "Series C+",
-    body: "Hiring at volume without lowering the bar. We plug into your talent team for the hardest-to-fill technical roles.",
-  },
+  { icon: Sprout, name: "Seed", body: "Your first engineers. People who can build anything.", hires: ["Founding engineer", "Full-stack"] },
+  { icon: Rocket, name: "Series A", body: "Grow the team fast without slowing down.", hires: ["Backend", "Frontend", "AI/ML"] },
+  { icon: TrendingUp, name: "Series B", body: "Add experts and your first team leads.", hires: ["Tech lead", "Platform", "Data"] },
+  { icon: Building2, name: "Series C+", body: "Hire more engineers and keep quality high.", hires: ["Eng manager", "Security", "Specialists"] },
 ];
 
 const steps = [
-  {
-    title: "Intro call",
-    body: "20 minutes. Tell us what you're building, who you need, and how fast.",
-  },
-  {
-    title: "Role calibration",
-    body: "We dig into the stack, the bar, and the pitch. You sign off on the profile before we reach out to anyone.",
-  },
-  {
-    title: "Curated shortlist",
-    body: "Vetted engineers who match the role and actually want the startup ride. No resume dumps.",
-  },
-  {
-    title: "Interview to offer",
-    body: "We run scheduling, keep candidates warm, and help you close. You pay a fee only when you hire.",
-  },
+  { icon: Phone, title: "Intro call", body: "20 minutes. Tell us who you need." },
+  { icon: Target, title: "Plan the role", body: "We agree on skills, pay and the pitch together." },
+  { icon: ListChecks, title: "Shortlist", body: "You meet a few great people. No piles of resumes." },
+  { icon: Handshake, title: "Hire", body: "We help with interviews and the offer. You pay only when you hire." },
 ];
 
 const reasons = [
   {
-    title: "Engineers only. AI is our edge.",
-    body: "We don't recruit for sales, ops, or finance. Every search is technical, and AI/ML hiring is where we go deepest. We know an applied ML engineer from a research scientist, and we screen for the one you actually need.",
-    versus: "Big agencies send the same recruiter to fill your engineer and your office manager.",
+    icon: BrainCircuit,
+    title: "Engineers only",
+    body: "We only hire engineers. AI and machine learning is our strongest area.",
+    versus: "Big agencies hire for every kind of job.",
   },
   {
-    title: "A co-founder runs your search.",
-    body: "You work directly with Punit or Mandeep from kickoff to signed offer. The person who learns your company is the person talking to candidates.",
-    versus: "At most agencies, the person who sells you isn't the person who recruits for you.",
+    icon: UserCheck,
+    title: "A co-founder on every search",
+    body: "Punit or Mandeep works with you from the first call to the signed offer.",
+    versus: "At big agencies, a junior recruiter often does the work.",
   },
   {
-    title: "A partner you met, not a cold email.",
-    body: "We meet founders in person at tech events and build from there. Once we know your team, product, and bar, every next search starts faster. We're the recruiter you call from your first engineer to your fiftieth.",
-    versus: "Transactional recruiters start from zero on every req.",
+    icon: HeartHandshake,
+    title: "With you for the long run",
+    body: "We meet founders in person and stay with you as you grow. Every new hire gets faster.",
+    versus: "Many recruiters start from zero every time.",
   },
 ];
 
@@ -77,7 +72,7 @@ const exampleBoard = [
   { role: "Founding AI Engineer", stage: "Shortlist sent", tone: "bg-brand-soft text-brand-dark" },
   { role: "Senior Backend Engineer", stage: "Interviewing", tone: "bg-amber-50 text-amber-800" },
   { role: "Platform Engineer", stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
-  { role: "Full-Stack Engineer", stage: "Calibrating", tone: "bg-slate-100 text-slate-700" },
+  { role: "Full-Stack Engineer", stage: "Planning", tone: "bg-slate-100 text-slate-700" },
 ];
 
 export default function Home() {
@@ -101,7 +96,7 @@ export default function Home() {
               Tech hiring for <span className="text-gradient whitespace-nowrap">venture-backed</span> startups.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
-              We help founders hire AI/ML, software, and platform engineers, and help engineers find startups where
+              We help founders hire AI/ML, software and platform engineers. We also help engineers find startups where
               they can thrive.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -112,7 +107,7 @@ export default function Home() {
                 Roles we hire
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">20-minute intro. Fee per hire, so you only pay when you hire.</p>
+            <p className="mt-4 text-sm text-muted">20-minute intro. You only pay when you hire.</p>
             <p className="mt-2 text-sm text-muted">
               Engineer?{" "}
               <Link href="/engineers" className="font-medium text-brand hover:text-brand-dark">
@@ -139,7 +134,7 @@ export default function Home() {
                 <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white ring-1 ring-line">
                   <LogoMark className="h-4 w-auto" />
                 </span>
-                One recruiting partner across every engineering role.
+                One recruiting partner for every engineering role.
               </div>
             </div>
           </div>
@@ -150,14 +145,22 @@ export default function Home() {
       <Section>
         <SectionHeading
           eyebrow="Who we work with"
-          title="Built for every stage of venture-backed growth"
-          intro="Founders and CEOs of US startups who are hiring engineers and want a recruiter who already speaks their language."
+          title="Startups at every stage"
+          intro="From your first engineer to a full team."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stages.map((stage) => (
-            <div key={stage.name} className="rounded-2xl border border-line p-6">
-              <p className="text-lg font-semibold">{stage.name}</p>
-              <p className="mt-3 leading-relaxed text-body">{stage.body}</p>
+            <div key={stage.name} className="flex flex-col rounded-2xl border border-line p-6">
+              <IconBadge icon={stage.icon} />
+              <p className="mt-5 text-lg font-semibold">{stage.name}</p>
+              <p className="mt-2 leading-relaxed text-body">{stage.body}</p>
+              <ul className="mt-5 flex flex-wrap gap-1.5" aria-label="Typical hires">
+                {stage.hires.map((h) => (
+                  <li key={h} className="rounded-full bg-mist px-2.5 py-1 text-xs font-medium text-body">
+                    {h}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -166,43 +169,39 @@ export default function Home() {
       {/* How it works */}
       <Section tone="mist">
         <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <li key={step.title} className="rounded-2xl bg-white p-6 ring-1 ring-line">
-              <span className="font-mono text-sm text-brand">0{i + 1}</span>
-              <p className="mt-3 text-lg font-semibold">{step.title}</p>
-              <p className="mt-2 leading-relaxed text-body">{step.body}</p>
-            </li>
-          ))}
-        </ol>
-        <Link href="/startups" className="mt-8 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark">
-          See our full process <Arrow />
+        <div className="mt-12">
+          <StepTimeline steps={steps} />
+        </div>
+        <Link href="/startups" className="mt-10 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark">
+          See the full process <Arrow />
         </Link>
       </Section>
 
       {/* Roles */}
       <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Roles we hire"
-            title="Engineers across your whole stack"
-            intro="From founding engineers to heads of engineering, with deep focus on AI and machine learning."
-          />
+          <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
           <Link href="/roles" className="inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
             All roles <Arrow />
           </Link>
         </div>
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {roles.map((role) => (
-            <li key={role.slug} className="bg-white">
-              <Link href={`/roles#${role.slug}`} className="group block h-full px-6 py-4 transition hover:bg-mist sm:py-6">
-                <p className="flex items-center justify-between font-semibold">
-                  {role.name}
-                  <span className="text-muted transition group-hover:translate-x-0.5 group-hover:text-brand">
-                    <Arrow />
+            <li key={role.slug}>
+              <Link
+                href={`/roles#${role.slug}`}
+                className="group flex h-full items-center gap-4 rounded-2xl border border-line p-4 transition hover:border-brand/30 hover:bg-mist sm:items-start sm:p-5"
+              >
+                <IconBadge icon={role.icon} />
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center justify-between gap-2 font-semibold">
+                    {role.name}
+                    <span className="text-muted transition group-hover:translate-x-0.5 group-hover:text-brand">
+                      <Arrow />
+                    </span>
                   </span>
-                </p>
-                <p className="mt-2 hidden text-[15px] leading-relaxed text-body sm:block">{role.summary}</p>
+                  <span className="mt-1 hidden text-[15px] leading-relaxed text-body sm:block">{role.summary}</span>
+                </span>
               </Link>
             </li>
           ))}
@@ -214,23 +213,26 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why Scalewrk"
           title="A specialist, not a staffing agency"
-          intro="Engineers only. Startups only. Founder-led. And we stick around."
+          intro="Engineers only. Startups only. Run by the founders."
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {reasons.map((r, i) => (
+          {reasons.map((r) => (
             <div key={r.title} className="flex flex-col rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
-              <span className="font-mono text-sm text-brand">0{i + 1}</span>
-              <p className="mt-3 text-xl font-semibold tracking-tight">{r.title}</p>
-              <p className="mt-3 leading-relaxed text-body">{r.body}</p>
+              <IconBadge icon={r.icon} size="lg" />
+              <p className="mt-5 text-xl font-semibold tracking-tight">{r.title}</p>
+              <p className="mt-2 leading-relaxed text-body">{r.body}</p>
               <div className="mt-auto pt-6">
                 <p className="border-t border-line pt-4 text-sm leading-relaxed text-muted">{r.versus}</p>
               </div>
             </div>
           ))}
         </div>
-        <p className="mt-8 text-body">
-          And it&apos;s fee per hire: <span className="font-medium text-ink">nothing up front, and you only pay when you hire.</span>
-        </p>
+        <div className="mt-6 flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-line">
+          <IconBadge icon={CircleDollarSign} />
+          <p className="text-body">
+            <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
+          </p>
+        </div>
       </Section>
 
       {/* Founder credibility */}
@@ -252,9 +254,9 @@ export default function Home() {
                 ) : null,
               )}
             </div>
-            <p className="text-sm font-medium text-brand">Founder-led</p>
+            <p className="text-sm font-medium text-brand">Run by the founders</p>
             <p className="mt-3 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
-              Our co-founder Punit Singh has recruited engineers since 2018, for companies including{" "}
+              Our co-founder Punit Singh has hired engineers since 2018 for companies like{" "}
               <Text>{punit.experienceAt.slice(0, 2).join(" and ")}</Text>.
             </p>
           </div>
@@ -267,18 +269,20 @@ export default function Home() {
       {/* Partners and engineers */}
       <Section tone="mist">
         <div className="grid gap-4 md:grid-cols-2">
-          <Link href="/partners" className="group rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
-            <p className="text-sm font-medium text-brand">For VCs, accelerators, lawyers, and CFOs</p>
-            <p className="mt-3 text-2xl font-semibold tracking-tight">Refer your founders to a tech recruiter they&apos;ll thank you for.</p>
+          <Link href="/partners" className="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
+            <IconBadge icon={Handshake} size="lg" />
+            <p className="mt-5 text-sm font-medium text-brand">For VCs, accelerators, lawyers and CFOs</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight">Send your founders to a tech recruiter they can trust.</p>
             <span className="mt-6 inline-flex items-center gap-2 font-medium">
               Become a partner <Arrow />
             </span>
           </Link>
-          <Link href="/engineers" className="group rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
-            <p className="text-sm font-medium text-brand">For engineers</p>
-            <p className="mt-3 text-2xl font-semibold tracking-tight">Looking for your next startup? Get on our radar.</p>
+          <Link href="/engineers" className="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
+            <IconBadge icon={Code2} size="lg" />
+            <p className="mt-5 text-sm font-medium text-brand">For engineers</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight">Looking for your next startup? Share your profile.</p>
             <span className="mt-6 inline-flex items-center gap-2 font-medium">
-              Share your profile <Arrow />
+              Get started <Arrow />
             </span>
           </Link>
         </div>

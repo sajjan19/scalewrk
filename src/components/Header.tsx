@@ -19,17 +19,30 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-[15px] transition hover:text-ink ${pathname === item.href ? "text-ink font-medium" : "text-body"}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link href={bookingHref} className="btn-brand rounded-lg px-4 py-2 text-[15px] font-medium">
+        <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+          {nav.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`relative rounded-lg px-3 py-2 text-[15px] transition-colors ${
+                  active ? "bg-brand-soft font-medium text-brand" : "text-body hover:bg-brand-soft hover:text-brand"
+                }`}
+              >
+                {item.label}
+                {/* Gradient bar under the page you're on */}
+                {active && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-3 -bottom-[13px] h-0.5 rounded-full bg-gradient-to-r from-violet to-blue"
+                  />
+                )}
+              </Link>
+            );
+          })}
+          <Link href={bookingHref} className="btn-brand ml-3 rounded-lg px-4 py-2 text-[15px] font-medium">
             Book a call
           </Link>
         </nav>
@@ -51,13 +64,22 @@ export function Header() {
       {open && (
         <nav id="mobile-menu" aria-label="Main" className="border-t border-line bg-white px-5 pb-6 lg:hidden">
           <ul className="divide-y divide-line">
-            {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} onClick={() => setOpenOn(null)} className="block py-4 text-lg font-medium">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => {
+              const active = pathname === item.href;
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpenOn(null)}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex items-center justify-between py-4 text-lg font-medium ${active ? "text-brand" : "hover:text-brand"}`}
+                  >
+                    {item.label}
+                    {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn-brand mt-4 flex min-h-12 items-center justify-center rounded-xl text-[15px] font-medium">
             Book a call

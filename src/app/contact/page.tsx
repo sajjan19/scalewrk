@@ -22,8 +22,7 @@ export default function ContactPage() {
             Let&apos;s talk about who you&apos;re hiring.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">
-            Pick a time for a 20-minute intro with a Scalewrk co-founder. Bring your hiring plan, or just the one role that&apos;s keeping
-            you up at night.
+            Pick a time for a 20-minute call with a Scalewrk co-founder. Bring your hiring plan or just one role.
           </p>
           <div className="mt-10">
             <CalendlyEmbed />
@@ -36,7 +35,7 @@ export default function ContactPage() {
           <div>
             <h2 className="text-3xl font-semibold tracking-tight">Prefer email or phone?</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Send us a note and we&apos;ll reply within one business day. Or reach us directly:
+              Send us a note. We&apos;ll reply within one business day. Or reach us directly:
             </p>
             <div className="mt-6 space-y-2 text-lg">
               <a href={`mailto:${site.email}`} className="flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">

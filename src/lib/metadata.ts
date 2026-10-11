@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 
 /*
-  Page title, description, and social sharing tags in one place.
+  Page title, description and social sharing tags in one place.
   Usage in a page:  export const metadata = pageMetadata({ title, description, path: "/roles" });
   The social preview image comes from the page's opengraph-image.tsx file.
 */

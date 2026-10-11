@@ -23,29 +23,29 @@ export default function PrivacyPage() {
           <div>
             <h2>What we collect</h2>
             <p>
-              Only what you choose to send us: your name, email, company, and message when you contact us; and your LinkedIn
-              profile, resume, and job preferences if you share them as a candidate. When you book a call, our scheduling provider
-              collects the details you enter.
+              Only what you choose to send us. When you contact us, that&apos;s your name, email, company and message. If you
+              share your profile as an engineer, that&apos;s your LinkedIn, resume and job preferences. When you book a call, our
+              booking tool saves the details you enter.
             </p>
           </div>
           <div>
             <h2>How we use it</h2>
             <p>
-              To reply to you, to match candidates with roles, and to run our recruiting work. We share a candidate&apos;s profile
-              with a hiring company only with that candidate&apos;s permission. We don&apos;t sell personal information.
+              To reply to you, to match engineers with roles and to run our recruiting work. We only share an engineer&apos;s
+              profile with a company if they say yes. We never sell personal information.
             </p>
           </div>
           <div>
             <h2>Services we use</h2>
             <p>
-              Our site is hosted on Vercel, which provides privacy-friendly, cookie-free visitor analytics. Forms are processed by
-              Formspree, and calls are scheduled through Calendly. Each handles data under its own privacy policy.
+              Our site runs on Vercel, which gives us simple visitor stats without cookies. Formspree handles our forms. Calendly
+              handles call booking. Each follows its own privacy policy.
             </p>
           </div>
           <div>
             <h2>Your choices</h2>
             <p>
-              You can ask us to see, update, or delete your information at any time by emailing{" "}
+              You can ask us to see, update or delete your information at any time. Just email{" "}
               <a href={`mailto:${site.email}`} className="font-medium text-brand">
                 {site.email}
               </a>

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { bookingHref } from "@/content/site";
 
 // Sticky "Book a call" bar on phones, so booking is always one tap away.
-// Hidden on pages that already have the calendar on screen, and on the engineers page.
+// Hidden on pages that already show the calendar and on the engineers page.
 const hiddenOn = ["/contact", "/meet", "/engineers"];
 
 export function MobileBookBar() {

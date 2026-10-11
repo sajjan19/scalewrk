@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { Filter, HeartHandshake, MessageCircle } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
+import { IconBadge } from "@/components/visuals";
 import { PageHero, Section, SectionHeading, Text } from "@/components/ui";
 import { founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
@@ -13,16 +15,19 @@ export const metadata = pageMetadata({
 
 const values = [
   {
+    icon: MessageCircle,
     title: "Honest",
-    body: "We tell founders when a search will be hard and candidates when a role isn't right. Trust is the whole business.",
+    body: "We tell founders when a role will be hard to fill. We tell engineers when a job isn't right for them.",
   },
   {
+    icon: Filter,
     title: "Selective",
-    body: "A short list of the right people beats a long list of maybes. Your time is the scarcest thing at a startup.",
+    body: "A few of the right people beat a long list of maybes. Your time matters.",
   },
   {
-    title: "Embedded",
-    body: "We learn your company once and keep showing up. The goal is to be the recruiter you call for every engineering hire.",
+    icon: HeartHandshake,
+    title: "Here for the long run",
+    body: "We learn your company once and keep showing up. We want to be your recruiter for every engineering hire.",
   },
 ];
 
@@ -32,7 +37,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Scalewrk"
         title="Recruiters who speak engineering."
-        intro="The best startup hires come from recruiters who understand the work and stick around. We meet founders at tech events, learn what they're building, and become the team they call whenever they need an engineer."
+        intro="Great hires come from recruiters who understand the work and stick around. We meet founders at tech events, learn what they're building and become the team they call for every engineer."
       />
 
       <Section>
@@ -104,10 +109,11 @@ export default function AboutPage() {
 
       <Section tone="mist">
         <SectionHeading eyebrow="How we work" title="What founders can count on" />
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {values.map((v) => (
-            <div key={v.title} className="border-t border-ink/10 pt-6">
-              <p className="text-lg font-semibold">{v.title}</p>
+            <div key={v.title} className="rounded-2xl bg-white p-6 ring-1 ring-line">
+              <IconBadge icon={v.icon} size="lg" />
+              <p className="mt-5 text-lg font-semibold">{v.title}</p>
               <p className="mt-2 leading-relaxed text-body">{v.body}</p>
             </div>
           ))}

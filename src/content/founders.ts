@@ -24,8 +24,8 @@ export const founders: Founder[] = [
     photo: "/founders/punit.jpg",
     location: "Vancouver",
     bio: [
-      "Punit has been in tech recruitment since 2018, hiring engineers for high-growth companies including TikTok and [PLACEHOLDER: other companies].",
-      "Years of technical searches have taught Punit what separates a great engineering hire from one that only looks good on paper. That bar comes with every Scalewrk search.",
+      "Punit has worked in tech recruiting since 2018. Punit has hired engineers for fast-growing companies like TikTok and [PLACEHOLDER: other companies].",
+      "Punit knows the difference between a great engineer and one who only looks good on paper. That high bar comes with every Scalewrk search.",
     ],
     experienceAt: ["TikTok", "[PLACEHOLDER: company]", "[PLACEHOLDER: company]"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
@@ -37,8 +37,8 @@ export const founders: Founder[] = [
     photo: "/founders/mandeep.jpg",
     location: "Vancouver",
     bio: [
-      "Mandeep brings a background in tech and sales to recruiting, and works directly with founders to understand what they're building and who they need.",
-      "That sales background matters: great engineers have options, and Mandeep knows how to turn a founder's vision into a pitch they want to hear. [PLACEHOLDER: add a line on prior roles]",
+      "Mandeep has a background in tech and sales. Mandeep works directly with founders to understand what they're building and who they need.",
+      "Great engineers have many options. Mandeep knows how to share a founder's vision in a way engineers want to hear. [PLACEHOLDER: add a line on prior roles]",
     ],
     experienceAt: [],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",

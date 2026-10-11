@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
-import { CheckList, Container } from "@/components/ui";
+import { CircleDollarSign, Code2, MapPin } from "lucide-react";
+import { Container } from "@/components/ui";
+import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -28,14 +30,18 @@ export default function MeetPage() {
           We&apos;re the tech recruiter for venture-backed startups. When you&apos;re ready to hire engineers, we&apos;re ready to help.
         </p>
 
-        <CheckList
-          className="mt-6"
-          items={[
-            "AI/ML, backend, full-stack, frontend, and platform engineers",
-            "Seed through Series C+, across the US",
-            "Fee per hire: you only pay when you hire",
-          ]}
-        />
+        <ul className="mt-6 space-y-3">
+          {[
+            { icon: Code2, text: "AI/ML, software and platform engineers" },
+            { icon: MapPin, text: "Seed to Series C+ startups across the US" },
+            { icon: CircleDollarSign, text: "You only pay when you hire" },
+          ].map((item) => (
+            <li key={item.text} className="flex items-center gap-3 text-body">
+              <IconBadge icon={item.icon} size="sm" />
+              {item.text}
+            </li>
+          ))}
+        </ul>
 
         <a
           href="#book"

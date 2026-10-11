@@ -3,12 +3,13 @@ import { CtaBand } from "@/components/CtaBand";
 import { Arrow, Button, CheckList, PageHero, Section } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
+import { IconBadge } from "@/components/visuals";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "AI Engineer Recruiting and Tech Roles We Hire",
   description:
-    "AI engineer recruiting for startups, plus backend, full-stack, frontend, DevOps, data, mobile, security, and engineering leadership roles for venture-backed companies.",
+    "AI engineer recruiting for startups, plus backend, full-stack, frontend, DevOps, data, mobile, security and engineering leadership roles for venture-backed companies.",
   path: "/roles",
 });
 
@@ -17,8 +18,8 @@ export default function RolesPage() {
     <>
       <PageHero
         eyebrow="Roles we hire"
-        title="Engineers for every layer of your stack."
-        intro="We recruit technical roles only, for venture-backed startups from seed through Series C+. Here's what we hire and what we screen for."
+        title="Engineers for your whole stack."
+        intro="We only hire engineers for venture-backed startups. Here's who we hire and what we look for."
       >
         <Button href={bookingHref} variant="brand">
           Hire for a role <Arrow />
@@ -32,8 +33,9 @@ export default function RolesPage() {
             <a
               key={role.slug}
               href={`#${role.slug}`}
-              className="shrink-0 rounded-full border border-line px-3 py-1.5 text-sm text-body transition hover:border-ink/30 hover:text-ink"
+              className="flex shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-sm text-body transition hover:border-brand/40 hover:bg-brand-soft hover:text-brand"
             >
+              <role.icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
               {role.name}
             </a>
           ))}
@@ -49,8 +51,11 @@ export default function RolesPage() {
               className="scroll-mt-36 grid gap-8 rounded-2xl border border-line p-6 sm:p-8 lg:grid-cols-[1fr_1.2fr]"
             >
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight">{role.name}</h2>
-                <p className="mt-3 leading-relaxed text-body">{role.summary}</p>
+                <div className="flex items-center gap-4">
+                  <IconBadge icon={role.icon} size="lg" />
+                  <h2 className="text-2xl font-semibold tracking-tight">{role.name}</h2>
+                </div>
+                <p className="mt-4 leading-relaxed text-body">{role.summary}</p>
                 <ul className="mt-5 flex flex-wrap gap-2" aria-label="Typical titles">
                   {role.titles.map((t) => (
                     <li key={t} className="rounded-full bg-mist px-3 py-1 text-sm text-body">
@@ -60,7 +65,7 @@ export default function RolesPage() {
                 </ul>
               </div>
               <div>
-                <p className="text-sm font-medium text-muted">What we screen for</p>
+                <p className="text-sm font-medium text-muted">What we look for</p>
                 <CheckList className="mt-4" items={role.screenFor} />
               </div>
             </article>
@@ -68,7 +73,7 @@ export default function RolesPage() {
         </div>
 
         <p className="mt-10 text-lg text-body">
-          Hiring for a technical role that isn&apos;t listed?{" "}
+          Hiring for a tech role that isn&apos;t listed?{" "}
           <Link href={bookingHref} className="font-medium text-brand hover:text-brand-dark">
             Tell us about it
           </Link>

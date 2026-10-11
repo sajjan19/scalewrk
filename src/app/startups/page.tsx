@@ -1,88 +1,108 @@
+import {
+  CalendarCheck,
+  CircleDollarSign,
+  Handshake,
+  ListChecks,
+  Phone,
+  Repeat,
+  Search,
+  ShieldCheck,
+  Target,
+  Users,
+} from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
-import { Arrow, Button, CheckList, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { Arrow, Button, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { IconBadge, YesNo } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Technical Recruiter for Venture-Backed Startups",
   description:
-    "An embedded technical recruiter for venture-backed startups, seed to Series C+. Specialist engineering hiring on a fee-per-hire model: you only pay when you hire.",
+    "An embedded technical recruiter for venture-backed startups, seed to Series C+. We only hire engineers and you only pay when you hire.",
   path: "/startups",
 });
 
 const process = [
+  { icon: Phone, title: "Kickoff call", body: "We learn what you're building and who you need first." },
+  { icon: Target, title: "Plan the role", body: "We agree on skills, interview steps, pay and the pitch. You approve it before we start." },
+  { icon: Search, title: "Find people", body: "We reach great engineers who aren't on job boards. We screen every one first." },
+  { icon: ListChecks, title: "Shortlist", body: "You get a few strong people with notes on why each one fits." },
+  { icon: Handshake, title: "Interview and hire", body: "We handle scheduling, collect feedback and help you make the offer." },
+  { icon: Repeat, title: "Stay with you", body: "We already know your team, so every next hire starts faster." },
+];
+
+const columns = ["In-house only", "Big agency", "Scalewrk"];
+
+const comparison: { label: string; values: [boolean, string][] }[] = [
   {
-    title: "Kickoff call",
-    body: "We learn what you're building, where the company is headed, and which hires matter most this quarter.",
+    label: "Only hires engineers",
+    values: [
+      [false, "Hires for every role"],
+      [false, "Every industry"],
+      [true, "Engineers at startups only"],
+    ],
   },
   {
-    title: "Calibrate the role",
-    body: "Together we define must-haves vs. nice-to-haves, interview stages, comp range, and the story that will win candidates. You approve the profile before outreach starts.",
+    label: "A senior person runs your search",
+    values: [
+      [false, "Often the founders"],
+      [false, "Often a junior recruiter"],
+      [true, "A Scalewrk co-founder"],
+    ],
   },
   {
-    title: "Source and screen",
-    body: "We go well beyond job boards to reach engineers who aren't actively looking. Every candidate gets a technical and motivation screen from us before you see them.",
+    label: "Small shortlist that fits",
+    values: [
+      [false, "Whoever applies"],
+      [false, "Lots of resumes"],
+      [true, "A few great matches"],
+    ],
   },
   {
-    title: "Shortlist",
-    body: "You get a small set of candidates with clear notes on why each one fits, what to probe in interviews, and what they care about.",
+    label: "Understands startups",
+    values: [
+      [true, "Yes, but limited reach"],
+      [false, "Often not"],
+      [true, "Stage, equity and risk"],
+    ],
   },
   {
-    title: "Interview and close",
-    body: "We handle scheduling, collect feedback fast, keep candidates engaged, and help you shape and negotiate the offer.",
-  },
-  {
-    title: "Stay on as you scale",
-    body: "Once we know your team, every next search starts faster. We become the recruiter you call for every engineering hire.",
+    label: "Pay only when you hire",
+    values: [
+      [false, "Salaries, hiring or not"],
+      [true, "Fee per hire"],
+      [true, "Fee per hire"],
+    ],
   },
 ];
 
-const comparison = {
-  columns: ["In-house only", "Big agency", "Scalewrk"],
-  rows: [
-    {
-      label: "Focus",
-      values: ["Every role at the company", "Every industry, every function", "Engineers at venture-backed startups"],
-    },
-    {
-      label: "Who does the work",
-      values: ["Founders or one stretched recruiter", "Account managers and junior sourcers", "A Scalewrk co-founder, directly"],
-    },
-    {
-      label: "Candidates you see",
-      values: ["Whoever applies", "High volume, loose fit", "Small, calibrated shortlists"],
-    },
-    {
-      label: "Startup context",
-      values: ["Strong, but limited reach", "Often missing", "Built in: stage, equity, and risk"],
-    },
-    {
-      label: "Cost",
-      values: ["Salaries and tools, hiring or not", "Fee per hire", "Fee per hire, nothing up front"],
-    },
-  ],
-};
+const terms = [
+  { icon: CircleDollarSign, label: "Fee", value: "[PLACEHOLDER: e.g. X% of first-year base salary]" },
+  { icon: CalendarCheck, label: "When you pay", value: "[PLACEHOLDER: e.g. on the start date]" },
+  { icon: ShieldCheck, label: "Replacement guarantee", value: "[PLACEHOLDER: e.g. 90 days]" },
+];
 
 const faqs = [
   {
     q: "What roles do you hire for?",
-    a: "Technical roles only: AI/ML, backend, full-stack, frontend, DevOps and platform, data, mobile, security, and engineering leadership. See the full list on our Roles page.",
+    a: "Only technical roles: AI/ML, backend, full-stack, frontend, DevOps, data, mobile, security and engineering leaders. See the full list on our Roles page.",
   },
   {
     q: "Where are the startups you work with?",
-    a: "We work with venture-backed startups across the US, for remote, hybrid, and onsite roles.",
+    a: "Across the US. We hire for remote, hybrid and in-office roles.",
   },
   {
     q: "How fast will we see candidates?",
-    a: "It depends on the role and the market. We'll give you a realistic timeline on our first call, and we'll tell you up front if a search is going to be hard.",
+    a: "It depends on the role. We'll give you an honest timeline on the first call. If a role will be hard to fill, we'll tell you up front.",
   },
   {
-    q: "Can you work alongside our in-house recruiter or talent team?",
-    a: "Yes. We can take on your hardest technical searches while your in-house team covers everything else.",
+    q: "Can you work with our in-house recruiter?",
+    a: "Yes. We can take your hardest engineering roles while your team handles the rest.",
   },
   {
     q: "What does it cost?",
-    a: "We work on a fee-per-hire basis. You pay a one-time fee only when you make a hire. We'll walk through the exact terms on our intro call.",
+    a: "You pay a one-time fee only when you make a hire. We'll go over the exact terms on the intro call.",
   },
 ];
 
@@ -91,8 +111,8 @@ export default function StartupsPage() {
     <>
       <PageHero
         eyebrow="For founders and CEOs"
-        title="Your embedded hiring partner, from seed to scale."
-        intro="Hiring engineers is the most important thing you'll do this year, and the easiest to get wrong. Scalewrk runs your technical searches like part of your team, so you can stay focused on building."
+        title="Your hiring partner from seed to scale."
+        intro="Hiring engineers is one of the most important things you'll do. We run your searches like part of your team, so you can focus on building."
       >
         <Button href={bookingHref} variant="brand">
           Book a call <Arrow />
@@ -101,13 +121,16 @@ export default function StartupsPage() {
 
       {/* Process */}
       <Section>
-        <SectionHeading eyebrow="Our process" title="How a search works with Scalewrk" />
-        <ol className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+        <SectionHeading eyebrow="Our process" title="How a search works" />
+        <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {process.map((step, i) => (
-            <li key={step.title} className="border-t border-line pt-6">
-              <span className="font-mono text-sm text-brand">0{i + 1}</span>
-              <p className="mt-2 text-lg font-semibold">{step.title}</p>
-              <p className="mt-2 leading-relaxed text-body">{step.body}</p>
+            <li key={step.title} className="relative rounded-2xl border border-line p-6">
+              <div className="flex items-center justify-between">
+                <IconBadge icon={step.icon} />
+                <span className="font-mono text-sm text-muted">0{i + 1}</span>
+              </div>
+              <p className="mt-5 text-lg font-semibold">{step.title}</p>
+              <p className="mt-1 leading-relaxed text-body">{step.body}</p>
             </li>
           ))}
         </ol>
@@ -115,51 +138,46 @@ export default function StartupsPage() {
 
       {/* Comparison */}
       <Section tone="mist">
-        <SectionHeading
-          eyebrow="Why a specialist"
-          title="In-house, big agency, or a specialist tech recruiter?"
-          intro="Each has its place. Here's where Scalewrk fits."
-        />
+        <SectionHeading eyebrow="Why a specialist" title="In-house, big agency or Scalewrk?" intro="Here's how they compare." />
 
         {/* Phones: one card per option */}
         <div className="mt-10 space-y-4 md:hidden">
-          {comparison.columns.map((col, c) => (
-            <div key={col} className={`rounded-2xl p-6 ${c === 2 ? "bg-ink text-white" : "bg-white ring-1 ring-line"}`}>
+          {columns.map((col, c) => (
+            <div key={col} className={`rounded-2xl bg-white p-6 ${c === 2 ? "ring-2 ring-brand" : "ring-1 ring-line"}`}>
               <p className="text-lg font-semibold">{col}</p>
-              <dl className="mt-4 space-y-3">
-                {comparison.rows.map((row) => (
-                  <div key={row.label}>
-                    <dt className={`text-sm ${c === 2 ? "text-white/60" : "text-muted"}`}>{row.label}</dt>
-                    <dd className={c === 2 ? "text-white" : "text-body"}>{row.values[c]}</dd>
-                  </div>
+              <ul className="mt-4 space-y-3 text-body">
+                {comparison.map((row) => (
+                  <li key={row.label}>
+                    <YesNo yes={row.values[c][0]}>{row.values[c][1]}</YesNo>
+                  </li>
                 ))}
-              </dl>
+              </ul>
             </div>
           ))}
         </div>
 
-        {/* Tablet and up: table */}
+        {/* Tablet and up: grid */}
         <div className="mt-12 hidden overflow-hidden rounded-2xl bg-white ring-1 ring-line md:block">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-line">
                 <th className="w-1/4 p-5" />
-                {comparison.columns.map((col, c) => (
-                  <th key={col} scope="col" className={`p-5 font-semibold ${c === 2 ? "bg-ink text-white" : ""}`}>
+                {columns.map((col, c) => (
+                  <th key={col} scope="col" className={`p-5 font-semibold ${c === 2 ? "btn-brand" : ""}`}>
                     {col}
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {comparison.rows.map((row) => (
+              {comparison.map((row) => (
                 <tr key={row.label} className="border-b border-line last:border-0">
-                  <th scope="row" className="p-5 text-sm font-medium text-muted">
+                  <th scope="row" className="p-5 text-sm font-medium">
                     {row.label}
                   </th>
-                  {row.values.map((v, c) => (
-                    <td key={c} className={`p-5 ${c === 2 ? "bg-ink font-medium text-white" : "text-body"}`}>
-                      {v}
+                  {row.values.map(([yes, text], c) => (
+                    <td key={c} className={`p-5 text-[15px] ${c === 2 ? "bg-brand-soft/60 font-medium text-ink" : "text-body"}`}>
+                      <YesNo yes={yes}>{text}</YesNo>
                     </td>
                   ))}
                 </tr>
@@ -173,39 +191,26 @@ export default function StartupsPage() {
       <Section id="pricing">
         <div className="grid gap-12 lg:grid-cols-2">
           <SectionHeading
-            eyebrow="Engagement model"
-            title="Fee per hire. Nothing up front."
-            intro="You pay a one-time fee only when you make a hire. No retainers, no monthly subscription, no cost to get started."
+            eyebrow="Pricing"
+            title="No hire, no fee."
+            intro="You pay a one-time fee only when you make a hire. No retainer. No monthly cost. Nothing to start."
           />
-          <div className="rounded-2xl border border-line p-6 sm:p-8">
-            <dl className="divide-y divide-line">
-              <div className="flex flex-col gap-1 pb-5 sm:flex-row sm:justify-between">
-                <dt className="font-medium">Fee</dt>
-                <dd className="text-body">
-                  <Text>[PLACEHOLDER: e.g. X% of first-year base salary]</Text>
-                </dd>
+          <div className="space-y-3">
+            {terms.map((t) => (
+              <div key={t.label} className="flex items-center gap-4 rounded-2xl border border-line p-5">
+                <IconBadge icon={t.icon} />
+                <div>
+                  <p className="font-medium">{t.label}</p>
+                  <p className="text-body">
+                    <Text>{t.value}</Text>
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-1 py-5 sm:flex-row sm:justify-between">
-                <dt className="font-medium">When it&apos;s due</dt>
-                <dd className="text-body">
-                  <Text>[PLACEHOLDER: e.g. on candidate start date]</Text>
-                </dd>
-              </div>
-              <div className="flex flex-col gap-1 pt-5 sm:flex-row sm:justify-between">
-                <dt className="font-medium">Replacement guarantee</dt>
-                <dd className="text-body">
-                  <Text>[PLACEHOLDER: e.g. 90 days]</Text>
-                </dd>
-              </div>
-            </dl>
-            <CheckList
-              className="mt-8 border-t border-line pt-6"
-              items={[
-                "No hire, no fee",
-                "Run one search or every engineering search",
-                "Works alongside your in-house team",
-              ]}
-            />
+            ))}
+            <div className="flex items-center gap-4 rounded-2xl border border-line p-5">
+              <IconBadge icon={Users} />
+              <p className="text-body">Hire one engineer or your whole team. Works alongside your in-house team.</p>
+            </div>
           </div>
         </div>
       </Section>

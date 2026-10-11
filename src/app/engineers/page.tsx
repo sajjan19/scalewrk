@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Field, FileField, Form, Select, TextArea } from "@/components/Form";
-import { CheckList, Container, Eyebrow } from "@/components/ui";
+import { Eye, Lock, MessageSquare, Target } from "lucide-react";
+import { Container, Eyebrow } from "@/components/ui";
+import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { roles } from "@/content/roles";
 import { pageMetadata } from "@/lib/metadata";
@@ -8,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Startup Jobs for Engineers",
   description:
-    "Looking for an engineering role at a venture-backed startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend, and platform engineers across the US.",
+    "Looking for an engineering role at a venture-backed startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend and platform engineers across the US.",
   path: "/engineers",
 });
 
@@ -20,20 +22,24 @@ export default function EngineersPage() {
           <Eyebrow>For engineers</Eyebrow>
           <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">Find your next startup role.</h1>
           <p className="mt-5 text-lg leading-relaxed text-body sm:text-xl">
-            We work with venture-backed startups across the US that are hiring AI/ML, backend, full-stack, frontend, and platform
-            engineers. Share your profile and we&apos;ll reach out when there&apos;s a real fit.
+            We work with startups across the US that need great engineers. Share your profile. We&apos;ll reach out when we
+            find a startup where you can thrive.
           </p>
-          <CheckList
-            className="mt-8"
-            items={[
-              "Real context up front: stage, team, role scope, and as much detail on comp as we can share",
-              "We only reach out when a role matches what you told us",
-              "Honest feedback, whether it's a yes or a no",
-              "Never shared with a company without your OK",
-            ]}
-          />
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: Eye, text: "The real story up front: stage, team, role and pay" },
+              { icon: Target, text: "We only reach out when a role fits what you want" },
+              { icon: MessageSquare, text: "Honest feedback, yes or no" },
+              { icon: Lock, text: "We never share your profile without your OK" },
+            ].map((item) => (
+              <li key={item.text} className="flex items-start gap-3 rounded-2xl border border-line p-4">
+                <IconBadge icon={item.icon} size="sm" />
+                <span className="text-[15px] leading-relaxed text-body">{item.text}</span>
+              </li>
+            ))}
+          </ul>
           <p className="mt-8 text-sm text-muted">
-            We review every profile. If we don&apos;t have a fit today, we&apos;ll keep you in mind as new searches open. Read our{" "}
+            We read every profile. No match today? We&apos;ll keep you in mind for new roles. Read our{" "}
             <Link href="/privacy" className="underline hover:text-ink">
               privacy note
             </Link>
