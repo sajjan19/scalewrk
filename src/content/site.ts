@@ -26,6 +26,8 @@ export const site = {
   social: {
     linkedin: "https://www.linkedin.com/company/PLACEHOLDER",
     x: "https://x.com/PLACEHOLDER",
+    instagram: "https://www.instagram.com/PLACEHOLDER",
+    facebook: "https://www.facebook.com/PLACEHOLDER",
   },
 
   /*

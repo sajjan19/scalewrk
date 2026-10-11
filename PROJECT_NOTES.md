@@ -104,7 +104,7 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 ### Done
 - [x] Next.js + Tailwind scaffold, brand tokens, Geist font
 - [x] SVG logo mark, favicon (`icon.svg`), Apple touch icon
-- [x] Header (desktop nav + mobile menu), footer (LinkedIn/X placeholders), mobile sticky booking bar
+- [x] Header (desktop nav + mobile menu), footer (LinkedIn, X, Instagram, Facebook placeholders), mobile sticky booking bar
 - [x] Pages: Home, For Startups, Roles, Partners, For Engineers, About, Contact, /meet, Privacy, 404
 - [x] Calendly inline embed component (shows a placeholder box until a link is set)
 - [x] Contact, partner, and engineer forms (Formspree-ready)
@@ -136,3 +136,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Mandeep's photo re-cropped wider at full resolution (1500×1125) and shown in color; black-and-white filter removed.
 - **2026-10-10:** Deployed to Vercel (scalewrk.vercel.app). Site URL now follows the Vercel production domain.
 - **2026-10-10:** Rewrote Home "Why Scalewrk" around three differentiators, each contrasted with big agencies.
+- **2026-10-10:** Added Instagram and Facebook (placeholder links) to the footer Follow section.

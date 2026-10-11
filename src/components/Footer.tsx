@@ -38,16 +38,18 @@ export function Footer() {
         <div>
           <p className="text-sm font-medium text-white">Follow</p>
           <ul className="mt-4 space-y-3">
-            <li>
-              <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white">
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href={site.social.x} target="_blank" rel="noopener noreferrer" className="hover:text-white">
-                X (Twitter)
-              </a>
-            </li>
+            {[
+              { href: site.social.linkedin, label: "LinkedIn" },
+              { href: site.social.x, label: "X (Twitter)" },
+              { href: site.social.instagram, label: "Instagram" },
+              { href: site.social.facebook, label: "Facebook" },
+            ].map((link) => (
+              <li key={link.label}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
