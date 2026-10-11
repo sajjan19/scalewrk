@@ -41,14 +41,14 @@ export default function AboutPage() {
           {founders.map((f) => (
             <article key={f.name} className="flex flex-col rounded-2xl border border-line p-6 sm:p-8">
               {f.photo ? (
-                // Photos show in black and white so the two headshots match. Remove "grayscale" for color.
                 <Image
                   src={f.photo}
                   alt={`${f.name}, ${f.title} of Scalewrk`}
-                  width={800}
-                  height={800}
+                  width={1200}
+                  height={900}
+                  quality={90}
                   sizes="(min-width: 1152px) 520px, (min-width: 768px) 45vw, 100vw"
-                  className="aspect-[4/3] w-full rounded-xl bg-mist object-cover object-[50%_35%] grayscale"
+                  className="aspect-[4/3] w-full rounded-xl bg-mist object-cover object-[50%_35%]"
                 />
               ) : (
                 <div

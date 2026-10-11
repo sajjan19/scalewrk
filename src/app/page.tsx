@@ -234,7 +234,8 @@ export default function Home() {
                     alt={f.name}
                     width={112}
                     height={112}
-                    className="h-14 w-14 rounded-full object-cover ring-4 ring-white grayscale"
+                    quality={90}
+                    className="h-14 w-14 rounded-full object-cover object-[60%_40%] ring-4 ring-white"
                   />
                 ) : null,
               )}
