@@ -98,8 +98,8 @@ export default function Home() {
               Tech hiring for <span className="text-gradient whitespace-nowrap">venture-backed</span> startups.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
-              We help founders hire AI/ML, software and platform engineers. We also help engineers find startups where
-              they can thrive.
+              We help founders hire engineers for every role, from AI/ML to DevOps. We also help engineers find
+              startups where they can thrive.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
@@ -123,7 +123,7 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="font-semibold">What working with us looks like</p>
-                  <p className="mt-0.5 text-sm text-muted">One startup, four engineering roles</p>
+                  <p className="mt-0.5 text-sm text-muted">We track every role from plan to offer</p>
                 </div>
                 <span className="shrink-0 rounded-full border border-line px-2 py-0.5 text-xs text-muted">Example</span>
               </div>
