@@ -30,7 +30,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Scalewrk | Startup Tech Recruiter for Venture-Backed Startups",
   description:
-    "Scalewrk is a startup tech recruiter for venture-backed companies across the US. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C+.",
+    "Scalewrk is a startup tech recruiter for venture-backed companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C+.",
   path: "/",
   absoluteTitle: true,
 });
@@ -96,7 +96,8 @@ export default function Home() {
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
-              Seed to Series C+ startups across the US
+              <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
+              <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
             <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
               Tech hiring for <span className="text-gradient whitespace-nowrap">venture-backed</span> startups.

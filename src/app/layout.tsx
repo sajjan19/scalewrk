@@ -50,7 +50,10 @@ const organizationJsonLd = {
   email: site.email,
   logo: `${site.url}/icon.svg`,
   description: site.description,
-  areaServed: { "@type": "Country", name: "United States" },
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
+  ],
   knowsAbout: [
     "Technical recruiting",
     "AI engineer recruiting",

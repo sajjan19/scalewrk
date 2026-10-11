@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "Scalewrk was founded by tech recruiters Punit Singh and Mandeep Sajjan to be the embedded hiring partner for venture-backed startups across the US.",
+    "Scalewrk was founded by tech recruiters Punit Singh and Mandeep Sajjan to be the embedded hiring partner for venture-backed startups across the US and Canada.",
   path: "/about",
 });
 

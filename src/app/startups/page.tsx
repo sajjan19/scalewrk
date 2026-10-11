@@ -90,7 +90,7 @@ const faqs = [
   },
   {
     q: "Where are the startups you work with?",
-    a: "Across the US. We hire for remote, hybrid and in-office roles.",
+    a: "Across the US and Canada. We hire for remote, hybrid and in-office roles.",
   },
   {
     q: "How fast will we see candidates?",

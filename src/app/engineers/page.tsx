@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Startup Jobs for Engineers",
   description:
-    "Looking for an engineering role at a venture-backed startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend and platform engineers across the US.",
+    "Looking for an engineering role at a venture-backed startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend and platform engineers across the US and Canada.",
   path: "/engineers",
 });
 
@@ -30,7 +30,7 @@ export default function EngineersPage() {
             Find your <span className="text-gradient">next startup role</span>.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-body sm:text-xl">
-            We work with startups across the US that need great engineers. Share your profile. We&apos;ll reach out when we
+            We work with startups across the US and Canada that need great engineers. Share your profile. We&apos;ll reach out when we
             find a startup where you can thrive.
           </p>
 
@@ -40,7 +40,7 @@ export default function EngineersPage() {
               { icon: Target, text: "We only reach out when a role fits what you want" },
               { icon: MessageSquare, text: "Honest feedback, yes or no" },
               { icon: Lock, text: "We never share your profile without your OK" },
-              { icon: MapPin, text: "Roles across the US. Remote, hybrid or open to moving? Tell us." },
+              { icon: MapPin, text: "Roles across the US and Canada. Remote, hybrid or open to moving? Tell us." },
             ].map((item) => (
               <li key={item.text} className="flex items-start gap-3 rounded-2xl border border-line p-4">
                 <IconBadge icon={item.icon} size="sm" />
@@ -63,8 +63,8 @@ export default function EngineersPage() {
                   </span>
                   <span className="mt-0.5 block text-sm leading-relaxed text-body">
                     {realJobs > 0
-                      ? `${realJobs} open ${realJobs === 1 ? "role" : "roles"} at startups across the US`
-                      : "See example listings at startups across the US"}
+                      ? `${realJobs} open ${realJobs === 1 ? "role" : "roles"} at startups across the US and Canada`
+                      : "See example listings at startups across the US and Canada"}
                   </span>
                 </span>
               </Link>

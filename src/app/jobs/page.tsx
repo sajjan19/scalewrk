@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Startup Jobs for Engineers",
   description:
-    "Open engineering roles at venture-backed startups across the US. AI/ML, backend, frontend, platform and more.",
+    "Open engineering roles at venture-backed startups across the US and Canada. AI/ML, backend, frontend, platform and more.",
   path: "/jobs",
 });
 

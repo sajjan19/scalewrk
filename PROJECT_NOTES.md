@@ -8,7 +8,7 @@ _Last updated: 2026-10-10_
 
 ## 1. Approved plan (summary)
 
-Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalewrk.ai**): a tech recruiting firm for US venture-backed startups, seed through Series C+.
+Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalewrk.ai**): a tech recruiting firm for venture-backed startups in the US and Canada, seed through Series C+. (Originally US-only; Canada added 2026-10-11 at the user's request.)
 
 **Audiences, in priority order**
 1. US startup founders/CEOs checking us out on their phone after an event, a LinkedIn/X post, or outreach. They should get it in 5 seconds and book in one tap.
@@ -86,6 +86,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | "Our founders have recruited engineers for" strip under the Home hero (text, no logos) | Real past employers from `founders.ts` → `experienceAt`. Framed as the founders' experience, never as Scalewrk clients |
 | "Startups we've hired for" section is ON with placeholder boxes (Client 1–5) and a visible "Placeholder: client names coming soon" note | User wanted it live but marked as a placeholder. No invented names. The note disappears once every name is real |
 | Every main page headline has its key phrase in the logo gradient (`text-gradient`) | Consistent brand look across pages. Privacy, 404 and job pages stay plain |
+| Market: "across the US and Canada" everywhere (hero chip, footer, FAQ, Engineers, /meet, Google descriptions, structured data `areaServed`) | User asked to include Canada (2026-10-11). US startup language and USD stay the same. Phones show a shorter hero chip: "Seed to Series C+ · US and Canada" |
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |
