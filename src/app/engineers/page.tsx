@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import { AppliedJob } from "@/components/AppliedJob";
 import { Field, FileField, Form, Select, TextArea } from "@/components/Form";
 import { Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
@@ -48,7 +50,7 @@ export default function EngineersPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl p-0 sm:p-8 sm:ring-1 sm:ring-line">
+        <div id="apply" className="scroll-mt-24 rounded-2xl p-0 sm:p-8 sm:ring-1 sm:ring-line">
           <h2 className="text-xl font-semibold">Share your profile</h2>
           <p className="mt-1 mb-6 text-body">Takes about two minutes.</p>
           <Form
@@ -58,6 +60,9 @@ export default function EngineersPage() {
             successTitle="Got it, thanks."
             successBody="We'll review your profile and reach out when we have a role that fits."
           >
+            <Suspense fallback={null}>
+              <AppliedJob />
+            </Suspense>
             <Field label="Full name" name="name" required autoComplete="name" />
             <Field label="Email" name="email" type="email" required autoComplete="email" />
             <Field

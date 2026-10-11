@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
+import { JobList } from "@/components/JobList";
 import { RoleJumpBar } from "@/components/RoleJumpBar";
-import { Arrow, Button, CheckList, PageHero, Section } from "@/components/ui";
+import { Arrow, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { IconBadge } from "@/components/visuals";
@@ -26,6 +27,22 @@ export default function RolesPage() {
           Hire for a role <Arrow />
         </Button>
       </PageHero>
+
+      {/* Open roles (job listings from src/content/jobs.ts) */}
+      <Section id="open-roles" tone="mist" className="scroll-mt-16">
+        <SectionHeading
+          eyebrow="Open roles"
+          title="Startups hiring now"
+          intro="Tap a role to see the details. We keep company names private until your first call."
+        />
+        <div className="mt-10">
+          <JobList />
+        </div>
+      </Section>
+
+      <Section className="!pb-0">
+        <SectionHeading eyebrow="Roles we hire" title="Every type of engineer" intro="Here's who we hire and what we look for." />
+      </Section>
 
       {/* Jump links (scrollable, highlights the role you're reading) */}
       <RoleJumpBar />

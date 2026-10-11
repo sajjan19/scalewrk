@@ -47,6 +47,10 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
   - "Hiring office hours or talks" offered to partners (Partners page)
   - "You work directly with a Scalewrk co-founder" (Home, Startups, Partners, About)
 
+## Jobs board
+
+- [ ] Replace the 5 example listings in `src/content/jobs.ts` with real jobs (set `example: false`), or set `showExampleJobs = false` to hide them
+
 ## Legal
 
 - [ ] Privacy page: set the "last updated" date and have a lawyer review it (`src/app/privacy/page.tsx`)
