@@ -56,20 +56,19 @@ const steps = [
 
 const reasons = [
   {
-    title: "Engineers only",
-    body: "We don't recruit for sales, ops, or finance. We know the difference between an ML engineer and an ML researcher, and we screen like it.",
+    title: "Engineers only. AI is our edge.",
+    body: "We don't recruit for sales, ops, or finance. Every search is technical, and AI/ML hiring is where we go deepest. We know an applied ML engineer from a research scientist, and we screen for the one you actually need.",
+    versus: "Big agencies send the same recruiter to fill your engineer and your office manager.",
   },
   {
-    title: "Embedded, not transactional",
-    body: "We learn your product, culture, and hiring bar once, then stay with you as you scale. Not just for one req.",
+    title: "A co-founder runs your search.",
+    body: "You work directly with Punit or Mandeep from kickoff to signed offer. The person who learns your company is the person talking to candidates.",
+    versus: "At most agencies, the person who sells you isn't the person who recruits for you.",
   },
   {
-    title: "A co-founder on every search",
-    body: "You work directly with a Scalewrk co-founder. No hand-offs to a junior account manager.",
-  },
-  {
-    title: "Startup-native pitch",
-    body: "We sell your mission, not just the comp. Candidates hear an honest story about stage, risk, and upside.",
+    title: "A partner you met, not a cold email.",
+    body: "We meet founders in person at tech events and build from there. Once we know your team, product, and bar, every next search starts faster. We're the recruiter you call from your first engineer to your fiftieth.",
+    versus: "Transactional recruiters start from zero on every req.",
   },
 ];
 
@@ -209,16 +208,23 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why Scalewrk"
           title="A specialist, not a staffing agency"
-          intro="Big agencies recruit for everyone. We only recruit engineers, only for startups, and we stick around."
+          intro="Engineers only. Startups only. Founder-led. And we stick around."
         />
-        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-          {reasons.map((r) => (
-            <div key={r.title} className="border-t border-ink/10 pt-6">
-              <p className="text-lg font-semibold">{r.title}</p>
-              <p className="mt-2 leading-relaxed text-body">{r.body}</p>
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          {reasons.map((r, i) => (
+            <div key={r.title} className="flex flex-col rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
+              <span className="font-mono text-sm text-brand">0{i + 1}</span>
+              <p className="mt-3 text-xl font-semibold tracking-tight">{r.title}</p>
+              <p className="mt-3 leading-relaxed text-body">{r.body}</p>
+              <div className="mt-auto pt-6">
+                <p className="border-t border-line pt-4 text-sm leading-relaxed text-muted">{r.versus}</p>
+              </div>
             </div>
           ))}
         </div>
+        <p className="mt-8 text-body">
+          And it&apos;s fee per hire: <span className="font-medium text-ink">nothing up front, and you only pay when you hire.</span>
+        </p>
       </Section>
 
       {/* Founder credibility */}
