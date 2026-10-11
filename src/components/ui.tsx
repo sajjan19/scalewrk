@@ -80,10 +80,10 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={`max-w-2xl ${className}`}>
+    <div className={`max-w-4xl ${className}`}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
-      {intro && <p className="mt-4 text-lg leading-relaxed text-body text-pretty">{intro}</p>}
+      {intro && <p className="mt-4 max-w-3xl text-lg leading-relaxed text-body text-pretty">{intro}</p>}
     </div>
   );
 }
@@ -93,8 +93,8 @@ export function PageHero({ eyebrow, title, intro, children }: { eyebrow: string;
     <section className="border-b border-line pt-12 pb-14 sm:pt-20 sm:pb-20">
       <Container>
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">{title}</h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body text-pretty sm:text-xl">{intro}</p>
+        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">{title}</h1>
+        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-body text-pretty sm:text-xl">{intro}</p>
         {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
       </Container>
     </section>
