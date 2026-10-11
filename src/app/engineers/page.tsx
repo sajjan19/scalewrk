@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Field, FileField, Form, Select, TextArea } from "@/components/Form";
-import { Eye, Lock, MessageSquare, Target } from "lucide-react";
+import { Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
@@ -31,6 +31,7 @@ export default function EngineersPage() {
               { icon: Target, text: "We only reach out when a role fits what you want" },
               { icon: MessageSquare, text: "Honest feedback, yes or no" },
               { icon: Lock, text: "We never share your profile without your OK" },
+              { icon: MapPin, text: "Roles across the US. Remote, hybrid or open to moving? Tell us." },
             ].map((item) => (
               <li key={item.text} className="flex items-start gap-3 rounded-2xl border border-line p-4">
                 <IconBadge icon={item.icon} size="sm" />
@@ -68,8 +69,16 @@ export default function EngineersPage() {
             />
             <Select label="Primary role" name="role" required options={[...roles.map((r) => r.name), "Other"]} />
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Location" name="location" placeholder="City, State" autoComplete="address-level2" />
-              <Select label="Work preference" name="work_preference" options={["Remote", "Hybrid", "Onsite", "Open to any"]} />
+              <Field label="Where you live now" name="location" placeholder="Los Angeles, CA" autoComplete="address-level2" />
+              <Select label="How you want to work" name="work_preference" options={["Remote", "Hybrid", "In office", "Open to any"]} />
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Where you'd like to work" name="target_locations" placeholder="New York, San Francisco or remote" />
+              <Select
+                label="Open to relocating?"
+                name="relocation"
+                options={["Yes", "Maybe, for the right role", "No"]}
+              />
             </div>
             {site.resumeUpload && (
               <FileField label="Resume" name="resume" accept=".pdf,.doc,.docx" hint="PDF or Word, up to 10 MB." />
@@ -78,7 +87,7 @@ export default function EngineersPage() {
               label="Or link to your resume"
               name="resume_link"
               type="url"
-              placeholder="Google Drive, Dropbox, or personal site"
+              placeholder="Google Drive, Dropbox or personal site"
             />
             <TextArea label="What are you looking for next?" name="message" placeholder="Stage, stack, team size, anything else" />
           </Form>

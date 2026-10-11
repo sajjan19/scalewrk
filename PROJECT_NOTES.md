@@ -27,7 +27,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/startups` | For founders: 6-step process, in-house vs. agency vs. Scalewrk comparison, fee-per-hire engagement model (pricing placeholders), FAQ | Yes | Yes |
 | `/roles` | 9 role families with typical titles and "what we screen for"; jump links | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
-| `/engineers` | Candidate pitch + profile form (LinkedIn required, resume upload or link) | Yes | Yes |
+| `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
 | `/about` | Story, two founder cards (Punit first), values | Yes | Yes |
 | `/contact` | Calendly embed (`#book`) + contact form | Footer, "Book a call" buttons | Yes |
 | `/meet` | Event QR-code landing page: "Great meeting you", booking, save contact (vCard) | No | **No** (`noindex`) |
