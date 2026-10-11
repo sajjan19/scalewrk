@@ -102,7 +102,8 @@ export default function Home() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               Scalewrk is the embedded tech recruiter for founders who need great engineers. We help you hire
-              AI/ML, software, and platform engineers as you grow.
+              AI/ML, software, and platform engineers as you grow, and we match engineers with startups where they
+              and the company can both succeed.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
@@ -113,6 +114,12 @@ export default function Home() {
               </Button>
             </div>
             <p className="mt-4 text-sm text-muted">20-minute intro. Fee per hire, so you only pay when you hire.</p>
+            <p className="mt-2 text-sm text-muted">
+              Engineer?{" "}
+              <Link href="/engineers" className="font-medium text-brand hover:text-brand-dark">
+                Find your next startup →
+              </Link>
+            </p>
           </div>
 
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
