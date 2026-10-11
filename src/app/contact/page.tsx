@@ -1,6 +1,6 @@
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { ContactReason } from "@/components/ContactReason";
-import { Field, Form, TextArea } from "@/components/Form";
+import { Field, Form } from "@/components/Form";
 import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
 import { Container, Eyebrow } from "@/components/ui";
 import { site } from "@/content/site";
@@ -64,7 +64,6 @@ export default function ContactPage() {
               <Field label="Email" name="email" type="email" required autoComplete="email" />
               <Field label="Company" name="company" autoComplete="organization" />
               <ContactReason />
-              <TextArea label="Message" name="message" required placeholder="What roles are you hiring for?" />
             </Form>
           </div>
         </Container>

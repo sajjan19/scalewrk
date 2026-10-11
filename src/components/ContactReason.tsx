@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Field, Select } from "./Form";
+import { Field, Select, TextArea } from "./Form";
 
 // "I'm reaching out as a" dropdown on the Contact form.
 // Engineers also get the relocation question. "Something else" gets a text box.
+// The message box hint changes to match who's writing.
+const messageHints: Record<string, string> = {
+  "Founder or hiring manager": "What roles are you hiring for?",
+  "Investor, accelerator or advisor": "Tell us about your portfolio or clients",
+  Engineer: "What kind of role are you looking for?",
+};
+
 export function ContactReason() {
   const [reason, setReason] = useState("");
   return (
@@ -22,6 +29,7 @@ export function ContactReason() {
       {reason === "Something else" && (
         <Field label="Tell us who you are" name="reason_other" required placeholder="Recruiter, journalist, student, event organizer…" />
       )}
+      <TextArea label="Message" name="message" required placeholder={messageHints[reason] ?? "How can we help?"} />
     </>
   );
 }
