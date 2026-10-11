@@ -30,12 +30,12 @@ export function ClientsSection() {
   return (
     <section className="py-12 sm:py-16">
       <Container>
-        {!showClients && (
-          <p className="mb-4 rounded-lg bg-amber-50 px-4 py-2 text-center text-sm text-amber-900">
-            Preview only: this section is hidden on the live site until you add real clients in <code>src/content/clients.ts</code>.
+        <p className="text-center text-sm font-medium text-muted">Startups we&apos;ve hired for</p>
+        {clients.some((c) => c.name.startsWith("[")) && (
+          <p className="mx-auto mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-center text-xs font-medium text-amber-900 ring-1 ring-amber-200">
+            Placeholder: client names coming soon
           </p>
         )}
-        <p className="text-center text-sm font-medium text-muted">Startups we&apos;ve hired for</p>
         <ul className="mt-6 flex flex-wrap justify-center gap-3">
           {clients.map((client, i) => (
             <li key={i} className="flex h-20 w-[calc(50%-0.375rem)] items-center justify-center rounded-2xl border border-line bg-white px-4 text-center sm:w-44">

@@ -84,7 +84,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | Job listings use placeholder names (Company A, B…) plus a description of what the company does | User asked for a company name on each listing. Placeholders avoid inventing real-looking companies; swap in real names when clients agree |
 | 14 EXAMPLE job listings (placeholder names Company A–N), each labeled "Example listing" and `noindex` | User asked to preview the job board. Fictional, not real openings. Switch off with `showExampleJobs = false` in `jobs.ts` once real jobs exist |
 | "Our founders have recruited engineers for" strip under the Home hero (text, no logos) | Real past employers from `founders.ts` → `experienceAt`. Framed as the founders' experience, never as Scalewrk clients |
-| "Startups we've hired for" section is built but OFF on the live site (`showClients = false` in `src/content/clients.ts`; visible in local preview only) | User asked for a client list; we have no clients yet, so no invented names go live. Add real clients with permission, then set `showClients = true` |
+| "Startups we've hired for" section is ON with placeholder boxes (Client 1–5) and a visible "Placeholder: client names coming soon" note | User wanted it live but marked as a placeholder. No invented names. The note disappears once every name is real |
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |

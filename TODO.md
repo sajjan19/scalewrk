@@ -49,7 +49,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Clients
 
-- [ ] When you have clients who agree to be listed: add them to `src/content/clients.ts` (name, optional logo in `public/clients/`) and set `showClients = true`
+- [ ] When you have clients who agree to be listed: replace `[Client 1]`… in `src/content/clients.ts` with real names (optional logo in `public/clients/`). The placeholder note disappears automatically
 
 ## Jobs board
 
