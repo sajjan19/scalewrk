@@ -13,9 +13,9 @@ import {
   Users,
 } from "lucide-react";
 import { Arrow, Button, Container } from "@/components/ui";
+import { CompanyLogo } from "@/components/CompanyLogo";
 import { IconBadge } from "@/components/visuals";
 import { jobs, visibleJobs } from "@/content/jobs";
-import { roles } from "@/content/roles";
 import { pageMetadata } from "@/lib/metadata";
 
 // One page per job, built at deploy time. Unknown slugs show the 404 page.
@@ -42,9 +42,6 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
   const { slug } = await params;
   const job = visibleJobs.find((j) => j.slug === slug);
   if (!job) notFound();
-
-  const role = roles.find((r) => r.slug === job.role);
-  const Icon = role?.icon ?? Briefcase;
 
   const facts = [
     { icon: Building2, label: "Company", value: job.companyName },
@@ -77,9 +74,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
             All jobs
           </Link>
           <div className="mt-6 flex items-start gap-4 sm:gap-5">
-            <span className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-brand-soft text-brand">
-              <Icon className="h-7 w-7" strokeWidth={1.75} aria-hidden="true" />
-            </span>
+            <CompanyLogo name={job.companyName} logo={job.companyLogo} size="lg" />
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-5xl">{job.title}</h1>
               <p className="mt-2 text-lg text-body">

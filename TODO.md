@@ -53,7 +53,8 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Jobs board
 
-- [ ] Replace the 5 example listings in `src/content/jobs.ts` with real jobs (set `example: false`), or set `showExampleJobs = false` to hide them
+- [ ] Add company logos to real job listings: put the file in `public/companies/` and set `companyLogo` in `jobs.ts`
+- [ ] Replace the example listings in `src/content/jobs.ts` with real jobs (set `example: false`), or set `showExampleJobs = false` to hide them
 
 ## Legal
 

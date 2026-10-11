@@ -19,6 +19,7 @@ export type Job = {
   title: string;
   role: string;
   companyName: string; // shown on cards and job pages
+  companyLogo?: string; // optional, e.g. "/companies/acme.svg" (file in /public/companies/). Without it, a placeholder tile shows
   company: string; // what the company does
   stage: string;
   location: string;
