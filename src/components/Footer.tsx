@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { Logo } from "./Logo";
+import { SocialIcon, type SocialNetwork } from "./SocialIcons";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -12,8 +13,11 @@ export function Footer() {
           <p className="mt-4 max-w-xs leading-relaxed">
             Tech recruiting for venture-backed startups across the US, from seed through Series C and beyond.
           </p>
-          <a href={`mailto:${site.email}`} className="mt-4 inline-block text-white hover:underline">
+          <a href={`mailto:${site.email}`} className="mt-4 block w-fit text-white hover:underline">
             {site.email}
+          </a>
+          <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="mt-2 block w-fit text-white hover:underline">
+            {site.phone}
           </a>
         </div>
 
@@ -38,14 +42,22 @@ export function Footer() {
         <div>
           <p className="text-sm font-medium text-white">Follow</p>
           <ul className="mt-4 space-y-3">
-            {[
-              { href: site.social.linkedin, label: "LinkedIn" },
-              { href: site.social.x, label: "X (Twitter)" },
-              { href: site.social.instagram, label: "Instagram" },
-              { href: site.social.facebook, label: "Facebook" },
-            ].map((link) => (
+            {(
+              [
+                { network: "linkedin", href: site.social.linkedin, label: "LinkedIn" },
+                { network: "x", href: site.social.x, label: "X (Twitter)" },
+                { network: "instagram", href: site.social.instagram, label: "Instagram" },
+                { network: "facebook", href: site.social.facebook, label: "Facebook" },
+              ] as { network: SocialNetwork; href: string; label: string }[]
+            ).map((link) => (
               <li key={link.label}>
-                <a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 hover:text-white"
+                >
+                  <SocialIcon network={link.network} className="h-4 w-4" />
                   {link.label}
                 </a>
               </li>

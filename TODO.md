@@ -18,6 +18,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] **X (Twitter) URL**: `site.ts` → `social.x`. Used in the footer.
 - [ ] **Instagram URL**: `site.ts` → `social.instagram`. Used in the footer.
 - [ ] **Facebook URL**: `site.ts` → `social.facebook`. Used in the footer.
+- [ ] **Phone number**: replace the fake `(555) 555-0123` in `site.ts` → `phone`. Used in the footer and on the Contact page. Once it's real, it can also go in the /meet contact card (`public/scalewrk.vcf`).
 - [x] **Deploy to Vercel**: live at https://scalewrk.vercel.app
 - [ ] **Connect domain**: add `scalewrk.ai` under Vercel → Project → Settings → Domains, then update DNS at your registrar
 

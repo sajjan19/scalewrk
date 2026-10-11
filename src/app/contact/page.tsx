@@ -33,14 +33,18 @@ export default function ContactPage() {
       <section className="border-t border-line bg-mist py-16 sm:py-24">
         <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h2 className="text-3xl font-semibold tracking-tight">Prefer to write?</h2>
+            <h2 className="text-3xl font-semibold tracking-tight">Prefer email or phone?</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Send us a note and we&apos;ll reply within one business day. Or email us directly at{" "}
-              <a href={`mailto:${site.email}`} className="font-medium text-brand hover:text-brand-dark">
+              Send us a note and we&apos;ll reply within one business day. Or reach us directly:
+            </p>
+            <div className="mt-6 space-y-2 text-lg">
+              <a href={`mailto:${site.email}`} className="block w-fit font-medium text-brand hover:text-brand-dark">
                 {site.email}
               </a>
-              .
-            </p>
+              <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="block w-fit font-medium text-brand hover:text-brand-dark">
+                {site.phone}
+              </a>
+            </div>
           </div>
           <div className="rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
             <Form

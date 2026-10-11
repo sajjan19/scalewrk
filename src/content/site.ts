@@ -14,6 +14,8 @@ export const site = {
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "https://scalewrk.ai",
   email: "info@scalewrk.ai",
+  // PLACEHOLDER: fake number (555-01xx numbers are reserved for fiction). Replace with your real one.
+  phone: "(555) 555-0123",
   tagline: "Tech hiring for venture-backed startups.",
   description:
     "Scalewrk is a startup tech recruiter for venture-backed companies across the US. We hire AI/ML, backend, full-stack, frontend, and DevOps engineers from seed to Series C and beyond.",

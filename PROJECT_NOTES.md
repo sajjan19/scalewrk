@@ -138,3 +138,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Rewrote Home "Why Scalewrk" around three differentiators, each contrasted with big agencies.
 - **2026-10-10:** Added Instagram and Facebook (placeholder links) to the footer Follow section.
 - **2026-10-10:** Punit's location set to Vancouver.
+- **2026-10-10:** Footer social links now have icons (`src/components/SocialIcons.tsx`). Placeholder phone `(555) 555-0123` added to footer and Contact page (kept out of the vCard and structured data so a fake number isn't saved or indexed).
