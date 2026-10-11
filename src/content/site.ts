@@ -16,7 +16,7 @@ export const site = {
 
   // PLACEHOLDER: replace with your real Calendly event link,
   // e.g. "https://calendly.com/scalewrk/intro-call"
-  calendlyUrl: "",
+  calendlyUrl: "https://calendly.com/PLACEHOLDER",
 
   // PLACEHOLDER: replace with your real profile links
   social: {
@@ -26,21 +26,26 @@ export const site = {
 
   /*
     Form endpoints. Create a form at formspree.io, then paste its URL here,
-    e.g. "https://formspree.io/f/abcdwxyz". Until then the form shows a
-    "not connected yet" message and points people to the email above.
+    e.g. "https://formspree.io/f/abcdwxyz". While a link still says PLACEHOLDER,
+    the form shows a "not connected yet" message and points people to the email above.
 
     Resume file uploads on Formspree need a paid plan (Personal or higher).
     See PROJECT_NOTES.md → "Forms" for the free alternative.
   */
   forms: {
-    contact: "", // PLACEHOLDER
-    partners: "", // PLACEHOLDER
-    engineers: "", // PLACEHOLDER
+    contact: "https://formspree.io/f/PLACEHOLDER",
+    partners: "https://formspree.io/f/PLACEHOLDER",
+    engineers: "https://formspree.io/f/PLACEHOLDER",
   },
 
   // Show the resume file-upload field on the engineers form.
   resumeUpload: true,
 };
+
+// True once a setting has a real value (not empty, not a PLACEHOLDER dummy).
+export function isSet(value: string) {
+  return value !== "" && !value.includes("PLACEHOLDER");
+}
 
 export const nav = [
   { href: "/startups", label: "For Startups" },

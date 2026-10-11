@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { useCallback, useEffect, useRef } from "react";
-import { site } from "@/content/site";
+import { isSet, site } from "@/content/site";
 
 declare global {
   interface Window {
@@ -16,7 +16,7 @@ export function CalendlyEmbed({ height = 700 }: { height?: number }) {
   const url = site.calendlyUrl;
 
   const init = useCallback(() => {
-    if (!url || !ref.current || !window.Calendly) return;
+    if (!isSet(url) || !ref.current || !window.Calendly) return;
     ref.current.innerHTML = "";
     const sep = url.includes("?") ? "&" : "?";
     window.Calendly.initInlineWidget({
@@ -30,7 +30,7 @@ export function CalendlyEmbed({ height = 700 }: { height?: number }) {
     init();
   }, [init]);
 
-  if (!url) {
+  if (!isSet(url)) {
     return (
       <div className="flex min-h-80 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50 p-8 text-center">
         <p className="font-medium text-amber-900">PLACEHOLDER: Calendly scheduler</p>

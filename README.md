@@ -2,7 +2,7 @@
 
 Marketing site for Scalewrk, tech recruiting for venture-backed startups. Built with Next.js and Tailwind CSS and deployed on Vercel.
 
-See **[PROJECT_NOTES.md](PROJECT_NOTES.md)** for the plan, design system, decisions, and what's still a placeholder.
+See **[TODO.md](TODO.md)** for what's left to fill in, and **[PROJECT_NOTES.md](PROJECT_NOTES.md)** for the plan, design system, and decisions.
 
 ## Run it locally
 

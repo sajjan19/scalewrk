@@ -112,33 +112,18 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 - [x] Checked on mobile (375px) and desktop; production build and lint pass
 - [x] Pushed to GitHub: https://github.com/sajjan19/scalewrk (`main`)
 
-### Still a placeholder (search the code for `PLACEHOLDER`)
-- [ ] Calendly link (`site.ts → calendlyUrl`)
-- [ ] Formspree endpoints ×3 (`site.ts → forms`)
-- [ ] LinkedIn + X company URLs (`site.ts → social`)
-- [ ] Punit: other companies, location, LinkedIn URL, photo (`founders.ts`)
-- [ ] Mandeep: extra bio line, LinkedIn URL, photo (`founders.ts`)
-- [ ] Fee %, when due, replacement guarantee (`/startups` → Engagement model)
-- [ ] Privacy page: date + lawyer review
-- [ ] Official logo files (SVG) to replace the redrawn mark, if desired
+### Still a placeholder / next steps
+Tracked in **[TODO.md](TODO.md)**: links and accounts, founder info, pricing, decisions, legal, and after-launch checks.
 
-### Next steps
-- [ ] Import the repo into Vercel and add the `scalewrk.ai` domain
-- [ ] Fill placeholders, then test all three forms end to end
-- [ ] Test link previews: LinkedIn Post Inspector, X/Slack share
-- [ ] Submit sitemap in Google Search Console
-- [ ] Optional later: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
+Calendly and the three form endpoints use dummy `PLACEHOLDER` links. `isSet()` in `site.ts` detects these, so the site shows a friendly fallback (an amber booking box, or a "form not connected yet" message pointing to info@scalewrk.ai) instead of breaking.
 
 ---
 
 ## 7. Open questions
-1. **Partner incentive:** do we offer referral fees or anything in return? (Undecided. The page currently doesn't mention any.)
-2. **Resume uploads:** pay for Formspree, or use a free attachment service? (See §5.)
-3. **Commitments to confirm:** the copy promises "reply within one business day" (Contact, Partners) and offers "hiring office hours or talks" to partners. Keep or soften?
-4. **Punit's location** and the other companies to list.
-5. **Testimonials:** a section can be added once there are real, approved quotes.
+See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner referral incentive, and which promises in the copy to keep.
 
 ---
 
 ## 8. Change log
 - **2026-10-10:** Initial build: all pages, components, SEO, social images, forms, and notes. Pushed to GitHub.
+- **2026-10-10:** Dummy `PLACEHOLDER` links for Calendly and forms (with `isSet()` fallback); added TODO.md reminders list.

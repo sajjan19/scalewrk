@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { site } from "@/content/site";
+import { isSet, site } from "@/content/site";
 
 /*
   Sends a form to Formspree (or any service that accepts a POST and replies with JSON).
@@ -27,7 +27,7 @@ export function Form({
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!endpoint) {
+    if (!isSet(endpoint)) {
       setStatus("error");
       setError(`This form isn't connected yet. Email us at ${site.email} instead.`);
       return;
