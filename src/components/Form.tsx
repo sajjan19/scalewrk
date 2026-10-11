@@ -125,13 +125,25 @@ export function TextArea({ label, name, required, placeholder }: FieldProps) {
   );
 }
 
-export function Select({ label, name, required, options }: FieldProps & { options: string[] }) {
+export function Select({
+  label,
+  name,
+  required,
+  options,
+  onChange,
+}: FieldProps & { options: string[]; onChange?: (value: string) => void }) {
   return (
     <label className="block">
       <span className="text-sm font-medium">
         {label} {!required && <span className="font-normal text-muted">(optional)</span>}
       </span>
-      <select name={name} required={required} defaultValue="" className={`${inputClass} appearance-none`}>
+      <select
+        name={name}
+        required={required}
+        defaultValue=""
+        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
+        className={`${inputClass} appearance-none`}
+      >
         <option value="" disabled>
           Choose one
         </option>

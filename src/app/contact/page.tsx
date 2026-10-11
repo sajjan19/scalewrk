@@ -1,5 +1,6 @@
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
-import { Field, Form, Select, TextArea } from "@/components/Form";
+import { ContactReason } from "@/components/ContactReason";
+import { Field, Form, TextArea } from "@/components/Form";
 import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
 import { Container, Eyebrow } from "@/components/ui";
 import { site } from "@/content/site";
@@ -62,12 +63,7 @@ export default function ContactPage() {
               <Field label="Name" name="name" required autoComplete="name" />
               <Field label="Email" name="email" type="email" required autoComplete="email" />
               <Field label="Company" name="company" autoComplete="organization" />
-              <Select
-                label="I'm reaching out as a"
-                name="reason"
-                required
-                options={["Founder or hiring manager", "Investor, accelerator, or advisor", "Engineer", "Something else"]}
-              />
+              <ContactReason />
               <TextArea label="Message" name="message" required placeholder="What roles are you hiring for?" />
             </Form>
           </div>
