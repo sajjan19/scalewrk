@@ -32,24 +32,6 @@ export default function EngineersPage() {
             find a startup where you can thrive.
           </p>
 
-          {/* Shortcut to the jobs board */}
-          <Link
-            href="/jobs"
-            className="group mt-6 flex items-center gap-4 rounded-2xl border border-brand/20 bg-brand-soft p-4 transition hover:border-brand/40 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]"
-          >
-            <span className="btn-brand flex h-11 w-11 flex-none items-center justify-center rounded-xl">
-              <Briefcase className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <span className="flex-1">
-              <span className="block font-semibold text-ink">View all jobs</span>
-              <span className="block text-sm text-body">
-                {realJobs > 0
-                  ? `${realJobs} open ${realJobs === 1 ? "role" : "roles"} at startups across the US`
-                  : "See example listings at startups across the US"}
-              </span>
-            </span>
-            <ArrowRight className="h-5 w-5 text-brand transition group-hover:translate-x-1" aria-hidden="true" />
-          </Link>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
               { icon: Eye, text: "The real story up front: stage, team, role and pay" },
@@ -63,6 +45,28 @@ export default function EngineersPage() {
                 <span className="text-[15px] leading-relaxed text-body">{item.text}</span>
               </li>
             ))}
+            {/* Shortcut to the jobs board (fills the last grid spot) */}
+            <li>
+              <Link
+                href="/jobs"
+                className="group flex h-full items-start gap-3 rounded-2xl border border-brand/20 bg-brand-soft p-4 transition hover:border-brand/40 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]"
+              >
+                <span className="btn-brand flex h-9 w-9 flex-none items-center justify-center rounded-lg">
+                  <Briefcase className="h-4.5 w-4.5" aria-hidden="true" />
+                </span>
+                <span className="flex-1">
+                  <span className="flex items-center justify-between gap-2 font-semibold text-ink">
+                    View all jobs
+                    <ArrowRight className="h-4 w-4 text-brand transition group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                  <span className="mt-0.5 block text-sm leading-relaxed text-body">
+                    {realJobs > 0
+                      ? `${realJobs} open ${realJobs === 1 ? "role" : "roles"} at startups across the US`
+                      : "See example listings at startups across the US"}
+                  </span>
+                </span>
+              </Link>
+            </li>
           </ul>
           <p className="mt-8 text-sm text-muted">
             We read every profile. No match today? We&apos;ll keep you in mind for new roles. Read our{" "}
