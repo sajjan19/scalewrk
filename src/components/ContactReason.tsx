@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Select } from "./Form";
+import { Field, Select } from "./Form";
 
 // "I'm reaching out as a" dropdown on the Contact form.
-// Engineers also get the relocation question.
+// Engineers also get the relocation question. "Something else" gets a text box.
 export function ContactReason() {
   const [reason, setReason] = useState("");
   return (
@@ -18,6 +18,9 @@ export function ContactReason() {
       />
       {reason === "Engineer" && (
         <Select label="Open to relocating?" name="relocation" options={["Yes", "Maybe, for the right role", "No"]} />
+      )}
+      {reason === "Something else" && (
+        <Field label="Tell us who you are" name="reason_other" required placeholder="Recruiter, journalist, student, event organizer…" />
       )}
     </>
   );
