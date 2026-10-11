@@ -16,7 +16,8 @@ export function IconBadge({ icon: Icon, size = "md" }: { icon: LucideIcon; size?
   );
 }
 
-export type Step = { icon: LucideIcon; title: string; body: string };
+// `body` can be a sentence or a list of short bullet points
+export type Step = { icon: LucideIcon; title: string; body: string | string[] };
 
 /*
   Numbered steps joined by a line.
@@ -44,7 +45,18 @@ export function StepTimeline({ steps }: { steps: Step[] }) {
           </span>
           <div className="pt-1 lg:pt-0">
             <p className="text-lg font-semibold">{step.title}</p>
-            <p className="mt-1 leading-relaxed text-body">{step.body}</p>
+            {Array.isArray(step.body) ? (
+              <ul className="mt-2 inline-block space-y-1.5 text-left">
+                {step.body.map((point) => (
+                  <li key={point} className="flex gap-2 leading-snug text-body">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-1 leading-relaxed text-body">{step.body}</p>
+            )}
           </div>
         </li>
       ))}

@@ -41,10 +41,10 @@ const stages = [
 ];
 
 const steps = [
-  { icon: Phone, title: "Intro call", body: "20 minutes. Tell us who you need." },
-  { icon: Target, title: "Plan the role", body: "We agree on skills, pay and the pitch together." },
-  { icon: ListChecks, title: "Shortlist", body: "You meet a few great people. No piles of resumes." },
-  { icon: Handshake, title: "Hire", body: "We help with interviews and the offer. You pay only when you hire." },
+  { icon: Phone, title: "Intro call", body: ["20 minutes", "Tell us who you need"] },
+  { icon: Target, title: "Plan the role", body: ["Skills and must-haves", "Pay range", "How we pitch the role"] },
+  { icon: ListChecks, title: "Shortlist", body: ["A few great people", "No piles of resumes"] },
+  { icon: Handshake, title: "Hire", body: ["Help with interviews", "Help with the offer", "You only pay when you hire"] },
 ];
 
 const reasons = [
