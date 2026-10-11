@@ -69,7 +69,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | Fee-per-hire model; exact terms are placeholders | User confirmed fee per hire; numbers TBD |
 | No testimonials, logos, stats, or named partners | Rule: nothing invented. Add real ones when available |
 | TikTok etc. appear only as "Punit has recruited for…" | They're founders' past work, not Scalewrk clients |
-| Home hero card: "What working with us looks like", with a 4-step progress bar per role (the "Example" label was removed at the user's request; the title frames it as an illustration) | Illustrative demo of the process, not real searches. Made clearer after the user asked what it was |
+| Home hero card: "One recruiting partner for every engineering role." at the top, then 4 roles with a 4-step progress bar each (title and "Example" label removed at the user's request) | Illustrative demo of the process, not real searches. Made clearer after the user asked what it was |
 | Bios avoid pronouns | Pronouns not confirmed; safe default |
 | Founder photos shown as supplied (no filter) | User asked to keep Mandeep's photo in color. Punit's original is black and white. Photos are 4:3 on About, served at quality 90 (`images.qualities` in `next.config.ts`) |
 | Cache Components turned off in `next.config.ts` | Site is fully static; the classic model is simpler to edit |
