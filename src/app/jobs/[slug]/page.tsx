@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps<"/jobs/[slug]">) {
   const job = jobs.find((j) => j.slug === slug);
   if (!job) return {};
   return pageMetadata({
-    title: `${job.title} (${job.stage}, ${job.company})`,
+    title: `${job.title} at ${job.companyName} (${job.stage}, ${job.company})`,
     description: job.summary,
     path: `/jobs/${job.slug}`,
     // Example listings are never shown to Google
@@ -47,6 +47,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
   const Icon = role?.icon ?? Briefcase;
 
   const facts = [
+    { icon: Building2, label: "Company", value: job.companyName },
     { icon: TrendingUp, label: "Stage", value: job.stage },
     { icon: MapPin, label: "Location", value: job.location },
     { icon: Briefcase, label: "Work style", value: job.workType },
@@ -82,13 +83,13 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-5xl">{job.title}</h1>
               <p className="mt-2 text-lg text-body">
-                {job.stage} · {job.company}
+                <span className="font-medium text-ink">{job.companyName}</span> · {job.stage} · {job.company}
               </p>
             </div>
           </div>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-body sm:text-xl">{job.summary}</p>
           <div className="mt-6 flex flex-wrap gap-2 text-sm text-body">
-            {facts.slice(1, 4).map((f) => (
+            {facts.slice(2, 5).map((f) => (
               <span key={f.label} className="inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1.5">
                 <f.icon className="h-4 w-4 text-brand" aria-hidden="true" />
                 {f.value}

@@ -81,8 +81,8 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | Plain, simple English with short sentences | User preference. Easier to read fast on a phone |
 | Icons from `lucide-react` (lucide.dev/icons) | More visual and less text. Shared visuals live in `src/components/visuals.tsx` (`IconBadge`, `StepTimeline`, `YesNo`) |
 | Nav: hover = soft purple pill; current page = purple pill + gradient bar (mobile: purple text + dot) | User asked for clearer hover and active states |
-| Job listings describe the company instead of naming it | Keeps clients confidential (standard for recruiters) and avoids inventing company names |
-| 5 EXAMPLE job listings, each labeled "Example listing" and `noindex` | User asked to preview the job board. Fictional, not real openings. Switch off with `showExampleJobs = false` in `jobs.ts` once real jobs exist |
+| Job listings use placeholder names (Company A, B…) plus a description of what the company does | User asked for a company name on each listing. Placeholders avoid inventing real-looking companies; swap in real names when clients agree |
+| 14 EXAMPLE job listings (placeholder names Company A–N), each labeled "Example listing" and `noindex` | User asked to preview the job board. Fictional, not real openings. Switch off with `showExampleJobs = false` in `jobs.ts` once real jobs exist |
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |
@@ -154,7 +154,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Site-wide rewrite in simpler English, no comma before "and". Added icons and visuals: stage cards with typical hires, step timelines (Home, Partners), icon role cards, check/cross comparison (Startups), icon lists (Partners, Engineers, About, /meet). Nav hover and active-page styles.
 - **2026-10-10:** New photo for Mandeep (`public/founders/mandeep-sajjan.jpg`, 1280×960, color). Tip: when replacing a photo, use a new filename so browsers and Vercel don't show the old cached one.
 - **2026-10-10:** Contact form shows "Open to relocating?" when the visitor picks Engineer (`ContactReason.tsx`).
-- **2026-10-10:** Job board: `src/content/jobs.ts`, `JobList.tsx` (role filter dropdown + job count), `/jobs/[slug]` pages, Apply → engineers form with the job prefilled (`AppliedJob.tsx`). Mobile bottom bar says "Apply for this role" on job pages. Founders' location now "Vancouver, Canada".
+- **2026-10-10:** Job board: `src/content/jobs.ts`, `JobList.tsx` (Role, Location and Work style dropdowns, job count, clear filters, "no matches" message; remote jobs count for every location), `/jobs/[slug]` pages, Apply → engineers form with the job prefilled (`AppliedJob.tsx`). Mobile bottom bar says "Apply for this role" on job pages. Founders' location now "Vancouver, Canada".
 - **2026-10-10:** Jobs moved to their own page `/jobs`, added to the menu after For Engineers (menu also highlights Jobs on job detail pages). Added an example Engineering Manager listing. AI/ML icon changed to Sparkles. Tip: if the local preview shows a "Hydration failed" error after edits, restart it; running `npm run build` while it's running makes it stale.
 - **2026-10-10:** Roles page jump bar is now `RoleJumpBar.tsx`: purple chips, faded edges and arrows when there's more to scroll, and the chip for the role on screen is highlighted. Nav order changed to For Startups, For Engineers, Roles, Partners, About.
 - **2026-10-10:** Footer link hover changed from solid blue to the logo gradient (text and icons): `.link-gradient` in `globals.css`, with `#brand-gradient` defined in `Footer.tsx`.
