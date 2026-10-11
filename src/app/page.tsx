@@ -101,9 +101,8 @@ export default function Home() {
               Tech hiring for <span className="text-gradient whitespace-nowrap">venture-backed</span> startups.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
-              Scalewrk is the embedded tech recruiter for founders who need great engineers. We help you hire
-              AI/ML, software, and platform engineers as you grow, and we match engineers with startups where they
-              and the company can both succeed.
+              We help founders hire AI/ML, software, and platform engineers, and help engineers find startups where
+              they can thrive.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
