@@ -55,9 +55,9 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 hover:text-white"
+                  className="inline-flex items-center gap-3 transition-colors hover:text-blue"
                 >
-                  <SocialIcon network={link.network} className="h-4 w-4 transition-colors group-hover:text-blue" />
+                  <SocialIcon network={link.network} className="h-4 w-4" />
                   {link.label}
                 </a>
               </li>
