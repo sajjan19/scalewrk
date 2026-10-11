@@ -48,6 +48,21 @@ body {
   box-shadow: 0 8px 24px -8px rgba(77, 80, 249, 0.6);
 }
 
+/* Footer links: text and icon turn into the logo gradient on hover.
+   Icons use the #brand-gradient defined once in Footer.tsx. */
+.link-gradient:hover {
+  background-image: linear-gradient(90deg, var(--color-violet), var(--color-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.link-gradient:hover svg[fill="currentColor"] {
+  fill: url(#brand-gradient);
+}
+.link-gradient:hover svg[stroke="currentColor"] {
+  stroke: url(#brand-gradient);
+}
+
 /* Visible marker for content we still need to fill in. Search the code for "PLACEHOLDER". */
 .placeholder {
   background: #fff7e6;

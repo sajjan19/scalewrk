@@ -140,6 +140,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Added Instagram and Facebook (placeholder links) to the footer Follow section.
 - **2026-10-10:** Punit's location set to Vancouver.
 - **2026-10-10:** Footer social links now have icons (`src/components/SocialIcons.tsx`). Placeholder phone `(555) 555-0123` added to footer and Contact page (kept out of the vCard and structured data so a fake number isn't saved or indexed).
-- **2026-10-10:** All footer links (company, contact, privacy, email, phone, social) turn logo blue (`#0D6EFD`) on hover. Mail and phone icons added to footer and Contact page.
+- **2026-10-10:** All footer links (company, contact, privacy, email, phone, social) turn logo blue (`#0D6EFD`) on hover. (Later changed to the gradient, see below.) Mail and phone icons added to footer and Contact page.
 - **2026-10-10:** Widened section headings (max-w-4xl) and intro text (max-w-3xl) so headings fit on one line on desktop. Set in `SectionHeading` / `PageHero` in `src/components/ui.tsx`.
 - **2026-10-10:** Every "Book a call" button uses the logo gradient (`.btn-brand` in `globals.css`, `variant="brand"` on `Button`). Other buttons stay ink.
+- **2026-10-10:** Footer link hover changed from solid blue to the logo gradient (text and icons): `.link-gradient` in `globals.css`, with `#brand-gradient` defined in `Footer.tsx`.

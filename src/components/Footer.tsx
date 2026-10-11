@@ -7,6 +7,15 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-ink pb-24 text-white/70 lg:pb-0">
+      {/* Logo gradient for footer icons on hover (see .link-gradient in globals.css) */}
+      <svg width="0" height="0" className="absolute" aria-hidden="true">
+        <defs>
+          <linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#7a2ff5" />
+            <stop offset="1" stopColor="#0d6efd" />
+          </linearGradient>
+        </defs>
+      </svg>
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo light />
@@ -15,14 +24,14 @@ export function Footer() {
           </p>
           <a
             href={`mailto:${site.email}`}
-            className="mt-5 flex w-fit items-center gap-3 text-white transition-colors hover:text-blue"
+            className="mt-5 flex w-fit items-center gap-3 text-white link-gradient"
           >
             <MailIcon className="h-4 w-4" />
             {site.email}
           </a>
           <a
             href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
-            className="mt-3 flex w-fit items-center gap-3 text-white transition-colors hover:text-blue"
+            className="mt-3 flex w-fit items-center gap-3 text-white link-gradient"
           >
             <PhoneIcon className="h-4 w-4" />
             {site.phone}
@@ -34,13 +43,13 @@ export function Footer() {
           <ul className="mt-4 space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="transition-colors hover:text-blue">
+                <Link href={item.href} className="link-gradient">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/contact" className="transition-colors hover:text-blue">
+              <Link href="/contact" className="link-gradient">
                 Contact
               </Link>
             </li>
@@ -63,7 +72,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 transition-colors hover:text-blue"
+                  className="inline-flex items-center gap-3 link-gradient"
                 >
                   <SocialIcon network={link.network} className="h-4 w-4" />
                   {link.label}
@@ -79,7 +88,7 @@ export function Footer() {
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <Link href="/privacy" className="transition-colors hover:text-blue">
+          <Link href="/privacy" className="link-gradient">
             Privacy
           </Link>
         </div>
