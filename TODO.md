@@ -16,7 +16,8 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] **Formspree: Engineers form**: same steps, `forms.engineers`. See "Resume uploads" below.
 - [ ] **LinkedIn company page URL**: `site.ts` → `social.linkedin`. Used in the footer and on /meet.
 - [ ] **X (Twitter) URL**: `site.ts` → `social.x`. Used in the footer.
-- [ ] **Deploy**: import the repo at vercel.com/new, then add `scalewrk.ai` under Project → Settings → Domains.
+- [x] **Deploy to Vercel**: live at https://scalewrk.vercel.app
+- [ ] **Connect domain**: add `scalewrk.ai` under Vercel → Project → Settings → Domains, then update DNS at your registrar
 
 ## Founder info (`src/content/founders.ts`)
 

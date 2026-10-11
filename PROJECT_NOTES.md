@@ -72,6 +72,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | Cache Components turned off in `next.config.ts` | Site is fully static; the classic model is simpler to edit |
 | Vercel Web Analytics | Cookie-free, so no consent banner needed |
 | One social preview image per page (`opengraph-image.tsx`) | Strong, page-specific link cards on LinkedIn, X, and Slack. Generated at build time with Geist fonts from `src/assets/fonts/` |
+| `site.url` comes from Vercel's production domain | Link previews and canonical URLs work on scalewrk.vercel.app now and switch to scalewrk.ai automatically once the domain is added |
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |
@@ -112,6 +113,7 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 - [x] Vercel Web Analytics
 - [x] Checked on mobile (375px) and desktop; production build and lint pass
 - [x] Founder headshots: large photos on About, small avatars in the Home founder strip
+- [x] Live on Vercel: https://scalewrk.vercel.app
 - [x] Pushed to GitHub: https://github.com/sajjan19/scalewrk (`main`)
 
 ### Still a placeholder / next steps
@@ -131,3 +133,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Dummy `PLACEHOLDER` links for Calendly and forms (with `isSet()` fallback); added TODO.md reminders list.
 - **2026-10-10:** Added founder headshots in `public/founders/`; larger photo layout on About; avatars on Home.
 - **2026-10-10:** Mandeep's photo re-cropped wider at full resolution (1500×1125) and shown in color; black-and-white filter removed.
+- **2026-10-10:** Deployed to Vercel (scalewrk.vercel.app). Site URL now follows the Vercel production domain.

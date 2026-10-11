@@ -8,7 +8,11 @@
 export const site = {
   name: "Scalewrk",
   legalName: "Scalewrk Talent",
-  url: "https://scalewrk.ai",
+  // On Vercel this is the live production domain (scalewrk.vercel.app now,
+  // scalewrk.ai once the domain is connected). Locally it falls back to scalewrk.ai.
+  url: process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://scalewrk.ai",
   email: "info@scalewrk.ai",
   tagline: "Tech hiring for venture-backed startups.",
   description:
