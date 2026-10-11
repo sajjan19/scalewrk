@@ -110,6 +110,7 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 - [x] vCard download on /meet (`public/scalewrk.vcf`)
 - [x] Vercel Web Analytics
 - [x] Checked on mobile (375px) and desktop; production build and lint pass
+- [x] Pushed to GitHub: https://github.com/sajjan19/scalewrk (`main`)
 
 ### Still a placeholder (search the code for `PLACEHOLDER`)
 - [ ] Calendly link (`site.ts → calendlyUrl`)
@@ -122,7 +123,6 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 - [ ] Official logo files (SVG) to replace the redrawn mark, if desired
 
 ### Next steps
-- [ ] Push to GitHub (`sajjan19/scalewrk`); needs GitHub auth on this machine
 - [ ] Import the repo into Vercel and add the `scalewrk.ai` domain
 - [ ] Fill placeholders, then test all three forms end to end
 - [ ] Test link previews: LinkedIn Post Inspector, X/Slack share
@@ -141,4 +141,4 @@ Spam: hidden `_gotcha` honeypot field. Each form sends a `_subject` line so emai
 ---
 
 ## 8. Change log
-- **2026-10-10:** Initial build: all pages, components, SEO, social images, forms, and notes.
+- **2026-10-10:** Initial build: all pages, components, SEO, social images, forms, and notes. Pushed to GitHub.
