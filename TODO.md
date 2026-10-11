@@ -47,6 +47,10 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
   - "Hiring office hours or talks" offered to partners (Partners page)
   - "You work directly with a Scalewrk co-founder" (Home, Startups, Partners, About)
 
+## Clients
+
+- [ ] When you have clients who agree to be listed: add them to `src/content/clients.ts` (name, optional logo in `public/clients/`) and set `showClients = true`
+
 ## Jobs board
 
 - [ ] Replace the 5 example listings in `src/content/jobs.ts` with real jobs (set `example: false`), or set `showExampleJobs = false` to hide them

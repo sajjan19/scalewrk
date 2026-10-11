@@ -15,6 +15,7 @@ import {
   TrendingUp,
   UserCheck,
 } from "lucide-react";
+import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
 import { LogoMark } from "@/components/Logo";
 import { Arrow, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
@@ -164,6 +165,10 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* Past employers (founders' experience) and, once real, clients */}
+      <FounderExperienceStrip />
+      <ClientsSection />
 
       {/* Who we work with */}
       <Section>
