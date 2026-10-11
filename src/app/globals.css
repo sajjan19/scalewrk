@@ -35,6 +35,12 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  /* Extra room so the last letter (e.g. "w") isn't clipped by tight headline spacing,
+     without changing the spacing itself */
+  padding-right: 0.08em;
+  margin-right: -0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* "Book a call" buttons: same purple-to-blue gradient as the logo */
