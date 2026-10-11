@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Briefcase, ChevronRight, DollarSign, MapPin } from "lucide-react";
+import { Briefcase, ChevronDown, ChevronRight, DollarSign, MapPin } from "lucide-react";
 import { useState } from "react";
 import { visibleJobs } from "@/content/jobs";
 import { roles } from "@/content/roles";
 
-// Job cards with filter buttons by role type (used on the Roles page)
+// Job cards with a role filter dropdown (used on the Jobs page)
 export function JobList() {
   const [filter, setFilter] = useState("all");
 
@@ -20,23 +20,28 @@ export function JobList() {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by role">
-        {[{ slug: "all", name: "All roles" }, ...filters].map((f) => {
-          const active = filter === f.slug;
-          return (
-            <button
-              key={f.slug}
-              type="button"
-              onClick={() => setFilter(f.slug)}
-              aria-pressed={active}
-              className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition ${
-                active ? "btn-brand" : "bg-brand-soft text-brand-dark ring-1 ring-brand/15 hover:bg-brand/15"
-              }`}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <label className="flex items-center gap-3">
+          <span className="text-sm font-medium whitespace-nowrap">Filter by role</span>
+          <span className="relative w-full sm:w-72">
+            <select
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="w-full cursor-pointer appearance-none rounded-xl border border-brand/20 bg-white py-2.5 pr-10 pl-4 text-[15px] font-medium text-brand-dark shadow-sm transition hover:border-brand/40 focus:border-brand focus:ring-2 focus:ring-brand/20 focus:outline-none"
             >
-              {f.name}
-            </button>
-          );
-        })}
+              <option value="all">All roles</option>
+              {filters.map((f) => (
+                <option key={f.slug} value={f.slug}>
+                  {f.name}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-brand" aria-hidden="true" />
+          </span>
+        </label>
+        <p className="text-sm text-muted" aria-live="polite">
+          {shown.length} {shown.length === 1 ? "job" : "jobs"}
+        </p>
       </div>
 
       <ul className="mt-6 space-y-3">
