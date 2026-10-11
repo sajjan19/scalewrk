@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { AppliedJob } from "@/components/AppliedJob";
 import { Field, FileField, Form, Select, TextArea } from "@/components/Form";
-import { Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
+import { ArrowRight, Briefcase, Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { roles } from "@/content/roles";
+import { visibleJobs } from "@/content/jobs";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -15,6 +16,9 @@ export const metadata = pageMetadata({
     "Looking for an engineering role at a venture-backed startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend and platform engineers across the US.",
   path: "/engineers",
 });
+
+// Only real (non-example) jobs count as open roles
+const realJobs = visibleJobs.filter((j) => !j.example).length;
 
 export default function EngineersPage() {
   return (
@@ -27,6 +31,25 @@ export default function EngineersPage() {
             We work with startups across the US that need great engineers. Share your profile. We&apos;ll reach out when we
             find a startup where you can thrive.
           </p>
+
+          {/* Shortcut to the jobs board */}
+          <Link
+            href="/jobs"
+            className="group mt-6 flex items-center gap-4 rounded-2xl border border-brand/20 bg-brand-soft p-4 transition hover:border-brand/40 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]"
+          >
+            <span className="btn-brand flex h-11 w-11 flex-none items-center justify-center rounded-xl">
+              <Briefcase className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <span className="flex-1">
+              <span className="block font-semibold text-ink">View all jobs</span>
+              <span className="block text-sm text-body">
+                {realJobs > 0
+                  ? `${realJobs} open ${realJobs === 1 ? "role" : "roles"} at startups across the US`
+                  : "See example listings at startups across the US"}
+              </span>
+            </span>
+            <ArrowRight className="h-5 w-5 text-brand transition group-hover:translate-x-1" aria-hidden="true" />
+          </Link>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
               { icon: Eye, text: "The real story up front: stage, team, role and pay" },
