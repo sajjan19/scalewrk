@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  BrainCircuit,
   Building2,
   CircleDollarSign,
   Code2,
@@ -10,6 +9,7 @@ import {
   ListChecks,
   Phone,
   Rocket,
+  Sparkles,
   Sprout,
   Target,
   TrendingUp,
@@ -49,7 +49,7 @@ const steps = [
 
 const reasons = [
   {
-    icon: BrainCircuit,
+    icon: Sparkles,
     title: "Engineers only",
     body: "We only hire engineers. AI and machine learning is our strongest area.",
     versus: "Big agencies hire for every kind of job.",
