@@ -15,11 +15,11 @@ export type Client = { name: string; logo?: string };
 
 export const showClients = false;
 
+// Replace "[Client 1]" etc. with real names (remove the square brackets).
 export const clients: Client[] = [
-  { name: "[PLACEHOLDER: client]" },
-  { name: "[PLACEHOLDER: client]" },
-  { name: "[PLACEHOLDER: client]" },
-  { name: "[PLACEHOLDER: client]" },
-  { name: "[PLACEHOLDER: client]" },
-  { name: "[PLACEHOLDER: client]" },
+  { name: "[Client 1]" },
+  { name: "[Client 2]" },
+  { name: "[Client 3]" },
+  { name: "[Client 4]" },
+  { name: "[Client 5]" },
 ];

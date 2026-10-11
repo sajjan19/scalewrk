@@ -36,9 +36,9 @@ export function ClientsSection() {
           </p>
         )}
         <p className="text-center text-sm font-medium text-muted">Startups we&apos;ve hired for</p>
-        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <ul className="mt-6 flex flex-wrap justify-center gap-3">
           {clients.map((client, i) => (
-            <li key={i} className="flex h-20 items-center justify-center rounded-2xl border border-line bg-white px-4 text-center">
+            <li key={i} className="flex h-20 w-[calc(50%-0.375rem)] items-center justify-center rounded-2xl border border-line bg-white px-4 text-center sm:w-44">
               {client.logo ? (
                 <Image src={client.logo} alt={client.name} width={140} height={40} className="max-h-10 w-auto object-contain" />
               ) : (
