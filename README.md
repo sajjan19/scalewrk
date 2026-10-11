@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# scalewrk.ai
 
-## Getting Started
+Marketing site for Scalewrk, tech recruiting for venture-backed startups. Built with Next.js and Tailwind CSS and deployed on Vercel.
 
-First, run the development server:
+See **[PROJECT_NOTES.md](PROJECT_NOTES.md)** for the plan, design system, decisions, and what's still a placeholder.
+
+## Run it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where to edit things
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| I want to change… | Edit this file |
+|---|---|
+| Calendly link, form endpoints, email, social links | `src/content/site.ts` |
+| Roles we hire | `src/content/roles.ts` |
+| Founder bios, photos, LinkedIn | `src/content/founders.ts` (photos go in `public/founders/`) |
+| Text on a page | `src/app/<page>/page.tsx` (Home is `src/app/page.tsx`) |
+| Page title / Google description | the `pageMetadata({...})` block at the top of each page |
+| Social share image text | `src/app/<page>/opengraph-image.tsx` |
+| Colors | `src/app/globals.css` (`@theme` block) |
+| Header / footer | `src/components/Header.tsx`, `src/components/Footer.tsx` |
 
-## Learn More
+Text inside `[square brackets]` in content files shows up as a highlighted placeholder on the site. Search the code for `PLACEHOLDER` to find everything that still needs filling in.
 
-To learn more about Next.js, take a look at the following resources:
+## Check before pushing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Import the GitHub repo at vercel.com/new (no settings to change), then add the `scalewrk.ai` domain under Project → Settings → Domains.
