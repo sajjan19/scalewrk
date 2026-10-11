@@ -137,3 +137,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Deployed to Vercel (scalewrk.vercel.app). Site URL now follows the Vercel production domain.
 - **2026-10-10:** Rewrote Home "Why Scalewrk" around three differentiators, each contrasted with big agencies.
 - **2026-10-10:** Added Instagram and Facebook (placeholder links) to the footer Follow section.
+- **2026-10-10:** Punit's location set to Vancouver.

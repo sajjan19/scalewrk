@@ -22,7 +22,7 @@ export const founders: Founder[] = [
     title: "Co-founder",
     initials: "PS",
     photo: "/founders/punit.jpg",
-    location: "[PLACEHOLDER: location]",
+    location: "Vancouver",
     bio: [
       "Punit has been in tech recruitment since 2018, hiring engineers for high-growth companies including TikTok and [PLACEHOLDER: other companies].",
       "Years of technical searches have taught Punit what separates a great engineering hire from one that only looks good on paper. That bar comes with every Scalewrk search.",

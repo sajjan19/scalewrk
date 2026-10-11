@@ -24,7 +24,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 ## Founder info (`src/content/founders.ts`)
 
 - [ ] Punit: other companies recruited for (bio line + "Experience recruiting for" list)
-- [ ] Punit: location
+- [x] Punit: location (Vancouver)
 - [ ] Punit: LinkedIn URL
 - [x] Punit: photo (`public/founders/punit.jpg`)
 - [ ] Mandeep: one more bio line about prior roles
