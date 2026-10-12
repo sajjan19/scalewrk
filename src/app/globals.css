@@ -43,6 +43,11 @@ body {
   box-decoration-break: clone;
 }
 
+/* Lighter version of the gradient for text on dark photos (e.g. the New York hero) */
+.text-gradient-light {
+  background-image: linear-gradient(90deg, #b48cff, #6aa8ff);
+}
+
 /* "Book a call" buttons: same purple-to-blue gradient as the logo */
 /* On hover the gradient slides to the reverse (blue to purple) */
 .btn-brand {

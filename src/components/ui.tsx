@@ -99,28 +99,14 @@ export function SectionHeading({
   );
 }
 
-// `visual` (optional) sits at the bottom edge of the hero, e.g. the New York skyline
-export function PageHero({
-  eyebrow,
-  title,
-  intro,
-  children,
-  visual,
-}: {
-  eyebrow: string;
-  title: ReactNode;
-  intro: ReactNode;
-  children?: ReactNode;
-  visual?: ReactNode;
-}) {
+export function PageHero({ eyebrow, title, intro, children }: { eyebrow: string; title: ReactNode; intro: ReactNode; children?: ReactNode }) {
   return (
-    <section className={`border-b border-line pt-12 sm:pt-20 ${visual ? "" : "pb-14 sm:pb-20"}`}>
+    <section className="border-b border-line pt-12 pb-14 sm:pt-20 sm:pb-20">
       <Container>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">{title}</h1>
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-body text-pretty sm:text-xl">{intro}</p>
         {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
-        {visual && <div className="mt-12 sm:mt-16">{visual}</div>}
       </Container>
     </section>
   );

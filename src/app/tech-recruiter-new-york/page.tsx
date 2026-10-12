@@ -1,14 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Building2, CircleDollarSign, MapPin, Plane, Search, UserCheck } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
-import { NewYorkSkyline } from "@/components/Skyline";
-import { Arrow, Button, CalendarIcon, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
+import { Arrow, Button, CalendarIcon, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { visibleJobs } from "@/content/jobs";
 import { pageMetadata } from "@/lib/metadata";
+import nyPhoto from "../../../public/places/new-york.jpg";
 
 /*
   City page for New York (helps startups searching "tech recruiter New York" find us).
@@ -66,23 +67,50 @@ const faqs = [
 export default function NewYorkPage() {
   return (
     <>
-      <PageHero
-        eyebrow="New York"
-        title={
-          <>
-            Tech recruiting for <span className="text-gradient">New York startups</span>.
-          </>
-        }
-        intro="We help New York startups hire great engineers and help engineers find the right New York startup."
-        visual={<NewYorkSkyline />}
-      >
-        <Button href={bookingHref} variant="brand">
-          <CalendarIcon /> Book a call
-        </Button>
-        <Button href={`/jobs?location=${encodeURIComponent(city)}`} variant="secondary">
-          See New York jobs <Arrow />
-        </Button>
-      </PageHero>
+      {/* Hero: photo with the text on top. Photo by Luca Bravo on Unsplash (Unsplash License) */}
+      <section className="relative isolate overflow-hidden bg-ink">
+        <Image
+          src={nyPhoto}
+          alt="The Manhattan skyline at sunset, seen across the water from Brooklyn"
+          fill
+          priority
+          placeholder="blur"
+          sizes="100vw"
+          className="-z-10 object-cover object-[center_40%]"
+        />
+        {/* Dark layer so the white text is easy to read: even on phones, darker on the left on bigger screens */}
+        <div
+          className="absolute inset-0 -z-10 bg-ink/70 sm:bg-transparent sm:bg-gradient-to-r sm:from-ink/90 sm:via-ink/65 sm:to-ink/25"
+          aria-hidden="true"
+        />
+        <Container>
+          <div className="py-20 sm:py-32">
+            <p className="mb-3 text-sm font-medium text-white/80">New York</p>
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance text-white sm:text-6xl">
+              Tech recruiting for <span className="text-gradient text-gradient-light">New York startups</span>.
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-white/85 sm:text-xl">
+              We help New York startups hire great engineers and help engineers find the right New York startup.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href={bookingHref} variant="brand">
+                <CalendarIcon /> Book a call
+              </Button>
+              <Button href={`/jobs?location=${encodeURIComponent(city)}`} variant="light">
+                See New York jobs <Arrow />
+              </Button>
+            </div>
+          </div>
+        </Container>
+        <a
+          href="https://unsplash.com/photos/panoramic-photography-of-brooklyn-bridge-_QdFx92MO2U"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-3 bottom-2 text-[11px] text-white/60 hover:text-white"
+        >
+          Photo: Luca Bravo / Unsplash
+        </a>
+      </section>
 
       {/* How we help */}
       <Section>
