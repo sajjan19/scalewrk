@@ -64,6 +64,31 @@ body {
   }
 }
 
+/* Buttons lift slightly on hover. Add the "lift" class to any button or button-style link. */
+.lift {
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease,
+    background-position 400ms ease;
+}
+.lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -10px rgba(11, 16, 32, 0.45);
+}
+.btn-brand.lift:hover {
+  box-shadow: 0 12px 28px -10px rgba(77, 80, 249, 0.65);
+}
+.lift:active {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift,
+  .lift:hover {
+    transform: none;
+  }
+}
+
 /* Footer links: text and icon turn into the logo gradient on hover.
    Icons use the #brand-gradient defined once in Footer.tsx. */
 .link-gradient:hover {

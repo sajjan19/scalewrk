@@ -82,7 +82,7 @@ export function Form({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 text-[15px] font-medium text-white transition hover:bg-ink/85 disabled:opacity-60 sm:w-auto"
+        className="lift flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 text-[15px] font-medium text-white hover:bg-ink/85 disabled:opacity-60 sm:w-auto"
       >
         {status === "sending" ? (
           "Sending…"

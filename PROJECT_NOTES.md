@@ -53,6 +53,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | `mist` | `#F5F7FB` | Alternating section background |
 | `brand` | `#4F46E5` | Links, eyebrows, focus rings |
 | `.btn-brand` | violet → blue gradient; on hover it slides to blue → violet | All "Book a call" buttons (calendar icon in front, `CalendarIcon` in `ui.tsx`) and other gradient buttons/badges |
+| Button hover | `.lift` class (globals.css): rises 2px with a soft shadow (purple glow on gradient buttons). Used by `Button`, header/phone "Book a call", /meet, form submit buttons. Off for reduced motion | User asked for buttons to pop on hover |
 | Secondary buttons | `ink` (near-black) fill, white text | User's choice. Same size and shape as the gradient "Book a call" buttons (e.g. "Roles we hire", "Meet the founders") |
 | `violet` → `blue` | `#7A2FF5` → `#0D6EFD` | Logo gradient |
 

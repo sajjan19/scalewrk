@@ -46,7 +46,7 @@ export function MobileBookBar() {
       <Link
         href={action?.href ?? bookingHref}
         tabIndex={scrolled ? undefined : -1}
-        className="btn-brand flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium"
+        className="btn-brand lift flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium"
       >
         {action ? (
           <>
