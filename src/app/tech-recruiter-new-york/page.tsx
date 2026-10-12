@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Building2, CircleDollarSign, MapPin, Plane, Search, UserCheck } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
+import { NewYorkSkyline } from "@/components/Skyline";
 import { Arrow, Button, CalendarIcon, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
@@ -73,6 +74,7 @@ export default function NewYorkPage() {
           </>
         }
         intro="We help New York startups hire great engineers and help engineers find the right New York startup."
+        visual={<NewYorkSkyline />}
       >
         <Button href={bookingHref} variant="brand">
           <CalendarIcon /> Book a call

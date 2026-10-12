@@ -189,3 +189,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-11:** About page CTA band body: "Talk with a Scalewrk co-founder."
 - **2026-10-11:** For Startups comparison section eyebrow changed from "Why a specialist" to "Why Scalewrk".
 - **2026-10-11:** Added the New York city page `/tech-recruiter-new-york` (in sitemap, footer link, own OG image). Jobs page now also reads `?location=` to preselect the Location filter. Only add more city pages where Scalewrk really works, with copy specific to that city.
+- **2026-10-11:** New York page hero has an original skyline drawing in the logo gradient (`src/components/Skyline.tsx`: One WTC, Empire State, Chrysler). `PageHero` takes an optional `visual` that sits on the hero's bottom edge.
