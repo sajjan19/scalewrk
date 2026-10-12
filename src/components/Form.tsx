@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
+import { Paperclip, Send } from "lucide-react";
 import { isSet, site } from "@/content/site";
 
 /*
@@ -81,9 +82,16 @@ export function Form({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="flex min-h-12 w-full items-center justify-center rounded-xl bg-ink px-6 text-[15px] font-medium text-white transition hover:bg-ink/85 disabled:opacity-60 sm:w-auto"
+        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 text-[15px] font-medium text-white transition hover:bg-ink/85 disabled:opacity-60 sm:w-auto"
       >
-        {status === "sending" ? "Sending…" : submitLabel}
+        {status === "sending" ? (
+          "Sending…"
+        ) : (
+          <>
+            <Send className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden="true" />
+            {submitLabel}
+          </>
+        )}
       </button>
     </form>
   );
@@ -171,18 +179,28 @@ export function Checkbox({ label, name, required }: { label: string; name: strin
 }
 
 export function FileField({ label, name, accept, hint }: { label: string; name: string; accept: string; hint?: string }) {
+  const [fileName, setFileName] = useState("");
   return (
-    <label className="block">
-      <span className="text-sm font-medium">
+    <div>
+      <span className="block text-sm font-medium">
         {label} <span className="font-normal text-muted">(optional)</span>
       </span>
-      <input
-        type="file"
-        name={name}
-        accept={accept}
-        className="mt-2 block w-full rounded-xl border border-dashed border-line bg-mist px-4 py-4 text-sm text-body file:mr-4 file:rounded-lg file:border-0 file:bg-ink file:px-4 file:py-2 file:text-sm file:font-medium file:text-white"
-      />
+      {/* Custom "Choose file" button (the browser's own button can't show an icon) */}
+      <label className="mt-2 flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-line bg-mist px-4 py-4 transition hover:border-brand/40 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand/40">
+        <span className="inline-flex flex-none items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-white">
+          <Paperclip className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+          Choose file
+        </span>
+        <span className="min-w-0 truncate text-sm text-body">{fileName || "No file chosen"}</span>
+        <input
+          type="file"
+          name={name}
+          accept={accept}
+          className="sr-only"
+          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
+        />
+      </label>
       {hint && <span className="mt-1.5 block text-sm text-muted">{hint}</span>}
-    </label>
+    </div>
   );
 }
