@@ -126,6 +126,36 @@ body {
   display: none;
 }
 
+/* Logo strip that scrolls left to right on its own (Home "Our founders have recruited for").
+   The track holds the logos twice, so moving it by half loops without a jump.
+   Pauses on hover. Stays still for people who turn off motion in their device settings. */
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 30s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Visible marker for content we still need to fill in. Search the code for "PLACEHOLDER". */
 .placeholder {
   background: #fff7e6;

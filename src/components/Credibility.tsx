@@ -4,49 +4,63 @@ import { clients, showClients } from "@/content/clients";
 import { founders } from "@/content/founders";
 import { companyLogos } from "@/content/companyLogos";
 
-// "Our founders have recruited for" strip: past employers, in brand colors (or official logo files)
+// "Our founders have recruited for" strip: past employers in brand colors (or official logo files).
+// The logos scroll left to right in a loop (see .marquee in globals.css).
 export function FounderExperienceStrip() {
   const companies = [...new Set(founders.flatMap((f) => f.experienceAt))];
   if (companies.length === 0) return null;
+  // Repeat the logos so one set is wider than the screen, then show that set twice for a seamless loop
+  const oneSet = Array.from({ length: 4 }, () => companies).flat();
   return (
     <section className="border-b border-line py-8">
-      <Container className="flex flex-col items-center gap-5 text-center lg:flex-row lg:justify-between lg:text-left">
-        <p className="text-sm font-medium text-muted lg:max-w-[14rem]">Our founders have recruited for</p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {companies.map((c, i) => {
-            const logo = companyLogos[c] ?? {};
-            // Official logo file: shown on its own (it already includes the company's typography)
-            if (logo.image) {
-              return (
-                <li key={i}>
-                  <Image src={logo.image} alt={c} width={140} height={36} className="h-8 w-auto object-contain" />
-                </li>
-              );
-            }
-            return (
-              <li key={i} className="flex items-center gap-2.5" style={logo.color ? { color: logo.color } : undefined}>
-                {logo.iconPath ? (
-                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor" aria-hidden="true">
-                    <path d={logo.iconPath} />
-                  </svg>
-                ) : (
-                  <span
-                    className="flex h-7 w-7 items-center justify-center rounded-md border border-dashed border-ink/30 text-xs font-semibold text-ink/60"
-                    title="Placeholder logo"
-                    aria-hidden="true"
-                  >
-                    {c.charAt(0)}
-                  </span>
-                )}
-                <span className={`text-xl font-semibold tracking-tight sm:text-2xl ${logo.color ? "" : "text-ink/60"}`}>
-                  <Text>{c}</Text>
-                </span>
-              </li>
-            );
-          })}
+      <Container className="flex flex-col items-center gap-5 lg:flex-row lg:gap-10">
+        <p className="shrink-0 text-center text-sm font-medium text-muted lg:max-w-[14rem] lg:text-left">Our founders have recruited for</p>
+        {/* Screen readers get the plain list once; the moving logos are just for show */}
+        <ul className="sr-only">
+          {companies.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
         </ul>
+        <div className="marquee w-full min-w-0 flex-1" aria-hidden="true">
+          <div className="marquee-track">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center gap-x-14 pr-14">
+                {oneSet.map((c, i) => (
+                  <CompanyMark key={i} name={c} />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </Container>
     </section>
+  );
+}
+
+// One company: official logo file, or brand symbol + name, or a placeholder letter tile
+function CompanyMark({ name }: { name: string }) {
+  const logo = companyLogos[name] ?? {};
+  if (logo.image) {
+    return <Image src={logo.image} alt="" width={140} height={36} className="h-8 w-auto shrink-0 object-contain" />;
+  }
+  return (
+    <span className="flex shrink-0 items-center gap-2.5" style={logo.color ? { color: logo.color } : undefined}>
+      {logo.iconPath ? (
+        <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
+          <path d={logo.iconPath} />
+        </svg>
+      ) : (
+        <span
+          className="flex h-7 w-7 items-center justify-center rounded-md border border-dashed border-ink/30 text-xs font-semibold text-ink/60"
+          title="Placeholder logo"
+        >
+          {name.charAt(0)}
+        </span>
+      )}
+      <span className={`text-xl font-semibold tracking-tight whitespace-nowrap sm:text-2xl ${logo.color ? "" : "text-ink/60"}`}>
+        <Text>{name}</Text>
+      </span>
+    </span>
   );
 }
 

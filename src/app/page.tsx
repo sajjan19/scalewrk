@@ -20,7 +20,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
-import { Arrow, CalendarIcon, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, CheckList, Container, Section, SectionHeading, Text } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
@@ -36,6 +36,34 @@ export const metadata = pageMetadata({
   path: "/",
   absoluteTitle: true,
 });
+
+// "What we do" section, right under the hero: one card per audience
+const whatWeDo = [
+  {
+    icon: Rocket,
+    audience: "For startups",
+    title: "We hire engineers for you",
+    body: ["We plan the role with you", "We find and screen engineers", "We help you close the offer"],
+    href: "/startups",
+    link: "How we work with startups",
+  },
+  {
+    icon: Code2,
+    audience: "For engineers",
+    title: "We find your next startup",
+    body: ["We learn what you want next", "We match you with startups that fit", "We guide you through every step"],
+    href: "/engineers",
+    link: "How we work with engineers",
+  },
+  {
+    icon: Handshake,
+    audience: "For partners",
+    title: "We help your founders hire",
+    body: ["Send us founders who are hiring", "We help them hire great engineers", "Founders only pay when they hire"],
+    href: "/partners",
+    link: "How we work with partners",
+  },
+];
 
 const stages = [
   { icon: Sprout, name: "Seed", body: "Your first engineers. People who can build anything.", hires: ["Founding engineer", "Full-stack"] },
@@ -172,6 +200,29 @@ export default function Home() {
 
       {/* Past employers (founders' experience) and, once real, clients */}
       <FounderExperienceStrip />
+
+      {/* What we do */}
+      <Section tone="mist">
+        <SectionHeading eyebrow="What we do" title="We bring startups and engineers together" />
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          {whatWeDo.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="lift group flex flex-col rounded-2xl border border-line bg-white p-6 hover:border-brand/30 sm:p-8"
+            >
+              <IconBadge icon={item.icon} size="lg" />
+              <p className="mt-5 text-sm font-medium text-brand">{item.audience}</p>
+              <p className="mt-1 text-xl font-semibold tracking-tight">{item.title}</p>
+              <CheckList items={item.body} className="mt-4" />
+              <span className="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-brand group-hover:text-brand-dark">
+                {item.link} <Arrow />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
       <ClientsSection />
 
       {/* Who we work with */}
