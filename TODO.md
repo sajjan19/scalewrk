@@ -47,6 +47,11 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
   - "Hiring office hours or talks" offered to partners (Partners page)
   - "You work directly with a Scalewrk co-founder" (Home, Startups, Partners, About)
 
+## Company logos (founders' experience strip)
+
+- [ ] Optional: download official logo files (with their typography) from the TikTok, PayPal and Sully.ai press/brand pages, put them in `public/logos/`, and set `image` in `src/content/companyLogos.ts`
+- [ ] Sully.ai logo (currently a placeholder tile)
+
 ## Clients
 
 - [ ] When you have clients who agree to be listed: replace `[Client 1]`… in `src/content/clients.ts` with real names (optional logo in `public/clients/`). The placeholder note disappears automatically
