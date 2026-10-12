@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { CircleDollarSign, Code2, MapPin } from "lucide-react";
-import { CalendarIcon, Container } from "@/components/ui";
+import { Arrow, CalendarIcon, Container } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -73,11 +73,11 @@ export default function MeetPage() {
         <div className="mt-10 grid gap-3 text-[15px] sm:grid-cols-2">
           <Link href="/partners" className="lift rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
             <span className="font-medium">Investor, lawyer, or CFO?</span>
-            <span className="block text-body">Refer your founders →</span>
+            <span className="flex items-center gap-1.5 text-body">Refer your founders <Arrow /></span>
           </Link>
           <Link href="/engineers" className="lift rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
             <span className="font-medium">Engineer?</span>
-            <span className="block text-body">Share your profile →</span>
+            <span className="flex items-center gap-1.5 text-body">Share your profile <Arrow /></span>
           </Link>
         </div>
 

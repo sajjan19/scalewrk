@@ -85,6 +85,23 @@ body {
 .rise:hover {
   transform: translateY(-2px);
 }
+
+/* Arrows in links and buttons nudge right on hover (the link itself stays put) */
+.arrow {
+  transition: transform 150ms ease;
+}
+a:hover .arrow,
+button:hover .arrow,
+.group:hover .arrow {
+  transform: translateX(3px);
+}
+/* "Back" arrows nudge left instead */
+.arrow-back {
+  transition: transform 150ms ease;
+}
+a:hover .arrow-back {
+  transform: translateX(-3px);
+}
 .lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px -10px rgba(11, 16, 32, 0.45);
@@ -98,7 +115,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .lift,
   .lift:hover,
-  .rise:hover {
+  .rise:hover,
+  a:hover .arrow,
+  button:hover .arrow,
+  .group:hover .arrow,
+  a:hover .arrow-back {
     transform: none;
   }
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { bookingHref, nav, type NavItem } from "@/content/site";
 import { Logo } from "./Logo";
@@ -30,50 +30,19 @@ export function Header() {
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
             const active = isActive(item, pathname);
-            const link = (
+            if (item.children) return <DropdownMenu key={item.href} item={item} pathname={pathname} active={active} />;
+            return (
               <Link
+                key={item.href}
                 href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className={`rise relative inline-flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] ${
+                aria-current={active ? "page" : undefined}
+                className={`rise relative rounded-lg px-3 py-2 text-[15px] ${
                   active ? "font-medium text-brand" : "text-body hover:text-brand"
                 }`}
               >
                 {item.label}
-                {item.children && (
-                  <ChevronDown className="h-4 w-4 transition group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true" />
-                )}
-                {/* Gradient bar under the page you're on */}
-                {active && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-3 -bottom-[13px] h-0.5 rounded-full bg-gradient-to-r from-violet to-blue"
-                  />
-                )}
+                {active && <ActiveBar />}
               </Link>
-            );
-            if (!item.children) return <span key={item.href}>{link}</span>;
-            // Dropdown: opens on hover or keyboard focus
-            return (
-              <div key={item.href} className="group relative">
-                {link}
-                <div className="invisible absolute top-full left-1/2 z-50 w-52 -translate-x-1/2 pt-3 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <ul className="rounded-xl bg-white p-1.5 shadow-lg ring-1 ring-line">
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          aria-current={pathname === child.href ? "page" : undefined}
-                          className={`block rounded-lg px-3 py-2 text-[15px] hover:bg-brand-soft hover:text-brand-dark ${
-                            pathname === child.href ? "font-medium text-brand" : "text-body"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
             );
           })}
           <Link href={bookingHref} className="btn-brand lift ml-3 inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[15px] font-medium">
@@ -99,41 +68,28 @@ export function Header() {
         <nav id="mobile-menu" aria-label="Main" className="border-t border-line bg-white px-5 pb-6 lg:hidden">
           <ul className="divide-y divide-line">
             {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item: NavItem) => {
-              const active = pathname === item.href;
-              // Sub-links (e.g. Mission & Vision under About), skipping the one that repeats the main link
-              const subLinks = (item.children ?? []).filter((c) => c.href !== item.href);
+              // An item with sub-pages (About) is a label with its links underneath
+              const links = item.children ?? [{ href: item.href, label: item.label }];
               return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpenOn(null)}
-                    aria-current={active ? "page" : undefined}
-                    className={`rise flex items-center justify-between py-4 text-lg font-medium ${active ? "text-brand" : "hover:text-brand"}`}
-                  >
-                    {item.label}
-                    {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />}
-                  </Link>
-                  {subLinks.length > 0 && (
-                    <ul className="-mt-2 mb-3 space-y-1 border-l-2 border-brand/20 pl-4">
-                      {subLinks.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            onClick={() => setOpenOn(null)}
-                            aria-current={pathname === child.href ? "page" : undefined}
-                            className={`rise flex items-center justify-between py-1.5 text-base ${
-                              pathname === child.href ? "font-medium text-brand" : "text-body hover:text-brand"
-                            }`}
-                          >
-                            {child.label}
-                            {pathname === child.href && (
-                              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
-                            )}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                <li key={item.href} className={item.children ? "py-3" : ""}>
+                  {item.children && <p className="pt-1 pb-1 text-sm font-medium text-muted">{item.label}</p>}
+                  {links.map((link) => {
+                    const active = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpenOn(null)}
+                        aria-current={active ? "page" : undefined}
+                        className={`rise flex items-center justify-between text-lg font-medium ${item.children ? "py-2" : "py-4"} ${
+                          active ? "text-brand" : "hover:text-brand"
+                        }`}
+                      >
+                        {link.label}
+                        {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />}
+                      </Link>
+                    );
+                  })}
                 </li>
               );
             })}
@@ -144,5 +100,77 @@ export function Header() {
         </nav>
       )}
     </header>
+  );
+}
+
+// Gradient bar under the menu item for the page you're on
+function ActiveBar() {
+  return <span aria-hidden="true" className="absolute inset-x-3 -bottom-[13px] h-0.5 rounded-full bg-gradient-to-r from-violet to-blue" />;
+}
+
+// A top-menu item with sub-pages (e.g. About → Our Team, Mission & Vision).
+// Clicking or tapping opens the list (it doesn't go to a page itself). It also opens on hover with a mouse.
+// Closes when you pick a page, click outside or press Escape.
+function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: string; active: boolean }) {
+  // Remembers which page it was opened on, so it closes itself after navigating
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
+  const box = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (!box.current?.contains(e.target as Node)) setOpenOn(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenOn(null);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const menuId = `menu-${item.label.toLowerCase()}`;
+  return (
+    <div ref={box} className="group relative">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={() => setOpenOn(open ? null : pathname)}
+        className={`rise relative inline-flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] ${
+          active ? "font-medium text-brand" : "text-body hover:text-brand"
+        }`}
+      >
+        {item.label}
+        <ChevronDown className={`h-4 w-4 transition group-hover:rotate-180 ${open ? "rotate-180" : ""}`} aria-hidden="true" />
+        {active && <ActiveBar />}
+      </button>
+      <div
+        id={menuId}
+        className={`absolute top-full left-1/2 z-50 w-52 -translate-x-1/2 pt-3 transition ${
+          open ? "visible opacity-100" : "invisible opacity-0 group-hover:visible group-hover:opacity-100"
+        }`}
+      >
+        <ul className="rounded-xl bg-white p-1.5 shadow-lg ring-1 ring-line">
+          {item.children?.map((child) => (
+            <li key={child.href}>
+              <Link
+                href={child.href}
+                aria-current={pathname === child.href ? "page" : undefined}
+                className={`block rounded-lg px-3 py-2 text-[15px] hover:bg-brand-soft hover:text-brand-dark ${
+                  pathname === child.href ? "font-medium text-brand" : "text-body"
+                }`}
+              >
+                {child.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

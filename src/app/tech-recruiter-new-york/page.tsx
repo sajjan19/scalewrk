@@ -135,7 +135,7 @@ export default function NewYorkPage() {
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" />
-          <Link href="/roles" className="rise inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
+          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
             See all {roles.length} roles <Arrow />
           </Link>
         </div>
@@ -149,7 +149,7 @@ export default function NewYorkPage() {
                 <IconBadge icon={role.icon} />
                 <span className="flex min-w-0 flex-1 items-center justify-between gap-2 font-semibold">
                   {role.name}
-                  <span className="text-muted transition group-hover:translate-x-0.5 group-hover:text-brand">
+                  <span className="text-muted transition-colors group-hover:text-brand">
                     <Arrow />
                   </span>
                 </span>
@@ -163,7 +163,7 @@ export default function NewYorkPage() {
       <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Jobs" title="New York startups hiring now" />
-          <Link href="/jobs" className="rise inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
+          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
             View all jobs <Arrow />
           </Link>
         </div>

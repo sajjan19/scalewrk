@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { AppliedJob } from "@/components/AppliedJob";
 import { PrimaryRole } from "@/components/PrimaryRole";
 import { Field, FileField, Form, Select, TextArea } from "@/components/Form";
-import { ArrowRight, Briefcase, Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
-import { Container, Eyebrow } from "@/components/ui";
+import { Briefcase, Eye, Lock, MapPin, MessageSquare, Target } from "lucide-react";
+import { Arrow, Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { visibleJobs } from "@/content/jobs";
@@ -59,7 +59,9 @@ export default function EngineersPage() {
                 <span className="flex-1">
                   <span className="flex items-center justify-between gap-2 font-semibold text-ink">
                     View all jobs
-                    <ArrowRight className="h-4 w-4 text-brand transition group-hover:translate-x-1" aria-hidden="true" />
+                    <span className="text-brand">
+                      <Arrow />
+                    </span>
                   </span>
                   <span className="mt-0.5 block text-sm leading-relaxed text-body">
                     {realJobs > 0

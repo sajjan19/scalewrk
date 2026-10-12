@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { visibleJobs } from "@/content/jobs";
 import { roles } from "@/content/roles";
 import { JobCard } from "./JobCard";
+import { Arrow } from "./ui";
 
 // Job cards with Role, Location and Work style filters (used on the Jobs page)
 export function JobList() {
@@ -103,9 +104,9 @@ export function JobList() {
           </div>
           <Link
             href="/engineers#apply"
-            className="rise mt-4 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark sm:mt-0 sm:shrink-0"
+            className="mt-4 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark sm:mt-0 sm:shrink-0"
           >
-            Share your profile <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            Share your profile <Arrow />
           </Link>
         </div>
       )}

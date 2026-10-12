@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Section, SectionHeading } from "./ui";
+import { Arrow, Section, SectionHeading } from "./ui";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 import { visibleTestimonials } from "@/content/testimonials";
 
@@ -20,8 +20,8 @@ export function Testimonials() {
       </div>
       <p className="mt-8 text-body">
         Worked with us?{" "}
-        <Link href="/testimonial" className="rise inline-block font-medium text-brand hover:text-brand-dark">
-          Share your experience →
+        <Link href="/testimonial" className="inline-flex items-center gap-1.5 font-medium text-brand transition-colors hover:text-brand-dark">
+          Share your experience <Arrow />
         </Link>
       </p>
     </Section>
