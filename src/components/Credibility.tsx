@@ -14,9 +14,7 @@ export function FounderExperienceStrip() {
   return (
     <section className="border-b border-line py-8">
       <Container>
-        {/* No visible label (the user's choice). Screen readers still hear what the logos mean,
-            and get the plain list once; the moving logos are just for show. */}
-        <p className="sr-only">Our founders have recruited for</p>
+        {/* Screen readers get the plain list once; the moving logos are just for show */}
         <ul className="sr-only">
           {companies.map((c) => (
             <li key={c}>{c}</li>
@@ -33,6 +31,8 @@ export function FounderExperienceStrip() {
             ))}
           </div>
         </div>
+        {/* Small caption so the logos don't read as clients: these are where the team has recruited */}
+        <p className="mt-4 text-center text-xs text-muted">Where our team has recruited</p>
       </Container>
     </section>
   );

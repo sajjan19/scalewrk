@@ -85,3 +85,4 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
 - [ ] Decide final team titles with Punit (now: Punit "Co-founder and CEO", Mandeep "Co-founder"). If Mandeep's title changes, the "co-founder" wording across the site needs updating too (`src/content/founders.ts`).
+- [ ] Approve the mission and vision wording with Punit (`src/app/mission/page.tsx`)

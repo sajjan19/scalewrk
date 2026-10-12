@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 import { jobs } from "@/content/jobs";
 
 // /meet is left out on purpose: it's the event QR-code page, not for search.
-const routes = ["", "/startups", "/jobs", "/roles", "/partners", "/engineers", "/about", "/tech-recruiter-new-york", "/contact", "/privacy"];
+const routes = ["", "/startups", "/jobs", "/roles", "/partners", "/engineers", "/about", "/mission", "/tech-recruiter-new-york", "/contact", "/privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Real job listings only (example listings are hidden from Google)

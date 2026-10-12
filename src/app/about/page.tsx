@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CircleDollarSign, Code2, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
-import { Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { Arrow, Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
 import { bookingHref, isSet, site } from "@/content/site";
 import { founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
@@ -52,7 +52,11 @@ export default function AboutPage() {
           </>
         }
         intro="We meet founders and engineers at tech events, through our network and online. Then we bring the right people together."
-      />
+      >
+        <Button href="/mission" variant="secondary">
+          Our mission and vision <Arrow />
+        </Button>
+      </PageHero>
 
       {/* Quick facts */}
       <section className="border-b border-line bg-mist py-6">
