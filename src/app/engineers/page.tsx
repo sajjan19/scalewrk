@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Startup Jobs for Engineers",
   description:
-    "Looking for an engineering role at a venture-backed startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend and platform engineers across the US and Canada.",
+    "Looking for an engineering role at a growing startup? Share your LinkedIn or resume with Scalewrk. We hire AI/ML, backend, full-stack, frontend and platform engineers across the US and Canada.",
   path: "/engineers",
 });
 

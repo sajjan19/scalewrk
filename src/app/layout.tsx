@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Scalewrk | Startup Tech Recruiter for Venture-Backed Startups",
+    default: "Scalewrk | Startup Tech Recruiter for Growing Companies",
     template: "%s | Scalewrk",
   },
   description: site.description,

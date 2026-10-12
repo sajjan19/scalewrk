@@ -20,7 +20,7 @@ export function Footer() {
         <div>
           <Logo light />
           <p className="mt-4 max-w-xs leading-relaxed">
-            Tech recruiting for venture-backed startups across the US and Canada, from seed through Series C and beyond.
+            Tech recruiting for growing startups across the US and Canada, from seed through Series C and beyond.
           </p>
           <a
             href={`mailto:${site.email}`}

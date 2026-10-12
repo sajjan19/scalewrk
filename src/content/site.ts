@@ -16,9 +16,9 @@ export const site = {
   email: "info@scalewrk.ai",
   // PLACEHOLDER: fake number (555-01xx numbers are reserved for fiction). Replace with your real one.
   phone: "(555) 555-0123",
-  tagline: "Tech hiring for venture-backed startups.",
+  tagline: "Tech hiring for growing startups.",
   description:
-    "Scalewrk is a startup tech recruiter for venture-backed companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C and beyond.",
+    "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C and beyond.",
 
   // PLACEHOLDER: replace with your real Calendly event link,
   // e.g. "https://calendly.com/scalewrk/intro-call"

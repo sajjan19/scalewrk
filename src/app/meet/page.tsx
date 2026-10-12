@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Great meeting you",
   description:
-    "Scalewrk is the tech recruiter for venture-backed startups. Book a 20-minute call.",
+    "Scalewrk is the tech recruiter for growing startups. Book a 20-minute call.",
   path: "/meet",
   noindex: true,
 });
@@ -27,7 +27,7 @@ export default function MeetPage() {
           Great meeting <span className="text-gradient">you.</span>
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-body">
-          We&apos;re the tech recruiter for venture-backed startups. When you&apos;re ready to hire engineers, we&apos;re ready to help.
+          We&apos;re the tech recruiter for growing startups. When you&apos;re ready to hire engineers, we&apos;re ready to help.
         </p>
 
         <ul className="mt-6 space-y-3">

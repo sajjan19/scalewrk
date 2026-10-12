@@ -17,9 +17,9 @@ import { bookingHref } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Technical Recruiter for Venture-Backed Startups",
+  title: "Technical Recruiter for Growing Startups",
   description:
-    "An embedded technical recruiter for venture-backed startups, seed to Series C+. We only hire engineers and you only pay when you hire.",
+    "An embedded technical recruiter for growing startups, seed to Series C+. We only hire engineers and you only pay when you hire.",
   path: "/startups",
 });
 

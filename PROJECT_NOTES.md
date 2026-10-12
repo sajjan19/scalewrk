@@ -8,7 +8,7 @@ _Last updated: 2026-10-10_
 
 ## 1. Approved plan (summary)
 
-Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalewrk.ai**): a tech recruiting firm for venture-backed startups in the US and Canada, seed through Series C+. (Originally US-only; Canada added 2026-10-11 at the user's request.)
+Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalewrk.ai**): a tech recruiting firm for growing startups in the US and Canada, seed through Series C+. (Originally US-only; Canada added 2026-10-11 at the user's request.)
 
 **Audiences, in priority order**
 1. US startup founders/CEOs checking us out on their phone after an event, a LinkedIn/X post, or outreach. They should get it in 5 seconds and book in one tap.
@@ -90,10 +90,10 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |
-| Hero headline "Tech hiring for venture-backed startups." | User choice |
+| Hero headline "Tech hiring for growing startups." (was "venture-backed") | User choice. Changed 2026-10-11 because some clients are funded by angels, grants or revenue, not VCs. "venture-backed" was replaced everywhere, including Google titles |
 
 ### SEO targets
-"startup tech recruiter" (Home title/description), "technical recruiter for venture-backed startups" (`/startups` title), "AI engineer recruiting for startups" (`/roles` title/description). Titles and descriptions are set per page with `pageMetadata()` in `src/lib/metadata.ts`.
+"startup tech recruiter" (Home title/description), "technical recruiter for growing startups" (`/startups` title; originally "venture-backed", changed at the user's request), "AI engineer recruiting for startups" (`/roles` title/description). Titles and descriptions are set per page with `pageMetadata()` in `src/lib/metadata.ts`.
 
 ---
 

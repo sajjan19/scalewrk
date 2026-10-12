@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "AI Engineer Recruiting and Tech Roles We Hire",
   description:
-    "AI engineer recruiting for startups, plus backend, full-stack, frontend, DevOps, data, mobile, security and engineering leadership roles for venture-backed companies.",
+    "AI engineer recruiting for startups, plus backend, full-stack, frontend, DevOps, data, mobile, security and engineering leadership roles for growing startups.",
   path: "/roles",
 });
 
@@ -24,7 +24,7 @@ export default function RolesPage() {
             Engineers for your <span className="text-gradient">whole stack</span>.
           </>
         }
-        intro="We only hire engineers for venture-backed startups. Here's who we hire and what we look for."
+        intro="We only hire engineers for growing startups. Here's who we hire and what we look for."
       >
         <Button href={bookingHref} variant="brand">
           Hire for a role <Arrow />

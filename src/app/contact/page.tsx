@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Book a Call",
   description:
-    "Book a 20-minute call with Scalewrk, the startup tech recruiter for venture-backed companies. Talk through the engineers you need to hire.",
+    "Book a 20-minute call with Scalewrk, the startup tech recruiter for growing companies. Talk through the engineers you need to hire.",
   path: "/contact",
 });
 

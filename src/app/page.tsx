@@ -28,9 +28,9 @@ import { founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Scalewrk | Startup Tech Recruiter for Venture-Backed Startups",
+  title: "Scalewrk | Startup Tech Recruiter for Growing Companies",
   description:
-    "Scalewrk is a startup tech recruiter for venture-backed companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C+.",
+    "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C+.",
   path: "/",
   absoluteTitle: true,
 });
@@ -100,7 +100,7 @@ export default function Home() {
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
             <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-              Tech hiring for <span className="text-gradient whitespace-nowrap">venture-backed</span> startups.
+              Tech hiring for <span className="text-gradient">growing</span> startups.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               We help founders hire engineers for every role, from AI/ML to DevOps. We also help engineers find
