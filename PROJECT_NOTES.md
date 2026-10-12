@@ -36,7 +36,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/testimonial` | Form for clients, engineers and partners to send a testimonial (type, name, title, company, quote, rating, how to credit, permission checkbox) | Footer ("Leave a testimonial") + Home testimonials section | **No** (`noindex`) |
 | `/privacy` | Short privacy note (needs legal review) | Footer | Yes |
 
-Every "Book a call" button links to `/contact#book`. On phones, a sticky "Book a 20-minute call" bar sits at the bottom of every page except `/contact`, `/meet`, and `/engineers`.
+Every "Book a call" button links to `/contact#book`. On phones, a sticky "Book a call" bar slides up once you start scrolling and hides at the top of the page (not shown on `/contact`, `/meet`, `/engineers`, `/testimonial`; job pages say "Apply for this role", `/jobs` says "Share your profile").
 
 ---
 
