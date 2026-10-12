@@ -51,7 +51,7 @@ export default function AboutPage() {
             <span className="text-gradient">Meet the team</span> that matches startups and engineers.
           </>
         }
-        intro="We meet founders at tech events and learn what they're building. We get to know engineers and what they want next. Then we bring the right people together."
+        intro="We meet founders and engineers at tech events, through our network and online. Then we bring the right people together."
       />
 
       {/* Quick facts */}
