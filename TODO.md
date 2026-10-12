@@ -50,7 +50,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] **Promises in the copy**: keep or soften each one:
   - "We reply within one business day" (Contact and Partners pages)
   - "Hiring office hours or talks" offered to partners (Partners page)
-  - "Punit or Mandeep works with you from the first call to the signed offer" / "No hand-offs" (Home, Startups, Partners, New York)
+  - "You work directly with a Scalewrk co-founder" (Home, Startups, Partners, About)
 
 ## Company logos (founders' experience strip)
 
@@ -84,3 +84,4 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Make a QR code pointing to `https://scalewrk.ai/meet` for events
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
+- [ ] Decide final team titles with Punit (now: Punit "Co-founder and CEO", Mandeep "Co-founder"). If Mandeep's title changes, the "co-founder" wording across the site needs updating too (`src/content/founders.ts`).

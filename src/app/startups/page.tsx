@@ -45,11 +45,11 @@ const comparison: { label: string; values: [boolean, string][] }[] = [
     ],
   },
   {
-    label: "Who runs your search",
+    label: "A senior person runs your search",
     values: [
       [false, "Often the founders"],
       [false, "Often a junior recruiter"],
-      [true, "Punit or Mandeep, start to finish"],
+      [true, "A Scalewrk co-founder"],
     ],
   },
   {

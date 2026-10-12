@@ -4,14 +4,14 @@ import { clients, showClients } from "@/content/clients";
 import { founders } from "@/content/founders";
 import { companyLogos } from "@/content/companyLogos";
 
-// "Our founder has recruited for" strip: past employers, in brand colors (or official logo files)
+// "Our founders have recruited for" strip: past employers, in brand colors (or official logo files)
 export function FounderExperienceStrip() {
   const companies = [...new Set(founders.flatMap((f) => f.experienceAt))];
   if (companies.length === 0) return null;
   return (
     <section className="border-b border-line py-8">
       <Container className="flex flex-col items-center gap-5 text-center lg:flex-row lg:justify-between lg:text-left">
-        <p className="text-sm font-medium text-muted lg:max-w-[14rem]">Our founder has recruited for</p>
+        <p className="text-sm font-medium text-muted lg:max-w-[14rem]">Our founders have recruited for</p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
           {companies.map((c, i) => {
             const logo = companyLogos[c] ?? {};
