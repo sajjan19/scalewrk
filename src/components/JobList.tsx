@@ -10,12 +10,16 @@ import { JobCard } from "./JobCard";
 
 // Job cards with Role, Location and Work style filters (used on the Jobs page)
 export function JobList() {
-  // A link like /jobs?role=backend opens with that role already selected
-  const initialRole = useSearchParams().get("role");
+  // A link like /jobs?role=backend or /jobs?location=New York, NY opens with that filter already selected
+  const params = useSearchParams();
+  const initialRole = params.get("role");
+  const initialLocation = params.get("location");
   const [role, setRole] = useState(
     initialRole && visibleJobs.some((j) => j.role === initialRole) ? initialRole : "all",
   );
-  const [location, setLocation] = useState("all");
+  const [location, setLocation] = useState(
+    initialLocation && visibleJobs.some((j) => j.location === initialLocation) ? initialLocation : "all",
+  );
   const [workType, setWorkType] = useState("all");
 
   // Build filter options from the jobs, so we never offer an option with no jobs

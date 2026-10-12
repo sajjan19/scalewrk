@@ -27,6 +27,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/startups` | For founders: 6-step process, in-house vs. agency vs. Scalewrk comparison, fee-per-hire engagement model (pricing placeholders), FAQ | Yes | Yes |
 | `/jobs` | Jobs board with filters (from `src/content/jobs.ts`) + "share your profile" prompt | Yes | Yes |
 | `/roles` | Link to /jobs, then 20 role families (9 marked `featured` show on Home) with top 3 common titles, key skills, "what we look for", a "Hire for [role name]" button, "See open jobs for [role name]" (links to /jobs?role=slug) or "Share your profile" when the role has no jobs, and an open jobs count (real jobs only); jump links | Yes | Yes |
+| `/tech-recruiter-new-york` | City page for New York startups (SEO): how we help, featured roles, New York jobs (location "New York, NY"), engineer block, FAQ. Linked from the footer | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
 | `/about` | Headline "Meet the team that matches startups and engineers", quick facts strip (Founded 2026, Vancouver, US and Canada, engineers only, fee per hire), founder cards (Punit first) with bio, experience, outside-of-work tags and a "Book a call with …" button, values | Yes | Yes |
@@ -187,3 +188,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-11:** Bottom CTA band default copy: "Ready to grow your team?" / "Tell us what you're building and we'll help you find the engineers to build it."
 - **2026-10-11:** About page CTA band body: "Talk with a Scalewrk co-founder."
 - **2026-10-11:** For Startups comparison section eyebrow changed from "Why a specialist" to "Why Scalewrk".
+- **2026-10-11:** Added the New York city page `/tech-recruiter-new-york` (in sitemap, footer link, own OG image). Jobs page now also reads `?location=` to preselect the Location filter. Only add more city pages where Scalewrk really works, with copy specific to that city.

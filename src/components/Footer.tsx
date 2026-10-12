@@ -54,6 +54,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/tech-recruiter-new-york" className="rise inline-block text-white link-gradient">
+                New York
+              </Link>
+            </li>
+            <li>
               <Link href="/testimonial" className="rise inline-block text-white link-gradient">
                 Leave a testimonial
               </Link>
