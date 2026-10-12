@@ -39,22 +39,22 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-sm font-medium text-white">Company</p>
+          <p className="text-sm font-medium text-white/60">Company</p>
           <ul className="mt-4 space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="rise inline-block link-gradient">
+                <Link href={item.href} className="rise inline-block text-white link-gradient">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/contact" className="rise inline-block link-gradient">
+              <Link href="/contact" className="rise inline-block text-white link-gradient">
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/testimonial" className="rise inline-block link-gradient">
+              <Link href="/testimonial" className="rise inline-block text-white link-gradient">
                 Leave a testimonial
               </Link>
             </li>
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-sm font-medium text-white">Follow</p>
+          <p className="text-sm font-medium text-white/60">Follow</p>
           <ul className="mt-4 space-y-3">
             {(
               [
@@ -77,7 +77,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rise inline-flex items-center gap-3 link-gradient"
+                  className="rise inline-flex items-center gap-3 text-white link-gradient"
                 >
                   <SocialIcon network={link.network} className="h-4 w-4" />
                   {link.label}
