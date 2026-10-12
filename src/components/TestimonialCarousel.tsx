@@ -101,8 +101,17 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
         ))}
       </ul>
 
-      {/* Dots and arrows */}
-      <div className="mt-6 flex items-center justify-between gap-4">
+      {/* Previous arrow, dots, next arrow (centered) */}
+      <div className="mt-6 flex items-center justify-center gap-4">
+        <button
+          type="button"
+          onClick={() => move(-1)}
+          disabled={!canPrev}
+          aria-label="Previous testimonial"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand shadow-sm ring-1 ring-line transition hover:ring-brand/40 disabled:opacity-40"
+        >
+          <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+        </button>
         <div className="flex gap-2">
           {Array.from({ length: stops }, (_, i) => (
             <button
@@ -115,26 +124,15 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
             />
           ))}
         </div>
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => move(-1)}
-            disabled={!canPrev}
-            aria-label="Previous testimonial"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand shadow-sm ring-1 ring-line transition hover:ring-brand/40 disabled:opacity-40"
-          >
-            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            onClick={() => move(1)}
-            disabled={!canNext}
-            aria-label="Next testimonial"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand shadow-sm ring-1 ring-line transition hover:ring-brand/40 disabled:opacity-40"
-          >
-            <ChevronRight className="h-5 w-5" aria-hidden="true" />
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => move(1)}
+          disabled={!canNext}
+          aria-label="Next testimonial"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand shadow-sm ring-1 ring-line transition hover:ring-brand/40 disabled:opacity-40"
+        >
+          <ChevronRight className="h-5 w-5" aria-hidden="true" />
+        </button>
       </div>
     </div>
   );
