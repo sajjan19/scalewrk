@@ -211,7 +211,7 @@ export default function PartnersPage() {
           <SectionHeading
             eyebrow="Become a partner"
             title="Let's talk"
-            intro="Let's find out how we can help your founders hire. Send a note or book a call."
+            intro="See how we can help your founders hire. Send a note or book a call."
           />
           <div className="rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
             <Form
