@@ -56,7 +56,7 @@ export default function ContactPage() {
           <div>
             <h2 className="text-3xl font-semibold tracking-tight">Other ways to reach us</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Send a message below, or email or call us:
+              Reach us by email or phone, or send a quick message with the form.
             </p>
             <div className="mt-6 space-y-2 text-lg">
               <a href={`mailto:${site.email}`} className="rise flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">
