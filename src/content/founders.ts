@@ -50,7 +50,7 @@ export const founders: Founder[] = [
   },
   {
     name: "Mandeep Sajjan",
-    title: "Sales and Technical Recruiting",
+    title: "Sales and Technical Recruiter",
     initials: "MS",
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",
