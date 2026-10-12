@@ -46,6 +46,7 @@ const organizationJsonLd = {
   "@type": "EmploymentAgency",
   name: site.name,
   legalName: site.legalName,
+  foundingDate: String(site.founded),
   url: site.url,
   email: site.email,
   logo: `${site.url}/icon.svg`,

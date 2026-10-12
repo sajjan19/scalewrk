@@ -33,6 +33,10 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Mandeep: LinkedIn URL
 - [x] Mandeep: photo (`public/founders/mandeep.jpg`)
 
+## Founder booking links (optional)
+
+- [ ] Personal Calendly links for Punit and Mandeep: `calendlyUrl` in `src/content/founders.ts` (until then, both About buttons use the shared calendar)
+
 ## Pricing (`src/app/startups/page.tsx` → Engagement model)
 
 - [ ] Fee (e.g. X% of first-year base salary)

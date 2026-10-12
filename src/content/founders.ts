@@ -5,6 +5,9 @@
   Text inside [square brackets] renders as a highlighted PLACEHOLDER on the site.
 */
 
+import type { LucideIcon } from "lucide-react";
+import { Dog, Dumbbell, HandFist, Mountain, Plane, Sunset, Trophy, UtensilsCrossed } from "lucide-react";
+
 export type Founder = {
   name: string;
   title: string;
@@ -15,6 +18,8 @@ export type Founder = {
   experienceAt: string[]; // companies they recruited for (also shown on the Home strip)
   previouslyAt?: string[]; // companies they worked at in other roles (About page only)
   linkedin: string;
+  calendlyUrl: string; // their own booking link; while it says PLACEHOLDER, the button uses the shared calendar
+  outsideWork: { icon: LucideIcon; label: string }[]; // "Outside of work" tags on the About card
 };
 
 export const founders: Founder[] = [
@@ -30,6 +35,13 @@ export const founders: Founder[] = [
     ],
     experienceAt: ["TikTok", "PayPal", "Sully.ai"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
+    calendlyUrl: "https://calendly.com/PLACEHOLDER",
+    outsideWork: [
+      { icon: Dumbbell, label: "Gym" },
+      { icon: Dog, label: "Ducky the dog" },
+      { icon: Plane, label: "Travel" },
+      { icon: UtensilsCrossed, label: "Trying new food" },
+    ],
   },
   {
     name: "Mandeep Sajjan",
@@ -44,5 +56,15 @@ export const founders: Founder[] = [
     experienceAt: [],
     previouslyAt: ["Apple"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
+    calendlyUrl: "https://calendly.com/PLACEHOLDER",
+    outsideWork: [
+      { icon: Dumbbell, label: "Gym" },
+      { icon: HandFist, label: "Muay Thai" },
+      { icon: Trophy, label: "Soccer" },
+      { icon: Mountain, label: "Hiking" },
+      { icon: Sunset, label: "Sunsets" },
+      { icon: Plane, label: "Travel" },
+      { icon: UtensilsCrossed, label: "Trying new food" },
+    ],
   },
 ];

@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Filter, HeartHandshake, MessageCircle } from "lucide-react";
+import { CircleDollarSign, Code2, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
-import { PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { bookingHref, isSet, site } from "@/content/site";
 import { founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -31,6 +32,15 @@ const values = [
   },
 ];
 
+// Quick facts strip under the intro. Edit the year and city in src/content/site.ts
+const facts = [
+  { icon: Flag, label: "Founded", value: String(site.founded) },
+  { icon: MapPin, label: "Based in", value: site.basedIn },
+  { icon: Globe, label: "Hiring across", value: "US and Canada" },
+  { icon: Code2, label: "Focus", value: "Engineers only" },
+  { icon: CircleDollarSign, label: "Pricing", value: "Fee per hire" },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -43,6 +53,23 @@ export default function AboutPage() {
         }
         intro="We meet founders at tech events and learn what they're building. We get to know engineers and what they want next. Then we bring the right people together."
       />
+
+      {/* Quick facts */}
+      <section className="border-b border-line bg-mist py-6">
+        <Container>
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {facts.map((f) => (
+              <li key={f.label} className="flex items-center gap-3">
+                <IconBadge icon={f.icon} size="sm" />
+                <div>
+                  <p className="text-xs text-muted">{f.label}</p>
+                  <p className="font-semibold">{f.value}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
       <Section>
         <SectionHeading eyebrow="The founders" title="Who you'll work with" />
@@ -100,17 +127,37 @@ export default function AboutPage() {
                 </p>
               )}
 
-              <a
-                href={f.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-brand hover:text-brand-dark"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-                </svg>
-                {f.name.split(" ")[0]} on LinkedIn
-              </a>
+              {f.outsideWork.length > 0 && (
+                <div className="mt-6">
+                  <p className="text-sm font-medium text-ink">Outside of work</p>
+                  <ul className="mt-2 flex flex-wrap gap-2">
+                    {f.outsideWork.map((item) => (
+                      <li key={item.label} className="inline-flex items-center gap-1.5 rounded-full bg-brand-soft px-3 py-1 text-sm text-brand-dark">
+                        <item.icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+                        {item.label}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Book directly with this founder, plus LinkedIn */}
+              <div className="mt-auto flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <Button href={isSet(f.calendlyUrl) ? f.calendlyUrl : bookingHref} variant="brand">
+                  <CalendarIcon /> Book a call with {f.name.split(" ")[0]}
+                </Button>
+                  <a
+                    href={f.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark"
+                  >
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+                      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                    </svg>
+                    {f.name.split(" ")[0]} on LinkedIn
+                  </a>
+              </div>
             </article>
           ))}
         </div>

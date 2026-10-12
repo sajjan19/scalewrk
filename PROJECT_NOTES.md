@@ -29,7 +29,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/roles` | Link to /jobs, then 9 role families with typical titles and "what we look for"; jump links | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
-| `/about` | Story, two founder cards (Punit first), values | Yes | Yes |
+| `/about` | Headline "Meet the team that matches startups and engineers", quick facts strip (Founded 2026, Vancouver, US and Canada, engineers only, fee per hire), founder cards (Punit first) with bio, experience, outside-of-work tags and a "Book a call with …" button, values | Yes | Yes |
 | `/contact` | Calendly embed (`#book`) + contact form | Footer, "Book a call" buttons | Yes |
 | `/jobs/<slug>` | One page per job listing: company (described, not named), what you'll do, needs, nice to have, interview steps, summary box + Apply (prefills the engineers form) | Via Jobs page | Real jobs only |
 | `/meet` | Event QR-code landing page: "Great meeting you", booking, save contact (vCard) | No | **No** (`noindex`) |
@@ -167,6 +167,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-11:** Process cards (`ProcessCards.tsx`) shared by Home "How it works" (4 per row) and For Startups "How a search works" (3 per row): step number badge on the icon, title beside it, bullets, gradient lines joining cards in the same row (user preferred lines over arrows). For Startups' last step "Stay with you" is tinted with an "Ongoing" tag.
 - **2026-10-11:** Testimonials are a carousel (`TestimonialCarousel.tsx`): swipe/scroll, arrows, dots; 1 card on phones, 2 on tablets, 3 on desktop.
 - **2026-10-11:** Testimonials: `/testimonial` form page, Home testimonials section (`Testimonials.tsx`, `testimonials.ts`) with labeled examples, footer link.
+- **2026-10-11:** About page: quick facts strip (`site.founded`, `site.basedIn` in `site.ts`; `foundingDate` in structured data), "Book a call with Punit/Mandeep" buttons (per-founder `calendlyUrl` in `founders.ts`, falls back to the shared calendar), "Outside of work" tags (Punit: gym, Ducky the dog, travel, food; Mandeep: gym, Muay Thai, soccer, hiking, sunsets, travel, food).
 - **2026-10-11:** Mandeep's bio: Apple 2018–2025 (sales, Genius Bar, Apple Business team) and IT consulting for small businesses; "Previously at: Apple" on the About card (`previouslyAt` in `founders.ts`). Apple is NOT on the Home "recruited for" strip, because Mandeep worked there rather than recruiting for it. About "How we work" cards use bullet points.
 - **2026-10-11:** Punit's bio and experience filled in: TikTok, PayPal, Sully.ai; background across engineering, sales and go-to-market hiring. Title kept as Co-founder.
 - **2026-10-11:** Partners form: choosing "Other" shows a required "What do you do?" box (`PartnerType.tsx`, sent as `partner_type_other`). Home headline gradient now covers "growing startups".
