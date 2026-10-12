@@ -126,15 +126,16 @@ body {
   display: none;
 }
 
-/* Logo strip that scrolls left to right on its own (Home "Our founders have recruited for").
+/* Logo strip that scrolls right to left on its own (Home "Our founders have recruited for").
    The track holds the logos twice, so moving it by half loops without a jump.
+   Speed: change 60s below (bigger number = slower).
    Pauses on hover. Stays still for people who turn off motion in their device settings. */
-@keyframes marquee-right {
+@keyframes marquee-left {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   to {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 .marquee {
@@ -145,7 +146,7 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-right 30s linear infinite;
+  animation: marquee-left 60s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;

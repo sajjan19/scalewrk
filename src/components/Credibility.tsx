@@ -5,7 +5,7 @@ import { founders } from "@/content/founders";
 import { companyLogos } from "@/content/companyLogos";
 
 // "Our founders have recruited for" strip: past employers in brand colors (or official logo files).
-// The logos scroll left to right in a loop (see .marquee in globals.css).
+// The logos scroll right to left in a loop (see .marquee in globals.css).
 export function FounderExperienceStrip() {
   const companies = [...new Set(founders.flatMap((f) => f.experienceAt))];
   if (companies.length === 0) return null;
@@ -13,15 +13,16 @@ export function FounderExperienceStrip() {
   const oneSet = Array.from({ length: 4 }, () => companies).flat();
   return (
     <section className="border-b border-line py-8">
-      <Container className="flex flex-col items-center gap-5 lg:flex-row lg:gap-10">
-        <p className="shrink-0 text-center text-sm font-medium text-muted lg:max-w-[14rem] lg:text-left">Our founders have recruited for</p>
-        {/* Screen readers get the plain list once; the moving logos are just for show */}
+      <Container>
+        {/* No visible label (the user's choice). Screen readers still hear what the logos mean,
+            and get the plain list once; the moving logos are just for show. */}
+        <p className="sr-only">Our founders have recruited for</p>
         <ul className="sr-only">
           {companies.map((c) => (
             <li key={c}>{c}</li>
           ))}
         </ul>
-        <div className="marquee w-full min-w-0 flex-1" aria-hidden="true">
+        <div className="marquee w-full" aria-hidden="true">
           <div className="marquee-track">
             {[0, 1].map((copy) => (
               <div key={copy} className="flex shrink-0 items-center gap-x-14 pr-14">

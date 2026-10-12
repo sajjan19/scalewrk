@@ -198,9 +198,6 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Past employers (founders' experience) and, once real, clients */}
-      <FounderExperienceStrip />
-
       {/* What we do */}
       <Section tone="mist">
         <SectionHeading eyebrow="What we do" title="We bring startups and engineers together" />
@@ -223,6 +220,8 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Past employers (founders' experience) and, once real, clients */}
+      <FounderExperienceStrip />
       <ClientsSection />
 
       {/* Who we work with */}
