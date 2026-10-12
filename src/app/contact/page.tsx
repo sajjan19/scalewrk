@@ -56,7 +56,7 @@ export default function ContactPage() {
           <div>
             <h2 className="text-3xl font-semibold tracking-tight">Other ways to reach us</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Reach us by email or phone, or send a quick message with the form.
+              Reach us by email or phone, or send a quick message by filling out the form.
             </p>
             <div className="mt-6 space-y-2 text-lg">
               <a href={`mailto:${site.email}`} className="rise flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">
@@ -78,7 +78,7 @@ export default function ContactPage() {
               subject="New contact form message (scalewrk.ai)"
               submitLabel="Send message"
               successTitle="Message sent."
-              successBody="Thanks for reaching out. We'll get back to you within one business day."
+              successBody="Thanks for reaching out. We'll get back to you soon."
             >
               <Field label="Name" name="name" required autoComplete="name" />
               <Field label="Email" name="email" type="email" required autoComplete="email" />

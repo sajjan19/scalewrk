@@ -219,7 +219,7 @@ export default function PartnersPage() {
               subject="New partner inquiry (scalewrk.ai)"
               submitLabel="Send"
               successTitle="Thanks! We'll be in touch."
-              successBody="We'll reply within one business day to set up a time to talk."
+              successBody="We'll be in touch soon to set up a time to talk."
             >
               <Field label="Name" name="name" required autoComplete="name" />
               <Field label="Work email" name="email" type="email" required autoComplete="email" />
