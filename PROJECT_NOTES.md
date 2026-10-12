@@ -160,6 +160,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Contact form shows "Open to relocating?" when the visitor picks Engineer (`ContactReason.tsx`).
 - **2026-10-10:** Job board: `src/content/jobs.ts`, `JobList.tsx` (Role, Location and Work style dropdowns, job count, clear filters, "no matches" message; remote jobs count for every location), `/jobs/[slug]` pages, Apply → engineers form with the job prefilled (`AppliedJob.tsx`). Mobile bottom bar says "Apply for this role" on job pages. Founders' location now "Vancouver, Canada".
 - **2026-10-10:** Jobs moved to their own page `/jobs`, added to the menu after For Engineers (menu also highlights Jobs on job detail pages). Added an example Engineering Manager listing. AI/ML icon changed to Sparkles. Tip: if the local preview shows a "Hydration failed" error after edits, restart it; running `npm run build` while it's running makes it stale.
+- **2026-10-11:** Partners form: choosing "Other" shows a required "What do you do?" box (`PartnerType.tsx`, sent as `partner_type_other`). Home headline gradient now covers "growing startups".
 - **2026-10-11:** Contact form: the Message hint changes with "I'm reaching out as a" (founder, investor, engineer or other), set in `ContactReason.tsx`.
 - **2026-10-11:** Contact form: choosing "Something else" shows a required "Tell us who you are" box (sent as `reason_other`).
 - **2026-10-11:** Engineers form: choosing "Other" as primary role shows a required "What's your role?" box (`PrimaryRole.tsx`, sent as `role_other`).

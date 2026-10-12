@@ -100,7 +100,7 @@ export default function Home() {
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
             <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-              Tech hiring for <span className="text-gradient">growing</span> startups.
+              Tech hiring for <span className="text-gradient">growing startups</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               We help founders hire engineers for every role, from AI/ML to DevOps. We also help engineers find

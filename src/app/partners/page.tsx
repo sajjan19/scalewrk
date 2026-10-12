@@ -14,7 +14,8 @@ import {
   Star,
   UserCheck,
 } from "lucide-react";
-import { Field, Form, Select, TextArea } from "@/components/Form";
+import { Field, Form, TextArea } from "@/components/Form";
+import { PartnerType } from "@/components/PartnerType";
 import { Arrow, Button, PageHero, Section, SectionHeading } from "@/components/ui";
 import { IconBadge, StepTimeline } from "@/components/visuals";
 import { bookingHref, site } from "@/content/site";
@@ -141,12 +142,7 @@ export default function PartnersPage() {
               <Field label="Name" name="name" required autoComplete="name" />
               <Field label="Work email" name="email" type="email" required autoComplete="email" />
               <Field label="Firm or organization" name="organization" required autoComplete="organization" />
-              <Select
-                label="You are a"
-                name="partner_type"
-                required
-                options={["VC (platform or talent team)", "VC (investor)", "Accelerator", "Startup lawyer", "Fractional CFO", "Other"]}
-              />
+              <PartnerType />
               <TextArea label="Anything we should know?" name="message" placeholder="Portfolio size, stages, hiring needs…" />
             </Form>
           </div>
