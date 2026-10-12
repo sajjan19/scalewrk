@@ -4,6 +4,7 @@ import { RoleJumpBar } from "@/components/RoleJumpBar";
 import { Arrow, CalendarIcon, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
+import { jobs, visibleJobs } from "@/content/jobs";
 import { IconBadge } from "@/components/visuals";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -52,32 +53,71 @@ export default function RolesPage() {
 
       <Section>
         <div className="space-y-6">
-          {roles.map((role) => (
-            <article
-              key={role.slug}
-              id={role.slug}
-              className="scroll-mt-36 grid gap-8 rounded-2xl border border-line p-6 sm:p-8 lg:grid-cols-[1fr_1.2fr]"
-            >
-              <div>
-                <div className="flex items-center gap-4">
-                  <IconBadge icon={role.icon} size="lg" />
-                  <h2 className="text-2xl font-semibold tracking-tight">{role.name}</h2>
+          {roles.map((role) => {
+            const hasJobs = visibleJobs.some((j) => j.role === role.slug);
+            // Only real (non-example) listings count as open jobs
+            const openJobs = jobs.filter((j) => j.role === role.slug && !j.example).length;
+            return (
+              <article
+                key={role.slug}
+                id={role.slug}
+                className="scroll-mt-36 rounded-2xl border border-line p-6 sm:p-8"
+              >
+                <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+                  <div>
+                    <div className="flex items-center gap-4">
+                      <IconBadge icon={role.icon} size="lg" />
+                      <h2 className="text-2xl font-semibold tracking-tight">{role.name}</h2>
+                    </div>
+                    <p className="mt-4 leading-relaxed text-body">{role.summary}</p>
+
+                    <p className="mt-5 text-sm font-medium text-muted">Common titles</p>
+                    <ul className="mt-2 flex flex-wrap gap-2" aria-label="Common titles">
+                      {role.titles.map((t) => (
+                        <li key={t} className="rounded-full bg-mist px-3 py-1 text-sm text-body">
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="mt-4 text-sm font-medium text-muted">Key skills</p>
+                    <ul className="mt-2 flex flex-wrap gap-2" aria-label="Key skills">
+                      {role.skills.map((skill) => (
+                        <li key={skill} className="rounded-full bg-brand-soft px-3 py-1 text-sm font-medium text-brand-dark">
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-muted">What we look for</p>
+                    <CheckList className="mt-4" items={role.screenFor} />
+                  </div>
                 </div>
-                <p className="mt-4 leading-relaxed text-body">{role.summary}</p>
-                <ul className="mt-5 flex flex-wrap gap-2" aria-label="Typical titles">
-                  {role.titles.map((t) => (
-                    <li key={t} className="rounded-full bg-mist px-3 py-1 text-sm text-body">
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-muted">What we look for</p>
-                <CheckList className="mt-4" items={role.screenFor} />
-              </div>
-            </article>
-          ))}
+
+                {/* One action for founders, one for engineers */}
+                <div className="mt-8 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center">
+                  <Button href={bookingHref} variant="brand">
+                    <CalendarIcon /> Hire for {role.name}
+                  </Button>
+                  {hasJobs ? (
+                    <Button href={`/jobs?role=${role.slug}`} variant="secondary">
+                      See open jobs <Arrow />
+                    </Button>
+                  ) : (
+                    <Button href="/engineers#apply" variant="secondary">
+                      Share your profile <Arrow />
+                    </Button>
+                  )}
+                  {openJobs > 0 && (
+                    <span className="text-sm font-medium text-brand sm:ml-2">
+                      {openJobs} open {openJobs === 1 ? "job" : "jobs"}
+                    </span>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         <p className="mt-10 text-lg text-body">

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { JobList } from "@/components/JobList";
 import { PageHero, Section } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
@@ -23,7 +24,9 @@ export default function JobsPage() {
       />
 
       <Section tone="mist">
-        <JobList />
+        <Suspense fallback={<p className="text-muted">Loading jobs…</p>}>
+          <JobList />
+        </Suspense>
       </Section>
     </>
   );

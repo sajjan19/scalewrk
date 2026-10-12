@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { visibleJobs } from "@/content/jobs";
 import { roles } from "@/content/roles";
@@ -9,7 +10,11 @@ import { JobCard } from "./JobCard";
 
 // Job cards with Role, Location and Work style filters (used on the Jobs page)
 export function JobList() {
-  const [role, setRole] = useState("all");
+  // A link like /jobs?role=backend opens with that role already selected
+  const initialRole = useSearchParams().get("role");
+  const [role, setRole] = useState(
+    initialRole && visibleJobs.some((j) => j.role === initialRole) ? initialRole : "all",
+  );
   const [location, setLocation] = useState("all");
   const [workType, setWorkType] = useState("all");
 

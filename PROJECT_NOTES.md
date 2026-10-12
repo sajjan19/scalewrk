@@ -26,7 +26,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/` | Home: hero, founders' experience strip, clients (placeholder), who we work with (stages), how it works (4 steps), roles, latest 3 jobs, why Scalewrk, founder credibility, partner/engineer split, CTA | Logo | Yes |
 | `/startups` | For founders: 6-step process, in-house vs. agency vs. Scalewrk comparison, fee-per-hire engagement model (pricing placeholders), FAQ | Yes | Yes |
 | `/jobs` | Jobs board with filters (from `src/content/jobs.ts`) + "share your profile" prompt | Yes | Yes |
-| `/roles` | Link to /jobs, then 20 role families (9 marked `featured` show on Home) with typical titles and "what we look for"; jump links | Yes | Yes |
+| `/roles` | Link to /jobs, then 20 role families (9 marked `featured` show on Home) with top 3 common titles, key skills, "what we look for", a "Hire for [role]" button, "See open jobs" (links to /jobs?role=slug) or "Share your profile" when the role has no jobs, and an open jobs count (real jobs only); jump links | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
 | `/about` | Headline "Meet the team that matches startups and engineers", quick facts strip (Founded 2026, Vancouver, US and Canada, engineers only, fee per hire), founder cards (Punit first) with bio, experience, outside-of-work tags and a "Book a call with …" button, values | Yes | Yes |
@@ -183,3 +183,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Home: founders' experience strip (TikTok + placeholders) and a hidden "Startups we've hired for" section (`Credibility.tsx`, `clients.ts`).
 - **2026-10-10:** Roles page jump bar is now `RoleJumpBar.tsx`: purple chips, faded edges and arrows when there's more to scroll, and the chip for the role on screen is highlighted. Nav order changed to For Startups, For Engineers, Roles, Partners, About.
 - **2026-10-10:** Footer link hover changed from solid blue to the logo gradient (text and icons): `.link-gradient` in `globals.css`, with `#brand-gradient` defined in `Footer.tsx`.
+- **2026-10-11:** Roles cards: top 3 titles, key skills tags, "Hire for [role name]" + "See open jobs" buttons, open jobs count (real jobs only). Jobs page reads `?role=` to preselect the Role filter.

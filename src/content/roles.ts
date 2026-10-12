@@ -33,7 +33,8 @@ export type Role = {
   icon: LucideIcon;
   summary: string;
   featured?: boolean; // shown on the Home page (keep to about 9)
-  titles: string[];
+  titles: string[]; // common job titles (top 3)
+  skills: string[]; // key skills shown as tags
   screenFor: string[];
 };
 
@@ -44,7 +45,8 @@ export const roles: Role[] = [
     icon: Sparkles,
     featured: true,
     summary: "Engineers who build and ship AI and machine learning products.",
-    titles: ["AI Engineer", "Machine Learning Engineer", "Applied Scientist", "MLOps Engineer", "LLM / GenAI Engineer"],
+    titles: ["AI Engineer", "Machine Learning Engineer", "Applied Scientist"],
+    skills: ["Python", "PyTorch", "LLMs", "RAG"],
     screenFor: [
       "Has shipped AI features that real people use",
       "Knows how to test models and keep costs down",
@@ -57,6 +59,7 @@ export const roles: Role[] = [
     icon: FlaskConical,
     summary: "Researchers who build new models and push what AI can do.",
     titles: ["Research Scientist", "ML Researcher", "Research Engineer"],
+    skills: ["PyTorch", "JAX", "Deep learning", "Research"],
     screenFor: [
       "Published research or real model breakthroughs",
       "Can turn research into working code",
@@ -69,6 +72,7 @@ export const roles: Role[] = [
     icon: ChartLine,
     summary: "Analysts and modelers who turn data into decisions.",
     titles: ["Data Scientist", "Product Data Scientist", "Decision Scientist"],
+    skills: ["Python", "SQL", "Statistics", "Experiments"],
     screenFor: [
       "Strong stats and experiment design",
       "SQL and Python every day",
@@ -81,7 +85,8 @@ export const roles: Role[] = [
     icon: Server,
     featured: true,
     summary: "APIs, servers and data systems in Python, Go, Java, Node or Rust.",
-    titles: ["Backend Engineer", "Senior Software Engineer", "Staff Engineer", "Founding Engineer"],
+    titles: ["Backend Engineer", "Senior Software Engineer", "Staff Engineer"],
+    skills: ["Go", "Python", "Postgres", "AWS"],
     screenFor: [
       "Designs systems that fit your stage",
       "Owns their code from idea to production",
@@ -95,6 +100,7 @@ export const roles: Role[] = [
     featured: true,
     summary: "Builders who own a feature from the database to the screen.",
     titles: ["Full-Stack Engineer", "Product Engineer", "Founding Engineer"],
+    skills: ["TypeScript", "React", "Node", "SQL"],
     screenFor: [
       "Ships complete features quickly",
       "Cares about the product and the customer",
@@ -108,6 +114,7 @@ export const roles: Role[] = [
     featured: true,
     summary: "React, Next.js and TypeScript engineers who build fast, polished apps.",
     titles: ["Frontend Engineer", "UI Engineer", "Design Engineer"],
+    skills: ["React", "Next.js", "TypeScript", "CSS"],
     screenFor: [
       "Builds fast, polished screens",
       "Works well with design and product",
@@ -120,7 +127,8 @@ export const roles: Role[] = [
     icon: Cloud,
     featured: true,
     summary: "Cloud, deployments and uptime for teams that ship every day.",
-    titles: ["DevOps Engineer", "Platform Engineer", "Site Reliability Engineer", "Infrastructure Engineer"],
+    titles: ["DevOps Engineer", "Platform Engineer", "Site Reliability Engineer"],
+    skills: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
     screenFor: [
       "Runs AWS, GCP or Azure in production",
       "Makes builds faster and releases safer",
@@ -134,6 +142,7 @@ export const roles: Role[] = [
     featured: true,
     summary: "The pipelines and data systems behind your analytics and AI.",
     titles: ["Data Engineer", "Analytics Engineer", "Data Platform Engineer"],
+    skills: ["SQL", "dbt", "Snowflake", "Airflow"],
     screenFor: [
       "Builds pipelines you can trust",
       "Knows modern tools like dbt, Snowflake and Spark",
@@ -147,6 +156,7 @@ export const roles: Role[] = [
     featured: true,
     summary: "iOS, Android and React Native engineers for great mobile apps.",
     titles: ["iOS Engineer", "Android Engineer", "React Native Engineer"],
+    skills: ["Swift", "Kotlin", "React Native"],
     screenFor: [
       "Has shipped apps to the App Store or Google Play",
       "Cares about speed and smooth releases",
@@ -160,6 +170,7 @@ export const roles: Role[] = [
     featured: true,
     summary: "Keep your product and cloud safe as you sell to bigger customers.",
     titles: ["Security Engineer", "Application Security Engineer", "Cloud Security Engineer"],
+    skills: ["AppSec", "Cloud security", "SOC 2"],
     screenFor: [
       "Hands-on with app and cloud security",
       "Has helped pass SOC 2 or customer security reviews",
@@ -172,6 +183,7 @@ export const roles: Role[] = [
     icon: Bug,
     summary: "Engineers who catch bugs early with automated testing.",
     titles: ["QA Engineer", "Test Automation Engineer", "SDET"],
+    skills: ["Playwright", "Cypress", "Selenium", "CI"],
     screenFor: [
       "Builds automated tests that run on every change",
       "Knows tools like Playwright, Cypress or Selenium",
@@ -184,6 +196,7 @@ export const roles: Role[] = [
     icon: Cpu,
     summary: "Software that runs on devices and chips.",
     titles: ["Embedded Engineer", "Firmware Engineer", "Embedded Software Engineer"],
+    skills: ["C", "C++", "Rust", "RTOS"],
     screenFor: [
       "C, C++ or Rust on real hardware",
       "Debugs close to the metal",
@@ -196,6 +209,7 @@ export const roles: Role[] = [
     icon: CircuitBoard,
     summary: "Electronics, circuit boards and physical products.",
     titles: ["Hardware Engineer", "Electrical Engineer", "PCB Design Engineer"],
+    skills: ["PCB design", "Altium", "Prototyping"],
     screenFor: [
       "Takes boards from design to production",
       "Works well with firmware and manufacturing",
@@ -208,6 +222,7 @@ export const roles: Role[] = [
     icon: Bot,
     summary: "Software and hardware that make robots move and think.",
     titles: ["Robotics Engineer", "Controls Engineer", "Perception Engineer"],
+    skills: ["ROS", "C++", "Controls", "Computer vision"],
     screenFor: [
       "ROS, controls or computer vision",
       "Tested on real robots, not just simulation",
@@ -220,6 +235,7 @@ export const roles: Role[] = [
     icon: Gamepad2,
     summary: "Engineers who build games and interactive experiences.",
     titles: ["Game Developer", "Gameplay Engineer", "Graphics Engineer"],
+    skills: ["Unity", "Unreal", "C#", "C++"],
     screenFor: [
       "Unity or Unreal in shipped games",
       "Cares about performance and feel",
@@ -232,6 +248,7 @@ export const roles: Role[] = [
     icon: Blocks,
     summary: "Smart contracts and crypto products that people can trust.",
     titles: ["Smart Contract Engineer", "Blockchain Engineer", "Protocol Engineer"],
+    skills: ["Solidity", "Rust", "Ethereum", "Smart contracts"],
     screenFor: [
       "Solidity, Rust or Go in production",
       "Security comes first",
@@ -244,6 +261,7 @@ export const roles: Role[] = [
     icon: Network,
     summary: "Networks that keep teams and products connected.",
     titles: ["Network Engineer", "Network Security Engineer", "Cloud Network Engineer"],
+    skills: ["Routing", "Firewalls", "Cloud networking", "VPN"],
     screenFor: [
       "Designs and runs reliable networks",
       "Cloud and on-site experience",
@@ -256,6 +274,7 @@ export const roles: Role[] = [
     icon: BriefcaseBusiness,
     summary: "Technical experts who help customers buy and succeed.",
     titles: ["Solutions Engineer", "Sales Engineer", "Forward Deployed Engineer"],
+    skills: ["Demos", "APIs", "Discovery calls", "Proofs of concept"],
     screenFor: [
       "Explains complex products simply",
       "Builds demos and proofs of concept",
@@ -268,6 +287,7 @@ export const roles: Role[] = [
     icon: Megaphone,
     summary: "Engineers who build community and content for developers.",
     titles: ["Developer Advocate", "DevRel Engineer", "Developer Experience Engineer"],
+    skills: ["Docs", "Demos", "Talks", "Community"],
     screenFor: [
       "Writes great docs, demos and talks",
       "Real coding skills developers respect",
@@ -280,7 +300,8 @@ export const roles: Role[] = [
     icon: Users,
     featured: true,
     summary: "Founding engineers, tech leads, managers and heads of engineering.",
-    titles: ["Founding Engineer", "Tech Lead", "Engineering Manager", "Head of Engineering", "VP Engineering"],
+    titles: ["Founding Engineer", "Tech Lead", "Engineering Manager"],
+    skills: ["Hiring", "Mentoring", "Architecture", "Roadmaps"],
     screenFor: [
       "Has grown a team at a similar stage",
       "Still close enough to the code to earn respect",
