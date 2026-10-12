@@ -24,7 +24,7 @@ export default function RolesPage() {
             Every type of <span className="text-gradient">engineer</span>. Every kind of <span className="text-gradient">startup</span>.
           </>
         }
-        intro="We only hire engineers for growing startups. Here's who we hire and what we look for."
+        intro="We match engineers with growing startups, from AI to hardware."
       >
         <Button href={bookingHref} variant="brand">
           <CalendarIcon /> Hire for a role
@@ -44,7 +44,7 @@ export default function RolesPage() {
       </div>
 
       <Section className="!pb-0">
-        <SectionHeading eyebrow="Roles we hire" title="Every type of engineer" intro="Here's who we hire and what we look for." />
+        <SectionHeading eyebrow="Roles we hire" title="Who we hire" intro="Every role we recruit for and what we look for." />
       </Section>
 
       {/* Jump links (scrollable, highlights the role you're reading) */}
