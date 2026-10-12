@@ -12,7 +12,8 @@ export type Founder = {
   photo: string;
   location: string;
   bio: string[];
-  experienceAt: string[];
+  experienceAt: string[]; // companies they recruited for (also shown on the Home strip)
+  previouslyAt?: string[]; // companies they worked at in other roles (About page only)
   linkedin: string;
 };
 
@@ -37,10 +38,11 @@ export const founders: Founder[] = [
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",
     bio: [
-      "Mandeep has a background in tech and sales. Mandeep works directly with founders to understand what they're building and who they need.",
-      "Great engineers have many options. Mandeep knows how to share a founder's vision in a way engineers want to hear. [PLACEHOLDER: add a line on prior roles]",
+      "Mandeep spent seven years at Apple, from 2018 to 2025, working in sales, at the Genius Bar and with the Apple Business team. Mandeep has also done IT consulting for small businesses, helping them grow.",
+      "That mix of tech and sales helps Mandeep understand what founders are building and who they need. It also helps Mandeep share a founder's vision in a way great engineers want to hear.",
     ],
     experienceAt: [],
+    previouslyAt: ["Apple"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
   },
 ];

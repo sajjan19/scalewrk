@@ -17,17 +17,17 @@ const values = [
   {
     icon: MessageCircle,
     title: "Honest",
-    body: "We tell founders when a role will be hard to fill. We tell engineers when a job isn't right for them.",
+    body: ["We tell founders when a role will be hard to fill", "We tell engineers when a job isn't right for them"],
   },
   {
     icon: Filter,
     title: "Selective",
-    body: "A few of the right people beat a long list of maybes. Your time matters.",
+    body: ["A few of the right people", "Not a long list of maybes", "Your time matters"],
   },
   {
     icon: HeartHandshake,
     title: "Here for the long run",
-    body: "We learn your company once and keep showing up. We want to be your recruiter for every engineering hire.",
+    body: ["We learn your company once", "We keep showing up", "Your recruiter for every engineering hire"],
   },
 ];
 
@@ -94,6 +94,11 @@ export default function AboutPage() {
                   ))}
                 </p>
               )}
+              {f.previouslyAt && f.previouslyAt.length > 0 && (
+                <p className="mt-6 text-sm text-body">
+                  <span className="font-medium text-ink">Previously at:</span> {f.previouslyAt.join(" · ")}
+                </p>
+              )}
 
               <a
                 href={f.linkedin}
@@ -118,7 +123,14 @@ export default function AboutPage() {
             <div key={v.title} className="rounded-2xl bg-white p-6 ring-1 ring-line">
               <IconBadge icon={v.icon} size="lg" />
               <p className="mt-5 text-lg font-semibold">{v.title}</p>
-              <p className="mt-2 leading-relaxed text-body">{v.body}</p>
+              <ul className="mt-3 space-y-1.5">
+                {v.body.map((point) => (
+                  <li key={point} className="flex gap-2 leading-snug text-body">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

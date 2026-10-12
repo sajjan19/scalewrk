@@ -29,7 +29,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [x] Punit: location (Vancouver)
 - [ ] Punit: LinkedIn URL
 - [x] Punit: photo (`public/founders/punit.jpg`)
-- [ ] Mandeep: one more bio line about prior roles
+- [x] Mandeep: bio with prior roles (Apple, 2018–2025: sales, Genius Bar, Apple Business)
 - [ ] Mandeep: LinkedIn URL
 - [x] Mandeep: photo (`public/founders/mandeep.jpg`)
 
