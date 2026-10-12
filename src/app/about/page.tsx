@@ -38,7 +38,7 @@ export default function AboutPage() {
         eyebrow="About Scalewrk"
         title={
           <>
-            Meet the team that matches <span className="text-gradient">startups and engineers</span>.
+            <span className="text-gradient">Meet the team</span> that matches startups and engineers.
           </>
         }
         intro="We meet founders at tech events and learn what they're building. We get to know engineers and what they want next. Then we bring the right people together."
