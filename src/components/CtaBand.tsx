@@ -3,8 +3,8 @@ import { CalendarIcon, Button, Container } from "./ui";
 
 // Dark "Book a call" band used at the bottom of most pages.
 export function CtaBand({
-  title = "Hiring engineers this quarter?",
-  body = "Book a call. We'll talk about your roles and tell you honestly if we can help.",
+  title = "Need to hire engineers?",
+  body = "Book a call. Tell us what you're building and we'll help you find the engineers to build it.",
 }: {
   title?: string;
   body?: string;
