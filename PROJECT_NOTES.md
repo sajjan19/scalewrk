@@ -52,6 +52,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | `mist` | `#F5F7FB` | Alternating section background |
 | `brand` | `#4F46E5` | Links, eyebrows, focus rings |
 | `.btn-brand` | violet → blue gradient | All "Book a call" buttons |
+| Secondary buttons | `brand-soft` fill, `brand-dark` text, no outline | Same size and shape as the main buttons so they read as a pair (e.g. "Roles we hire") |
 | `violet` → `blue` | `#7A2FF5` → `#0D6EFD` | Logo gradient |
 
 - **Font:** Geist (via `next/font`, self-hosted at build time). Headlines semibold with tight tracking.

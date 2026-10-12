@@ -13,7 +13,7 @@ type ButtonProps = {
 
 const buttonStyles = {
   primary: "bg-ink text-white hover:bg-ink/85",
-  secondary: "bg-white text-ink ring-1 ring-line hover:ring-ink/30",
+  secondary: "bg-brand-soft text-brand-dark hover:bg-brand/15",
   light: "bg-white text-ink hover:bg-white/90",
   brand: "btn-brand", // logo gradient, used for every "Book a call" button
 };
