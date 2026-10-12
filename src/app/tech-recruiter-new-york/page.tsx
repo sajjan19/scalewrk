@@ -41,7 +41,7 @@ const help = [
   {
     icon: Search,
     title: "A search run like part of your team",
-    body: ["A Scalewrk co-founder runs it", "A small shortlist that fits", "We help you close the offer"],
+    body: ["Punit or Mandeep runs it", "A small shortlist that fits", "We help you close the offer"],
   },
 ];
 
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: "Are you based in New York?",
-    a: "Our co-founders are based in Vancouver. We work with New York teams over video and phone.",
+    a: "Our team is based in Vancouver. We work with New York teams over video and phone.",
   },
   {
     q: "Can you find engineers willing to move to New York?",

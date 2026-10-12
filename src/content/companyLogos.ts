@@ -1,5 +1,5 @@
 /*
-  Logos for the "Our founders have recruited for" strip on the Home page.
+  Logos for the "Our founder has recruited for" strip on the Home page.
   Names must match `experienceAt` in founders.ts.
 
   - `iconPath` + `color`: a brand symbol from Simple Icons (simpleicons.org) in the brand's color.

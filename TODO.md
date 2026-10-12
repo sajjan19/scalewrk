@@ -50,7 +50,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] **Promises in the copy**: keep or soften each one:
   - "We reply within one business day" (Contact and Partners pages)
   - "Hiring office hours or talks" offered to partners (Partners page)
-  - "You work directly with a Scalewrk co-founder" (Home, Startups, Partners, About)
+  - "Punit or Mandeep works with you from the first call to the signed offer" / "No hand-offs" (Home, Startups, Partners, New York)
 
 ## Company logos (founders' experience strip)
 

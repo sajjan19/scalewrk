@@ -26,7 +26,7 @@ export default function ContactPage() {
             <span className="text-gradient">your next role</span>.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">
-            Pick a time for a call with a Scalewrk co-founder.
+            Pick a time for a call with the Scalewrk team.
           </p>
 
           {/* What to bring, for founders and for engineers */}

@@ -61,7 +61,7 @@ const reasons = [
   },
   {
     icon: UserCheck,
-    title: "A co-founder on every search",
+    title: "The same people on every search",
     body: "Punit or Mandeep works with you from the first call to the signed offer.",
     versus: "At big agencies, a junior recruiter often does the work.",
   },
@@ -260,7 +260,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why Scalewrk"
           title="A specialist, not a staffing agency"
-          intro="Engineers only. Startups only. Run by the founders."
+          intro="Engineers only. Startups only. No hand-offs."
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {reasons.map((r) => (
@@ -304,14 +304,14 @@ export default function Home() {
                 ) : null,
               )}
             </div>
-            <p className="text-sm font-medium text-brand">Run by the founders</p>
+            <p className="text-sm font-medium text-brand">Who you&apos;ll work with</p>
             <p className="mt-3 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
-              Our co-founder Punit Singh has recruited since 2018 for companies like{" "}
+              Our founder Punit Singh has recruited since 2018 for companies like{" "}
               <Text>{listWithAnd(punit.experienceAt)}</Text>.
             </p>
           </div>
           <Button href="/about" variant="secondary">
-            Meet the founders
+            Meet the team
           </Button>
         </div>
       </Section>

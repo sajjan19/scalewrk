@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "Scalewrk was founded by tech recruiters Punit Singh and Mandeep Sajjan to be the embedded hiring partner for growing startups across the US and Canada.",
+    "Scalewrk was founded by tech recruiter Punit Singh to be the embedded hiring partner for growing startups across the US and Canada.",
   path: "/about",
 });
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
       </section>
 
       <Section>
-        <SectionHeading eyebrow="The founders" title="Who you'll work with" />
+        <SectionHeading eyebrow="Our team" title="Who you'll work with" />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {founders.map((f) => (
             <article key={f.name} className="flex flex-col rounded-2xl border border-line p-6 sm:p-8">
@@ -183,7 +183,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <CtaBand title="Let's meet." body="Talk with a Scalewrk co-founder." />
+      <CtaBand title="Let's meet." body="Talk with the Scalewrk team." />
     </>
   );
 }
