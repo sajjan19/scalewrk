@@ -112,7 +112,7 @@ const reasons = [
 const steps = [
   { icon: Phone, title: "Intro call", body: ["We learn about your portfolio or clients", "How you like to work"] },
   { icon: Mail, title: "Make an intro", body: [`Email ${site.email}`, "Copy in the founder", "Or send them our booking link"] },
-  { icon: Rocket, title: "We take it from there", body: ["We reply within one business day", "We keep you in the loop"] },
+  { icon: Rocket, title: "We take it from there", body: ["We follow up quickly", "We keep you in the loop"] },
 ];
 
 export default function PartnersPage() {
