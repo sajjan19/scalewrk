@@ -110,8 +110,7 @@ export default function Home() {
               Tech hiring for <span className="text-gradient">growing startups</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
-              We help founders hire top engineers across AI, software, hardware and more. We also help engineers find
-              startups where they can thrive.
+              We help startups hire great engineers and help engineers find the right startup.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
