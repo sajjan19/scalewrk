@@ -148,7 +148,7 @@ export const jobs: Job[] = [
     teamSize: "30 people",
     summary: "Build a beautiful, simple payments app for small business owners.",
     aboutCompany:
-      "A Series A fintech that helps small businesses get paid faster. The product is loved for being simple, and design matters a lot here.",
+      "A Series A fintech that helps small businesses get paid faster. The product is loved for being simple. Design matters a lot here.",
     whatYoullDo: [
       "Build new features in React, Next.js and TypeScript",
       "Work closely with design to make every screen polished",

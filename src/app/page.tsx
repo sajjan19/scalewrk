@@ -81,6 +81,11 @@ const exampleBoard = [
   { role: "Platform Engineer", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
 ];
 
+// ["A", "B", "C"] → "A, B and C"
+function listWithAnd(items: string[]) {
+  return items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
 export default function Home() {
   const punit = founders[0];
 
@@ -300,8 +305,8 @@ export default function Home() {
             </div>
             <p className="text-sm font-medium text-brand">Run by the founders</p>
             <p className="mt-3 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
-              Our co-founder Punit Singh has hired engineers since 2018 for companies like{" "}
-              <Text>{punit.experienceAt.slice(0, 2).join(" and ")}</Text>.
+              Our co-founder Punit Singh has recruited since 2018 for companies like{" "}
+              <Text>{listWithAnd(punit.experienceAt)}</Text>.
             </p>
           </div>
           <Button href="/about" variant="secondary">

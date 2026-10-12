@@ -24,7 +24,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Founder info (`src/content/founders.ts`)
 
-- [ ] Punit: other companies recruited for (bio line + "Experience recruiting for" list)
+- [x] Punit: other companies recruited for (TikTok, PayPal, Sully.ai)
 - [x] Punit: location (Vancouver)
 - [ ] Punit: LinkedIn URL
 - [x] Punit: photo (`public/founders/punit.jpg`)

@@ -24,10 +24,10 @@ export const founders: Founder[] = [
     photo: "/founders/punit.jpg",
     location: "Vancouver, Canada",
     bio: [
-      "Punit has worked in tech recruiting since 2018. Punit has hired engineers for fast-growing companies like TikTok and [PLACEHOLDER: other companies].",
-      "Punit knows the difference between a great engineer and one who only looks good on paper. That high bar comes with every Scalewrk search.",
+      "Punit has worked in tech recruiting since 2018, hiring for high-growth companies like TikTok, PayPal and Sully.ai.",
+      "Punit has hired across engineering, sales and go-to-market teams. That gives a clear view of the people who drive product and revenue at a startup. That experience goes into every Scalewrk search.",
     ],
-    experienceAt: ["TikTok", "[PLACEHOLDER: company]", "[PLACEHOLDER: company]"],
+    experienceAt: ["TikTok", "PayPal", "Sully.ai"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
   },
   {

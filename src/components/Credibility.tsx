@@ -10,7 +10,7 @@ export function FounderExperienceStrip() {
   return (
     <section className="border-b border-line py-8">
       <Container className="flex flex-col items-center gap-4 text-center lg:flex-row lg:justify-between lg:text-left">
-        <p className="text-sm font-medium text-muted lg:max-w-[14rem]">Our founders have recruited engineers for</p>
+        <p className="text-sm font-medium text-muted lg:max-w-[14rem]">Our founders have recruited for</p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
           {companies.map((c, i) => (
             <li key={i} className="text-xl font-semibold tracking-tight text-ink/70 sm:text-2xl">
