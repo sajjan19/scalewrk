@@ -54,9 +54,9 @@ export default function ContactPage() {
       <section className="border-t border-line bg-mist py-16 sm:py-24">
         <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h2 className="text-3xl font-semibold tracking-tight">Prefer email or phone?</h2>
+            <h2 className="text-3xl font-semibold tracking-tight">Other ways to reach us</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
-              Send us a note. We&apos;ll reply within one business day. Or reach us directly:
+              Send a message below, or email or call us:
             </p>
             <div className="mt-6 space-y-2 text-lg">
               <a href={`mailto:${site.email}`} className="rise flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">
