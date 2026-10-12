@@ -200,3 +200,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** Arrows: on hover, the arrow in a link or button nudges 3px right (`.arrow` in globals.css; the `Arrow` icon has the class). Text links with arrows (`.nudge`) slide right as a whole, text and arrow together (back links use `.nudge-back` and slide left); all "→" characters in links became the `Arrow` icon.
 - **2026-10-12:** Buttons with an arrow (`.btn:has(.arrow)`) also slide right as a whole on hover instead of lifting; buttons without an arrow still lift. Cards with arrows are unchanged.
 - **2026-10-12:** Mandeep's bio says "technical support" instead of "Genius Bar".
+- **2026-10-12:** Mandeep's bio first line reworded: "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. Mandeep also helps small businesses grow through IT consulting."
