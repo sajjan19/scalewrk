@@ -58,13 +58,23 @@ export function isSet(value: string) {
   return value !== "" && !value.includes("PLACEHOLDER");
 }
 
-export const nav = [
+// Top menu. An item with `children` gets a small dropdown (desktop) or sub-links (mobile menu).
+export type NavItem = { href: string; label: string; children?: { href: string; label: string }[] };
+
+export const nav: NavItem[] = [
   { href: "/startups", label: "For Startups" },
   { href: "/engineers", label: "For Engineers" },
   { href: "/jobs", label: "Jobs" },
   { href: "/roles", label: "Roles" },
   { href: "/partners", label: "Partners" },
-  { href: "/about", label: "About" },
+  {
+    href: "/about",
+    label: "About",
+    children: [
+      { href: "/about", label: "Our team" },
+      { href: "/mission", label: "Mission & Vision" },
+    ],
+  },
 ];
 
 export const bookingHref = "/contact#book";

@@ -3,9 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { bookingHref, nav } from "@/content/site";
+import { ChevronDown } from "lucide-react";
+import { bookingHref, nav, type NavItem } from "@/content/site";
 import { Logo } from "./Logo";
 import { CalendarIcon } from "./ui";
+
+// True when the page you're on is this menu item (or one of its sub-pages)
+function isActive(item: NavItem, pathname: string) {
+  const hrefs = [item.href, ...(item.children ?? []).map((c) => c.href)];
+  return hrefs.some((href) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`)));
+}
 
 export function Header() {
   const pathname = usePathname();
@@ -22,17 +29,19 @@ export function Header() {
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
-            const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
-            return (
+            const active = isActive(item, pathname);
+            const link = (
               <Link
-                key={item.href}
                 href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`rise relative rounded-lg px-3 py-2 text-[15px] ${
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={`rise relative inline-flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] ${
                   active ? "font-medium text-brand" : "text-body hover:text-brand"
                 }`}
               >
                 {item.label}
+                {item.children && (
+                  <ChevronDown className="h-4 w-4 transition group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true" />
+                )}
                 {/* Gradient bar under the page you're on */}
                 {active && (
                   <span
@@ -41,6 +50,30 @@ export function Header() {
                   />
                 )}
               </Link>
+            );
+            if (!item.children) return <span key={item.href}>{link}</span>;
+            // Dropdown: opens on hover or keyboard focus
+            return (
+              <div key={item.href} className="group relative">
+                {link}
+                <div className="invisible absolute top-full left-1/2 z-50 w-52 -translate-x-1/2 pt-3 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <ul className="rounded-xl bg-white p-1.5 shadow-lg ring-1 ring-line">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          aria-current={pathname === child.href ? "page" : undefined}
+                          className={`block rounded-lg px-3 py-2 text-[15px] hover:bg-brand-soft hover:text-brand-dark ${
+                            pathname === child.href ? "font-medium text-brand" : "text-body"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             );
           })}
           <Link href={bookingHref} className="btn-brand lift ml-3 inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[15px] font-medium">
@@ -65,8 +98,10 @@ export function Header() {
       {open && (
         <nav id="mobile-menu" aria-label="Main" className="border-t border-line bg-white px-5 pb-6 lg:hidden">
           <ul className="divide-y divide-line">
-            {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => {
-              const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+            {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item: NavItem) => {
+              const active = pathname === item.href;
+              // Sub-links (e.g. Mission & Vision under About), skipping the one that repeats the main link
+              const subLinks = (item.children ?? []).filter((c) => c.href !== item.href);
               return (
                 <li key={item.href}>
                   <Link
@@ -78,6 +113,27 @@ export function Header() {
                     {item.label}
                     {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />}
                   </Link>
+                  {subLinks.length > 0 && (
+                    <ul className="-mt-2 mb-3 space-y-1 border-l-2 border-brand/20 pl-4">
+                      {subLinks.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            onClick={() => setOpenOn(null)}
+                            aria-current={pathname === child.href ? "page" : undefined}
+                            className={`rise flex items-center justify-between py-1.5 text-base ${
+                              pathname === child.href ? "font-medium text-brand" : "text-body hover:text-brand"
+                            }`}
+                          >
+                            {child.label}
+                            {pathname === child.href && (
+                              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                            )}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               );
             })}

@@ -6,7 +6,7 @@ export const contentType = "image/png";
 
 export default function Image() {
   return ogImage({
-    eyebrow: "Mission and vision",
+    eyebrow: "Mission & Vision",
     title: "Why Scalewrk exists.",
   });
 }

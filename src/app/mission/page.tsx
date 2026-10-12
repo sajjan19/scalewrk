@@ -5,7 +5,7 @@ import { IconBadge } from "@/components/visuals";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Mission and Vision",
+  title: "Mission & Vision",
   description:
     "Scalewrk's mission is to help growing startups hire great engineers and help engineers find the startup where they can do their best work.",
   path: "/mission",
@@ -53,7 +53,7 @@ export default function MissionPage() {
   return (
     <>
       <PageHero
-        eyebrow="Mission and vision"
+        eyebrow="Mission & Vision"
         title={
           <>
             Why <span className="text-gradient">Scalewrk</span> exists.

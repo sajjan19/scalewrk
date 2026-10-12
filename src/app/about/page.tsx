@@ -54,7 +54,7 @@ export default function AboutPage() {
         intro="We meet founders and engineers at tech events, through our network and online. Then we bring the right people together."
       >
         <Button href="/mission" variant="secondary">
-          Our mission and vision <Arrow />
+          Mission & Vision <Arrow />
         </Button>
       </PageHero>
 

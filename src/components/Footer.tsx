@@ -55,7 +55,7 @@ export function Footer() {
             </li>
             <li>
               <Link href="/mission" className="rise inline-block text-white link-gradient">
-                Mission and vision
+                Mission & Vision
               </Link>
             </li>
             <li>
