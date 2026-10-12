@@ -21,7 +21,7 @@ export default function RolesPage() {
         eyebrow="Roles we hire"
         title={
           <>
-            Engineers for your <span className="text-gradient">whole stack</span>.
+            Every type of <span className="text-gradient">engineer</span>. Every kind of <span className="text-gradient">startup</span>.
           </>
         }
         intro="We only hire engineers for growing startups. Here's who we hire and what we look for."
