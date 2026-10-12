@@ -56,7 +56,7 @@ export const founders: Founder[] = [
     location: "Vancouver, Canada",
     bio: [
       "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. Mandeep also helps small businesses grow through IT consulting.",
-      "That mix of tech and sales helps Mandeep understand what founders are building and who they need. It also helps Mandeep match engineers with startups where they can thrive.",
+      "From Apple users to business owners, Mandeep has spent years helping people with tech. That helps Mandeep understand what founders need and match engineers with startups where they can thrive.",
     ],
     experienceAt: [],
     previouslyAt: ["Apple"],
