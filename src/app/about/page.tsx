@@ -38,10 +38,10 @@ export default function AboutPage() {
         eyebrow="About Scalewrk"
         title={
           <>
-            Recruiters who <span className="text-gradient">speak engineering</span>.
+            Meet the team that matches <span className="text-gradient">startups and engineers</span>.
           </>
         }
-        intro="Great hires come from recruiters who understand the work and stick around. We meet founders at tech events, learn what they're building and become the team they call for every engineer."
+        intro="We meet founders at tech events and learn what they're building. We get to know engineers and what they want next. Then we bring the right people together."
       />
 
       <Section>
