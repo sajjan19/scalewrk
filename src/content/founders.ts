@@ -5,8 +5,11 @@
   Text inside [square brackets] renders as a highlighted PLACEHOLDER on the site.
 */
 
-import type { LucideIcon } from "lucide-react";
-import { Dog, Dumbbell, HandFist, Mountain, Plane, Sunset, Trophy, UtensilsCrossed } from "lucide-react";
+import type { ComponentType } from "react";
+import { Camera, Clapperboard, Dog, Dumbbell, Mountain, Music, Plane, Sunset, UtensilsCrossed } from "lucide-react";
+import { BoxingGloves, SoccerBall } from "@/components/icons";
+
+type Icon = ComponentType<{ className?: string; strokeWidth?: number }>;
 
 export type Founder = {
   name: string;
@@ -19,7 +22,7 @@ export type Founder = {
   previouslyAt?: string[]; // companies they worked at in other roles (About page only)
   linkedin: string;
   calendlyUrl: string; // their own booking link; while it says PLACEHOLDER, the button uses the shared calendar
-  outsideWork: { icon: LucideIcon; label: string }[]; // "Outside of work" tags on the About card
+  outsideWork: { icon: Icon; label: string }[]; // "Outside of work" tags on the About card
 };
 
 export const founders: Founder[] = [
@@ -37,10 +40,12 @@ export const founders: Founder[] = [
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
-      { icon: Dumbbell, label: "Gym" },
+      { icon: Dumbbell, label: "Fitness" },
       { icon: Dog, label: "Ducky the dog" },
+      { icon: Clapperboard, label: "Movies" },
+      { icon: Music, label: "Music festivals" },
       { icon: Plane, label: "Travel" },
-      { icon: UtensilsCrossed, label: "Trying new food" },
+      { icon: UtensilsCrossed, label: "Foodie" },
     ],
   },
   {
@@ -58,13 +63,15 @@ export const founders: Founder[] = [
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
-      { icon: Dumbbell, label: "Gym" },
-      { icon: HandFist, label: "Muay Thai" },
-      { icon: Trophy, label: "Soccer" },
+      { icon: Dumbbell, label: "Fitness" },
+      { icon: BoxingGloves, label: "Muay Thai" },
+      { icon: SoccerBall, label: "Soccer" },
       { icon: Mountain, label: "Hiking" },
+      { icon: Camera, label: "Photography" },
       { icon: Sunset, label: "Sunsets" },
+      { icon: Music, label: "Music festivals" },
       { icon: Plane, label: "Travel" },
-      { icon: UtensilsCrossed, label: "Trying new food" },
+      { icon: UtensilsCrossed, label: "Foodie" },
     ],
   },
 ];
