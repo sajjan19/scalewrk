@@ -155,6 +155,21 @@ export function Select({
   );
 }
 
+export function Checkbox({ label, name, required }: { label: string; name: string; required?: boolean }) {
+  return (
+    <label className="flex items-start gap-3 text-[15px] leading-relaxed text-body">
+      <input
+        type="checkbox"
+        name={name}
+        value="Yes"
+        required={required}
+        className="mt-1 h-5 w-5 flex-none rounded border-line accent-[var(--color-brand)]"
+      />
+      <span>{label}</span>
+    </label>
+  );
+}
+
 export function FileField({ label, name, accept, hint }: { label: string; name: string; accept: string; hint?: string }) {
   return (
     <label className="block">

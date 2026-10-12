@@ -33,6 +33,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/contact` | Calendly embed (`#book`) + contact form | Footer, "Book a call" buttons | Yes |
 | `/jobs/<slug>` | One page per job listing: company (described, not named), what you'll do, needs, nice to have, interview steps, summary box + Apply (prefills the engineers form) | Via Jobs page | Real jobs only |
 | `/meet` | Event QR-code landing page: "Great meeting you", booking, save contact (vCard) | No | **No** (`noindex`) |
+| `/testimonial` | Form for clients, engineers and partners to send a testimonial (type, name, title, company, quote, rating, how to credit, permission checkbox) | Footer ("Leave a testimonial") + Home testimonials section | **No** (`noindex`) |
 | `/privacy` | Short privacy note (needs legal review) | Footer | Yes |
 
 Every "Book a call" button links to `/contact#book`. On phones, a sticky "Book a 20-minute call" bar sits at the bottom of every page except `/contact`, `/meet`, and `/engineers`.
@@ -88,6 +89,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | "Startups we've hired for" section is ON with placeholder boxes (Client 1–5) and a visible "Placeholder: client names coming soon" note | User wanted it live but marked as a placeholder. No invented names. The note disappears once every name is real |
 | Every main page headline has its key phrase in the logo gradient (`text-gradient`) | Consistent brand look across pages. Privacy, 404 and job pages stay plain |
 | Market: "across the US and Canada" everywhere (hero chip, footer, FAQ, Engineers, /meet, Google descriptions, structured data `areaServed`) | User asked to include Canada (2026-10-11). US startup language and USD stay the same. Phones show a shorter hero chip: "Seed to Series C+ · US and Canada" |
+| Testimonials section on Home with 3 EXAMPLE quotes: placeholder names ("[Founder name]"), "Example" tags and an "Example testimonials: real ones coming soon" label. No numbers or specific claims | User asked for examples. Rule: never publish invented testimonials as real. Swap in approved quotes from /testimonial in `src/content/testimonials.ts` |
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |
@@ -161,6 +163,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Contact form shows "Open to relocating?" when the visitor picks Engineer (`ContactReason.tsx`).
 - **2026-10-10:** Job board: `src/content/jobs.ts`, `JobList.tsx` (Role, Location and Work style dropdowns, job count, clear filters, "no matches" message; remote jobs count for every location), `/jobs/[slug]` pages, Apply → engineers form with the job prefilled (`AppliedJob.tsx`). Mobile bottom bar says "Apply for this role" on job pages. Founders' location now "Vancouver, Canada".
 - **2026-10-10:** Jobs moved to their own page `/jobs`, added to the menu after For Engineers (menu also highlights Jobs on job detail pages). Added an example Engineering Manager listing. AI/ML icon changed to Sparkles. Tip: if the local preview shows a "Hydration failed" error after edits, restart it; running `npm run build` while it's running makes it stale.
+- **2026-10-11:** Testimonials: `/testimonial` form page, Home testimonials section (`Testimonials.tsx`, `testimonials.ts`) with labeled examples, footer link.
 - **2026-10-11:** Punit's bio and experience filled in: TikTok, PayPal, Sully.ai; background across engineering, sales and go-to-market hiring. Title kept as Co-founder.
 - **2026-10-11:** Partners form: choosing "Other" shows a required "What do you do?" box (`PartnerType.tsx`, sent as `partner_type_other`). Home headline gradient now covers "growing startups".
 - **2026-10-11:** Contact form: the Message hint changes with "I'm reaching out as a" (founder, investor, engineer or other), set in `ContactReason.tsx`.

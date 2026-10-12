@@ -18,6 +18,7 @@ import {
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
+import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
 import { Arrow, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
 import { IconBadge, StepTimeline } from "@/components/visuals";
@@ -284,8 +285,11 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Testimonials (src/content/testimonials.ts) */}
+      <Testimonials />
+
       {/* Founder credibility */}
-      <Section tone="mist">
+      <Section>
         <div className="grid items-center gap-8 rounded-3xl border border-line bg-white p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
           <div>
             <div className="mb-5 flex -space-x-3">
@@ -316,7 +320,7 @@ export default function Home() {
       </Section>
 
       {/* Partners and engineers */}
-      <Section>
+      <Section tone="mist">
         <div className="grid gap-4 md:grid-cols-2">
           <Link href="/partners" className="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
             <IconBadge icon={Handshake} size="lg" />

@@ -53,6 +53,11 @@ export function Footer() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link href="/testimonial" className="link-gradient">
+                Leave a testimonial
+              </Link>
+            </li>
           </ul>
         </div>
 

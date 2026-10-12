@@ -6,7 +6,7 @@ import { bookingHref } from "@/content/site";
 
 // Sticky bar on phones, so the main action is always one tap away.
 // Job pages show "Apply for this role", the Jobs page shows "Share your profile". Hidden on pages that already show the calendar and on the engineers page.
-const hiddenOn = ["/contact", "/meet", "/engineers"];
+const hiddenOn = ["/contact", "/meet", "/engineers", "/testimonial"];
 
 export function MobileBookBar() {
   const pathname = usePathname();

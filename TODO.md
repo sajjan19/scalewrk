@@ -13,6 +13,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] **Calendly link**: create the intro-call event, then paste its link into `src/content/site.ts` → `calendlyUrl`. Until then, Contact and /meet show an amber box with an "Email us to book" link.
 - [ ] **Formspree: Contact form**: create the form at formspree.io, send it to info@scalewrk.ai, and paste the URL into `site.ts` → `forms.contact`.
 - [ ] **Formspree: Partners form**: same steps, `forms.partners`.
+- [ ] **Formspree: Testimonials form**: same steps, `forms.testimonials`.
 - [ ] **Formspree: Engineers form**: same steps, `forms.engineers`. See "Resume uploads" below.
 - [ ] **LinkedIn company page URL**: `site.ts` → `social.linkedin`. Used in the footer and on /meet.
 - [ ] **X (Twitter) URL**: `site.ts` → `social.x`. Used in the footer.
@@ -52,6 +53,11 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Optional: download official logo files (with their typography) from the TikTok, PayPal and Sully.ai press/brand pages, put them in `public/logos/`, and set `image` in `src/content/companyLogos.ts`
 - [ ] Sully.ai logo (currently a placeholder tile)
 
+## Testimonials
+
+- [ ] After each placement, send the client and engineer `https://scalewrk.ai/testimonial`
+- [ ] Replace the 3 example quotes in `src/content/testimonials.ts` with approved real ones (set `example: false`), or set `showExampleTestimonials = false`
+
 ## Clients
 
 - [ ] When you have clients who agree to be listed: replace `[Client 1]`… in `src/content/clients.ts` with real names (optional logo in `public/clients/`). The placeholder note disappears automatically
@@ -73,5 +79,4 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Add the site to Google Search Console and submit `https://scalewrk.ai/sitemap.xml`
 - [ ] Make a QR code pointing to `https://scalewrk.ai/meet` for events
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
-- [ ] Optional: add real testimonials once you have approved quotes
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
