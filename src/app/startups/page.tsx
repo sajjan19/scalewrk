@@ -87,7 +87,7 @@ const terms = [
 const faqs = [
   {
     q: "What roles do you hire for?",
-    a: "Only technical roles: AI/ML, backend, full-stack, frontend, DevOps, data, mobile, security and engineering leaders. See the full list on our Roles page.",
+    a: "Only technical roles: from AI/ML, backend and frontend to QA, hardware, robotics and engineering leaders. See all of them on our Roles page.",
   },
   {
     q: "Where are the startups you work with?",

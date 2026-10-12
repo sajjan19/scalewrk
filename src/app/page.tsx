@@ -216,11 +216,11 @@ export default function Home() {
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
           <Link href="/roles" className="rise inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
-            All roles <Arrow />
+            See all {roles.length} roles <Arrow />
           </Link>
         </div>
         <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {roles.map((role) => (
+          {roles.filter((r) => r.featured).map((role) => (
             <li key={role.slug}>
               <Link
                 href={`/roles#${role.slug}`}

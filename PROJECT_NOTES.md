@@ -26,7 +26,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/` | Home: hero, founders' experience strip, clients (placeholder), who we work with (stages), how it works (4 steps), roles, latest 3 jobs, why Scalewrk, founder credibility, partner/engineer split, CTA | Logo | Yes |
 | `/startups` | For founders: 6-step process, in-house vs. agency vs. Scalewrk comparison, fee-per-hire engagement model (pricing placeholders), FAQ | Yes | Yes |
 | `/jobs` | Jobs board with filters (from `src/content/jobs.ts`) + "share your profile" prompt | Yes | Yes |
-| `/roles` | Link to /jobs, then 9 role families with typical titles and "what we look for"; jump links | Yes | Yes |
+| `/roles` | Link to /jobs, then 20 role families (9 marked `featured` show on Home) with typical titles and "what we look for"; jump links | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
 | `/about` | Headline "Meet the team that matches startups and engineers", quick facts strip (Founded 2026, Vancouver, US and Canada, engineers only, fee per hire), founder cards (Punit first) with bio, experience, outside-of-work tags and a "Book a call with …" button, values | Yes | Yes |
@@ -175,6 +175,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-11:** Partners form: choosing "Other" shows a required "What do you do?" box (`PartnerType.tsx`, sent as `partner_type_other`). Home headline gradient now covers "growing startups".
 - **2026-10-11:** Contact form: the Message hint changes with "I'm reaching out as a" (founder, investor, engineer or other), set in `ContactReason.tsx`.
 - **2026-10-11:** Contact form: choosing "Something else" shows a required "Tell us who you are" box (sent as `reason_other`).
+- **2026-10-11:** Added 11 role types (ML researchers, data scientists, QA, embedded, hardware, robotics, game, blockchain, network, solutions/sales engineers, DevRel): 20 total. Home shows the 9 `featured` ones plus "See all 20 roles".
 - **2026-10-11:** Engineers form: choosing "Other" as primary role shows a required "What's your role?" box (`PrimaryRole.tsx`, sent as `role_other`).
 - **2026-10-11:** Home: "Latest jobs" section with the 3 newest listings (jobs now have a `posted` date; newest first everywhere). Shared `JobCard.tsx`. Home section backgrounds re-alternated. Home "How it works" bullets now use the same wording as the For Startups process.
 - **2026-10-11:** Job cards and job pages show a company logo on the left (`CompanyLogo.tsx`). Placeholder tile with the company's letter until `companyLogo` is set in `jobs.ts`.
