@@ -38,10 +38,26 @@ const audiences = [
 ];
 
 const support = [
-  { icon: UserCheck, text: "Your founders talk directly with a Scalewrk co-founder" },
-  { icon: Presentation, text: "Hiring talks or office hours for your portfolio or clients" },
-  { icon: MessagesSquare, text: "Advice on hiring plans, interviews and offers" },
-  { icon: Bell, text: "We keep you updated on intros, with the founder's OK" },
+  {
+    icon: UserCheck,
+    title: "Direct access",
+    body: ["Your founders talk to a Scalewrk co-founder", "No hand-offs to junior recruiters"],
+  },
+  {
+    icon: Presentation,
+    title: "Hiring talks",
+    body: ["Talks or office hours for your portfolio or clients", "Tips founders can use right away"],
+  },
+  {
+    icon: MessagesSquare,
+    title: "Practical advice",
+    body: ["Hiring plans", "Interview steps", "Offers and pay"],
+  },
+  {
+    icon: Bell,
+    title: "Updates for you",
+    body: ["We keep you posted on intros", "Always with the founder's OK"],
+  },
 ];
 
 const reasons = [
@@ -118,14 +134,24 @@ export default function PartnersPage() {
 
       <Section tone="mist">
         <SectionHeading eyebrow="How we help your companies" title="More than a name on a list" />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
           {support.map((item) => (
-            <li key={item.text} className="flex items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line">
-              <IconBadge icon={item.icon} size="sm" />
-              <span className="text-body">{item.text}</span>
-            </li>
+            <div key={item.title} className="rounded-2xl bg-white p-6 ring-1 ring-line transition hover:ring-brand/30">
+              <div className="flex items-center gap-3">
+                <IconBadge icon={item.icon} />
+                <p className="text-lg font-semibold">{item.title}</p>
+              </div>
+              <ul className="mt-4 space-y-1.5">
+                {item.body.map((point) => (
+                  <li key={point} className="flex gap-2 leading-snug text-body">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </Section>
 
       <Section>
