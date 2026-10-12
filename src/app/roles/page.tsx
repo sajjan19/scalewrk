@@ -102,7 +102,7 @@ export default function RolesPage() {
                   </Button>
                   {hasJobs ? (
                     <Button href={`/jobs?role=${role.slug}`} variant="secondary">
-                      See open jobs <Arrow />
+                      See open jobs for {role.name} <Arrow />
                     </Button>
                   ) : (
                     <Button href="/engineers#apply" variant="secondary">
