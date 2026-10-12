@@ -56,7 +56,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 ## Testimonials
 
 - [ ] After each placement, send the client and engineer `https://scalewrk.ai/testimonial`
-- [ ] Replace the 3 example quotes in `src/content/testimonials.ts` with approved real ones (set `example: false`), or set `showExampleTestimonials = false`
+- [ ] Replace the 6 example quotes in `src/content/testimonials.ts` with approved real ones (set `example: false`), or set `showExampleTestimonials = false`
 
 ## Clients
 

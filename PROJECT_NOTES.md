@@ -89,7 +89,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | "Startups we've hired for" section is ON with placeholder boxes (Client 1–5) and a visible "Placeholder: client names coming soon" note | User wanted it live but marked as a placeholder. No invented names. The note disappears once every name is real |
 | Every main page headline has its key phrase in the logo gradient (`text-gradient`) | Consistent brand look across pages. Privacy, 404 and job pages stay plain |
 | Market: "across the US and Canada" everywhere (hero chip, footer, FAQ, Engineers, /meet, Google descriptions, structured data `areaServed`) | User asked to include Canada (2026-10-11). US startup language and USD stay the same. Phones show a shorter hero chip: "Seed to Series C+ · US and Canada" |
-| Testimonials section on Home with 3 EXAMPLE quotes: placeholder names ("[Founder name]"), "Example" tags and an "Example testimonials: real ones coming soon" label. No numbers or specific claims | User asked for examples. Rule: never publish invented testimonials as real. Swap in approved quotes from /testimonial in `src/content/testimonials.ts` |
+| Testimonials section on Home with 6 EXAMPLE quotes: placeholder names ("[Founder name]"), "Example" tags and an "Example testimonials: real ones coming soon" label. No numbers or specific claims | User asked for examples. Rule: never publish invented testimonials as real. Swap in approved quotes from /testimonial in `src/content/testimonials.ts` |
 | `/meet` is `noindex` and not in the sitemap | It's for event QR codes, not search |
 | Structured data: `EmploymentAgency` (schema.org), area served US | Helps search engines understand the business |
 | Contact email `info@scalewrk.ai` | User choice |

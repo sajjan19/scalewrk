@@ -50,6 +50,33 @@ export const testimonials: Testimonial[] = [
     type: "Partner",
     example: true,
   },
+  {
+    quote:
+      "Every candidate on the shortlist could have joined our team. No time wasted on people who weren't a fit.",
+    name: "[Founder name]",
+    title: "CTO",
+    company: "Company C (Series A)",
+    type: "Founder",
+    example: true,
+  },
+  {
+    quote:
+      "I wanted to move from a big company to an AI startup. Scalewrk found a role that matched my skills and helped me through every step of the offer.",
+    name: "[Engineer name]",
+    title: "Machine Learning Engineer",
+    company: "Company D (Series B)",
+    type: "Engineer",
+    example: true,
+  },
+  {
+    quote:
+      "My clients need to hire fast without blowing their budget. Fee per hire with no retainer makes Scalewrk an easy recommendation.",
+    name: "[Partner name]",
+    title: "Fractional CFO",
+    company: "[Advisory firm]",
+    type: "Partner",
+    example: true,
+  },
 ];
 
 export const visibleTestimonials = testimonials.filter((t) => !t.example || showExampleTestimonials);
