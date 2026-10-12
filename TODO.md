@@ -84,4 +84,3 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Make a QR code pointing to `https://scalewrk.ai/meet` for events
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
-- [ ] Confirm the New York page FAQ: "Our co-founders are based in Vancouver. We work with New York teams over video and phone." (`src/app/tech-recruiter-new-york/page.tsx`)
