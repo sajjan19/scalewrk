@@ -184,4 +184,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-10:** Roles page jump bar is now `RoleJumpBar.tsx`: purple chips, faded edges and arrows when there's more to scroll, and the chip for the role on screen is highlighted. Nav order changed to For Startups, For Engineers, Roles, Partners, About.
 - **2026-10-10:** Footer link hover changed from solid blue to the logo gradient (text and icons): `.link-gradient` in `globals.css`, with `#brand-gradient` defined in `Footer.tsx`.
 - **2026-10-11:** Roles cards: top 3 titles, key skills tags, "Hire for [role name]" + "See open jobs for [role name]" buttons, open jobs count (real jobs only). Jobs page reads `?role=` to preselect the Role filter.
-- **2026-10-11:** Bottom CTA band default copy: "Ready to grow your team?" / "Book a call. Tell us what you're building and we'll help you find the engineers to build it."
+- **2026-10-11:** Bottom CTA band default copy: "Ready to grow your team?" / "Tell us what you're building and we'll help you find the engineers to build it."
