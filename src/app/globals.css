@@ -112,6 +112,13 @@ button:hover .arrow,
 .nudge:hover .arrow {
   transform: none;
 }
+/* Buttons with an arrow do the same: the whole button slides right (instead of lifting up) */
+.btn:has(.arrow):hover {
+  transform: translateX(3px);
+}
+.btn:has(.arrow):hover .arrow {
+  transform: none;
+}
 .lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px -10px rgba(11, 16, 32, 0.45);
@@ -130,7 +137,8 @@ button:hover .arrow,
   button:hover .arrow,
   .group:hover .arrow,
   .nudge:hover,
-  .nudge-back:hover {
+  .nudge-back:hover,
+  .btn:has(.arrow):hover {
     transform: none;
   }
 }

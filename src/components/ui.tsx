@@ -20,7 +20,7 @@ const buttonStyles = {
 
 export function Button({ href, children, variant = "primary", className = "" }: ButtonProps) {
   const external = href.startsWith("http") || href.startsWith("mailto:");
-  const classes = `lift inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 text-[15px] font-medium ${buttonStyles[variant]} ${className}`;
+  const classes = `btn lift inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 text-[15px] font-medium ${buttonStyles[variant]} ${className}`;
   if (external) {
     return (
       <a href={href} className={classes} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
