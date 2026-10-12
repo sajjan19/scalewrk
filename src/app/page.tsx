@@ -20,7 +20,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
-import { Arrow, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
@@ -115,7 +115,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
-                Book a call <Arrow />
+                <CalendarIcon /> Book a call
               </Button>
               <Button href="/roles" variant="secondary">
                 Roles we hire

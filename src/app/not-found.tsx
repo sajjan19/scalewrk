@@ -1,4 +1,4 @@
-import { Arrow, Button, Container } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, Container } from "@/components/ui";
 
 export default function NotFound() {
   return (
@@ -12,7 +12,7 @@ export default function NotFound() {
             Go home <Arrow />
           </Button>
           <Button href="/contact#book" variant="brand">
-            Book a call <Arrow />
+            <CalendarIcon /> Book a call
           </Button>
         </div>
       </Container>

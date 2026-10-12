@@ -1,5 +1,5 @@
 import { bookingHref } from "@/content/site";
-import { Arrow, Button, Container } from "./ui";
+import { CalendarIcon, Button, Container } from "./ui";
 
 // Dark "Book a call" band used at the bottom of most pages.
 export function CtaBand({
@@ -21,7 +21,7 @@ export function CtaBand({
             <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
             <p className="mt-4 text-lg leading-relaxed text-white/75">{body}</p>
             <Button href={bookingHref} variant="brand" className="mt-8 w-full sm:w-auto">
-              Book a call <Arrow />
+              <CalendarIcon /> Book a call
             </Button>
           </div>
         </div>

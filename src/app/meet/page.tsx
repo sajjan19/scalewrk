@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { CircleDollarSign, Code2, MapPin } from "lucide-react";
-import { Arrow, Container } from "@/components/ui";
+import { CalendarIcon, Container } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -47,7 +47,7 @@ export default function MeetPage() {
           href="#book"
           className="btn-brand mt-8 flex min-h-14 items-center justify-center gap-2 rounded-xl text-base font-medium"
         >
-          Book a call <Arrow />
+          <CalendarIcon /> Book a call
         </a>
         <div className="mt-3 grid grid-cols-2 gap-3">
           <a

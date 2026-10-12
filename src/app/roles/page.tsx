@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { RoleJumpBar } from "@/components/RoleJumpBar";
-import { Arrow, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { IconBadge } from "@/components/visuals";
@@ -27,7 +27,7 @@ export default function RolesPage() {
         intro="We only hire engineers for growing startups. Here's who we hire and what we look for."
       >
         <Button href={bookingHref} variant="brand">
-          Hire for a role <Arrow />
+          <CalendarIcon /> Hire for a role
         </Button>
       </PageHero>
 

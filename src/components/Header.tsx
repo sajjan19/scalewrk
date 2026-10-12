@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { bookingHref, nav } from "@/content/site";
 import { Logo } from "./Logo";
-import { Arrow } from "./ui";
+import { CalendarIcon } from "./ui";
 
 export function Header() {
   const pathname = usePathname();
@@ -44,7 +44,7 @@ export function Header() {
             );
           })}
           <Link href={bookingHref} className="btn-brand ml-3 inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[15px] font-medium">
-            Book a call <Arrow />
+            <CalendarIcon /> Book a call
           </Link>
         </nav>
 
@@ -83,7 +83,7 @@ export function Header() {
             })}
           </ul>
           <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn-brand mt-4 flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium">
-            Book a call <Arrow />
+            <CalendarIcon /> Book a call
           </Link>
         </nav>
       )}

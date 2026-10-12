@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { ProcessCards } from "@/components/ProcessCards";
-import { Arrow, Button, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { CalendarIcon, Button, PageHero, Section, SectionHeading, Text } from "@/components/ui";
 import { IconBadge, YesNo } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -120,7 +120,7 @@ export default function StartupsPage() {
         intro="Hiring engineers is one of the most important things you'll do. We run your searches like part of your team, so you can focus on building."
       >
         <Button href={bookingHref} variant="brand">
-          Book a call <Arrow />
+          <CalendarIcon /> Book a call
         </Button>
       </PageHero>
 

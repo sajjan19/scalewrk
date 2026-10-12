@@ -4,12 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore } from "react";
 import { bookingHref } from "@/content/site";
-import { Arrow } from "./ui";
+import { Arrow, CalendarIcon } from "./ui";
 
 // Sticky bar on phones, so the main action is always one tap away.
 // It slides up once you start scrolling and hides again at the top of the page.
-// Job pages show "Apply for this role", the Jobs page shows "Share your profile". Hidden on pages that already show the calendar and on the engineers page.
-const hiddenOn = ["/contact", "/meet", "/engineers", "/testimonial"];
+// Engineer pages show engineer actions: job pages "Apply for this role", the Jobs page "Share your profile",
+// the Engineers page "View all jobs". Hidden on pages that already show the calendar.
+const hiddenOn = ["/contact", "/meet", "/testimonial"];
 
 // How far (in pixels) you scroll before the bar appears
 const SHOW_AFTER = 40;
@@ -25,10 +26,15 @@ export function MobileBookBar() {
   const scrolled = useSyncExternalStore(subscribe, isScrolled, () => false);
   if (hiddenOn.includes(pathname)) return null;
 
-  // Engineers see engineer actions; everyone else sees "Book a call"
+  // Engineer pages get an engineer action; everyone else sees "Book a call"
   const jobSlug = pathname.startsWith("/jobs/") ? pathname.split("/")[2] : null;
-  const href = jobSlug ? `/engineers?job=${jobSlug}#apply` : pathname === "/jobs" ? "/engineers#apply" : bookingHref;
-  const label = jobSlug ? "Apply for this role" : pathname === "/jobs" ? "Share your profile" : "Book a call";
+  const action = jobSlug
+    ? { href: `/engineers?job=${jobSlug}#apply`, label: "Apply for this role" }
+    : pathname === "/jobs"
+      ? { href: "/engineers#apply", label: "Share your profile" }
+      : pathname === "/engineers"
+        ? { href: "/jobs", label: "View all jobs" }
+        : null;
 
   return (
     <div
@@ -38,11 +44,19 @@ export function MobileBookBar() {
       }`}
     >
       <Link
-        href={href}
+        href={action?.href ?? bookingHref}
         tabIndex={scrolled ? undefined : -1}
         className="btn-brand flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium"
       >
-        {label} <Arrow />
+        {action ? (
+          <>
+            {action.label} <Arrow />
+          </>
+        ) : (
+          <>
+            <CalendarIcon /> Book a call
+          </>
+        )}
       </Link>
     </div>
   );

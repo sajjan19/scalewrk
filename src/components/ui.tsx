@@ -35,6 +35,16 @@ export function Button({ href, children, variant = "primary", className = "" }: 
   );
 }
 
+// Calendar icon used on every "Book a call" button
+export function CalendarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+      <rect x="3" y="4.5" width="18" height="16" rx="2.5" />
+      <path d="M3 9.5h18M8 2.5v4M16 2.5v4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function Arrow() {
   return (
     <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">

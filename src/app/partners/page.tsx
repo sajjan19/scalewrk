@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Field, Form, TextArea } from "@/components/Form";
 import { PartnerType } from "@/components/PartnerType";
-import { Arrow, Button, PageHero, Section, SectionHeading } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, PageHero, Section, SectionHeading } from "@/components/ui";
 import { IconBadge, StepTimeline } from "@/components/visuals";
 import { bookingHref, site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -70,7 +70,7 @@ export default function PartnersPage() {
           Become a partner <Arrow />
         </Button>
         <Button href={bookingHref} variant="brand">
-          Book a call <Arrow />
+          <CalendarIcon /> Book a call
         </Button>
       </PageHero>
 
