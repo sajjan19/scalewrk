@@ -39,8 +39,9 @@ body {
      without changing the spacing itself */
   padding-right: 0.08em;
   margin-right: -0.08em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  /* When the phrase wraps onto two lines, the gradient flows across both (not restarting on each line) */
+  -webkit-box-decoration-break: slice;
+  box-decoration-break: slice;
 }
 
 /* "Book a call" buttons: same purple-to-blue gradient as the logo */
