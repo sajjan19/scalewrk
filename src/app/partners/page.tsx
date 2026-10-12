@@ -31,10 +31,26 @@ export const metadata = pageMetadata({
 });
 
 const audiences = [
-  { icon: Landmark, title: "VC platform and talent teams", body: "Give your portfolio a tech hiring expert without adding to your team." },
-  { icon: GraduationCap, title: "Accelerators", body: "Your founders are about to raise and hire. We help them get their first engineers right." },
-  { icon: Scale, title: "Startup lawyers", body: "Your clients just raised. Hiring is next. Send them to a recruiter who knows startups." },
-  { icon: Calculator, title: "Fractional CFOs", body: "You build the hiring plan. We help fill it, with a simple fee per hire that's easy to budget." },
+  {
+    icon: Landmark,
+    title: "VC platform and talent teams",
+    body: ["A tech hiring expert for your portfolio", "No extra headcount on your team"],
+  },
+  {
+    icon: GraduationCap,
+    title: "Accelerators",
+    body: ["Your founders are about to raise and hire", "We help them get their first engineers right"],
+  },
+  {
+    icon: Scale,
+    title: "Startup lawyers",
+    body: ["Your clients just raised and hiring is next", "Send them to a recruiter who knows startups"],
+  },
+  {
+    icon: Calculator,
+    title: "Fractional CFOs",
+    body: ["You build the hiring plan", "We help fill it", "A simple fee per hire that's easy to budget"],
+  },
 ];
 
 const support = [
@@ -126,7 +142,14 @@ export default function PartnersPage() {
             <div key={a.title} className="rounded-2xl border border-line p-6">
               <IconBadge icon={a.icon} size="lg" />
               <p className="mt-5 text-lg font-semibold">{a.title}</p>
-              <p className="mt-2 leading-relaxed text-body">{a.body}</p>
+              <ul className="mt-3 space-y-1.5">
+                {a.body.map((point) => (
+                  <li key={point} className="flex gap-2 leading-snug text-body">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
