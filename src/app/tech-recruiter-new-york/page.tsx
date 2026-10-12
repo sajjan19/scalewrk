@@ -67,11 +67,11 @@ const faqs = [
 export default function NewYorkPage() {
   return (
     <>
-      {/* Hero: photo with the text on top. Photo by Luca Bravo on Unsplash (Unsplash License) */}
+      {/* Hero: photo with the text on top. Photo by Michael Discenza on Unsplash (Unsplash License) */}
       <section className="relative isolate overflow-hidden bg-ink">
         <Image
           src={nyPhoto}
-          alt="The Manhattan skyline at sunset, seen across the water from Brooklyn"
+          alt="The Manhattan skyline at sunset, with the Empire State Building in the middle"
           fill
           priority
           placeholder="blur"
@@ -85,7 +85,6 @@ export default function NewYorkPage() {
         />
         <Container>
           <div className="py-20 sm:py-32">
-            <p className="mb-3 text-sm font-medium text-white/80">New York</p>
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance text-white sm:text-6xl">
               Tech recruiting for <span className="text-gradient text-gradient-light">New York startups</span>.
             </h1>
@@ -103,12 +102,12 @@ export default function NewYorkPage() {
           </div>
         </Container>
         <a
-          href="https://unsplash.com/photos/panoramic-photography-of-brooklyn-bridge-_QdFx92MO2U"
+          href="https://unsplash.com/photos/landscape-photo-of-new-york-empire-state-building-5omwAMDxmkU"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute right-3 bottom-2 text-[11px] text-white/60 hover:text-white"
         >
-          Photo: Luca Bravo / Unsplash
+          Photo: Michael Discenza / Unsplash
         </a>
       </section>
 
