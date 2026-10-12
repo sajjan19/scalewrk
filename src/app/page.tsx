@@ -223,17 +223,14 @@ export default function Home() {
             <li key={role.slug}>
               <Link
                 href={`/roles#${role.slug}`}
-                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:items-start sm:p-5"
+                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:p-5"
               >
                 <IconBadge icon={role.icon} />
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-center justify-between gap-2 font-semibold">
-                    {role.name}
-                    <span className="text-muted transition group-hover:translate-x-0.5 group-hover:text-brand">
-                      <Arrow />
-                    </span>
+                <span className="flex min-w-0 flex-1 items-center justify-between gap-2 font-semibold">
+                  {role.name}
+                  <span className="text-muted transition group-hover:translate-x-0.5 group-hover:text-brand">
+                    <Arrow />
                   </span>
-                  <span className="mt-1 hidden text-[15px] leading-relaxed text-body sm:block">{role.summary}</span>
                 </span>
               </Link>
             </li>
