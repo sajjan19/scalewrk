@@ -39,13 +39,13 @@ export default function ContactPage() {
               Send us a note. We&apos;ll reply within one business day. Or reach us directly:
             </p>
             <div className="mt-6 space-y-2 text-lg">
-              <a href={`mailto:${site.email}`} className="flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">
+              <a href={`mailto:${site.email}`} className="rise flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark">
                 <MailIcon />
                 {site.email}
               </a>
               <a
                 href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
-                className="flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark"
+                className="rise flex w-fit items-center gap-3 font-medium text-brand hover:text-brand-dark"
               >
                 <PhoneIcon />
                 {site.phone}

@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" aria-label="Scalewrk home" className="-m-1 p-1">
+        <Link href="/" aria-label="Scalewrk home" className="rise -m-1 inline-block p-1">
           <Logo />
         </Link>
 
@@ -28,7 +28,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`relative rounded-lg px-3 py-2 text-[15px] transition-colors ${
+                className={`rise relative rounded-lg px-3 py-2 text-[15px] ${
                   active ? "font-medium text-brand" : "text-body hover:bg-brand-soft hover:text-brand"
                 }`}
               >
@@ -50,7 +50,7 @@ export function Header() {
 
         <button
           type="button"
-          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-lg lg:hidden"
+          className="rise -mr-2 flex h-11 w-11 items-center justify-center rounded-lg lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -73,7 +73,7 @@ export function Header() {
                     href={item.href}
                     onClick={() => setOpenOn(null)}
                     aria-current={active ? "page" : undefined}
-                    className={`flex items-center justify-between py-4 text-lg font-medium ${active ? "text-brand" : "hover:text-brand"}`}
+                    className={`rise flex items-center justify-between py-4 text-lg font-medium ${active ? "text-brand" : "hover:text-brand"}`}
                   >
                     {item.label}
                     {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />}

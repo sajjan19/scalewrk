@@ -52,7 +52,7 @@ export default function MeetPage() {
         <div className="mt-3 grid grid-cols-2 gap-3">
           <a
             href="/scalewrk.vcf"
-            className="flex min-h-12 items-center justify-center rounded-xl text-[15px] font-medium ring-1 ring-line"
+            className="lift flex min-h-12 items-center justify-center rounded-xl bg-white text-[15px] font-medium ring-1 ring-line hover:ring-brand/30"
           >
             Save our contact
           </a>
@@ -60,7 +60,7 @@ export default function MeetPage() {
             href={site.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-12 items-center justify-center rounded-xl text-[15px] font-medium ring-1 ring-line"
+            className="lift flex min-h-12 items-center justify-center rounded-xl bg-white text-[15px] font-medium ring-1 ring-line hover:ring-brand/30"
           >
             LinkedIn
           </a>
@@ -71,11 +71,11 @@ export default function MeetPage() {
         </div>
 
         <div className="mt-10 grid gap-3 text-[15px] sm:grid-cols-2">
-          <Link href="/partners" className="rounded-xl bg-mist p-4 hover:bg-line/60">
+          <Link href="/partners" className="lift rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
             <span className="font-medium">Investor, lawyer, or CFO?</span>
             <span className="block text-body">Refer your founders →</span>
           </Link>
-          <Link href="/engineers" className="rounded-xl bg-mist p-4 hover:bg-line/60">
+          <Link href="/engineers" className="lift rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
             <span className="font-medium">Engineer?</span>
             <span className="block text-body">Share your profile →</span>
           </Link>

@@ -20,7 +20,7 @@ export function Testimonials() {
       </div>
       <p className="mt-8 text-body">
         Worked with us?{" "}
-        <Link href="/testimonial" className="font-medium text-brand hover:text-brand-dark">
+        <Link href="/testimonial" className="rise inline-block font-medium text-brand hover:text-brand-dark">
           Share your experience →
         </Link>
       </p>

@@ -8,7 +8,7 @@ export function JobCard({ job }: { job: Job }) {
   return (
     <Link
       href={`/jobs/${job.slug}`}
-      className="group flex items-stretch gap-4 rounded-2xl border border-line bg-white p-5 transition hover:border-brand/30 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)] sm:gap-5 sm:p-6"
+      className="lift group flex items-stretch gap-4 rounded-2xl border border-line bg-white p-5 hover:border-brand/30 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)] sm:gap-5 sm:p-6"
     >
       <CompanyLogo name={job.companyName} logo={job.companyLogo} size="fill" />
       <span className="min-w-0 flex-1">

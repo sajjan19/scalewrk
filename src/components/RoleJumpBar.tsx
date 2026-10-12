@@ -76,7 +76,7 @@ export function RoleJumpBar() {
                   href={`#${role.slug}`}
                   data-slug={role.slug}
                   aria-current={isActive ? "true" : undefined}
-                  className={`flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition ${
+                  className={`rise flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium ${
                     isActive
                       ? "btn-brand shadow-sm"
                       : "bg-brand-soft text-brand-dark ring-1 ring-brand/15 hover:bg-brand/15 hover:ring-brand/30"
@@ -97,7 +97,7 @@ export function RoleJumpBar() {
               type="button"
               onClick={() => nudge(-1)}
               aria-label="Scroll roles left"
-              className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand shadow-md ring-1 ring-line transition hover:text-brand-dark"
+              className="lift pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand shadow-md ring-1 ring-line hover:text-brand-dark"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -109,7 +109,7 @@ export function RoleJumpBar() {
               type="button"
               onClick={() => nudge(1)}
               aria-label="Scroll roles right"
-              className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand shadow-md ring-1 ring-line transition hover:text-brand-dark"
+              className="lift pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand shadow-md ring-1 ring-line hover:text-brand-dark"
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />
             </button>

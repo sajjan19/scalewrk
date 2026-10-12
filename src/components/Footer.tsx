@@ -24,14 +24,14 @@ export function Footer() {
           </p>
           <a
             href={`mailto:${site.email}`}
-            className="mt-5 flex w-fit items-center gap-3 text-white link-gradient"
+            className="rise mt-5 flex w-fit items-center gap-3 text-white link-gradient"
           >
             <MailIcon className="h-4 w-4" />
             {site.email}
           </a>
           <a
             href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
-            className="mt-3 flex w-fit items-center gap-3 text-white link-gradient"
+            className="rise mt-3 flex w-fit items-center gap-3 text-white link-gradient"
           >
             <PhoneIcon className="h-4 w-4" />
             {site.phone}
@@ -43,18 +43,18 @@ export function Footer() {
           <ul className="mt-4 space-y-3">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="link-gradient">
+                <Link href={item.href} className="rise inline-block link-gradient">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/contact" className="link-gradient">
+              <Link href="/contact" className="rise inline-block link-gradient">
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/testimonial" className="link-gradient">
+              <Link href="/testimonial" className="rise inline-block link-gradient">
                 Leave a testimonial
               </Link>
             </li>
@@ -77,7 +77,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 link-gradient"
+                  className="rise inline-flex items-center gap-3 link-gradient"
                 >
                   <SocialIcon network={link.network} className="h-4 w-4" />
                   {link.label}
@@ -93,7 +93,7 @@ export function Footer() {
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <Link href="/privacy" className="link-gradient">
+          <Link href="/privacy" className="rise inline-block link-gradient">
             Privacy
           </Link>
         </div>

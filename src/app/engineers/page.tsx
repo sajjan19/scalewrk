@@ -51,7 +51,7 @@ export default function EngineersPage() {
             <li>
               <Link
                 href="/jobs"
-                className="group flex h-full items-start gap-3 rounded-2xl border border-brand/20 bg-brand-soft p-4 transition hover:border-brand/40 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]"
+                className="lift group flex h-full items-start gap-3 rounded-2xl border border-brand/20 bg-brand-soft p-4 hover:border-brand/40 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]"
               >
                 <span className="btn-brand flex h-9 w-9 flex-none items-center justify-center rounded-lg">
                   <Briefcase className="h-4.5 w-4.5" aria-hidden="true" />

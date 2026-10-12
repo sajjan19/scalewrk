@@ -124,7 +124,7 @@ export default function Home() {
             <p className="mt-4 text-sm text-muted">You only pay when you hire.</p>
             <p className="mt-2 text-sm text-muted">
               Engineer?{" "}
-              <Link href="/engineers" className="font-medium text-brand hover:text-brand-dark">
+              <Link href="/engineers" className="rise inline-block font-medium text-brand hover:text-brand-dark">
                 Find your next startup →
               </Link>
             </p>
@@ -206,7 +206,7 @@ export default function Home() {
         <div className="mt-12">
           <ProcessCards steps={steps} cols={4} />
         </div>
-        <Link href="/startups" className="mt-10 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark">
+        <Link href="/startups" className="rise mt-10 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark">
           See the full process <Arrow />
         </Link>
       </Section>
@@ -215,7 +215,7 @@ export default function Home() {
       <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
-          <Link href="/roles" className="inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
+          <Link href="/roles" className="rise inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
             All roles <Arrow />
           </Link>
         </div>
@@ -224,7 +224,7 @@ export default function Home() {
             <li key={role.slug}>
               <Link
                 href={`/roles#${role.slug}`}
-                className="group flex h-full items-center gap-4 rounded-2xl border border-line p-4 transition hover:border-brand/30 hover:bg-mist sm:items-start sm:p-5"
+                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:items-start sm:p-5"
               >
                 <IconBadge icon={role.icon} />
                 <span className="min-w-0 flex-1">
@@ -246,7 +246,7 @@ export default function Home() {
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
-          <Link href="/jobs" className="inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
+          <Link href="/jobs" className="rise inline-flex shrink-0 items-center gap-2 font-medium text-brand hover:text-brand-dark">
             View all jobs <Arrow />
           </Link>
         </div>
@@ -323,7 +323,7 @@ export default function Home() {
       {/* Partners and engineers */}
       <Section tone="mist">
         <div className="grid gap-4 md:grid-cols-2">
-          <Link href="/partners" className="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
+          <Link href="/partners" className="lift group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line hover:ring-brand/30">
             <IconBadge icon={Handshake} size="lg" />
             <p className="mt-5 text-sm font-medium text-brand">For VCs, accelerators, lawyers and CFOs</p>
             <p className="mt-2 text-2xl font-semibold tracking-tight">Send your founders to a tech recruiter they can trust.</p>
@@ -331,7 +331,7 @@ export default function Home() {
               Become a partner <Arrow />
             </span>
           </Link>
-          <Link href="/engineers" className="group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line transition hover:ring-ink/25">
+          <Link href="/engineers" className="lift group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line hover:ring-brand/30">
             <IconBadge icon={Code2} size="lg" />
             <p className="mt-5 text-sm font-medium text-brand">For engineers</p>
             <p className="mt-2 text-2xl font-semibold tracking-tight">Looking for your next startup? Share your profile.</p>

@@ -55,7 +55,7 @@ export function JobList() {
           {location !== "all" && (workType === "all" || workType === "Remote") && " (including remote)"}
         </p>
         {filtered && (
-          <button type="button" onClick={clear} className="font-medium text-brand hover:text-brand-dark">
+          <button type="button" onClick={clear} className="rise font-medium text-brand hover:text-brand-dark">
             Clear filters
           </button>
         )}
@@ -66,10 +66,10 @@ export function JobList() {
           <p className="text-lg font-semibold">No jobs match those filters</p>
           <p className="mt-1 text-body">Try fewer filters, or share your profile and we&apos;ll reach out when one fits.</p>
           <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
-            <button type="button" onClick={clear} className="rounded-xl px-5 py-2.5 font-medium ring-1 ring-line hover:ring-ink/30">
+            <button type="button" onClick={clear} className="lift rounded-xl bg-white px-5 py-2.5 font-medium ring-1 ring-line hover:ring-ink/30">
               Clear filters
             </button>
-            <Link href="/engineers#apply" className="btn-brand rounded-xl px-5 py-2.5 font-medium">
+            <Link href="/engineers#apply" className="btn-brand lift rounded-xl px-5 py-2.5 font-medium">
               Share your profile
             </Link>
           </div>
@@ -94,7 +94,7 @@ export function JobList() {
           </div>
           <Link
             href="/engineers#apply"
-            className="mt-4 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark sm:mt-0 sm:shrink-0"
+            className="rise mt-4 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark sm:mt-0 sm:shrink-0"
           >
             Share your profile <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>

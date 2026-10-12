@@ -37,7 +37,7 @@ export function CalendlyEmbed({ height = 700 }: { height?: number }) {
         <p className="mt-2 max-w-sm text-sm text-amber-800">
           Add your Calendly link in <code>src/content/site.ts</code> and the booking calendar will appear here.
         </p>
-        <a href={`mailto:${site.email}?subject=Intro%20call`} className="mt-5 font-medium text-brand underline">
+        <a href={`mailto:${site.email}?subject=Intro%20call`} className="rise mt-5 inline-block font-medium text-brand underline">
           Email {site.email} to book
         </a>
       </div>

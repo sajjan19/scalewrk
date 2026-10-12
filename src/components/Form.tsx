@@ -186,7 +186,7 @@ export function FileField({ label, name, accept, hint }: { label: string; name: 
         {label} <span className="font-normal text-muted">(optional)</span>
       </span>
       {/* Custom "Choose file" button (the browser's own button can't show an icon) */}
-      <label className="mt-2 flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-line bg-mist px-4 py-4 transition hover:border-brand/40 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand/40">
+      <label className="mt-2 flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-line bg-mist px-4 py-4 transition hover:border-brand/40 [&:hover>span:first-child]:-translate-y-0.5 [&>span:first-child]:transition-transform has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand/40">
         <span className="inline-flex flex-none items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-white">
           <Paperclip className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
           Choose file

@@ -64,13 +64,21 @@ body {
   }
 }
 
-/* Buttons lift slightly on hover. Add the "lift" class to any button or button-style link. */
-.lift {
+/* Everything clickable lifts slightly on hover.
+   "lift": buttons, cards and tiles (with a soft shadow). "rise": text links, pills and icons (no shadow). */
+.lift,
+.rise {
   transition:
     transform 150ms ease,
     box-shadow 150ms ease,
     background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
     background-position 400ms ease;
+}
+/* "rise": same lift without the shadow, for text links, pills and small icons */
+.rise:hover {
+  transform: translateY(-2px);
 }
 .lift:hover {
   transform: translateY(-2px);
@@ -84,7 +92,8 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .lift,
-  .lift:hover {
+  .lift:hover,
+  .rise:hover {
     transform: none;
   }
 }
