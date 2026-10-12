@@ -28,7 +28,7 @@ export type Founder = {
 export const founders: Founder[] = [
   {
     name: "Punit Singh",
-    title: "Co-founder",
+    title: "Founder and CEO",
     initials: "PS",
     photo: "/founders/punit.jpg",
     location: "Vancouver, Canada",
@@ -50,7 +50,7 @@ export const founders: Founder[] = [
   },
   {
     name: "Mandeep Sajjan",
-    title: "Co-founder",
+    title: "Technical Recruiter",
     initials: "MS",
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",

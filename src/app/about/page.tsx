@@ -79,7 +79,7 @@ export default function AboutPage() {
               {f.photo ? (
                 <Image
                   src={f.photo}
-                  alt={`${f.name}, ${f.title} of Scalewrk`}
+                  alt={`${f.name}, ${f.title} at Scalewrk`}
                   width={1200}
                   height={900}
                   quality={90}

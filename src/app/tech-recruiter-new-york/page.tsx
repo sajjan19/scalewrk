@@ -67,11 +67,11 @@ const faqs = [
 export default function NewYorkPage() {
   return (
     <>
-      {/* Hero: photo with the text on top. Photo by Michael Discenza on Unsplash (Unsplash License) */}
+      {/* Hero: photo with the text on top. Photo by Jermaine Ee on Unsplash (Unsplash License) */}
       <section className="relative isolate overflow-hidden bg-ink">
         <Image
           src={nyPhoto}
-          alt="The Manhattan skyline at sunset, with the Empire State Building in the middle"
+          alt="Aerial view of Manhattan with Central Park in front"
           fill
           priority
           placeholder="blur"
@@ -102,12 +102,12 @@ export default function NewYorkPage() {
           </div>
         </Container>
         <a
-          href="https://unsplash.com/photos/landscape-photo-of-new-york-empire-state-building-5omwAMDxmkU"
+          href="https://unsplash.com/photos/new-york-central-park-A2CChTZvzTE"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute right-3 bottom-2 text-[11px] text-white/60 hover:text-white"
         >
-          Photo: Michael Discenza / Unsplash
+          Photo: Jermaine Ee / Unsplash
         </a>
       </section>
 
