@@ -32,7 +32,7 @@ export default function MeetPage() {
 
         <ul className="mt-6 space-y-3">
           {[
-            { icon: Code2, text: "Engineers for every role, from AI/ML to DevOps" },
+            { icon: Code2, text: "Engineers across AI, software, hardware and more" },
             { icon: MapPin, text: "Seed to Series C+ startups across the US and Canada" },
             { icon: CircleDollarSign, text: "You only pay when you hire" },
           ].map((item) => (
