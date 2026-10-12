@@ -21,7 +21,8 @@ import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
 import { Arrow, Button, Container, Section, SectionHeading, Text } from "@/components/ui";
-import { IconBadge, StepTimeline } from "@/components/visuals";
+import { IconBadge } from "@/components/visuals";
+import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { latestJobs } from "@/content/jobs";
@@ -203,7 +204,7 @@ export default function Home() {
       <Section tone="mist">
         <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
         <div className="mt-12">
-          <StepTimeline steps={steps} />
+          <ProcessCards steps={steps} cols={4} />
         </div>
         <Link href="/startups" className="mt-10 inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark">
           See the full process <Arrow />

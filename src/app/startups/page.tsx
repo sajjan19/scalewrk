@@ -1,6 +1,5 @@
 import {
   CalendarCheck,
-  ChevronRight,
   CircleDollarSign,
   Handshake,
   ListChecks,
@@ -12,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
+import { ProcessCards } from "@/components/ProcessCards";
 import { Arrow, Button, PageHero, Section, SectionHeading, Text } from "@/components/ui";
 import { IconBadge, YesNo } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
@@ -127,52 +127,9 @@ export default function StartupsPage() {
       {/* Process */}
       <Section>
         <SectionHeading eyebrow="Our process" title="How a search works" />
-        <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {process.map((step, i) => {
-            const last = i === process.length - 1;
-            // Arrow to the next card in the same row: 2 per row on tablets, 3 on desktop
-            const arrowMd = i % 2 === 0 && !last ? "md:flex" : "md:hidden";
-            const arrowLg = i % 3 !== 2 && !last ? "lg:flex" : "lg:hidden";
-            return (
-              <li
-                key={step.title}
-                className={`relative rounded-2xl border p-6 transition hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)] ${
-                  last ? "border-brand/20 bg-brand-soft/60" : "border-line bg-white hover:border-brand/30"
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <span className="relative flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-white text-brand shadow-sm ring-1 ring-line">
-                    <step.icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
-                    <span className="btn-brand absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold">
-                      {i + 1}
-                    </span>
-                  </span>
-                  <p className="text-lg font-semibold">{step.title}</p>
-                  {last && (
-                    <span className="ml-auto rounded-full bg-white px-2.5 py-0.5 text-xs font-medium text-brand-dark ring-1 ring-brand/20">
-                      Ongoing
-                    </span>
-                  )}
-                </div>
-                <ul className="mt-4 space-y-1.5 pl-16">
-                  {step.body.map((point) => (
-                    <li key={point} className="flex gap-2 leading-snug text-body">
-                      <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                {/* Arrow to the next step */}
-                <span
-                  aria-hidden="true"
-                  className={`absolute top-1/2 -right-[22px] z-10 hidden h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand shadow-sm ring-1 ring-line ${arrowMd} ${arrowLg}`}
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </span>
-              </li>
-            );
-          })}
-        </ol>
+        <div className="mt-12">
+          <ProcessCards steps={process} cols={3} ongoingLast />
+        </div>
       </Section>
 
       {/* Comparison */}
