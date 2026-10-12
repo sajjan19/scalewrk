@@ -44,14 +44,24 @@ body {
 }
 
 /* "Book a call" buttons: same purple-to-blue gradient as the logo */
+/* On hover the gradient slides to the reverse (blue to purple) */
 .btn-brand {
-  background-image: linear-gradient(90deg, var(--color-violet), var(--color-blue));
+  background-image: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-violet));
+  background-size: 200% 100%;
+  background-position: 0% 0;
   color: #ffffff;
-  transition: filter 150ms, box-shadow 150ms;
+  transition:
+    background-position 400ms ease,
+    box-shadow 150ms;
 }
 .btn-brand:hover {
-  filter: brightness(1.1);
+  background-position: 100% 0;
   box-shadow: 0 8px 24px -8px rgba(77, 80, 249, 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-brand {
+    transition: none;
+  }
 }
 
 /* Footer links: text and icon turn into the logo gradient on hover.

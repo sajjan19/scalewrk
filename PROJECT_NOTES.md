@@ -52,7 +52,7 @@ Light, crisp, startup-feel; matches the logo. The logo gradient is used sparingl
 | `line` | `#E6E8F0` | Borders |
 | `mist` | `#F5F7FB` | Alternating section background |
 | `brand` | `#4F46E5` | Links, eyebrows, focus rings |
-| `.btn-brand` | violet → blue gradient | All "Book a call" buttons, each with a calendar icon in front (`CalendarIcon` in `ui.tsx`) |
+| `.btn-brand` | violet → blue gradient; on hover it slides to blue → violet | All "Book a call" buttons (calendar icon in front, `CalendarIcon` in `ui.tsx`) and other gradient buttons/badges |
 | Secondary buttons | `ink` (near-black) fill, white text | User's choice. Same size and shape as the gradient "Book a call" buttons (e.g. "Roles we hire", "Meet the founders") |
 | `violet` → `blue` | `#7A2FF5` → `#0D6EFD` | Logo gradient |
 
