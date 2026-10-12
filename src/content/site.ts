@@ -71,7 +71,7 @@ export const nav: NavItem[] = [
     href: "/about",
     label: "About",
     children: [
-      { href: "/about", label: "Our team" },
+      { href: "/about", label: "Our Team" },
       { href: "/mission", label: "Mission & Vision" },
     ],
   },
