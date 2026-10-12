@@ -201,4 +201,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** Buttons with an arrow (`.btn:has(.arrow)`) also slide right as a whole on hover instead of lifting; buttons without an arrow still lift. Cards with arrows are unchanged.
 - **2026-10-12:** Mandeep's bio says "technical support" instead of "Genius Bar".
 - **2026-10-12:** Mandeep's bio first line reworded: "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. Mandeep also helps small businesses grow through IT consulting."
-- **2026-10-12:** Mandeep's bio second line: "From Apple users to business owners, Mandeep has spent years helping people with tech. That helps Mandeep understand what founders need and match engineers with startups where they can thrive."
+- **2026-10-12:** Mandeep's bio second line: "Mandeep has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps Mandeep understand what founders need and match engineers with startups where they can thrive."
