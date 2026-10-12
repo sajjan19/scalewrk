@@ -132,7 +132,7 @@ export default function AboutPage() {
                   <p className="text-sm font-medium text-ink">Outside of work</p>
                   <ul className="mt-2 flex flex-wrap gap-2">
                     {f.outsideWork.map((item) => (
-                      <li key={item.label} className="inline-flex items-center gap-1.5 rounded-full bg-brand-soft px-3 py-1 text-sm text-brand-dark">
+                      <li key={item.label} className="inline-flex cursor-default items-center gap-1.5 rounded-full bg-brand-soft px-3 py-1 text-sm text-brand-dark ring-1 ring-transparent transition duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_6px_16px_-6px_rgba(79,70,229,0.45)] hover:ring-brand/30 motion-reduce:hover:translate-y-0">
                         <item.icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
                         {item.label}
                       </li>

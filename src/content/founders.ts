@@ -7,7 +7,7 @@
 
 import type { ComponentType } from "react";
 import { Camera, Clapperboard, Dog, Dumbbell, Mountain, Music, Plane, Sunset, UtensilsCrossed } from "lucide-react";
-import { BoxingGloves, SoccerBall } from "@/components/icons";
+import { MuayThaiFighter, SoccerBall } from "@/components/icons";
 
 type Icon = ComponentType<{ className?: string; strokeWidth?: number }>;
 
@@ -64,7 +64,7 @@ export const founders: Founder[] = [
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
       { icon: Dumbbell, label: "Fitness" },
-      { icon: BoxingGloves, label: "Muay Thai" },
+      { icon: MuayThaiFighter, label: "Muay Thai" },
       { icon: SoccerBall, label: "Soccer" },
       { icon: Mountain, label: "Hiking" },
       { icon: Camera, label: "Photography" },

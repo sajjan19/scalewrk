@@ -2,46 +2,24 @@
 
 type IconProps = { className?: string; strokeWidth?: number };
 
-// One boxing glove, drawn in a 24×24 box.
-// `cover` fills the glove so it hides anything behind it (used for the front glove).
-function GlovePaths({ cover }: { cover?: string }) {
+// A Muay Thai fighter throwing a high kick. Solid pictogram so it reads at small sizes.
+export function MuayThaiFighter({ className = "h-5 w-5" }: IconProps) {
   return (
-    <>
-      {/* rounded mitt */}
-      <path
-        vectorEffect="non-scaling-stroke"
-        fill={cover ?? "none"}
-        d="M7.5 14.5C5.6 13.4 4.5 11.4 4.5 9 4.5 5.4 7.4 3 11 3h2.5C17.6 3 20 5.7 20 9.5c0 3.4-2.1 5.7-5 6"
-      />
-      {/* curled thumb */}
-      <path vectorEffect="non-scaling-stroke" d="M11 9.5c-1.9 0-3 1.1-3 2.6 0 1.4 1.1 2.4 2.7 2.4h4.3" />
-      {/* cuff */}
-      <path vectorEffect="non-scaling-stroke" fill={cover ?? "none"} d="M7.5 14.5V19a2 2 0 0 0 2 2h4.5a1.5 1.5 0 0 0 1.5-1.5v-4" />
-      <path vectorEffect="non-scaling-stroke" d="M7.5 17.5h8" />
-    </>
-  );
-}
-
-// A pair of boxing gloves, one in front of the other (used for Muay Thai).
-// The front glove is filled with the tag background so the back glove's lines don't show through.
-export function BoxingGloves({ className = "h-5 w-5", strokeWidth = 1.75 }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <g transform="translate(1 1) scale(0.66)">
-        <GlovePaths />
-      </g>
-      <g transform="translate(8.5 7.2) scale(0.66)">
-        <GlovePaths cover="var(--color-brand-soft)" />
-      </g>
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {/* head */}
+      <circle cx="8.4" cy="4.2" r="2.2" fill="currentColor" stroke="none" />
+      {/* body */}
+      <path d="M9.3 7.6 11.2 12.6" strokeWidth={3.2} />
+      {/* guard arm and glove */}
+      <path d="M9.6 8.3 7.3 9.8 6.6 7.6" strokeWidth={2.1} />
+      <circle cx="6.4" cy="6.7" r="1.6" fill="currentColor" stroke="none" />
+      {/* back arm swinging for balance */}
+      <path d="M9.8 8.8 7.2 11.6 5 12.4" strokeWidth={2.1} />
+      <circle cx="4.4" cy="12.6" r="1.5" fill="currentColor" stroke="none" />
+      {/* kicking leg */}
+      <path d="M11.2 12.6 16.4 10.6 21.2 8.6" strokeWidth={2.4} />
+      {/* standing leg */}
+      <path d="M11.2 12.6 10.6 17.4 11.6 21.6" strokeWidth={2.4} />
     </svg>
   );
 }
