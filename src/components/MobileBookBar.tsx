@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore } from "react";
 import { bookingHref } from "@/content/site";
+import { Arrow } from "./ui";
 
 // Sticky bar on phones, so the main action is always one tap away.
 // It slides up once you start scrolling and hides again at the top of the page.
@@ -39,9 +40,9 @@ export function MobileBookBar() {
       <Link
         href={href}
         tabIndex={scrolled ? undefined : -1}
-        className="btn-brand flex min-h-12 items-center justify-center rounded-xl text-[15px] font-medium"
+        className="btn-brand flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium"
       >
-        {label}
+        {label} <Arrow />
       </Link>
     </div>
   );

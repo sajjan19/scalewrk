@@ -6,7 +6,7 @@ export const contentType = "image/png";
 
 export default function Image() {
   return ogImage({
-    eyebrow: "Book a 20-minute call",
+    eyebrow: "Book a call",
     title: "Let's talk about who you're hiring.",
   });
 }

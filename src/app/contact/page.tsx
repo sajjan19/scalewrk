@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Book a Call",
   description:
-    "Book a 20-minute call with Scalewrk, the startup tech recruiter for growing companies. Talk through the engineers you need to hire.",
+    "Book a call with Scalewrk, the startup tech recruiter for growing companies. Talk through the engineers you need to hire.",
   path: "/contact",
 });
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
             Let&apos;s talk about <span className="text-gradient">who you&apos;re hiring</span>.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">
-            Pick a time for a 20-minute call with a Scalewrk co-founder. Bring your hiring plan or just one role.
+            Pick a time for a call with a Scalewrk co-founder. Bring your hiring plan or just one role.
           </p>
           <div className="mt-10">
             <CalendlyEmbed />

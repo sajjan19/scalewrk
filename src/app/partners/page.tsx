@@ -70,7 +70,7 @@ export default function PartnersPage() {
           Become a partner <Arrow />
         </Button>
         <Button href={bookingHref} variant="brand">
-          Book a call
+          Book a call <Arrow />
         </Button>
       </PageHero>
 

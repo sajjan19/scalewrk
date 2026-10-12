@@ -124,7 +124,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <CtaBand title="Let's meet." body="Book a 20-minute call with a Scalewrk co-founder." />
+      <CtaBand title="Let's meet." body="Book a call with a Scalewrk co-founder." />
     </>
   );
 }

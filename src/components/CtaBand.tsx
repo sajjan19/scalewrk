@@ -4,7 +4,7 @@ import { Arrow, Button, Container } from "./ui";
 // Dark "Book a call" band used at the bottom of most pages.
 export function CtaBand({
   title = "Hiring engineers this quarter?",
-  body = "Book a 20-minute call. We'll talk about your roles and tell you honestly if we can help.",
+  body = "Book a call. We'll talk about your roles and tell you honestly if we can help.",
 }: {
   title?: string;
   body?: string;

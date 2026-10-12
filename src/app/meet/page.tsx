@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { CircleDollarSign, Code2, MapPin } from "lucide-react";
-import { Container } from "@/components/ui";
+import { Arrow, Container } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Great meeting you",
   description:
-    "Scalewrk is the tech recruiter for growing startups. Book a 20-minute call.",
+    "Scalewrk is the tech recruiter for growing startups. Book a call.",
   path: "/meet",
   noindex: true,
 });
@@ -45,9 +45,9 @@ export default function MeetPage() {
 
         <a
           href="#book"
-          className="btn-brand mt-8 flex min-h-14 items-center justify-center rounded-xl text-base font-medium"
+          className="btn-brand mt-8 flex min-h-14 items-center justify-center gap-2 rounded-xl text-base font-medium"
         >
-          Book a call
+          Book a call <Arrow />
         </a>
         <div className="mt-3 grid grid-cols-2 gap-3">
           <a

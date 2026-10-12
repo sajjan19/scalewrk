@@ -121,7 +121,7 @@ export default function Home() {
                 Roles we hire
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">20-minute intro. You only pay when you hire.</p>
+            <p className="mt-4 text-sm text-muted">You only pay when you hire.</p>
             <p className="mt-2 text-sm text-muted">
               Engineer?{" "}
               <Link href="/engineers" className="font-medium text-brand hover:text-brand-dark">
