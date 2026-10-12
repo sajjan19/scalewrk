@@ -3,7 +3,9 @@ import {
   Calculator,
   CircleDollarSign,
   Code2,
+  Globe,
   GraduationCap,
+  HeartHandshake,
   Landmark,
   Mail,
   MessagesSquare,
@@ -43,9 +45,36 @@ const support = [
 ];
 
 const reasons = [
-  { icon: Code2, title: "Engineering experts", body: "We only hire engineers, so your founders get someone who really knows the roles." },
-  { icon: CircleDollarSign, title: "No cost up front", body: "Founders pay only when they make a hire. No retainer and no risk." },
-  { icon: Star, title: "Makes you look good", body: "We treat every founder you send like a long-term relationship." },
+  {
+    icon: Code2,
+    title: "Engineering experts",
+    body: ["We only hire engineers", "Strongest in AI and machine learning", "We know the roles and the tech"],
+  },
+  {
+    icon: CircleDollarSign,
+    title: "No cost up front",
+    body: ["Founders pay only when they hire", "No retainer", "No risk to try us"],
+  },
+  {
+    icon: Star,
+    title: "Makes you look good",
+    body: ["Every founder you send gets real care", "Treated like a long-term relationship", "We keep you in the loop"],
+  },
+  {
+    icon: UserCheck,
+    title: "Founder-led",
+    body: ["Punit or Mandeep runs every search", "Punit has recruited since 2018 for TikTok, PayPal and Sully.ai"],
+  },
+  {
+    icon: HeartHandshake,
+    title: "Good for engineers too",
+    body: ["Honest about stage, team and pay", "Engineers join startups where they can thrive"],
+  },
+  {
+    icon: Globe,
+    title: "Every stage, US and Canada",
+    body: ["Seed to Series C+", "Startups across the US and Canada", "Remote, hybrid or in office"],
+  },
 ];
 
 const steps = [
@@ -88,43 +117,47 @@ export default function PartnersPage() {
       </Section>
 
       <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeading eyebrow="How we help your companies" title="More than a name on a list" />
-            <ul className="mt-8 space-y-3">
-              {support.map((s) => (
-                <li key={s.text} className="flex items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line">
-                  <IconBadge icon={s.icon} size="sm" />
-                  <span className="text-body">{s.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <SectionHeading eyebrow="Why refer Scalewrk" title="Good for founders and good for you" />
-            <div className="mt-8 space-y-3">
-              {reasons.map((r) => (
-                <div key={r.title} className="flex gap-4 rounded-2xl bg-white p-4 ring-1 ring-line">
-                  <IconBadge icon={r.icon} size="sm" />
-                  <div>
-                    <p className="font-semibold">{r.title}</p>
-                    <p className="mt-0.5 leading-relaxed text-body">{r.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <SectionHeading eyebrow="How we help your companies" title="More than a name on a list" />
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+          {support.map((item) => (
+            <li key={item.text} className="flex items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line">
+              <IconBadge icon={item.icon} size="sm" />
+              <span className="text-body">{item.text}</span>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section>
+        <SectionHeading eyebrow="Why refer Scalewrk" title="Good for founders and good for you" />
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {reasons.map((r) => (
+            <div key={r.title} className="rounded-2xl border border-line bg-white p-6 transition hover:border-brand/30">
+              <div className="flex items-center gap-3">
+                <IconBadge icon={r.icon} />
+                <p className="text-lg font-semibold">{r.title}</p>
+              </div>
+              <ul className="mt-4 space-y-1.5">
+                {r.body.map((point) => (
+                  <li key={point} className="flex gap-2 leading-snug text-body">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="mist">
         <SectionHeading eyebrow="How referrals work" title="Three steps. No paperwork." />
         <div className="mt-12">
           <StepTimeline steps={steps} />
         </div>
       </Section>
 
-      <Section tone="mist" id="partner-form">
+      <Section id="partner-form">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <SectionHeading
             eyebrow="Become a partner"
