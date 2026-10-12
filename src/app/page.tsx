@@ -151,7 +151,7 @@ export default function Home() {
             <p className="mt-4 text-sm text-muted">You only pay when you hire.</p>
             <p className="mt-2 text-sm text-muted">
               Engineer?{" "}
-              <Link href="/engineers" className="inline-flex items-center gap-1.5 font-medium text-brand transition-colors hover:text-brand-dark">
+              <Link href="/engineers" className="inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
                 Find your next startup <Arrow />
               </Link>
             </p>
@@ -255,7 +255,7 @@ export default function Home() {
         <div className="mt-12">
           <ProcessCards steps={steps} cols={4} />
         </div>
-        <Link href="/startups" className="mt-10 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
+        <Link href="/startups" className="mt-10 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
           See the full process <Arrow />
         </Link>
       </Section>
@@ -264,7 +264,7 @@ export default function Home() {
       <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
-          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
+          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See all {roles.length} roles <Arrow />
           </Link>
         </div>
@@ -292,7 +292,7 @@ export default function Home() {
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
-          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
+          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             View all jobs <Arrow />
           </Link>
         </div>

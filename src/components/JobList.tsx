@@ -104,7 +104,7 @@ export function JobList() {
           </div>
           <Link
             href="/engineers#apply"
-            className="mt-4 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark sm:mt-0 sm:shrink-0"
+            className="mt-4 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark sm:mt-0 sm:shrink-0"
           >
             Share your profile <Arrow />
           </Link>

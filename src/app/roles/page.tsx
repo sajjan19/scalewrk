@@ -38,7 +38,7 @@ export default function RolesPage() {
           <p className="text-body">
             <span className="font-medium text-ink">Engineer looking for a job?</span> See startups hiring now.
           </p>
-          <Link href="/jobs" className="inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
+          <Link href="/jobs" className="inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             View open jobs <Arrow />
           </Link>
         </div>

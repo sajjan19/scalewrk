@@ -135,7 +135,7 @@ export default function NewYorkPage() {
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" />
-          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
+          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See all {roles.length} roles <Arrow />
           </Link>
         </div>
@@ -163,7 +163,7 @@ export default function NewYorkPage() {
       <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Jobs" title="New York startups hiring now" />
-          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 font-medium text-brand transition-colors hover:text-brand-dark">
+          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             View all jobs <Arrow />
           </Link>
         </div>

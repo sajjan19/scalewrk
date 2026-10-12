@@ -86,7 +86,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Arrows in links and buttons nudge right on hover (the link itself stays put) */
+/* Arrows in buttons and cards nudge right on hover */
 .arrow {
   transition: transform 150ms ease;
 }
@@ -95,12 +95,22 @@ button:hover .arrow,
 .group:hover .arrow {
   transform: translateX(3px);
 }
-/* "Back" arrows nudge left instead */
-.arrow-back {
-  transition: transform 150ms ease;
+/* Text links with an arrow ("See all roles →"): the whole link, text and arrow, slides right a little.
+   "Back" links (.nudge-back) slide left instead. */
+.nudge,
+.nudge-back {
+  transition:
+    transform 150ms ease,
+    color 150ms ease;
 }
-a:hover .arrow-back {
+.nudge:hover {
+  transform: translateX(3px);
+}
+.nudge-back:hover {
   transform: translateX(-3px);
+}
+.nudge:hover .arrow {
+  transform: none;
 }
 .lift:hover {
   transform: translateY(-2px);
@@ -119,7 +129,8 @@ a:hover .arrow-back {
   a:hover .arrow,
   button:hover .arrow,
   .group:hover .arrow,
-  a:hover .arrow-back {
+  .nudge:hover,
+  .nudge-back:hover {
     transform: none;
   }
 }

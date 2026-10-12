@@ -69,8 +69,8 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
       {/* Header */}
       <section className="border-b border-line pt-8 pb-10 sm:pt-12 sm:pb-14">
         <Container>
-          <Link href="/jobs" className="inline-flex items-center gap-1.5 text-sm font-medium text-brand transition-colors hover:text-brand-dark">
-            <ArrowLeft className="arrow-back h-4 w-4" aria-hidden="true" />
+          <Link href="/jobs" className="inline-flex items-center gap-1.5 nudge-back text-sm font-medium text-brand hover:text-brand-dark">
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             All jobs
           </Link>
           <div className="mt-6 flex items-start gap-4 sm:gap-5">

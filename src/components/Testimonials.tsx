@@ -20,7 +20,7 @@ export function Testimonials() {
       </div>
       <p className="mt-8 text-body">
         Worked with us?{" "}
-        <Link href="/testimonial" className="inline-flex items-center gap-1.5 font-medium text-brand transition-colors hover:text-brand-dark">
+        <Link href="/testimonial" className="inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
           Share your experience <Arrow />
         </Link>
       </p>
