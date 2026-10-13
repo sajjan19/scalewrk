@@ -20,6 +20,18 @@ export function Header() {
   const [openOn, setOpenOn] = useState<string | null>(null);
   const open = openOn === pathname;
 
+  // While the phone menu is open, stop the page behind it from scrolling (the menu scrolls instead)
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.body.dataset.menu = "open"; // hides the phone "Book a call" bar (see globals.css)
+    return () => {
+      document.body.style.overflow = previous;
+      delete document.body.dataset.menu;
+    };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
@@ -65,7 +77,11 @@ export function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-menu" aria-label="Main" className="border-t border-line bg-white px-5 pb-6 lg:hidden">
+        <nav
+          id="mobile-menu"
+          aria-label="Main"
+          className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-line bg-white px-5 pb-6 lg:hidden"
+        >
           <ul className="divide-y divide-line">
             {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item: NavItem) => {
               // An item with sub-pages (About) is a label with its links underneath

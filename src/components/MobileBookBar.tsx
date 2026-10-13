@@ -37,7 +37,7 @@ export function MobileBookBar() {
   return (
     <div
       aria-hidden={!scrolled}
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur transition-transform duration-300 ease-out motion-reduce:transition-none lg:hidden ${
+      className={`mobile-book-bar fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur transition-transform duration-300 ease-out motion-reduce:transition-none lg:hidden ${
         scrolled ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
     >

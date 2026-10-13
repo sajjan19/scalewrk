@@ -221,3 +221,8 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Hide the phone "Book a call" bar while the phone menu is open (the menu has its own button) */
+body[data-menu="open"] .mobile-book-bar {
+  display: none;
+}

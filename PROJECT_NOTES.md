@@ -233,3 +233,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** Comparison intro changed to "What you get with each way to hire engineers." (avoids repeating "compare").
 - **2026-10-12:** Comparison intro is now "Your three hiring options at a glance."
 - **2026-10-12:** Comparison table has vertical lines between the columns (In-house only, Big agency, Scalewrk).
+- **2026-10-12:** Phone menu: while it is open the page behind can't scroll; the menu itself scrolls (fills the screen under the header). The phone "Book a call" bar hides while the menu is open.
