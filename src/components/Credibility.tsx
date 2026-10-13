@@ -42,7 +42,7 @@ export function FounderExperienceStrip() {
 function CompanyMark({ name }: { name: string }) {
   const logo = companyLogos[name] ?? {};
   if (logo.image) {
-    return <Image src={logo.image} alt="" width={140} height={36} className="h-8 w-auto shrink-0 object-contain" />;
+    return <Image src={logo.image} alt="" width={140} height={36} loading="eager" className="h-8 w-auto shrink-0 object-contain" />;
   }
   return (
     <span className="flex shrink-0 items-center gap-2.5" style={logo.color ? { color: logo.color } : undefined}>
