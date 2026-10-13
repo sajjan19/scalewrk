@@ -102,8 +102,8 @@ export default function AboutPage() {
               <div className="mt-6">
                 <h3 className="text-2xl font-semibold tracking-tight">{f.name}</h3>
                 <p className="mt-1 font-medium text-brand">{f.title}</p>
-                {/* Location as a small pill with a pin icon */}
-                <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1 text-sm text-body">
+                {/* Location with a pin icon */}
+                <p className="mt-2 flex items-center gap-1.5 text-sm text-body">
                   <MapPin className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
                   <Text>{f.location}</Text>
                 </p>
