@@ -250,29 +250,27 @@ export default function Home() {
             <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
           </p>
         </div>
-      </Section>
 
-      {/* Founder credibility (right after Why Scalewrk: shows who keeps the "co-founder on every search" promise) */}
-      <Section className="!pt-0">
-        <div className="grid items-center gap-8 rounded-3xl border border-line bg-white p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
+        {/* Founder card: the people who keep the "co-founder on every search" promise */}
+        <div className="mt-6 grid items-center gap-6 rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:gap-8">
+          <div className="flex -space-x-3">
+            {founders.map((f) =>
+              f.photo ? (
+                <Image
+                  key={f.name}
+                  src={f.photo}
+                  alt={f.name}
+                  width={112}
+                  height={112}
+                  quality={90}
+                  className="h-14 w-14 rounded-full object-cover object-[60%_40%] ring-4 ring-white"
+                />
+              ) : null,
+            )}
+          </div>
           <div>
-            <div className="mb-5 flex -space-x-3">
-              {founders.map((f) =>
-                f.photo ? (
-                  <Image
-                    key={f.name}
-                    src={f.photo}
-                    alt={f.name}
-                    width={112}
-                    height={112}
-                    quality={90}
-                    className="h-14 w-14 rounded-full object-cover object-[60%_40%] ring-4 ring-white"
-                  />
-                ) : null,
-              )}
-            </div>
             <p className="text-sm font-medium text-brand">Run by the founders</p>
-            <p className="mt-3 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
+            <p className="mt-1 text-xl leading-snug font-semibold tracking-tight text-balance">
               Our co-founder Punit Singh has recruited since 2018 for companies like{" "}
               <Text>{listWithAnd(punit.experienceAt)}</Text>.
             </p>
