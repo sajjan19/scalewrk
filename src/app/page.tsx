@@ -229,8 +229,8 @@ export default function Home() {
       <Section>
         <SectionHeading
           eyebrow="Why Scalewrk"
-          title="A specialist, not a staffing agency"
-          intro="Engineers only. Startups only. Run by the founders."
+          title="Recruiting that knows engineering"
+          intro="Engineers only. Startups only. Every search run by a founder."
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {reasons.map((r) => (

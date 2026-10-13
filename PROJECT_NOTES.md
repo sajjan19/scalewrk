@@ -222,3 +222,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** The scrolling logos now run the full width of the screen (outside the page container); the label stays centered above them.
 - **2026-10-12:** Sully.ai in the logo strip uses the blue sully.ai logo the user provided (`public/logos/sully.png`, trimmed). Their current site uses a newer black "Sully" wordmark; the user chose the older blue one. All three strip logos are now real logo files.
 - **2026-10-12:** TikTok and PayPal logos replaced with the SVG files the user saved (`public/logos/tiktok.svg`, `public/logos/paypal.svg`); the old TikTok PNG was removed.
+- **2026-10-12:** Home "Why Scalewrk" heading: "Recruiting that knows engineering" / "Engineers only. Startups only. Every search run by a founder."
