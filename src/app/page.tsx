@@ -250,39 +250,56 @@ export default function Home() {
             <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
           </p>
         </div>
+      </Section>
 
-        {/* Founder card: the people who keep the "co-founder on every search" promise */}
-        <div className="mt-6 grid items-center gap-6 rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:gap-8">
-          <div className="flex -space-x-3">
-            {founders.map((f) =>
-              f.photo ? (
-                <Image
-                  key={f.name}
-                  src={f.photo}
-                  alt={f.name}
-                  width={112}
-                  height={112}
-                  quality={90}
-                  className="h-14 w-14 rounded-full object-cover object-[60%_40%] ring-4 ring-white"
-                />
-              ) : null,
-            )}
-          </div>
-          <div>
-            <p className="text-sm font-medium text-brand">Run by the founders</p>
-            <p className="mt-1 text-xl leading-snug font-semibold tracking-tight text-balance">
-              Our co-founder Punit Singh has recruited since 2018 for companies like{" "}
-              <Text>{listWithAnd(punit.experienceAt)}</Text>.
-            </p>
-          </div>
-          <Button href="/about" variant="secondary">
-            Meet the founders
-          </Button>
+      {/* Founders: who runs every search (same heading style as Roles) */}
+      <Section tone="mist">
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading
+            eyebrow="Our founders"
+            title="Who you'll work with"
+            intro={`Our co-founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
+          />
+          <Link href="/about" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+            Meet the founders <Arrow />
+          </Link>
         </div>
+        <ul className="mt-12 grid gap-4 md:grid-cols-2">
+          {founders.map((f) => {
+            const background = f.experienceAt.length
+              ? `Recruited for ${listWithAnd(f.experienceAt)}`
+              : f.previouslyAt?.length
+                ? `Previously at ${listWithAnd(f.previouslyAt)}`
+                : null;
+            return (
+              <li key={f.name} className="flex items-center gap-5 rounded-2xl bg-white p-6 ring-1 ring-line">
+                {f.photo ? (
+                  <Image
+                    src={f.photo}
+                    alt={f.name}
+                    width={160}
+                    height={160}
+                    quality={90}
+                    className="h-20 w-20 flex-none rounded-full object-cover object-[60%_40%]"
+                  />
+                ) : (
+                  <span className="btn-brand flex h-20 w-20 flex-none items-center justify-center rounded-full text-xl font-semibold" aria-hidden="true">
+                    {f.initials}
+                  </span>
+                )}
+                <div>
+                  <p className="text-lg font-semibold">{f.name}</p>
+                  <p className="text-body">{f.title}</p>
+                  {background && <p className="mt-1 text-sm text-muted">{background}</p>}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </Section>
 
       {/* Roles */}
-      <Section tone="mist">
+      <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
           <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -310,7 +327,7 @@ export default function Home() {
       </Section>
 
       {/* Latest jobs (newest 3 from src/content/jobs.ts) */}
-      <Section>
+      <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
           <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">

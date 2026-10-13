@@ -8,7 +8,7 @@ export function Testimonials() {
   if (visibleTestimonials.length === 0) return null;
   const hasExamples = visibleTestimonials.some((t) => t.example);
   return (
-    <Section tone="mist">
+    <Section>
       <SectionHeading eyebrow="Testimonials" title="What founders and engineers say" />
       {hasExamples && (
         <p className="mt-4 w-fit rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-900 ring-1 ring-amber-200">
