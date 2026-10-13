@@ -159,7 +159,7 @@ export default function StartupsPage() {
               <tr className="border-b border-line">
                 <th className="w-1/4 p-5" />
                 {columns.map((col, c) => (
-                  <th key={col} scope="col" className={`p-5 font-semibold ${c === 2 ? "btn-brand" : ""}`}>
+                  <th key={col} scope="col" className={`border-l border-line p-5 font-semibold ${c === 2 ? "btn-brand" : ""}`}>
                     {col}
                   </th>
                 ))}
@@ -172,7 +172,7 @@ export default function StartupsPage() {
                     {row.label}
                   </th>
                   {row.values.map(([yes, text], c) => (
-                    <td key={c} className={`p-5 text-[15px] ${c === 2 ? "bg-brand-soft/60 font-medium text-ink" : "text-body"}`}>
+                    <td key={c} className={`border-l border-line p-5 text-[15px] ${c === 2 ? "bg-brand-soft/60 font-medium text-ink" : "text-body"}`}>
                       <YesNo yes={yes}>{text}</YesNo>
                     </td>
                   ))}
