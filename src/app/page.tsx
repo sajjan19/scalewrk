@@ -15,7 +15,7 @@ import {
   TrendingUp,
   UserCheck,
 } from "lucide-react";
-import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
+import { ClientsSection, LogoMarquee } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
@@ -220,8 +220,52 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Past employers (founders' experience) and, once real, clients */}
-      <FounderExperienceStrip />
+      {/* Founder-led: who runs your search, plus where the team has recruited (our main trust signal) */}
+      <Section>
+        <div className="rounded-3xl border border-line bg-white p-6 sm:p-10">
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <div>
+              <p className="text-sm font-medium text-brand">Founder-led</p>
+              <p className="mt-3 max-w-3xl text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
+                Our co-founder Punit Singh has recruited since 2018 for companies like{" "}
+                <Text>{listWithAnd(punit.experienceAt)}</Text>.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
+                {founders.map((f) => (
+                  <li key={f.name} className="flex items-center gap-3">
+                    {f.photo ? (
+                      <Image
+                        src={f.photo}
+                        alt=""
+                        width={112}
+                        height={112}
+                        quality={90}
+                        className="h-14 w-14 rounded-full object-cover object-[60%_40%] ring-1 ring-line"
+                      />
+                    ) : (
+                      <span className="btn-brand flex h-14 w-14 items-center justify-center rounded-full font-semibold" aria-hidden="true">
+                        {f.initials}
+                      </span>
+                    )}
+                    <span>
+                      <span className="block font-semibold">{f.name}</span>
+                      <span className="block text-sm text-body">{f.title}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Button href="/about" variant="secondary">
+              Meet the team <Arrow />
+            </Button>
+          </div>
+          <div className="mt-8 border-t border-line pt-8">
+            <LogoMarquee />
+          </div>
+        </div>
+      </Section>
+
+      {/* Clients (only once real) */}
       <ClientsSection />
 
       {/* Who we work with */}
@@ -334,37 +378,6 @@ export default function Home() {
 
       {/* Testimonials (src/content/testimonials.ts) */}
       <Testimonials />
-
-      {/* Founder credibility */}
-      <Section>
-        <div className="grid items-center gap-8 rounded-3xl border border-line bg-white p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
-          <div>
-            <div className="mb-5 flex -space-x-3">
-              {founders.map((f) =>
-                f.photo ? (
-                  <Image
-                    key={f.name}
-                    src={f.photo}
-                    alt={f.name}
-                    width={112}
-                    height={112}
-                    quality={90}
-                    className="h-14 w-14 rounded-full object-cover object-[60%_40%] ring-4 ring-white"
-                  />
-                ) : null,
-              )}
-            </div>
-            <p className="text-sm font-medium text-brand">Run by the founders</p>
-            <p className="mt-3 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">
-              Our co-founder Punit Singh has recruited since 2018 for companies like{" "}
-              <Text>{listWithAnd(punit.experienceAt)}</Text>.
-            </p>
-          </div>
-          <Button href="/about" variant="secondary">
-            Meet the founders
-          </Button>
-        </div>
-      </Section>
 
       {/* Partners and engineers */}
       <Section tone="mist">
