@@ -57,7 +57,7 @@ const support = [
   {
     icon: UserCheck,
     title: "Direct access",
-    body: ["Your founders talk to a Scalewrk co-founder", "No hand-offs to junior recruiters"],
+    body: ["Your founders talk to Punit or Mandeep directly", "No hand-offs to junior recruiters"],
   },
   {
     icon: Presentation,

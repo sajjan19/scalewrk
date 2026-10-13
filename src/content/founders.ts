@@ -1,5 +1,5 @@
 /*
-  Co-founder cards on the About page.
+  Team cards on the About page. Punit is the founder; Mandeep is the founding recruiter.
   Photos live in /public/founders/ (square, at least 600×600). To swap one, replace the file
   or change `photo`. Leave photo empty ("") to show initials instead.
   Text inside [square brackets] renders as a highlighted PLACEHOLDER on the site.
@@ -28,7 +28,7 @@ export type Founder = {
 export const founders: Founder[] = [
   {
     name: "Punit Singh",
-    title: "Co-founder and CEO",
+    title: "Founder & Principal Recruiter",
     initials: "PS",
     photo: "/founders/punit.jpg",
     location: "Vancouver, Canada",
@@ -50,7 +50,7 @@ export const founders: Founder[] = [
   },
   {
     name: "Mandeep Sajjan",
-    title: "Co-founder",
+    title: "Founding Recruiter",
     initials: "MS",
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",

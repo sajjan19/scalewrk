@@ -62,10 +62,7 @@ const organizationJsonLd = {
     "Software engineer recruiting",
     "Startup hiring",
   ],
-  founder: [
-    { "@type": "Person", name: "Punit Singh" },
-    { "@type": "Person", name: "Mandeep Sajjan" },
-  ],
+  founder: { "@type": "Person", name: "Punit Singh" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

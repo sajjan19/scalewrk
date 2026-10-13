@@ -79,7 +79,7 @@ const reasons = [
   },
   {
     icon: UserCheck,
-    title: "A co-founder on every search",
+    title: "The same people on every search",
     body: "Punit or Mandeep works with you from the first call to the signed offer.",
     versus: "At big agencies, a junior recruiter often does the work.",
   },
@@ -230,7 +230,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why Scalewrk"
           title="Recruiting that knows engineering"
-          intro="Engineers only. Startups only. Every search run by a founder."
+          intro="Engineers only. Startups only. Every search run by Punit or Mandeep."
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {reasons.map((r) => (
@@ -256,12 +256,12 @@ export default function Home() {
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
-            eyebrow="Our founders"
+            eyebrow="Our team"
             title="Who you'll work with"
-            intro={`Our co-founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
+            intro={`Our founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
           />
           <Link href="/about" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-            Meet the founders <Arrow />
+            Meet the team <Arrow />
           </Link>
         </div>
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
