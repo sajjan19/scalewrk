@@ -194,7 +194,7 @@ export default function NewYorkPage() {
               </p>
             </div>
           </div>
-          <Button href="/engineers#apply" variant="secondary">
+          <Button href="/share-profile" variant="secondary">
             <UserCheck className="h-4 w-4" aria-hidden="true" /> Share your profile
           </Button>
         </div>

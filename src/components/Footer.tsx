@@ -9,6 +9,7 @@ const footerLinks = [
   { href: "/roles", label: "Roles" },
   { href: "/engineers", label: "For Engineers" },
   { href: "/jobs", label: "Jobs" },
+  { href: "/share-profile", label: "Share your profile" },
   { href: "/partners", label: "Partners" },
   { href: "/about", label: "About" },
   { href: "/mission", label: "Mission & Vision" },

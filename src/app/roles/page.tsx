@@ -105,7 +105,7 @@ export default function RolesPage() {
                       See open jobs for {role.name} <Arrow />
                     </Button>
                   ) : (
-                    <Button href="/engineers#apply" variant="secondary">
+                    <Button href="/share-profile" variant="secondary">
                       Share your profile <Arrow />
                     </Button>
                   )}

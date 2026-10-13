@@ -53,7 +53,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
     { icon: Users, label: "Team size", value: job.teamSize },
   ];
 
-  const applyHref = `/engineers?job=${job.slug}#apply`;
+  const applyHref = `/share-profile?job=${job.slug}`;
 
   return (
     <>
@@ -152,7 +152,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
             </div>
             <p className="mt-4 text-center text-sm text-body">
               Not quite right?{" "}
-              <Link href="/engineers#apply" className="font-medium text-brand hover:text-brand-dark">
+              <Link href="/share-profile" className="font-medium text-brand hover:text-brand-dark">
                 Share your profile
               </Link>{" "}
               and we&apos;ll match you.

@@ -8,9 +8,9 @@ import { Arrow, CalendarIcon } from "./ui";
 
 // Sticky bar on phones, so the main action is always one tap away.
 // It slides up once you start scrolling and hides again at the top of the page.
-// Engineer pages show engineer actions: job pages "Apply for this role", the Jobs page "Share your profile",
-// the Engineers page "View all jobs". Hidden on pages that already show the calendar.
-const hiddenOn = ["/contact", "/meet", "/testimonial"];
+// Engineer pages show engineer actions: job pages "Apply for this role", the Jobs and Engineers pages
+// "Share your profile". Hidden on pages that already show the calendar or a form.
+const hiddenOn = ["/contact", "/meet", "/testimonial", "/share-profile"];
 
 // How far (in pixels) you scroll before the bar appears
 const SHOW_AFTER = 40;
@@ -29,12 +29,10 @@ export function MobileBookBar() {
   // Engineer pages get an engineer action; everyone else sees "Book a call"
   const jobSlug = pathname.startsWith("/jobs/") ? pathname.split("/")[2] : null;
   const action = jobSlug
-    ? { href: `/engineers?job=${jobSlug}#apply`, label: "Apply for this role" }
-    : pathname === "/jobs"
-      ? { href: "/engineers#apply", label: "Share your profile" }
-      : pathname === "/engineers"
-        ? { href: "/jobs", label: "View all jobs" }
-        : null;
+    ? { href: `/share-profile?job=${jobSlug}`, label: "Apply for this role" }
+    : pathname === "/jobs" || pathname === "/engineers"
+      ? { href: "/share-profile", label: "Share your profile" }
+      : null;
 
   return (
     <div

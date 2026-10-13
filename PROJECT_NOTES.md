@@ -206,3 +206,8 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** Audit items 5 and 8.
   - Home is shorter: Hero → What we do → Founder-led (with logos) → Clients (when real) → How it works → Why Scalewrk → Roles → Latest jobs → Testimonials → CTA band. Removed the "Who we work with" stages section and the duplicate Partners/Engineers cards at the bottom.
   - Top menu grouped by audience: For Startups ▾ (How we work, Roles we hire, Pricing), For Engineers ▾ (How we work, Open jobs; "Share your profile" was removed because it's the same page as How we work), Partners, About ▾ (Our Team, Mission & Vision), Book a call. Set in `nav` in `site.ts`. The footer has its own full list (`footerLinks` in `Footer.tsx`).
+- **2026-10-12:** Engineers split into two pages:
+  - `/engineers` ("How we work"): hero with Share your profile + See open jobs, a 4-step "From profile to offer" process, "What you can count on" cards (+ jobs shortcut), and an engineer CTA band.
+  - `/share-profile`: just the profile form, with "what happens next" notes. `?job=slug` still shows "Applying for…".
+  - Every old `/engineers#apply` link now points to `/share-profile`. Menu: For Engineers ▾ (How we work, Open jobs, Share your profile). Footer and sitemap include it. Phone bar: "Share your profile" on /engineers and /jobs; hidden on /share-profile.
+  - `CtaBand` takes an optional `action` ({href, label}) for a non-booking button.

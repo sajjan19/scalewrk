@@ -1,13 +1,16 @@
 import { bookingHref } from "@/content/site";
-import { CalendarIcon, Button, Container } from "./ui";
+import { Arrow, CalendarIcon, Button, Container } from "./ui";
 
 // Dark "Book a call" band used at the bottom of most pages.
+// Pass `action` to use a different button (e.g. "Share your profile" on engineer pages).
 export function CtaBand({
   title = "Ready to grow your team?",
   body = "Tell us what you're building and we'll help you find the engineers to build it.",
+  action,
 }: {
   title?: string;
   body?: string;
+  action?: { href: string; label: string };
 }) {
   return (
     <section className="py-16 sm:py-20">
@@ -20,9 +23,15 @@ export function CtaBand({
           <div className="relative max-w-2xl">
             <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
             <p className="mt-4 text-lg leading-relaxed text-white/75">{body}</p>
-            <Button href={bookingHref} variant="brand" className="mt-8 w-full sm:w-auto">
-              <CalendarIcon /> Book a call
-            </Button>
+            {action ? (
+              <Button href={action.href} variant="brand" className="mt-8 w-full sm:w-auto">
+                {action.label} <Arrow />
+              </Button>
+            ) : (
+              <Button href={bookingHref} variant="brand" className="mt-8 w-full sm:w-auto">
+                <CalendarIcon /> Book a call
+              </Button>
+            )}
           </div>
         </div>
       </Container>
