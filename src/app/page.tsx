@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Building2,
   CircleDollarSign,
   Code2,
   Handshake,
@@ -10,9 +9,7 @@ import {
   Phone,
   Rocket,
   Sparkles,
-  Sprout,
   Target,
-  TrendingUp,
   UserCheck,
 } from "lucide-react";
 import { ClientsSection, LogoMarquee } from "@/components/Credibility";
@@ -63,13 +60,6 @@ const whatWeDo = [
     href: "/partners",
     link: "How we work with partners",
   },
-];
-
-const stages = [
-  { icon: Sprout, name: "Seed", body: "Your first engineers. People who can build anything.", hires: ["Founding engineer", "Full-stack"] },
-  { icon: Rocket, name: "Series A", body: "Grow the team fast without slowing down.", hires: ["Backend", "Frontend", "AI/ML"] },
-  { icon: TrendingUp, name: "Series B", body: "Add experts and your first team leads.", hires: ["Tech lead", "Platform", "Data"] },
-  { icon: Building2, name: "Series C+", body: "Hire more engineers and keep quality high.", hires: ["Eng manager", "Security", "Specialists"] },
 ];
 
 const steps = [
@@ -268,31 +258,6 @@ export default function Home() {
       {/* Clients (only once real) */}
       <ClientsSection />
 
-      {/* Who we work with */}
-      <Section>
-        <SectionHeading
-          eyebrow="Who we work with"
-          title="Startups at every stage"
-          intro="From your first engineer to a full team."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {stages.map((stage) => (
-            <div key={stage.name} className="flex flex-col rounded-2xl border border-line p-6">
-              <IconBadge icon={stage.icon} />
-              <p className="mt-5 text-lg font-semibold">{stage.name}</p>
-              <p className="mt-2 leading-relaxed text-body">{stage.body}</p>
-              <ul className="mt-5 flex flex-wrap gap-1.5" aria-label="Typical hires">
-                {stage.hires.map((h) => (
-                  <li key={h} className="rounded-full bg-mist px-2.5 py-1 text-xs font-medium text-body">
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* How it works */}
       <Section tone="mist">
         <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
@@ -302,51 +267,6 @@ export default function Home() {
         <Link href="/startups" className="mt-10 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
           See the full process <Arrow />
         </Link>
-      </Section>
-
-      {/* Roles */}
-      <Section>
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
-          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-            See all {roles.length} roles <Arrow />
-          </Link>
-        </div>
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {roles.filter((r) => r.featured).map((role) => (
-            <li key={role.slug}>
-              <Link
-                href={`/roles#${role.slug}`}
-                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:p-5"
-              >
-                <IconBadge icon={role.icon} />
-                <span className="flex min-w-0 flex-1 items-center justify-between gap-2 font-semibold">
-                  {role.name}
-                  <span className="text-muted transition-colors group-hover:text-brand">
-                    <Arrow />
-                  </span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* Latest jobs (newest 3 from src/content/jobs.ts) */}
-      <Section tone="mist">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
-          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-            View all jobs <Arrow />
-          </Link>
-        </div>
-        <ul className="mt-10 space-y-3">
-          {latestJobs(3).map((job) => (
-            <li key={job.slug}>
-              <JobCard job={job} />
-            </li>
-          ))}
-        </ul>
       </Section>
 
       {/* Why Scalewrk */}
@@ -376,30 +296,53 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Testimonials (src/content/testimonials.ts) */}
-      <Testimonials />
-
-      {/* Partners and engineers */}
+      {/* Roles */}
       <Section tone="mist">
-        <div className="grid gap-4 md:grid-cols-2">
-          <Link href="/partners" className="lift group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line hover:ring-brand/30">
-            <IconBadge icon={Handshake} size="lg" />
-            <p className="mt-5 text-sm font-medium text-brand">For VCs, accelerators, lawyers and CFOs</p>
-            <p className="mt-2 text-2xl font-semibold tracking-tight">Send your founders to a tech recruiter they can trust.</p>
-            <span className="mt-6 inline-flex items-center gap-2 font-medium">
-              Become a partner <Arrow />
-            </span>
-          </Link>
-          <Link href="/engineers" className="lift group flex flex-col rounded-2xl bg-white p-8 ring-1 ring-line hover:ring-brand/30">
-            <IconBadge icon={Code2} size="lg" />
-            <p className="mt-5 text-sm font-medium text-brand">For engineers</p>
-            <p className="mt-2 text-2xl font-semibold tracking-tight">Looking for your next startup? Share your profile.</p>
-            <span className="mt-6 inline-flex items-center gap-2 font-medium">
-              Get started <Arrow />
-            </span>
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
+          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+            See all {roles.length} roles <Arrow />
           </Link>
         </div>
+        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {roles.filter((r) => r.featured).map((role) => (
+            <li key={role.slug}>
+              <Link
+                href={`/roles#${role.slug}`}
+                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:p-5"
+              >
+                <IconBadge icon={role.icon} />
+                <span className="flex min-w-0 flex-1 items-center justify-between gap-2 font-semibold">
+                  {role.name}
+                  <span className="text-muted transition-colors group-hover:text-brand">
+                    <Arrow />
+                  </span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Section>
+
+      {/* Latest jobs (newest 3 from src/content/jobs.ts) */}
+      <Section>
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
+          <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+            View all jobs <Arrow />
+          </Link>
+        </div>
+        <ul className="mt-10 space-y-3">
+          {latestJobs(3).map((job) => (
+            <li key={job.slug}>
+              <JobCard job={job} />
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Testimonials (src/content/testimonials.ts) */}
+      <Testimonials />
 
       <CtaBand />
     </>

@@ -62,10 +62,24 @@ export function isSet(value: string) {
 export type NavItem = { href: string; label: string; children?: { href: string; label: string }[] };
 
 export const nav: NavItem[] = [
-  { href: "/startups", label: "For Startups" },
-  { href: "/engineers", label: "For Engineers" },
-  { href: "/jobs", label: "Jobs" },
-  { href: "/roles", label: "Roles" },
+  {
+    href: "/startups",
+    label: "For Startups",
+    children: [
+      { href: "/startups", label: "How we work" },
+      { href: "/roles", label: "Roles we hire" },
+      { href: "/startups#pricing", label: "Pricing" },
+    ],
+  },
+  {
+    href: "/engineers",
+    label: "For Engineers",
+    children: [
+      { href: "/engineers", label: "How we work" },
+      { href: "/jobs", label: "Open jobs" },
+      { href: "/engineers#apply", label: "Share your profile" },
+    ],
+  },
   { href: "/partners", label: "Partners" },
   {
     href: "/about",

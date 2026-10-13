@@ -108,7 +108,7 @@ function ActiveBar() {
   return <span aria-hidden="true" className="absolute inset-x-3 -bottom-[13px] h-0.5 rounded-full bg-gradient-to-r from-violet to-blue" />;
 }
 
-// A top-menu item with sub-pages (e.g. About → Our Team, Mission & Vision).
+// A top-menu item with sub-pages (e.g. For Startups → How we work, Roles we hire, Pricing).
 // Clicking or tapping opens the list (it doesn't go to a page itself). It also opens on hover with a mouse.
 // Closes when you pick a page, click outside or press Escape.
 function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: string; active: boolean }) {
@@ -133,7 +133,7 @@ function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: str
     };
   }, [open]);
 
-  const menuId = `menu-${item.label.toLowerCase()}`;
+  const menuId = `menu-${item.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
     <div ref={box} className="group relative">
       <button
@@ -160,6 +160,7 @@ function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: str
             <li key={child.href}>
               <Link
                 href={child.href}
+                onClick={() => setOpenOn(null)}
                 aria-current={pathname === child.href ? "page" : undefined}
                 className={`block rounded-lg px-3 py-2 text-[15px] hover:bg-brand-soft hover:text-brand-dark ${
                   pathname === child.href ? "font-medium text-brand" : "text-body"

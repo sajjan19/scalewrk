@@ -1,7 +1,21 @@
 import Link from "next/link";
-import { nav, site } from "@/content/site";
+import { site } from "@/content/site";
 import { Logo } from "./Logo";
 import { MailIcon, PhoneIcon, SocialIcon, type SocialNetwork } from "./SocialIcons";
+
+// Footer page links (every main page, including the ones inside the top-menu dropdowns)
+const footerLinks = [
+  { href: "/startups", label: "For Startups" },
+  { href: "/roles", label: "Roles" },
+  { href: "/engineers", label: "For Engineers" },
+  { href: "/jobs", label: "Jobs" },
+  { href: "/partners", label: "Partners" },
+  { href: "/about", label: "About" },
+  { href: "/mission", label: "Mission & Vision" },
+  { href: "/tech-recruiter-new-york", label: "New York" },
+  { href: "/contact", label: "Contact" },
+  { href: "/testimonial", label: "Leave a testimonial" },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -41,33 +55,13 @@ export function Footer() {
         <div>
           <p className="text-sm font-medium text-white/60">Company</p>
           <ul className="mt-4 space-y-3">
-            {nav.map((item) => (
+            {footerLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="rise inline-block text-white link-gradient">
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/contact" className="rise inline-block text-white link-gradient">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link href="/mission" className="rise inline-block text-white link-gradient">
-                Mission & Vision
-              </Link>
-            </li>
-            <li>
-              <Link href="/tech-recruiter-new-york" className="rise inline-block text-white link-gradient">
-                New York
-              </Link>
-            </li>
-            <li>
-              <Link href="/testimonial" className="rise inline-block text-white link-gradient">
-                Leave a testimonial
-              </Link>
-            </li>
           </ul>
         </div>
 
