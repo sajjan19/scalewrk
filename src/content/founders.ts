@@ -75,3 +75,8 @@ export const founders: Founder[] = [
     ],
   },
 ];
+
+// Anchor for a founder's card on the About page, e.g. "Punit Singh" → "punit-singh" (/about#punit-singh)
+export function founderId(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}

@@ -4,7 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
 import { Arrow, Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
 import { bookingHref, isSet, site } from "@/content/site";
-import { founders } from "@/content/founders";
+import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -79,7 +79,7 @@ export default function AboutPage() {
         <SectionHeading eyebrow="The founders" title="Who you'll work with" />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {founders.map((f) => (
-            <article key={f.name} className="flex flex-col rounded-2xl border border-line p-6 sm:p-8">
+            <article key={f.name} id={founderId(f.name)} className="flex scroll-mt-24 flex-col rounded-2xl border border-line p-6 sm:p-8">
               {f.photo ? (
                 <Image
                   src={f.photo}

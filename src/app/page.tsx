@@ -23,7 +23,7 @@ import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { latestJobs } from "@/content/jobs";
-import { founders } from "@/content/founders";
+import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -272,26 +272,34 @@ export default function Home() {
                 ? `Previously at ${listWithAnd(f.previouslyAt)}`
                 : null;
             return (
-              <li key={f.name} className="flex items-center gap-5 rounded-2xl bg-white p-6 ring-1 ring-line">
-                {f.photo ? (
-                  <Image
-                    src={f.photo}
-                    alt={f.name}
-                    width={160}
-                    height={160}
-                    quality={90}
-                    className="h-20 w-20 flex-none rounded-full object-cover object-[60%_40%]"
-                  />
-                ) : (
-                  <span className="btn-brand flex h-20 w-20 flex-none items-center justify-center rounded-full text-xl font-semibold" aria-hidden="true">
-                    {f.initials}
+              <li key={f.name}>
+                <Link
+                  href={`/about#${founderId(f.name)}`}
+                  className="lift group flex h-full items-center gap-5 rounded-2xl bg-white p-6 ring-1 ring-line hover:ring-brand/30"
+                >
+                  {f.photo ? (
+                    <Image
+                      src={f.photo}
+                      alt={f.name}
+                      width={160}
+                      height={160}
+                      quality={90}
+                      className="h-20 w-20 flex-none rounded-full object-cover object-[60%_40%]"
+                    />
+                  ) : (
+                    <span className="btn-brand flex h-20 w-20 flex-none items-center justify-center rounded-full text-xl font-semibold" aria-hidden="true">
+                      {f.initials}
+                    </span>
+                  )}
+                  <div className="flex-1">
+                    <p className="text-lg font-semibold group-hover:text-brand">{f.name}</p>
+                    <p className="text-body">{f.title}</p>
+                    {background && <p className="mt-1 text-sm text-muted">{background}</p>}
+                  </div>
+                  <span className="text-muted transition-colors group-hover:text-brand">
+                    <Arrow />
                   </span>
-                )}
-                <div>
-                  <p className="text-lg font-semibold">{f.name}</p>
-                  <p className="text-body">{f.title}</p>
-                  {background && <p className="mt-1 text-sm text-muted">{background}</p>}
-                </div>
+                </Link>
               </li>
             );
           })}
