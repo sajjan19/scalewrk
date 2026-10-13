@@ -134,7 +134,7 @@ export default function StartupsPage() {
 
       {/* Comparison */}
       <Section tone="mist" id="compare">
-        <SectionHeading eyebrow="How we compare" title="In-house, big agency or Scalewrk?" intro="A quick look at your hiring options." />
+        <SectionHeading eyebrow="How we compare" title="In-house, big agency or Scalewrk?" intro="Your three hiring options at a glance." />
 
         {/* Phones: one card per option */}
         <div className="mt-10 space-y-4 md:hidden">
