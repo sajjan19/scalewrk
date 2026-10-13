@@ -7,10 +7,10 @@
     e.g. "/logos/paypal.svg". When set, it replaces the symbol and name.
   - Neither: a placeholder tile with the company's first letter.
 */
-import { siPaypal, siTiktok } from "simple-icons";
+import { siPaypal } from "simple-icons";
 
 export const companyLogos: Record<string, { iconPath?: string; color?: string; image?: string }> = {
-  TikTok: { iconPath: siTiktok.path, color: `#${siTiktok.hex}` },
+  TikTok: { image: "/logos/tiktok.png" }, // official logo with wordmark (white background)
   PayPal: { iconPath: siPaypal.path, color: `#${siPaypal.hex}` },
   "Sully.ai": {}, // PLACEHOLDER: add their logo file to /public/logos/ and set image: "/logos/sully.svg"
 };
