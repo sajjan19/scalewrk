@@ -211,3 +211,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
   - `/share-profile`: just the profile form, with "what happens next" notes. `?job=slug` still shows "Applying for…".
   - Every old `/engineers#apply` link now points to `/share-profile`. Menu: For Engineers ▾ (How we work, Open jobs, Share your profile). Footer and sitemap include it. Phone bar: "Share your profile" on /engineers and /jobs; hidden on /share-profile.
   - `CtaBand` takes an optional `action` ({href, label}) for a non-booking button.
+- **2026-10-12:** Undid audit item 4 at the user's request: the "Founder-led" block is gone. The logo strip (`FounderExperienceStrip`, with the "Where our team has recruited" caption) is back right after "What we do", and the "Run by the founders" block is back near the bottom (after Testimonials, before the CTA band). Home order: Hero → What we do → logo strip → Clients → How it works → Why Scalewrk → Roles → Latest jobs → Testimonials → Founders → CTA band.
+- **2026-10-12:** "Where our team has recruited" moved above the scrolling logos (slightly bigger, as a label).

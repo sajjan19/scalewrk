@@ -4,35 +4,37 @@ import { clients, showClients } from "@/content/clients";
 import { founders } from "@/content/founders";
 import { companyLogos } from "@/content/companyLogos";
 
-// Logos of companies our team has recruited for (past employers, NOT clients), scrolling right to left
-// in a loop (see .marquee in globals.css). Used inside the founder block on the Home page.
-export function LogoMarquee() {
+// "Our founders have recruited for" strip: past employers in brand colors (or official logo files).
+// The logos scroll right to left in a loop (see .marquee in globals.css).
+export function FounderExperienceStrip() {
   const companies = [...new Set(founders.flatMap((f) => f.experienceAt))];
   if (companies.length === 0) return null;
   // Repeat the logos so one set is wider than the screen, then show that set twice for a seamless loop
   const oneSet = Array.from({ length: 4 }, () => companies).flat();
   return (
-    <div>
-      {/* Screen readers get the plain list once; the moving logos are just for show */}
-      <ul className="sr-only">
-        {companies.map((c) => (
-          <li key={c}>{c}</li>
-        ))}
-      </ul>
-      <div className="marquee w-full" aria-hidden="true">
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 items-center gap-x-14 pr-14">
-              {oneSet.map((c, i) => (
-                <CompanyMark key={i} name={c} />
-              ))}
-            </div>
+    <section className="border-b border-line py-8">
+      <Container>
+        {/* Label above the logos so they don't read as clients: these are where the team has recruited */}
+        <p className="mb-5 text-center text-sm font-medium text-muted">Where our team has recruited</p>
+        {/* Screen readers get the plain list once; the moving logos are just for show */}
+        <ul className="sr-only">
+          {companies.map((c) => (
+            <li key={c}>{c}</li>
           ))}
+        </ul>
+        <div className="marquee w-full" aria-hidden="true">
+          <div className="marquee-track">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center gap-x-14 pr-14">
+                {oneSet.map((c, i) => (
+                  <CompanyMark key={i} name={c} />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      {/* Small caption so the logos don't read as clients: these are where the team has recruited */}
-      <p className="mt-4 text-center text-xs text-muted">Where our team has recruited</p>
-    </div>
+      </Container>
+    </section>
   );
 }
 
