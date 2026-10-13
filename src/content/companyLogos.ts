@@ -9,7 +9,7 @@
 */
 
 export const companyLogos: Record<string, { iconPath?: string; color?: string; image?: string }> = {
-  TikTok: { image: "/logos/tiktok.png" }, // official logo with wordmark (white background)
-  PayPal: { image: "/logos/paypal.svg" }, // official full-color logo (Wikimedia Commons PayPal.svg)
+  TikTok: { image: "/logos/tiktok.svg" }, // official logo with wordmark (file from the user)
+  PayPal: { image: "/logos/paypal.svg" }, // official full-color logo (file from the user)
   "Sully.ai": { image: "/logos/sully.png" }, // blue sully.ai logo from when Punit recruited for them (they have since rebranded)
 };
