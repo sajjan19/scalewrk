@@ -219,3 +219,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** Home founder cards are clickable: each opens that person's card on the About page (`/about#punit-singh`, `/about#mandeep-sajjan`; `founderId()` in founders.ts).
 - **2026-10-12:** TikTok in the logo strip now uses the official logo image the user provided (`public/logos/tiktok.png`).
 - **2026-10-12:** PayPal in the logo strip now uses the official full-color logo (`public/logos/paypal.svg`, downloaded from Wikimedia Commons with the user's OK).
+- **2026-10-12:** The scrolling logos now run the full width of the screen (outside the page container); the label stays centered above them.
