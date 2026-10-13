@@ -250,6 +250,9 @@ export default function Home() {
             <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
           </p>
         </div>
+        <Link href="/startups#compare" className="mt-8 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+          See how we compare <Arrow />
+        </Link>
       </Section>
 
       {/* Founders: who runs every search (same heading style as Roles) */}
