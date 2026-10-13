@@ -54,8 +54,8 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Company logos (founders' experience strip)
 
-- [ ] Optional: download official logo files (with their typography) from the TikTok, PayPal and Sully.ai press/brand pages, put them in `public/logos/`, and set `image` in `src/content/companyLogos.ts`
-- [ ] Sully.ai logo (currently a placeholder tile)
+- [x] Official logo files for TikTok, PayPal and Sully.ai are in `public/logos/`
+- [x] Sully.ai logo
 
 ## Testimonials
 

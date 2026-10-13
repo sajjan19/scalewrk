@@ -11,5 +11,5 @@
 export const companyLogos: Record<string, { iconPath?: string; color?: string; image?: string }> = {
   TikTok: { image: "/logos/tiktok.png" }, // official logo with wordmark (white background)
   PayPal: { image: "/logos/paypal.svg" }, // official full-color logo (Wikimedia Commons PayPal.svg)
-  "Sully.ai": {}, // PLACEHOLDER: add their logo file to /public/logos/ and set image: "/logos/sully.svg"
+  "Sully.ai": { image: "/logos/sully.png" }, // blue sully.ai logo from when Punit recruited for them (they have since rebranded)
 };
