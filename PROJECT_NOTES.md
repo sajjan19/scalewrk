@@ -231,3 +231,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** About founder cards: location is plain text with a pin icon (no grey pill).
 - **2026-10-12:** For Startups comparison table label is now "How we compare" (anchor `#compare`). Home "Why Scalewrk" ends with a "See how we compare →" link to it, so the two sections don't repeat each other.
 - **2026-10-12:** Comparison intro changed to "What you get with each way to hire engineers." (avoids repeating "compare").
+- **2026-10-12:** Comparison intro is now "A quick look at your hiring options."
