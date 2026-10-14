@@ -270,4 +270,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** "Roles we hire" section hidden on Home and New York too (`showRolePreview = false` in roles.ts). Section backgrounds after it adjust so grey and white still alternate. Flip the flag to bring it back.
 - **2026-10-14:** Home "What we do" ends with a short "Roles we often hire:" tag row (8 roles, not clickable). Edit the list in `quickRoles` in roles.ts.
 - **2026-10-14:** Home hero candidate link: "Looking for a job? See how we help candidates →" (to /engineers).
+- **2026-10-14:** Process cards (Home How it works, For Startups, For Candidates) now match the other cards: soft tinted icon badge on top (with the step number), title below in the same size as the Why Scalewrk cards. Connecting lines moved to the icon's new center.
 

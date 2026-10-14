@@ -24,21 +24,22 @@ export function ProcessCards({ steps, cols = 3, ongoingLast = false }: { steps: 
               ongoing ? "border-brand/20 bg-brand-soft/60" : "border-line bg-white hover:border-brand/30"
             }`}
           >
-            <div className="flex items-center gap-4">
-              <span className="relative flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-white text-brand shadow-sm ring-1 ring-line">
-                <step.icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
+            {/* Same icon and title style as the other cards on the site: soft icon badge on top, title below */}
+            <div className="flex items-start justify-between gap-3">
+              <span className="relative flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-brand-soft text-brand">
+                <step.icon className="h-7 w-7" strokeWidth={1.75} aria-hidden="true" />
                 <span className="btn-brand absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold">
                   {i + 1}
                 </span>
               </span>
-              <p className="text-lg font-semibold">{step.title}</p>
               {ongoing && (
-                <span className="ml-auto rounded-full bg-white px-2.5 py-0.5 text-xs font-medium text-brand-dark ring-1 ring-brand/20">
+                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-medium text-brand-dark ring-1 ring-brand/20">
                   Ongoing
                 </span>
               )}
             </div>
-            <ul className={`mt-4 space-y-1.5 ${cols === 4 ? "pl-16 lg:pl-0" : "pl-16"}`}>
+            <p className="mt-5 text-xl font-semibold tracking-tight">{step.title}</p>
+            <ul className="mt-3 space-y-1.5">
               {step.body.map((point) => (
                 <li key={point} className="flex gap-2 leading-snug text-body">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
@@ -49,7 +50,7 @@ export function ProcessCards({ steps, cols = 3, ongoingLast = false }: { steps: 
             {/* Connecting line across the gap, at the height of the icons */}
             <span
               aria-hidden="true"
-              className={`absolute top-12 -right-[41px] hidden h-0.5 w-10 bg-gradient-to-r from-violet/50 to-blue/50 ${lineMd} ${lineLg}`}
+              className={`absolute top-[52px] -right-[41px] hidden h-0.5 w-10 bg-gradient-to-r from-violet/50 to-blue/50 ${lineMd} ${lineLg}`}
             />
           </li>
         );
