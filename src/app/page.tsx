@@ -210,22 +210,29 @@ export default function Home() {
 
       {/* How it works */}
       <Section tone="mist" className="theme-startup">
-        <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
+          <Link href="/startups" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+            See the full process <Arrow />
+          </Link>
+        </div>
         <div className="mt-12">
           <ProcessCards steps={steps} cols={4} />
         </div>
-        <Link href="/startups" className="mt-10 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-          See the full process <Arrow />
-        </Link>
       </Section>
 
       {/* Why Scalewrk */}
       <Section className="theme-startup">
-        <SectionHeading
-          eyebrow="Why Scalewrk"
-          title="Recruiting that knows engineering"
-          intro="Engineers only. Startups only. Every search run by Punit or Mandeep."
-        />
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading
+            eyebrow="Why Scalewrk"
+            title="Recruiting that knows engineering"
+            intro="Engineers only. Startups only. Every search run by Punit or Mandeep."
+          />
+          <Link href="/startups#compare" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+            See how we compare <Arrow />
+          </Link>
+        </div>
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {reasons.map((r) => (
             <div key={r.title} className="flex flex-col rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
@@ -244,9 +251,6 @@ export default function Home() {
             <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
           </p>
         </div>
-        <Link href="/startups#compare" className="mt-8 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-          See how we compare <Arrow />
-        </Link>
       </Section>
 
       {/* Founders: who runs every search (same heading style as Roles) */}

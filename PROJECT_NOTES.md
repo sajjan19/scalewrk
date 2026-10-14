@@ -250,3 +250,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Recent placements: only the company row (logo, name, domain, ↗) links to their website; the rest of the card is not clickable.
 - **2026-10-14:** Placement fact icons are fixed per kind of fact (rocket = stage, building = industry, pin = location), so they never change with the value. The legal scales icon was replaced with a generic building.
 - **2026-10-14:** Contact "what to bring" cards are bullet lists (5 points each): startups card blue, engineers card purple.
+- **2026-10-14:** Home: every "see more" link now sits top right next to its section heading (See the full process, See how we compare, Meet the team, See all roles, View all jobs). On phones they sit under the heading.
