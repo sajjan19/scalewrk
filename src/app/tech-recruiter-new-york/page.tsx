@@ -120,9 +120,11 @@ export default function NewYorkPage() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {help.map((h) => (
             <div key={h.title} className="rounded-2xl border border-line p-6 sm:p-8">
-              <IconBadge icon={h.icon} size="lg" />
-              <p className="mt-5 text-xl font-semibold tracking-tight">{h.title}</p>
-              <CheckList items={h.body} className="mt-4" />
+              <div className="flex items-center gap-4">
+                <IconBadge icon={h.icon} size="lg" />
+                <p className="text-xl leading-tight font-semibold tracking-tight">{h.title}</p>
+              </div>
+              <CheckList items={h.body} className="mt-5" />
             </div>
           ))}
         </div>

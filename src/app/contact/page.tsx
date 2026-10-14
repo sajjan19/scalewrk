@@ -63,11 +63,15 @@ export default function ContactPage() {
             ].map((c) => (
               // Same card style as "What we do" on the Home page
               <div key={c.title} className={`flex flex-col rounded-2xl border border-line bg-white p-6 sm:p-8 ${c.theme}`}>
-                <IconBadge icon={c.icon} size="lg" />
-                <p className="mt-5 text-sm font-medium text-brand">{c.audience}</p>
-                <p className="mt-1 text-xl font-semibold tracking-tight">{c.title}</p>
-                <p className="mt-1 text-sm text-muted">{c.intro}</p>
-                <CheckList items={c.points} className="mt-4" />
+                <div className="flex items-center gap-4">
+                  <IconBadge icon={c.icon} size="lg" />
+                  <div>
+                    <p className="text-sm font-medium text-brand">{c.audience}</p>
+                    <p className="text-xl leading-tight font-semibold tracking-tight">{c.title}</p>
+                  </div>
+                </div>
+                <p className="mt-5 text-sm text-muted">{c.intro}</p>
+                <CheckList items={c.points} className="mt-3" />
               </div>
             ))}
           </div>

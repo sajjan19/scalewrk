@@ -191,10 +191,14 @@ export default function Home() {
               href={item.href}
               className={`lift group flex flex-col rounded-2xl border border-line bg-white p-6 hover:border-brand/30 sm:p-8 ${item.theme}`}
             >
-              <IconBadge icon={item.icon} size="lg" />
-              <p className="mt-5 text-sm font-medium text-brand">{item.audience}</p>
-              <p className="mt-1 text-xl font-semibold tracking-tight">{item.title}</p>
-              <CheckList items={item.body} className="mt-4" />
+              <div className="flex items-center gap-4">
+                <IconBadge icon={item.icon} size="lg" />
+                <div>
+                  <p className="text-sm font-medium text-brand">{item.audience}</p>
+                  <p className="text-xl leading-tight font-semibold tracking-tight">{item.title}</p>
+                </div>
+              </div>
+              <CheckList items={item.body} className="mt-5" />
               <span className="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-brand group-hover:text-brand-dark">
                 {item.link} <Arrow />
               </span>
@@ -247,9 +251,11 @@ export default function Home() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {reasons.map((r) => (
             <div key={r.title} className="flex flex-col rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
-              <IconBadge icon={r.icon} size="lg" />
-              <p className="mt-5 text-xl font-semibold tracking-tight">{r.title}</p>
-              <p className="mt-2 leading-relaxed text-body">{r.body}</p>
+              <div className="flex items-center gap-4">
+                <IconBadge icon={r.icon} size="lg" />
+                <p className="text-xl leading-tight font-semibold tracking-tight">{r.title}</p>
+              </div>
+              <p className="mt-4 leading-relaxed text-body">{r.body}</p>
               <div className="mt-auto pt-6">
                 <p className="border-t border-line pt-4 text-sm leading-relaxed text-muted">{r.versus}</p>
               </div>

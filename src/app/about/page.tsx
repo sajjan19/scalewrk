@@ -174,9 +174,11 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {values.map((v) => (
             <div key={v.title} className="rounded-2xl bg-white p-6 ring-1 ring-line">
-              <IconBadge icon={v.icon} size="lg" />
-              <p className="mt-5 text-lg font-semibold">{v.title}</p>
-              <ul className="mt-3 space-y-1.5">
+              <div className="flex items-center gap-4">
+                <IconBadge icon={v.icon} size="lg" />
+                <p className="text-xl leading-tight font-semibold tracking-tight">{v.title}</p>
+              </div>
+              <ul className="mt-4 space-y-1.5">
                 {v.body.map((point) => (
                   <li key={point} className="flex gap-2 leading-snug text-body">
                     <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />

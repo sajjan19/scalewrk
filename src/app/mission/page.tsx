@@ -67,9 +67,11 @@ export default function MissionPage() {
         <div className="grid gap-4 lg:grid-cols-2">
           {statements.map((s) => (
             <div key={s.label} className="flex flex-col rounded-3xl border border-line p-8 sm:p-10">
-              <IconBadge icon={s.icon} size="lg" />
-              <p className="mt-6 text-sm font-medium text-brand">{s.label}</p>
-              <p className="mt-2 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">{s.text}</p>
+              <div className="flex items-center gap-4">
+                <IconBadge icon={s.icon} size="lg" />
+                <p className="text-xl leading-tight font-semibold tracking-tight text-brand">{s.label}</p>
+              </div>
+              <p className="mt-5 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">{s.text}</p>
             </div>
           ))}
         </div>
@@ -81,9 +83,11 @@ export default function MissionPage() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {beliefs.map((b) => (
             <div key={b.title} className="rounded-2xl bg-white p-6 ring-1 ring-line">
-              <IconBadge icon={b.icon} />
-              <p className="mt-5 text-lg font-semibold">{b.title}</p>
-              <ul className="mt-3 space-y-1.5">
+              <div className="flex items-center gap-4">
+                <IconBadge icon={b.icon} size="lg" />
+                <p className="text-lg leading-tight font-semibold tracking-tight">{b.title}</p>
+              </div>
+              <ul className="mt-4 space-y-1.5">
                 {b.body.map((point) => (
                   <li key={point} className="flex gap-2 leading-snug text-body">
                     <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
