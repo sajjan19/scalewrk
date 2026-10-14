@@ -247,3 +247,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Recent placements cards show tags under the role: stage, industry, location (`stage`/`industry`/`location` in clients.ts). Equall: Seed · Legal AI / LegalTech · [Location] (placeholder until confirmed).
 - **2026-10-14:** Equall location tag: "On-site, New York".
 - **2026-10-14:** Recent placements card redesigned: logo + name + website domain with an ↗ icon; a tinted "Role filled" box; stage, industry and location as icon facts (rocket, scales, pin).
+- **2026-10-14:** Recent placements: only the company row (logo, name, domain, ↗) links to their website; the rest of the card is not clickable.

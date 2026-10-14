@@ -77,7 +77,6 @@ export function ClientsSection() {
         <ul className="mt-6 flex flex-wrap justify-center gap-4">
           {clients.map((client, i) => (
             <li key={i} className="w-full max-w-md">
-              {/* Links to their website in a new tab (when `url` is set) */}
               <ClientCard client={client} />
             </li>
           ))}
@@ -88,7 +87,7 @@ export function ClientsSection() {
 }
 
 // One "Recent placements" card: company, the role we filled and a few facts.
-// Opens their site in a new tab when `url` is set.
+// Only the company row links to their site (new tab) when `url` is set.
 function ClientCard({ client }: { client: Client }) {
   const facts = [
     { icon: Rocket, text: client.stage },
@@ -97,30 +96,46 @@ function ClientCard({ client }: { client: Client }) {
   ].filter((f): f is { icon: typeof Rocket; text: string } => Boolean(f.text));
   const domain = client.url?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
+  // Logo, name, website and ↗ (the only part that links to their site)
+  const company = (
+    <>
+      {client.logo ? (
+        <Image src={client.logo} alt="" width={112} height={112} className="h-14 w-14 flex-none rounded-xl object-cover" />
+      ) : (
+        <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-xl text-xl font-semibold" aria-hidden="true">
+          {client.name.charAt(0)}
+        </span>
+      )}
+      <span className="min-w-0 flex-1">
+        <span className="block text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-brand">
+          <Text>{client.name}</Text>
+        </span>
+        {domain && <span className="block text-sm text-muted">{domain}</span>}
+      </span>
+      {client.url && (
+        <ArrowUpRight
+          className="h-5 w-5 flex-none text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
+          aria-hidden="true"
+        />
+      )}
+    </>
+  );
+
   const inner = (
     <>
-      {/* Company */}
-      <span className="flex items-center gap-4">
-        {client.logo ? (
-          <Image src={client.logo} alt="" width={112} height={112} className="h-14 w-14 flex-none rounded-xl object-cover" />
-        ) : (
-          <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-xl text-xl font-semibold" aria-hidden="true">
-            {client.name.charAt(0)}
-          </span>
-        )}
-        <span className="min-w-0 flex-1">
-          <span className="block text-xl font-semibold tracking-tight text-ink">
-            <Text>{client.name}</Text>
-          </span>
-          {domain && <span className="block text-sm text-muted">{domain}</span>}
-        </span>
-        {client.url && (
-          <ArrowUpRight
-            className="h-5 w-5 flex-none text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
-            aria-hidden="true"
-          />
-        )}
-      </span>
+      {client.url ? (
+        <a
+          href={client.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${client.name} website (opens in a new tab)`}
+          className="group -m-2 flex items-center gap-4 rounded-xl p-2 transition-colors hover:bg-mist"
+        >
+          {company}
+        </a>
+      ) : (
+        <span className="flex items-center gap-4">{company}</span>
+      )}
 
       {/* The role we filled */}
       {client.role && (
@@ -146,17 +161,5 @@ function ClientCard({ client }: { client: Client }) {
       )}
     </>
   );
-  const box = "block w-full max-w-md rounded-2xl border border-line bg-white p-5 text-left sm:p-6";
-  if (!client.url) return <div className={box}>{inner}</div>;
-  return (
-    <a
-      href={client.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${client.name} website (opens in a new tab)`}
-      className={`lift group ${box} hover:border-brand/30 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]`}
-    >
-      {inner}
-    </a>
-  );
+  return <div className="block w-full max-w-md rounded-2xl border border-line bg-white p-5 text-left sm:p-6">{inner}</div>;
 }
