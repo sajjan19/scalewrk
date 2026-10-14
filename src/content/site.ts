@@ -21,7 +21,7 @@ export const site = {
   email: "info@scalewrk.ai",
   // PLACEHOLDER: fake number (555-01xx numbers are reserved for fiction). Replace with your real one.
   phone: "(555) 555-0123",
-  tagline: "From first hire to full scale.",
+  tagline: "Built to Scale. Powered by Talent.",
   description:
     "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire engineers and sales teams, from AI/ML and backend to account executives, from seed to Series C and beyond.",
 
