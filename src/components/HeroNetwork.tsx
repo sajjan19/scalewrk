@@ -16,6 +16,9 @@ import { LogoMark } from "./Logo";
   Purely decorative, no claims. All motion is off for people who turn off motion.
 */
 
+// How far from the middle the lines start (leaves a clear space around the S)
+const GAP = 13;
+
 const PURPLE = "#7a2ff5";
 const BLUE = "#0d6efd";
 
@@ -31,10 +34,13 @@ const nodes = Array.from({ length: 8 }, (_, i) => {
   const angle = ((i / 8) * 360 - 90 + nudges[i]) * (Math.PI / 180);
   const radius = radii[i];
   const kind = i % 2 === 0 ? ("candidate" as const) : ("startup" as const);
+  const round = (v: number) => Math.round(v * 100) / 100; // same numbers on the server and in the browser
   return {
-    // Rounded so the server and the browser produce exactly the same numbers
-    x: Math.round((50 + radius * Math.cos(angle)) * 100) / 100,
-    y: Math.round((50 + radius * Math.sin(angle)) * 100) / 100,
+    x: round(50 + radius * Math.cos(angle)),
+    y: round(50 + radius * Math.sin(angle)),
+    // Where the line starts: just outside the S, so lines don't run underneath it
+    sx: round(50 + GAP * Math.cos(angle)),
+    sy: round(50 + GAP * Math.sin(angle)),
     kind,
     label: kind === "candidate" ? candidateRoles[i / 2] : startupStages[(i - 1) / 2],
   };
@@ -95,10 +101,10 @@ export function HeroNetwork() {
         {nodes.map((n, i) =>
           n.kind === "candidate" ? (
             <g key={i}>
-              <line x1="50" y1="50" x2={n.x} y2={n.y} stroke={PURPLE} strokeOpacity="0.18" strokeWidth="1.6" strokeLinecap="round" />
+              <line x1={n.sx} y1={n.sy} x2={n.x} y2={n.y} stroke={PURPLE} strokeOpacity="0.18" strokeWidth="1.6" strokeLinecap="round" />
               <line
-                x1="50"
-                y1="50"
+                x1={n.sx}
+                y1={n.sy}
                 x2={n.x}
                 y2={n.y}
                 stroke={PURPLE}
@@ -111,8 +117,8 @@ export function HeroNetwork() {
           ) : (
             <line
               key={i}
-              x1="50"
-              y1="50"
+              x1={n.sx}
+              y1={n.sy}
               x2={n.x}
               y2={n.y}
               stroke={BLUE}
@@ -127,7 +133,7 @@ export function HeroNetwork() {
         {/* Pulses: purple ones go out to candidates, blue ones come in from startups */}
         {nodes.map((n, i) => {
           const out = n.kind === "candidate";
-          const [fromX, toX, fromY, toY] = out ? [50, n.x, 50, n.y] : [n.x, 50, n.y, 50];
+          const [fromX, toX, fromY, toY] = out ? [n.sx, n.x, n.sy, n.y] : [n.x, n.sx, n.y, n.sy];
           return (
             <circle key={`p${i}`} r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter="url(#net-glow)" className="net-particle">
               <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
@@ -174,8 +180,8 @@ export function HeroNetwork() {
 
       {/* Scalewrk in the middle (moves the most) */}
       <div className="net-layer absolute inset-0" style={layer(depth.center)}>
-      <span className="absolute top-1/2 left-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl bg-white shadow-[0_20px_50px_-15px_rgba(77,80,249,0.45)] ring-1 ring-line sm:h-24 sm:w-24">
-        <LogoMark className="h-10 w-auto sm:h-12" />
+      <span className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]">
+        <LogoMark className="h-16 w-auto sm:h-20" />
       </span>
       </div>
     </div>

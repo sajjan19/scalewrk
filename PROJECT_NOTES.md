@@ -284,4 +284,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Hero illustration back to the light style (no dark panel), keeping the role/stage pills and the strong S-to-candidate connection. Background dots are now small four-point stars that twinkle, alternating purple and blue; candidate pulses are purple (out from the S), startup pulses blue (into the S).
 - **2026-10-14:** Hero illustration: spots at different distances with small angle nudges (lines of different lengths), a tilted oval orbit instead of a circle, and the stars back to tiny dots in a few sizes (still twinkling purple/blue).
 - **2026-10-14:** Hero illustration has an Apple TV-style hover: it tilts in 3D toward the mouse and its layers shift by different amounts (glow, lines, pills, the S). Off for reduced motion; no effect on touch screens.
+- **2026-10-14:** Hero illustration: removed the white rounded tile behind the S; the S logo floats on its own with a soft glow, and lines/pulses start a little away from the middle (`GAP`) so they don't run under it.
 
