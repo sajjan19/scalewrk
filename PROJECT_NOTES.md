@@ -248,3 +248,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Equall location tag: "On-site, New York".
 - **2026-10-14:** Recent placements card redesigned: logo + name + website domain with an ↗ icon; a tinted "Role filled" box; stage, industry and location as icon facts (rocket, scales, pin).
 - **2026-10-14:** Recent placements: only the company row (logo, name, domain, ↗) links to their website; the rest of the card is not clickable.
+- **2026-10-14:** Placement fact icons are fixed per kind of fact (rocket = stage, building = industry, pin = location), so they never change with the value. The legal scales icon was replaced with a generic building.

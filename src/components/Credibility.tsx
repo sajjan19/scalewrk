@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, MapPin, Rocket, Scale, UserCheck } from "lucide-react";
+import { ArrowUpRight, Building2, MapPin, Rocket, UserCheck } from "lucide-react";
 import { Container, Text } from "./ui";
 import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
@@ -89,9 +89,11 @@ export function ClientsSection() {
 // One "Recent placements" card: company, the role we filled and a few facts.
 // Only the company row links to their site (new tab) when `url` is set.
 function ClientCard({ client }: { client: Client }) {
+  // One fixed icon per kind of fact, so every card looks the same whatever the stage or industry:
+  // rocket = stage, building = industry, pin = location
   const facts = [
     { icon: Rocket, text: client.stage },
-    { icon: Scale, text: client.industry },
+    { icon: Building2, text: client.industry },
     { icon: MapPin, text: client.location },
   ].filter((f): f is { icon: typeof Rocket; text: string } => Boolean(f.text));
   const domain = client.url?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
