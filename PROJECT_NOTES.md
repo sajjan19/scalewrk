@@ -261,4 +261,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Jobs hidden for now (no real jobs yet). `showExampleJobs = false` and a new `hasOpenJobs` flag in jobs.ts. While it's false: no "Open jobs" in the menu, no Jobs footer link, /jobs out of the sitemap and noindexed, no Home "Latest jobs", no Roles "Looking for a job?" strip, no "See open jobs" button or jobs tile on For Candidates, no New York jobs section or button; Roles cards show "Share your profile". Adding a real job (`example: false`) brings all of it back in the same design.
 - **2026-10-14:** Home headline: "From first hire to **full scale**." with "We help growing startups hire engineers and sales teams at every stage." Also the site tagline and the Home share image. Both "first hire" and "full scale" use the gradient.
 - **2026-10-14:** For Startups hero intro: "From your first engineer to your first sales team, we run the search so you can run the company."
+- **2026-10-14:** Contact "what to bring" cards now have a small label on top: "For startups" (blue) and "For candidates" (purple, person icon instead of code icon).
 

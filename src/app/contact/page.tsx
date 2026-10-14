@@ -2,7 +2,7 @@ import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { ContactReason } from "@/components/ContactReason";
 import { Field, Form } from "@/components/Form";
 import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
-import { Building2, Code2 } from "lucide-react";
+import { Building2, UserRound } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
@@ -35,6 +35,7 @@ export default function ContactPage() {
               {
                 icon: Building2,
                 theme: "theme-startup",
+                audience: "For startups",
                 title: "Hiring engineers or sales?",
                 intro: "Bring what you have, even if it's just one role:",
                 points: [
@@ -46,8 +47,9 @@ export default function ContactPage() {
                 ],
               },
               {
-                icon: Code2,
+                icon: UserRound,
                 theme: "theme-engineer",
+                audience: "For candidates",
                 title: "Looking for your next role?",
                 intro: "Have these handy:",
                 points: [
@@ -62,6 +64,7 @@ export default function ContactPage() {
               <div key={c.title} className={`flex items-start gap-3 rounded-2xl border border-line bg-white p-5 ${c.theme}`}>
                 <IconBadge icon={c.icon} size="sm" />
                 <div>
+                  <p className="text-sm font-medium text-brand">{c.audience}</p>
                   <p className="font-semibold">{c.title}</p>
                   <p className="mt-0.5 text-sm text-muted">{c.intro}</p>
                   <ul className="mt-3 space-y-1.5">
