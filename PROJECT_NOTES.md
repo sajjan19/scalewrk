@@ -257,4 +257,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Share your profile: "Primary role" dropdown replaced with a text box, "What role are you looking for?" (sent as `role`), with role names suggested as you type (`suggestions` on `Field`).
 - **2026-10-14 (preview branch):** Home hero card: "Platform Engineer" row replaced with "Founding Account Executive" (Offer out), so the card shows a sales role.
 - **2026-10-14:** All pricing removed from the site (user's decision: pricing is discussed on the call). Removed the For Startups Pricing section and its menu link, "No hire, no fee" bars (Home, New York), "You only pay when you hire" (Home hero, /meet, meta descriptions), the "Pay only when you hire" comparison row and the About "Pricing" fact. The "What does it cost?" FAQs now say: "It depends on the role. Book a call and we'll walk you through pricing and answer any other questions."
+- **2026-10-14:** The tech and sales version (branch `preview/tech-and-sales`) was merged into main and is now the live site: engineering plus sales & GTM roles, "For Candidates" menu, tech-and-sales copy.
 
