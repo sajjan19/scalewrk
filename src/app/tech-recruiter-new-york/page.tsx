@@ -66,7 +66,7 @@ const faqs = [
 
 export default function NewYorkPage() {
   return (
-    <>
+    <div className="theme-startup">
       {/* Hero: photo with the text on top. Photo by Jermaine Ee on Unsplash (Unsplash License) */}
       <section className="relative isolate overflow-hidden bg-ink">
         <Image
@@ -160,7 +160,7 @@ export default function NewYorkPage() {
       </Section>
 
       {/* New York jobs */}
-      <Section>
+      <Section className="theme-engineer">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Jobs" title="New York startups hiring now" />
           <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -183,7 +183,7 @@ export default function NewYorkPage() {
       </Section>
 
       {/* For engineers */}
-      <Section tone="mist">
+      <Section tone="mist" className="theme-engineer">
         <div className="grid items-center gap-8 rounded-3xl bg-white p-6 ring-1 ring-line sm:p-10 lg:grid-cols-[1fr_auto]">
           <div className="flex items-start gap-5">
             <IconBadge icon={MapPin} size="lg" />
@@ -219,6 +219,6 @@ export default function NewYorkPage() {
       </Section>
 
       <CtaBand title="Hiring in New York?" />
-    </>
+    </div>
   );
 }

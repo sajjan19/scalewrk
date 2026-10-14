@@ -87,7 +87,7 @@ export function Header() {
               // An item with sub-pages (About) is a label with its links underneath
               const links = item.children ?? [{ href: item.href, label: item.label }];
               return (
-                <li key={item.href} className={item.children ? "py-3" : ""}>
+                <li key={item.href} className={`${item.children ? "py-3" : ""} ${item.theme ?? ""}`}>
                   {item.children && <p className="pt-1 pb-1 text-sm font-medium text-muted">{item.label}</p>}
                   {links.map((link) => {
                     const active = pathname === link.href;
@@ -151,7 +151,7 @@ function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: str
 
   const menuId = `menu-${item.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
-    <div ref={box} className="group relative">
+    <div ref={box} className={`group relative ${item.theme ?? ""}`}>
       <button
         type="button"
         aria-expanded={open}

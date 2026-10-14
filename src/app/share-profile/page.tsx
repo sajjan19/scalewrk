@@ -25,7 +25,7 @@ const next = [
 
 export default function ShareProfilePage() {
   return (
-    <section className="pt-12 pb-20 sm:pt-20 sm:pb-28">
+    <section className="theme-engineer pt-12 pb-20 sm:pt-20 sm:pb-28">
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
         <div>
           <Eyebrow>For engineers</Eyebrow>

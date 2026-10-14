@@ -17,7 +17,7 @@ export const metadata = pageMetadata({
 
 export default function RolesPage() {
   return (
-    <>
+    <div className="theme-startup">
       <PageHero
         eyebrow="Roles we hire"
         title={
@@ -33,7 +33,7 @@ export default function RolesPage() {
       </PageHero>
 
       {/* Link to the jobs board */}
-      <div className="border-b border-line bg-mist">
+      <div className="theme-engineer border-b border-line bg-mist">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p className="text-body">
             <span className="font-medium text-ink">Engineer looking for a job?</span> See startups hiring now.
@@ -130,6 +130,6 @@ export default function RolesPage() {
       </Section>
 
       <CtaBand title="Have a role open right now?" />
-    </>
+    </div>
   );
 }

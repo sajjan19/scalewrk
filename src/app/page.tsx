@@ -38,6 +38,7 @@ export const metadata = pageMetadata({
 const whatWeDo = [
   {
     icon: Rocket,
+    theme: "theme-startup",
     audience: "For startups",
     title: "We hire engineers for you",
     body: ["We plan the role with you", "We find and screen engineers", "We help you close the offer"],
@@ -46,6 +47,7 @@ const whatWeDo = [
   },
   {
     icon: Code2,
+    theme: "theme-engineer",
     audience: "For engineers",
     title: "We find your next startup",
     body: ["We learn what you want next", "We match you with startups that fit", "We guide you through every step"],
@@ -133,7 +135,7 @@ export default function Home() {
             <p className="mt-4 text-sm text-muted">You only pay when you hire.</p>
             <p className="mt-2 text-sm text-muted">
               Engineer?{" "}
-              <Link href="/engineers" className="inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
+              <Link href="/engineers" className="theme-engineer inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
                 Find your next startup <Arrow />
               </Link>
             </p>
@@ -188,7 +190,7 @@ export default function Home() {
             <Link
               key={item.title}
               href={item.href}
-              className="lift group flex flex-col rounded-2xl border border-line bg-white p-6 hover:border-brand/30 sm:p-8"
+              className={`lift group flex flex-col rounded-2xl border border-line bg-white p-6 hover:border-brand/30 sm:p-8 ${item.theme}`}
             >
               <IconBadge icon={item.icon} size="lg" />
               <p className="mt-5 text-sm font-medium text-brand">{item.audience}</p>
@@ -207,7 +209,7 @@ export default function Home() {
       <ClientsSection />
 
       {/* How it works */}
-      <Section tone="mist">
+      <Section tone="mist" className="theme-startup">
         <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
         <div className="mt-12">
           <ProcessCards steps={steps} cols={4} />
@@ -218,7 +220,7 @@ export default function Home() {
       </Section>
 
       {/* Why Scalewrk */}
-      <Section>
+      <Section className="theme-startup">
         <SectionHeading
           eyebrow="Why Scalewrk"
           title="Recruiting that knows engineering"
@@ -302,7 +304,7 @@ export default function Home() {
       </Section>
 
       {/* Roles */}
-      <Section>
+      <Section className="theme-startup">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
           <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -330,7 +332,7 @@ export default function Home() {
       </Section>
 
       {/* Latest jobs (newest 3 from src/content/jobs.ts) */}
-      <Section tone="mist">
+      <Section tone="mist" className="theme-engineer">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
           <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">

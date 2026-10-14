@@ -109,7 +109,7 @@ const faqs = [
 
 export default function StartupsPage() {
   return (
-    <>
+    <div className="theme-startup">
       <PageHero
         eyebrow="For founders and CEOs"
         title={
@@ -230,6 +230,6 @@ export default function StartupsPage() {
       </Section>
 
       <CtaBand />
-    </>
+    </div>
   );
 }

@@ -58,12 +58,19 @@ export function isSet(value: string) {
 }
 
 // Top menu. An item with `children` gets a small dropdown (desktop) or sub-links (mobile menu).
-export type NavItem = { href: string; label: string; children?: { href: string; label: string }[] };
+// `theme` colors the group: blue for startups, purple for engineers (see .theme-startup in globals.css).
+export type NavItem = {
+  href: string;
+  label: string;
+  theme?: "theme-startup" | "theme-engineer";
+  children?: { href: string; label: string }[];
+};
 
 export const nav: NavItem[] = [
   {
     href: "/startups",
     label: "For Startups",
+    theme: "theme-startup",
     children: [
       { href: "/startups", label: "How we work" },
       { href: "/roles", label: "Roles we hire" },
@@ -73,6 +80,7 @@ export const nav: NavItem[] = [
   {
     href: "/engineers",
     label: "For Engineers",
+    theme: "theme-engineer",
     children: [
       { href: "/engineers", label: "How we work" },
       { href: "/jobs", label: "Open jobs" },

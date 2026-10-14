@@ -56,7 +56,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
   const applyHref = `/share-profile?job=${job.slug}`;
 
   return (
-    <>
+    <div className="theme-engineer">
       {job.example && (
         <div className="border-b border-amber-200 bg-amber-50">
           <Container className="py-3 text-sm text-amber-900">
@@ -160,7 +160,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[slug]">) {
           </aside>
         </Container>
       </section>
-    </>
+    </div>
   );
 }
 

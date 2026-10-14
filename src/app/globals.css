@@ -29,6 +29,26 @@ body {
   color: var(--color-ink);
 }
 
+/*
+  Audience colors. Wrap anything for startups in .theme-startup (blue) and anything for
+  engineers in .theme-engineer (purple). Inside, every brand color (links, icons, labels,
+  gradient text and gradient buttons) switches to that audience's color.
+*/
+.theme-startup {
+  --color-brand: #2563eb;
+  --color-brand-dark: #1d4ed8;
+  --color-brand-soft: #eaf1ff;
+  --color-violet: #4f46e5; /* gradient start: indigo */
+  --color-blue: #0d6efd; /* gradient end: blue */
+}
+.theme-engineer {
+  --color-brand: #7a2ff5;
+  --color-brand-dark: #6321d1;
+  --color-brand-soft: #f3edff;
+  --color-violet: #6d28d9; /* gradient start: deep purple */
+  --color-blue: #a855f7; /* gradient end: light purple */
+}
+
 /* Gradient text that matches the logo mark */
 .text-gradient {
   background: linear-gradient(90deg, var(--color-violet), var(--color-blue));

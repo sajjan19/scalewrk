@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 
 export default function JobsPage() {
   return (
-    <>
+    <div className="theme-engineer">
       <PageHero
         eyebrow="Jobs"
         title={
@@ -28,6 +28,6 @@ export default function JobsPage() {
           <JobList />
         </Suspense>
       </Section>
-    </>
+    </div>
   );
 }

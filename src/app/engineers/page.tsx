@@ -36,7 +36,7 @@ const promises = [
 
 export default function EngineersPage() {
   return (
-    <>
+    <div className="theme-engineer">
       <PageHero
         eyebrow="For engineers"
         title={
@@ -104,6 +104,6 @@ export default function EngineersPage() {
         body="Share your profile. It takes about two minutes."
         action={{ href: "/share-profile", label: "Share your profile" }}
       />
-    </>
+    </div>
   );
 }
