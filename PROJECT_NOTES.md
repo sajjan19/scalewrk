@@ -239,3 +239,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
   - Blue: /startups, /roles, /tech-recruiter-new-york, Home How it works, Why Scalewrk, Roles and the startup "What we do" card, the For Startups menu group.
   - Purple: /engineers, /share-profile, /jobs, job pages, Home Latest jobs, the engineer "What we do" card, the hero "Engineer? Find your next startup" link, the For Engineers menu group, the phone bar's engineer actions, and the engineer bits on Roles and New York.
   - Neutral (logo colors): header, footer, Home hero, founders, testimonials, About, Mission, Contact.
+- **2026-10-14:** Clients section renamed "Recent placements" and now real: Equall (Founding Engineer). Cards show the company and the role filled (`role` in clients.ts). Placeholder Client 1–5 removed.
+- **2026-10-14:** Paraform added to the "Where our team has recruited" strip via `alsoRecruitedFor` in companyLogos.ts (team-level, not in a founder bio). No logo yet, so it shows as text; companies without a logo no longer get the dashed placeholder tile.

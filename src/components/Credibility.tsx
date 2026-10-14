@@ -2,12 +2,12 @@ import Image from "next/image";
 import { Container, Text } from "./ui";
 import { clients, showClients } from "@/content/clients";
 import { founders } from "@/content/founders";
-import { companyLogos } from "@/content/companyLogos";
+import { alsoRecruitedFor, companyLogos } from "@/content/companyLogos";
 
 // "Our founders have recruited for" strip: past employers in brand colors (or official logo files).
 // The logos scroll right to left in a loop (see .marquee in globals.css).
 export function FounderExperienceStrip() {
-  const companies = [...new Set(founders.flatMap((f) => f.experienceAt))];
+  const companies = [...new Set([...founders.flatMap((f) => f.experienceAt), ...alsoRecruitedFor])];
   if (companies.length === 0) return null;
   // Repeat the logos so one set is wider than the screen, then show that set twice for a seamless loop
   const oneSet = Array.from({ length: 6 }, () => companies).flat();
@@ -47,33 +47,27 @@ function CompanyMark({ name }: { name: string }) {
   }
   return (
     <span className="flex shrink-0 items-center gap-2.5" style={logo.color ? { color: logo.color } : undefined}>
-      {logo.iconPath ? (
+      {logo.iconPath && (
         <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
           <path d={logo.iconPath} />
         </svg>
-      ) : (
-        <span
-          className="flex h-7 w-7 items-center justify-center rounded-md border border-dashed border-ink/30 text-xs font-semibold text-ink/60"
-          title="Placeholder logo"
-        >
-          {name.charAt(0)}
-        </span>
       )}
-      <span className={`text-xl font-semibold tracking-tight whitespace-nowrap sm:text-2xl ${logo.color ? "" : "text-ink/60"}`}>
+      {/* No logo file yet: just the company name */}
+      <span className={`text-xl font-semibold tracking-tight whitespace-nowrap sm:text-2xl ${logo.color ? "" : "text-ink"}`}>
         <Text>{name}</Text>
       </span>
     </span>
   );
 }
 
-// "Startups we've hired for" section: only real clients who agreed to be listed
+// "Recent placements" section: only real clients who agreed to be listed
 export function ClientsSection() {
   const visible = showClients || process.env.NODE_ENV === "development";
   if (!visible || clients.length === 0) return null;
   return (
     <section className="py-12 sm:py-16">
       <Container>
-        <p className="text-center text-sm font-medium text-muted">Startups we&apos;ve hired for</p>
+        <p className="text-center text-sm font-medium text-muted">Recent placements</p>
         {clients.some((c) => c.name.startsWith("[")) && (
           <p className="mx-auto mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-center text-xs font-medium text-amber-900 ring-1 ring-amber-200">
             Placeholder: client names coming soon
@@ -81,14 +75,16 @@ export function ClientsSection() {
         )}
         <ul className="mt-6 flex flex-wrap justify-center gap-3">
           {clients.map((client, i) => (
-            <li key={i} className="flex h-20 w-[calc(50%-0.375rem)] items-center justify-center rounded-2xl border border-line bg-white px-4 text-center sm:w-44">
+            <li key={i} className="flex min-h-20 w-[calc(50%-0.375rem)] flex-col items-center justify-center rounded-2xl border border-line bg-white px-4 py-3 text-center sm:w-52">
               {client.logo ? (
                 <Image src={client.logo} alt={client.name} width={140} height={40} className="max-h-10 w-auto object-contain" />
               ) : (
-                <span className="text-sm font-semibold text-ink/70">
+                <span className="text-lg font-semibold text-ink">
                   <Text>{client.name}</Text>
                 </span>
               )}
+              {/* The role we filled there */}
+              {client.role && <span className="mt-1 text-sm text-muted">{client.role}</span>}
             </li>
           ))}
         </ul>
