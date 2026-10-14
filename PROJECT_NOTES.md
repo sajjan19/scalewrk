@@ -277,4 +277,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Home headline shows one sentence per line ("Built to Scale." / "Powered by Talent."), never wrapping on tablet and desktop; desktop size is now text-6xl so "Powered by Talent." fits beside the hero card.
 - **2026-10-14:** "Roles we often hire" tag row hidden (`showQuickRoles = false` in roles.ts).
 - **2026-10-14:** Home hero buttons: "Book a call" (startups) and "Find your next role →" (candidates, to /engineers). Removed the small "Looking for a job?" line.
+- **2026-10-14:** Home hero "progress tracker" card ("We track every role from plan to offer") hidden for now (`showHeroTracker = false` in page.tsx); the hero text now takes the full width.
+- **2026-10-14:** New Home hero card in place of the tracker: "How we find your next hire" with 3 steps (AI-powered sourcing, Human expertise, Exceptional talent) and both founder photos with "Every search run by Punit or Mandeep." (`heroSteps` in page.tsx).
+- **2026-10-14:** Home hero illustration (`HeroNetwork.tsx`) in place of the tracker card: the Scalewrk logo in the middle linked by flowing gradient lines to startups (blue rockets) and candidates (purple people) in a ring. Decorative only; motion is off for reduced-motion users.
 

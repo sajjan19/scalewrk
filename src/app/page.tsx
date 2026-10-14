@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
+import { HeroNetwork } from "@/components/HeroNetwork";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
@@ -85,6 +86,9 @@ const reasons = [
   },
 ];
 
+// Hero "progress tracker" card (beside the headline). Hidden for now; set to true to bring it back.
+const showHeroTracker = false;
+
 // Illustrative only: shows what working with us looks like. Not real searches.
 // `step` is how far along each role is (1 to 4), matching the steps in hiringSteps.
 const hiringSteps = ["Planning", "Shortlist", "Interviews", "Offer"];
@@ -141,6 +145,7 @@ export default function Home() {
             </div>
           </div>
 
+          {showHeroTracker && (
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
             <div className="rounded-2xl border border-line bg-white p-5 shadow-[0_20px_60px_-20px_rgba(11,16,32,0.25)]">
               <p className="font-semibold">We track every role from plan to offer</p>
@@ -179,6 +184,10 @@ export default function Home() {
               </div>
             </div>
           </div>
+          )}
+
+          {/* Network illustration: startups and candidates linked through Scalewrk */}
+          {!showHeroTracker && <HeroNetwork />}
         </Container>
       </section>
 

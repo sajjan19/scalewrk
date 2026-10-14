@@ -246,3 +246,32 @@ html {
 body[data-menu="open"] .mobile-book-bar {
   display: none;
 }
+
+/* Home hero network illustration: lines flow toward the middle, nodes float gently */
+@keyframes net-flow {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+.net-flow {
+  animation: net-flow 2.5s linear infinite;
+}
+@keyframes net-float {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -6px;
+  }
+}
+.net-float {
+  animation: net-float 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .net-flow,
+  .net-float {
+    animation: none;
+  }
+}
+
