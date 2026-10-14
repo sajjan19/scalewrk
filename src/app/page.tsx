@@ -135,7 +135,7 @@ export default function Home() {
             <p className="mt-4 text-sm text-muted">
               Looking for a job?{" "}
               <Link href="/engineers" className="theme-engineer inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
-                Find your next startup <Arrow />
+                See how we help candidates <Arrow />
               </Link>
             </p>
           </div>

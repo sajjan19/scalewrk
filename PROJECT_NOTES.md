@@ -269,4 +269,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Roles page turned off for now (team is small): `showRolesPage = false` in roles.ts. /roles shows "not found" and is noindexed; no Roles links in the menu, footer or sitemap; the Home hero's second button is now "How we work" (/startups). Home and New York still show the 12 featured roles as plain tiles (`RoleTiles.tsx`) so visitors see what kinds of roles we hire. Flip the flag to bring the page and all its links back.
 - **2026-10-14:** "Roles we hire" section hidden on Home and New York too (`showRolePreview = false` in roles.ts). Section backgrounds after it adjust so grey and white still alternate. Flip the flag to bring it back.
 - **2026-10-14:** Home "What we do" ends with a short "Roles we often hire:" tag row (8 roles, not clickable). Edit the list in `quickRoles` in roles.ts.
+- **2026-10-14:** Home hero candidate link: "Looking for a job? See how we help candidates →" (to /engineers).
 
