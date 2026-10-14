@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, type MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
@@ -8,6 +11,8 @@ import { LogoMark } from "./Logo";
   - Startup lines carry blue pulses into the S.
   - Tiny dots around it twinkle, alternating purple and blue.
   - Spots sit at different distances on a tilted oval, so it does not look like a perfect circle.
+  - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
+    different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   Purely decorative, no claims. All motion is off for people who turn off motion.
 */
 
@@ -27,8 +32,9 @@ const nodes = Array.from({ length: 8 }, (_, i) => {
   const radius = radii[i];
   const kind = i % 2 === 0 ? ("candidate" as const) : ("startup" as const);
   return {
-    x: 50 + radius * Math.cos(angle),
-    y: 50 + radius * Math.sin(angle),
+    // Rounded so the server and the browser produce exactly the same numbers
+    x: Math.round((50 + radius * Math.cos(angle)) * 100) / 100,
+    y: Math.round((50 + radius * Math.sin(angle)) * 100) / 100,
     kind,
     label: kind === "candidate" ? candidateRoles[i / 2] : startupStages[(i - 1) / 2],
   };
@@ -40,13 +46,38 @@ const dots: [number, number, number][] = [
   [95, 46, 0.4], [5, 44, 0.6], [22, 70, 0.35], [80, 28, 0.45], [58, 4, 0.4], [40, 92, 0.6],
 ];
 
-export function HeroNetwork() {
-  return (
-    <div className="relative mx-auto aspect-square w-full max-w-xs sm:max-w-md lg:mx-0 lg:justify-self-end" aria-hidden="true">
-      {/* Soft glow behind the middle */}
-      <div className="absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" />
+// How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
+const depth = { glow: 4, lines: 8, pills: 16, center: 24 };
+const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
 
-      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
+export function HeroNetwork() {
+  const box = useRef<HTMLDivElement>(null);
+
+  // Mouse position inside the box, from -1 to 1 on each axis
+  function onMove(e: MouseEvent<HTMLDivElement>) {
+    const el = box.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", String(((e.clientX - r.left) / r.width) * 2 - 1));
+    el.style.setProperty("--my", String(((e.clientY - r.top) / r.height) * 2 - 1));
+  }
+  function onLeave() {
+    box.current?.style.setProperty("--mx", "0");
+    box.current?.style.setProperty("--my", "0");
+  }
+
+  return (
+    <div
+      ref={box}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      className="net-tilt relative mx-auto aspect-square w-full max-w-xs sm:max-w-md lg:mx-0 lg:justify-self-end"
+      aria-hidden="true"
+    >
+      {/* Soft glow behind the middle */}
+      <div className="net-layer absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" style={layer(depth.glow)} />
+
+      <svg viewBox="0 0 100 100" className="net-layer absolute inset-0 h-full w-full overflow-visible" style={layer(depth.lines)}>
         <defs>
           <filter id="net-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="0.6" result="blur" />
@@ -99,9 +130,9 @@ export function HeroNetwork() {
           const [fromX, toX, fromY, toY] = out ? [50, n.x, 50, n.y] : [n.x, 50, n.y, 50];
           return (
             <circle key={`p${i}`} r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter="url(#net-glow)" className="net-particle">
-              <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
-              <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
+              <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+              <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
             </circle>
           );
         })}
@@ -115,12 +146,13 @@ export function HeroNetwork() {
             r={r}
             fill={i % 2 === 0 ? PURPLE : BLUE}
             className="net-twinkle"
-            style={{ animationDelay: `${i * 0.45}s` }}
+            style={{ animationDelay: `${(i * 45) / 100}s` }}
           />
         ))}
       </svg>
 
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
+      <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
       {nodes.map((n, i) => (
         <span
           key={i}
@@ -129,7 +161,7 @@ export function HeroNetwork() {
               ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
               : "theme-startup shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
           }`}
-          style={{ left: `${n.x}%`, top: `${n.y}%`, animationDelay: `${i * 0.4}s` }}
+          style={{ left: `${n.x}%`, top: `${n.y}%`, animationDelay: `${(i * 4) / 10}s` }}
         >
           <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand sm:h-6 sm:w-6">
             {n.kind === "candidate" ? <UserRound className="h-3.5 w-3.5" strokeWidth={2} /> : <Rocket className="h-3.5 w-3.5" strokeWidth={2} />}
@@ -138,10 +170,14 @@ export function HeroNetwork() {
         </span>
       ))}
 
-      {/* Scalewrk in the middle */}
+      </div>
+
+      {/* Scalewrk in the middle (moves the most) */}
+      <div className="net-layer absolute inset-0" style={layer(depth.center)}>
       <span className="absolute top-1/2 left-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl bg-white shadow-[0_20px_50px_-15px_rgba(77,80,249,0.45)] ring-1 ring-line sm:h-24 sm:w-24">
         <LogoMark className="h-10 w-auto sm:h-12" />
       </span>
+      </div>
     </div>
   );
 }

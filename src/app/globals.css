@@ -281,7 +281,20 @@ body[data-menu="open"] .mobile-book-bar {
 .net-float {
   animation: net-float 5s ease-in-out infinite;
 }
+/* Apple TV-style hover tilt (HeroNetwork.tsx sets --mx / --my from -1 to 1) */
+.net-tilt {
+  transform: perspective(900px) rotateX(calc(var(--my, 0) * -8deg)) rotateY(calc(var(--mx, 0) * 8deg));
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+.net-layer {
+  transition: transform 0.25s ease-out;
+}
 @media (prefers-reduced-motion: reduce) {
+  .net-tilt,
+  .net-layer {
+    transform: none !important;
+  }
   .net-twinkle,
   .net-float,
   .net-flow-out {
