@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Code2, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
+import { UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
 import { Arrow, Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
@@ -37,7 +37,7 @@ const facts = [
   { icon: Flag, label: "Founded", value: String(site.founded) },
   { icon: MapPin, label: "Based in", value: site.basedIn },
   { icon: Globe, label: "Hiring across", value: "US and Canada" },
-  { icon: Code2, label: "Focus", value: "Tech and sales" },
+  { icon: UserRound, label: "Focus", value: "Tech and sales" },
 ];
 
 export default function AboutPage() {

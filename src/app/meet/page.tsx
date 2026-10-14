@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
-import { Code2, MapPin } from "lucide-react";
+import { UserRound, MapPin } from "lucide-react";
 import { Arrow, CalendarIcon, Container } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
@@ -32,7 +32,7 @@ export default function MeetPage() {
 
         <ul className="mt-6 space-y-3">
           {[
-            { icon: Code2, text: "Engineers across AI, software, hardware and more, plus sales and GTM roles" },
+            { icon: UserRound, text: "Engineers across AI, software, hardware and more, plus sales and GTM roles" },
             { icon: MapPin, text: "Seed to Series C+ startups across the US and Canada" },
           ].map((item) => (
             <li key={item.text} className="flex items-center gap-3 text-body">

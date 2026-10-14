@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Code2,
+  UserRound,
   Handshake,
   HeartHandshake,
   ListChecks,
@@ -38,16 +38,16 @@ const whatWeDo = [
   {
     icon: Rocket,
     theme: "theme-startup",
-    audience: "For startups",
+    audience: "For Startups",
     title: "We hire your team for you",
     body: ["Engineering and sales roles", "We find and screen every candidate", "We help you close the offer"],
     href: "/startups",
     link: "How we work with startups",
   },
   {
-    icon: Code2,
+    icon: UserRound,
     theme: "theme-engineer",
-    audience: "For candidates",
+    audience: "For Candidates",
     title: "We find your next startup",
     body: ["We learn what you want next", "We match you with startups that fit", "We guide you through every step"],
     href: "/engineers",

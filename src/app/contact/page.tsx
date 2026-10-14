@@ -35,7 +35,7 @@ export default function ContactPage() {
               {
                 icon: Building2,
                 theme: "theme-startup",
-                audience: "For startups",
+                audience: "For Startups",
                 title: "Hiring engineers or sales?",
                 intro: "Bring what you have, even if it's just one role:",
                 points: [
@@ -49,7 +49,7 @@ export default function ContactPage() {
               {
                 icon: UserRound,
                 theme: "theme-engineer",
-                audience: "For candidates",
+                audience: "For Candidates",
                 title: "Looking for your next role?",
                 intro: "Have these handy:",
                 points: [
