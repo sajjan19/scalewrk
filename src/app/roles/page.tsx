@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { RoleJumpBar } from "@/components/RoleJumpBar";
-import { Arrow, CalendarIcon, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
 import { jobs, visibleJobs } from "@/content/jobs";
@@ -46,14 +46,16 @@ export default function RolesPage() {
       </div>
 
       <Section className="!pb-0">
-        <SectionHeading eyebrow="Roles we hire" title="Who we hire" intro="Every role we recruit for and what we look for." />
+        <SectionHeading eyebrow="Roles we hire" title="Who we hire" intro="Every role we recruit for." />
       </Section>
 
       {/* Jump links (scrollable, highlights the role you're reading) */}
       <RoleJumpBar />
 
       <Section>
-        <div className="space-y-6">
+        {/* Compact cards, grouped into Engineering and Sales & go-to-market: name, one line, key skills
+            and two actions (common titles and "what we look for" stay in roles.ts but aren't shown) */}
+        <div className="grid gap-4 md:grid-cols-2">
           {roles.map((role, i) => {
             // Group heading before the first role of each group
             const newGroup = i === 0 || roles[i - 1].group !== role.group;
@@ -62,75 +64,50 @@ export default function RolesPage() {
             const openJobs = jobs.filter((j) => j.role === role.slug && !j.example).length;
             return (
               <Fragment key={role.slug}>
-              {newGroup && (
-                <p className={`text-sm font-semibold tracking-wide text-muted uppercase ${i === 0 ? "" : "pt-6"}`}>
-                  {role.group === "gtm" ? "Sales & go-to-market" : "Engineering"}
-                </p>
-              )}
-              <article
-                id={role.slug}
-                className="scroll-mt-36 rounded-2xl border border-line p-6 sm:p-8"
-              >
-                <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-                  <div>
-                    <div className="flex items-center gap-4">
-                      <IconBadge icon={role.icon} size="lg" />
-                      <h2 className="text-2xl font-semibold tracking-tight">{role.name}</h2>
-                    </div>
-                    <p className="mt-4 leading-relaxed text-body">{role.summary}</p>
-
-                    <p className="mt-5 text-sm font-medium text-muted">Common titles</p>
-                    <ul className="mt-2 flex flex-wrap gap-2" aria-label="Common titles">
-                      {role.titles.map((t) => (
-                        <li key={t} className="rounded-full bg-mist px-3 py-1 text-sm text-body">
-                          {t}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <p className="mt-4 text-sm font-medium text-muted">Key skills</p>
-                    <ul className="mt-2 flex flex-wrap gap-2" aria-label="Key skills">
-                      {role.skills.map((skill) => (
-                        <li key={skill} className="rounded-full bg-brand-soft px-3 py-1 text-sm font-medium text-brand-dark">
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
+                {newGroup && (
+                  <p className={`text-sm font-semibold tracking-wide text-muted uppercase md:col-span-2 ${i === 0 ? "" : "pt-6"}`}>
+                    {role.group === "gtm" ? "Sales & go-to-market" : "Engineering"}
+                  </p>
+                )}
+                <article id={role.slug} className="flex scroll-mt-36 flex-col rounded-2xl border border-line p-6">
+                  <div className="flex items-center gap-3">
+                    <IconBadge icon={role.icon} />
+                    <h2 className="text-xl font-semibold tracking-tight">{role.name}</h2>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-muted">What we look for</p>
-                    <CheckList className="mt-4" items={role.screenFor} />
-                  </div>
-                </div>
+                  <p className="mt-3 leading-relaxed text-body">{role.summary}</p>
+                  <ul className="mt-4 flex flex-wrap gap-2" aria-label="Key skills">
+                    {role.skills.map((skill) => (
+                      <li key={skill} className="rounded-full bg-brand-soft px-3 py-1 text-sm font-medium text-brand-dark">
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* One action for founders, one for engineers */}
-                <div className="mt-8 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center">
-                  <Button href={bookingHref} variant="brand">
-                    <CalendarIcon /> Hire for {role.name}
-                  </Button>
-                  {hasJobs ? (
-                    <Button href={`/jobs?role=${role.slug}`} variant="secondary">
-                      See open jobs for {role.name} <Arrow />
+                  {/* One action for founders, one for candidates */}
+                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-6">
+                    <Button href={bookingHref} variant="brand" className="min-h-10 px-4 text-sm">
+                      <CalendarIcon /> Hire for {role.name}
                     </Button>
-                  ) : (
-                    <Button href="/share-profile" variant="secondary">
-                      Share your profile <Arrow />
-                    </Button>
-                  )}
-                  {openJobs > 0 && (
-                    <span className="text-sm font-medium text-brand sm:ml-2">
-                      {openJobs} open {openJobs === 1 ? "job" : "jobs"}
-                    </span>
-                  )}
-                </div>
-              </article>
+                    <Link
+                      href={hasJobs ? `/jobs?role=${role.slug}` : "/share-profile"}
+                      className="theme-engineer inline-flex items-center gap-1.5 nudge text-sm font-medium text-brand hover:text-brand-dark"
+                    >
+                      {hasJobs ? "See open jobs" : "Share your profile"} <Arrow />
+                    </Link>
+                    {openJobs > 0 && (
+                      <span className="text-sm font-medium text-brand">
+                        {openJobs} open {openJobs === 1 ? "job" : "jobs"}
+                      </span>
+                    )}
+                  </div>
+                </article>
               </Fragment>
             );
           })}
         </div>
 
         <p className="mt-10 text-lg text-body">
-          Hiring for a tech role that isn&apos;t listed?{" "}
+          Hiring for a role that isn&apos;t listed?{" "}
           <Link href={bookingHref} className="font-medium text-brand hover:text-brand-dark">
             Tell us about it
           </Link>

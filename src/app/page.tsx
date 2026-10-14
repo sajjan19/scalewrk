@@ -17,7 +17,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
-import { Arrow, CalendarIcon, Button, CheckList, Container, Section, SectionHeading, Text } from "@/components/ui";
+import { Arrow, CalendarIcon, Button, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
