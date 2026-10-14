@@ -265,4 +265,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Every `</>` (Code2) icon swapped for a person icon (UserRound): Home "What we do" candidates card, About "Focus" fact, Meet page. Audience labels capitalized to match the menu: "For Startups" / "For Candidates".
 - **2026-10-14:** Contact card intros: "What helps us get started:" (startups) and "What helps us find your fit:" (candidates).
 - **2026-10-14:** Audience icons are consistent: startups = rocket, candidates = person (Home "What we do" and Contact cards).
+- **2026-10-14:** Contact "what to bring" cards now use the same design as the Home "What we do" cards: big icon on top, label, title, then check-mark bullets.
 

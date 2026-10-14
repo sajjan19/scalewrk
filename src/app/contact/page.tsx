@@ -3,7 +3,7 @@ import { ContactReason } from "@/components/ContactReason";
 import { Field, Form } from "@/components/Form";
 import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
 import { Rocket, UserRound } from "lucide-react";
-import { Container, Eyebrow } from "@/components/ui";
+import { CheckList, Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -30,7 +30,7 @@ export default function ContactPage() {
           </p>
 
           {/* What to bring, for founders (blue) and for candidates (purple) */}
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {[
               {
                 icon: Rocket,
@@ -61,21 +61,13 @@ export default function ContactPage() {
                 ],
               },
             ].map((c) => (
-              <div key={c.title} className={`flex items-start gap-3 rounded-2xl border border-line bg-white p-5 ${c.theme}`}>
-                <IconBadge icon={c.icon} size="sm" />
-                <div>
-                  <p className="text-sm font-medium text-brand">{c.audience}</p>
-                  <p className="font-semibold">{c.title}</p>
-                  <p className="mt-0.5 text-sm text-muted">{c.intro}</p>
-                  <ul className="mt-3 space-y-1.5">
-                    {c.points.map((point) => (
-                      <li key={point} className="flex gap-2 leading-snug text-body">
-                        <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand" aria-hidden="true" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              // Same card style as "What we do" on the Home page
+              <div key={c.title} className={`flex flex-col rounded-2xl border border-line bg-white p-6 sm:p-8 ${c.theme}`}>
+                <IconBadge icon={c.icon} size="lg" />
+                <p className="mt-5 text-sm font-medium text-brand">{c.audience}</p>
+                <p className="mt-1 text-xl font-semibold tracking-tight">{c.title}</p>
+                <p className="mt-1 text-sm text-muted">{c.intro}</p>
+                <CheckList items={c.points} className="mt-4" />
               </div>
             ))}
           </div>
