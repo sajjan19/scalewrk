@@ -118,10 +118,10 @@ export default function Home() {
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
             <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-              Tech hiring for <span className="text-gradient">growing startups</span>.
+              From <span className="text-gradient">first hire</span> to <span className="text-gradient">full scale</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
-              We help startups hire great engineers and sales teams and help them find the right startup.
+              We help growing startups hire engineers and sales teams at every stage.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
