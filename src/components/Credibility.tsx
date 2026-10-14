@@ -75,16 +75,17 @@ export function ClientsSection() {
         )}
         <ul className="mt-6 flex flex-wrap justify-center gap-3">
           {clients.map((client, i) => (
-            <li key={i} className="flex min-h-20 w-[calc(50%-0.375rem)] flex-col items-center justify-center rounded-2xl border border-line bg-white px-4 py-3 text-center sm:w-52">
-              {client.logo ? (
-                <Image src={client.logo} alt={client.name} width={140} height={40} className="max-h-10 w-auto object-contain" />
-              ) : (
-                <span className="text-lg font-semibold text-ink">
+            <li key={i} className="flex items-center gap-4 rounded-2xl border border-line bg-white px-5 py-4">
+              {client.logo && (
+                <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />
+              )}
+              <span className="text-left">
+                <span className="block text-lg font-semibold text-ink">
                   <Text>{client.name}</Text>
                 </span>
-              )}
-              {/* The role we filled there */}
-              {client.role && <span className="mt-1 text-sm text-muted">{client.role}</span>}
+                {/* The role we filled there */}
+                {client.role && <span className="block text-sm text-muted">{client.role}</span>}
+              </span>
             </li>
           ))}
         </ul>

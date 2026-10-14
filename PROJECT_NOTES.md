@@ -242,3 +242,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Clients section renamed "Recent placements" and now real: Equall (Founding Engineer). Cards show the company and the role filled (`role` in clients.ts). Placeholder Client 1–5 removed.
 - **2026-10-14:** Paraform added to the "Where our team has recruited" strip via `alsoRecruitedFor` in companyLogos.ts (team-level, not in a founder bio). No logo yet, so it shows as text; companies without a logo no longer get the dashed placeholder tile.
 - **2026-10-14:** Paraform logo added to the strip (`public/logos/paraform.png`, from the user, trimmed).
+- **2026-10-14:** Equall logo (square icon, `public/clients/equall.png`) shows next to "Equall / Founding Engineer" in Recent placements. Client cards are now a row: icon, then name and role.
