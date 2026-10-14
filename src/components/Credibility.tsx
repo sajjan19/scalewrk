@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUpRight, MapPin, Rocket, Scale, UserCheck } from "lucide-react";
 import { Container, Text } from "./ui";
 import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
@@ -73,9 +74,9 @@ export function ClientsSection() {
             Placeholder: client names coming soon
           </p>
         )}
-        <ul className="mt-6 flex flex-wrap justify-center gap-3">
+        <ul className="mt-6 flex flex-wrap justify-center gap-4">
           {clients.map((client, i) => (
-            <li key={i}>
+            <li key={i} className="w-full max-w-md">
               {/* Links to their website in a new tab (when `url` is set) */}
               <ClientCard client={client} />
             </li>
@@ -86,32 +87,66 @@ export function ClientsSection() {
   );
 }
 
-// One "Recent placements" card: icon, name and role. Opens their site in a new tab when `url` is set.
+// One "Recent placements" card: company, the role we filled and a few facts.
+// Opens their site in a new tab when `url` is set.
 function ClientCard({ client }: { client: Client }) {
-  const tags = [client.stage, client.industry, client.location].filter((t): t is string => Boolean(t));
+  const facts = [
+    { icon: Rocket, text: client.stage },
+    { icon: Scale, text: client.industry },
+    { icon: MapPin, text: client.location },
+  ].filter((f): f is { icon: typeof Rocket; text: string } => Boolean(f.text));
+  const domain = client.url?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
   const inner = (
     <>
-      {client.logo && <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />}
-      <span className="text-left">
-        <span className="block text-lg font-semibold text-ink group-hover:text-brand">
-          <Text>{client.name}</Text>
-        </span>
-        {/* The role we filled there */}
-        {client.role && <span className="block text-sm text-muted">{client.role}</span>}
-        {/* Stage, industry and location tags */}
-        {tags.length > 0 && (
-          <span className="mt-2 flex flex-wrap gap-1.5">
-            {tags.map((t) => (
-              <span key={t} className="rounded-full bg-mist px-2.5 py-0.5 text-xs font-medium text-body">
-                <Text>{t}</Text>
-              </span>
-            ))}
+      {/* Company */}
+      <span className="flex items-center gap-4">
+        {client.logo ? (
+          <Image src={client.logo} alt="" width={112} height={112} className="h-14 w-14 flex-none rounded-xl object-cover" />
+        ) : (
+          <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-xl text-xl font-semibold" aria-hidden="true">
+            {client.name.charAt(0)}
           </span>
         )}
+        <span className="min-w-0 flex-1">
+          <span className="block text-xl font-semibold tracking-tight text-ink">
+            <Text>{client.name}</Text>
+          </span>
+          {domain && <span className="block text-sm text-muted">{domain}</span>}
+        </span>
+        {client.url && (
+          <ArrowUpRight
+            className="h-5 w-5 flex-none text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
+            aria-hidden="true"
+          />
+        )}
       </span>
+
+      {/* The role we filled */}
+      {client.role && (
+        <span className="mt-5 flex items-center gap-3 rounded-xl bg-brand-soft px-4 py-3">
+          <UserCheck className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
+          <span>
+            <span className="block text-xs font-medium tracking-wide text-brand-dark uppercase">Role filled</span>
+            <span className="block font-semibold text-ink">{client.role}</span>
+          </span>
+        </span>
+      )}
+
+      {/* Stage, industry and location */}
+      {facts.length > 0 && (
+        <span className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-body">
+          {facts.map((f) => (
+            <span key={f.text} className="inline-flex items-center gap-1.5">
+              <f.icon className="h-4 w-4 text-brand" aria-hidden="true" />
+              <Text>{f.text}</Text>
+            </span>
+          ))}
+        </span>
+      )}
     </>
   );
-  const box = "flex items-center gap-4 rounded-2xl border border-line bg-white px-5 py-4";
+  const box = "block w-full max-w-md rounded-2xl border border-line bg-white p-5 text-left sm:p-6";
   if (!client.url) return <div className={box}>{inner}</div>;
   return (
     <a
@@ -119,7 +154,7 @@ function ClientCard({ client }: { client: Client }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${client.name} website (opens in a new tab)`}
-      className={`lift group ${box} hover:border-brand/30`}
+      className={`lift group ${box} hover:border-brand/30 hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)]`}
     >
       {inner}
     </a>
