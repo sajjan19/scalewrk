@@ -34,6 +34,6 @@ export const clients: Client[] = [
     url: "https://equall.com/",
     stage: "Seed",
     industry: "Legal AI / LegalTech",
-    location: "[Location]", // PLACEHOLDER: e.g. "New York" or "Remote"
+    location: "On-site, New York",
   },
 ];

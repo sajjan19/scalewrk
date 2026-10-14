@@ -245,3 +245,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Equall logo (square icon, `public/clients/equall.png`) shows next to "Equall / Founding Engineer" in Recent placements. Client cards are now a row: icon, then name and role.
 - **2026-10-14:** Recent placements cards link to the company's website in a new tab (`url` in clients.ts). Equall → https://equall.com/.
 - **2026-10-14:** Recent placements cards show tags under the role: stage, industry, location (`stage`/`industry`/`location` in clients.ts). Equall: Seed · Legal AI / LegalTech · [Location] (placeholder until confirmed).
+- **2026-10-14:** Equall location tag: "On-site, New York".
