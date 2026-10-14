@@ -28,7 +28,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Scalewrk | Startup Tech Recruiter for Growing Companies",
   description:
-    "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C+.",
+    "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire engineers and sales teams, from AI/ML and backend to account executives, from seed to Series C+.",
   path: "/",
   absoluteTitle: true,
 });
@@ -39,19 +39,19 @@ const whatWeDo = [
     icon: Rocket,
     theme: "theme-startup",
     audience: "For startups",
-    title: "We hire engineers for you",
-    body: ["We plan the role with you", "We find and screen engineers", "We help you close the offer"],
+    title: "We hire your team for you",
+    body: ["Engineering and sales roles", "We find and screen every candidate", "We help you close the offer"],
     href: "/startups",
     link: "How we work with startups",
   },
   {
     icon: Code2,
     theme: "theme-engineer",
-    audience: "For engineers",
+    audience: "For candidates",
     title: "We find your next startup",
     body: ["We learn what you want next", "We match you with startups that fit", "We guide you through every step"],
     href: "/engineers",
-    link: "How we work with engineers",
+    link: "How we work with candidates",
   },
 ];
 
@@ -66,8 +66,8 @@ const steps = [
 const reasons = [
   {
     icon: Sparkles,
-    title: "Engineers only",
-    body: "We only hire engineers. AI and machine learning is our strongest area.",
+    title: "Tech and sales only",
+    body: "We hire the people who build and sell your product. AI and machine learning is our strongest area.",
     versus: "Big agencies hire for every kind of job.",
   },
   {
@@ -91,7 +91,7 @@ const exampleBoard = [
   { role: "Full-Stack Engineer", step: 1, stage: "Planning the role", tone: "bg-slate-100 text-slate-700" },
   { role: "Founding AI Engineer", step: 2, stage: "Shortlist sent", tone: "bg-brand-soft text-brand-dark" },
   { role: "Senior Backend Engineer", step: 3, stage: "Interviewing", tone: "bg-amber-50 text-amber-800" },
-  { role: "Platform Engineer", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
+  { role: "Founding Account Executive", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
 ];
 
 // ["A", "B", "C"] → "A, B and C"
@@ -121,7 +121,7 @@ export default function Home() {
               Tech hiring for <span className="text-gradient">growing startups</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
-              We help startups hire great engineers and help engineers find the right startup.
+              We help startups hire great engineers and sales teams and help them find the right startup.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
@@ -132,7 +132,7 @@ export default function Home() {
               </Button>
             </div>
             <p className="mt-4 text-sm text-muted">
-              Engineer?{" "}
+              Looking for a job?{" "}
               <Link href="/engineers" className="theme-engineer inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
                 Find your next startup <Arrow />
               </Link>
@@ -173,7 +173,7 @@ export default function Home() {
                 <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white ring-1 ring-line">
                   <LogoMark className="h-4 w-auto" />
                 </span>
-                One recruiting partner for every engineering role.
+                One recruiting partner for every tech and sales role.
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function Home() {
 
       {/* What we do */}
       <Section tone="mist">
-        <SectionHeading eyebrow="What we do" title="We bring startups and engineers together" />
+        <SectionHeading eyebrow="What we do" title="We bring startups and great people together" />
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           {whatWeDo.map((item) => (
             <Link
@@ -225,7 +225,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Why Scalewrk"
             title="Recruiting that knows engineering"
-            intro="Engineers only. Startups only. Every search run by Punit or Mandeep."
+            intro="Tech and sales roles. Startups only. Every search run by Punit or Mandeep."
           />
           <Link href="/startups#compare" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See how we compare <Arrow />
@@ -302,7 +302,7 @@ export default function Home() {
       {/* Roles */}
       <Section className="theme-startup">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" intro="With a special focus on AI and machine learning." />
+          <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" intro="From AI engineers to founding account executives." />
           <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See all {roles.length} roles <Arrow />
           </Link>

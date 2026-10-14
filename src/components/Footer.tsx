@@ -7,7 +7,7 @@ import { MailIcon, PhoneIcon, SocialIcon, type SocialNetwork } from "./SocialIco
 const footerLinks = [
   { href: "/startups", label: "For Startups" },
   { href: "/roles", label: "Roles" },
-  { href: "/engineers", label: "For Engineers" },
+  { href: "/engineers", label: "For Candidates" },
   { href: "/jobs", label: "Jobs" },
   { href: "/share-profile", label: "Share your profile" },
   { href: "/about", label: "About" },

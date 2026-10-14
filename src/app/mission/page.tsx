@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Mission & Vision",
   description:
-    "Scalewrk's mission is to help growing startups hire great engineers and help engineers find the startup where they can do their best work.",
+    "Scalewrk's mission is to help growing startups hire great engineers and sales teams and help them find the startup where they can do their best work.",
   path: "/mission",
 });
 
@@ -16,12 +16,12 @@ const statements = [
   {
     icon: Target,
     label: "Our mission",
-    text: "Help growing startups hire great engineers and help engineers find the startup where they can do their best work.",
+    text: "Help growing startups hire great engineers and sales teams and help them find the startup where they can do their best work.",
   },
   {
     icon: Compass,
     label: "Our vision",
-    text: "To be the first call a startup makes when it needs an engineer and the first call an engineer makes when they want something new.",
+    text: "To be the first call a startup makes when it needs to grow its team and the first call a candidate makes when they want something new.",
   },
 ];
 
@@ -29,7 +29,7 @@ const statements = [
 const beliefs = [
   {
     icon: Rocket,
-    title: "Engineers build great startups",
+    title: "People build great startups",
     body: ["Your first hires shape the company", "Getting them right matters most"],
   },
   {
@@ -40,7 +40,7 @@ const beliefs = [
   {
     icon: MessageCircle,
     title: "Both sides deserve honesty",
-    body: ["Founders hear the truth about the market", "Engineers hear the truth about the role"],
+    body: ["Founders hear the truth about the market", "Candidates hear the truth about the role"],
   },
   {
     icon: HeartHandshake,
@@ -59,7 +59,7 @@ export default function MissionPage() {
             Why <span className="text-gradient">Scalewrk</span> exists.
           </>
         }
-        intro="Hiring engineers is one of the most important things a startup does. We want to make it easier for both sides."
+        intro="Hiring the people who build and sell is one of the most important things a startup does. We want to make it easier for both sides."
       />
 
       {/* Mission and vision */}

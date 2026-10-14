@@ -1,5 +1,6 @@
 /*
-  Roles we hire for. The Roles page shows all of them.
+  Roles we hire for, in two groups: engineering (default) and sales & go-to-market (`group: "gtm"`).
+  The Roles page shows all of them.
   The Home page shows the ones marked `featured: true`.
   Icons: pick any name from lucide.dev/icons and import it below.
 */
@@ -15,6 +16,11 @@ import {
   Cpu,
   Database,
   FlaskConical,
+  Handshake,
+  HeartHandshake,
+  PhoneCall,
+  Target,
+  TrendingUp,
   Gamepad2,
   LayoutTemplate,
   Layers,
@@ -32,7 +38,8 @@ export type Role = {
   name: string;
   icon: LucideIcon;
   summary: string;
-  featured?: boolean; // shown on the Home page (keep to about 9)
+  group?: "gtm"; // "gtm" = sales & go-to-market. Leave out for engineering roles
+  featured?: boolean; // shown on the Home page (keep to about 12)
   titles: string[]; // common job titles (top 3)
   skills: string[]; // key skills shown as tags
   screenFor: string[];
@@ -306,6 +313,94 @@ export const roles: Role[] = [
       "Has grown a team at a similar stage",
       "Still close enough to the code to earn respect",
       "Strong judgment on hiring and team culture",
+    ],
+  },
+  // ── Sales & go-to-market ──
+  {
+    slug: "account-executive",
+    name: "Account Executives",
+    icon: Handshake,
+    group: "gtm",
+    featured: true,
+    summary: "Sellers who close deals and grow revenue, from the first customers to big accounts.",
+    titles: ["Account Executive", "Founding AE", "Enterprise AE"],
+    skills: ["Discovery", "Closing", "Pipeline", "CRM"],
+    screenFor: [
+      "Has hit quota at a startup or fast-growing team",
+      "Can sell a technical product to technical buyers",
+      "Builds their own pipeline",
+    ],
+  },
+  {
+    slug: "sdr",
+    name: "Sales Development Reps",
+    icon: PhoneCall,
+    group: "gtm",
+    featured: true,
+    summary: "Reps who start conversations and book meetings for the sales team.",
+    titles: ["SDR", "BDR", "Founding SDR"],
+    skills: ["Outbound", "Cold email", "Prospecting", "Sequences"],
+    screenFor: [
+      "Comfortable with outbound and with hearing no",
+      "Writes short, sharp messages",
+      "Hungry to grow into an AE role",
+    ],
+  },
+  {
+    slug: "customer-success",
+    name: "Customer Success",
+    icon: HeartHandshake,
+    group: "gtm",
+    summary: "People who onboard customers, keep them happy and help them grow.",
+    titles: ["Customer Success Manager", "Account Manager", "Implementation Manager"],
+    skills: ["Onboarding", "Renewals", "Expansion", "Support"],
+    screenFor: [
+      "Keeps customers happy and renewing",
+      "Spots chances to grow accounts",
+      "Works closely with product and engineering",
+    ],
+  },
+  {
+    slug: "revops",
+    name: "Revenue Operations",
+    icon: ChartLine,
+    group: "gtm",
+    summary: "The people who run the systems, data and process behind sales.",
+    titles: ["RevOps Manager", "Sales Ops Manager", "GTM Systems Lead"],
+    skills: ["HubSpot", "Salesforce", "Forecasting", "Reporting"],
+    screenFor: [
+      "Sets up CRM and reporting that people actually use",
+      "Turns sales data into clear decisions",
+      "Adds process without slowing the team",
+    ],
+  },
+  {
+    slug: "marketing",
+    name: "Growth & Marketing",
+    icon: TrendingUp,
+    group: "gtm",
+    summary: "Marketers who find customers and tell the product story well.",
+    titles: ["Growth Marketer", "Product Marketing Manager", "Head of Marketing"],
+    skills: ["Positioning", "Content", "Paid", "Analytics"],
+    screenFor: [
+      "Knows how to reach technical buyers",
+      "Measures what works and cuts what doesn't",
+      "Can build a channel from scratch",
+    ],
+  },
+  {
+    slug: "sales-leadership",
+    name: "Sales Leaders",
+    icon: Target,
+    group: "gtm",
+    featured: true,
+    summary: "Heads of sales who build the playbook and the team.",
+    titles: ["Head of Sales", "VP of Sales", "Sales Manager"],
+    skills: ["Hiring", "Forecasting", "Playbooks", "Coaching"],
+    screenFor: [
+      "Has built a sales team at a similar stage",
+      "Writes the playbook, then hires to it",
+      "Still sells, not just manages",
     ],
   },
 ];

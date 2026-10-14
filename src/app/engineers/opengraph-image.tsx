@@ -6,7 +6,7 @@ export const contentType = "image/png";
 
 export default function Image() {
   return ogImage({
-    eyebrow: "For engineers",
+    eyebrow: "For candidates",
     title: "Find your next startup role.",
   });
 }

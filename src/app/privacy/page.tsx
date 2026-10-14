@@ -24,14 +24,14 @@ export default function PrivacyPage() {
             <h2>What we collect</h2>
             <p>
               Only what you choose to send us. When you contact us, that&apos;s your name, email, company and message. If you
-              share your profile as an engineer, that&apos;s your LinkedIn, resume and job preferences. When you book a call, our
+              share your profile as a candidate, that&apos;s your LinkedIn, resume and job preferences. When you book a call, our
               booking tool saves the details you enter.
             </p>
           </div>
           <div>
             <h2>How we use it</h2>
             <p>
-              To reply to you, to match engineers with roles and to run our recruiting work. We only share an engineer&apos;s
+              To reply to you, to match candidates with roles and to run our recruiting work. We only share a candidate&apos;s
               profile with a company if they say yes. We never sell personal information.
             </p>
           </div>

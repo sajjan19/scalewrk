@@ -16,14 +16,14 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Technical Recruiter for Growing Startups",
   description:
-    "An embedded technical recruiter for growing startups, seed to Series C+. We only hire engineers. Book a call to talk through your roles.",
+    "An embedded technical recruiter for growing startups, seed to Series C+. We hire engineers and sales teams. Book a call to talk through your roles.",
   path: "/startups",
 });
 
 const process = [
   { icon: Phone, title: "Kickoff call", body: ["We learn what you're building", "Who you need first"] },
   { icon: Target, title: "Plan the role", body: ["Skills and interview steps", "Pay and the pitch", "You approve it before we start"] },
-  { icon: Search, title: "Find people", body: ["Engineers who aren't on job boards", "We screen every one first"] },
+  { icon: Search, title: "Find people", body: ["People who aren't on job boards", "We screen every one first"] },
   { icon: ListChecks, title: "Shortlist", body: ["A few strong people", "Notes on why each one fits"] },
   { icon: Handshake, title: "Interview and hire", body: ["We handle scheduling", "We collect feedback", "We help you make the offer"] },
   { icon: Repeat, title: "Stay with you", body: ["We already know your team", "Every next hire starts faster"] },
@@ -33,11 +33,11 @@ const columns = ["In-house only", "Big agency", "Scalewrk"];
 
 const comparison: { label: string; values: [boolean, string][] }[] = [
   {
-    label: "Only hires engineers",
+    label: "Specializes in startup tech and sales",
     values: [
       [false, "Hires for every role"],
       [false, "Every industry"],
-      [true, "Engineers at startups only"],
+      [true, "Tech and sales at startups only"],
     ],
   },
   {
@@ -69,7 +69,7 @@ const comparison: { label: string; values: [boolean, string][] }[] = [
 const faqs = [
   {
     q: "What roles do you hire for?",
-    a: "Only technical roles: from AI/ML, backend and frontend to QA, hardware, robotics and engineering leaders. See all of them on our Roles page.",
+    a: "Engineering and sales. On the tech side: AI/ML, backend, frontend, data, hardware and engineering leaders. On the sales side: account executives, SDRs, customer success, RevOps, marketing and sales leaders. See them all on our Roles page.",
   },
   {
     q: "Where are the startups you work with?",
@@ -81,7 +81,7 @@ const faqs = [
   },
   {
     q: "Can you work with our in-house recruiter?",
-    a: "Yes. We can take your hardest engineering roles while your team handles the rest.",
+    a: "Yes. We can take your hardest engineering and sales roles while your team handles the rest.",
   },
   {
     q: "What does it cost?",
@@ -99,7 +99,7 @@ export default function StartupsPage() {
             Your hiring partner from <span className="text-gradient">seed to scale</span>.
           </>
         }
-        intro="Hiring engineers is one of the most important things you'll do. We run your searches like part of your team, so you can focus on building."
+        intro="Your first engineers and sellers are some of the most important hires you'll make. We run your searches like part of your team, so you can focus on building."
       >
         <Button href={bookingHref} variant="brand">
           <CalendarIcon /> Book a call
