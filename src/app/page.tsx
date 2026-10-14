@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  CircleDollarSign,
   Code2,
   Handshake,
   HeartHandshake,
@@ -132,8 +131,7 @@ export default function Home() {
                 Roles we hire
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">You only pay when you hire.</p>
-            <p className="mt-2 text-sm text-muted">
+            <p className="mt-4 text-sm text-muted">
               Engineer?{" "}
               <Link href="/engineers" className="theme-engineer inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
                 Find your next startup <Arrow />
@@ -244,12 +242,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-        </div>
-        <div className="mt-6 flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-line">
-          <IconBadge icon={CircleDollarSign} />
-          <p className="text-body">
-            <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
-          </p>
         </div>
       </Section>
 

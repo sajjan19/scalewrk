@@ -124,7 +124,7 @@ function ActiveBar() {
   return <span aria-hidden="true" className="absolute inset-x-3 -bottom-[13px] h-0.5 rounded-full bg-gradient-to-r from-violet to-blue" />;
 }
 
-// A top-menu item with sub-pages (e.g. For Startups → How we work, Roles we hire, Pricing).
+// A top-menu item with sub-pages (e.g. For Startups → How we work, Roles we hire).
 // Clicking or tapping opens the list (it doesn't go to a page itself). It also opens on hover with a mouse.
 // Closes when you pick a page, click outside or press Escape.
 function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: string; active: boolean }) {

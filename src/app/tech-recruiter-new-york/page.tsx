@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Building2, CircleDollarSign, MapPin, Plane, Search, UserCheck } from "lucide-react";
+import { Building2, MapPin, Plane, Search, UserCheck } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { JobCard } from "@/components/JobCard";
 import { Arrow, Button, CalendarIcon, CheckList, Container, Section, SectionHeading } from "@/components/ui";
@@ -19,7 +19,7 @@ import nyPhoto from "../../../public/places/new-york.jpg";
 export const metadata = pageMetadata({
   title: "Tech Recruiter for New York Startups",
   description:
-    "Scalewrk helps New York startups hire engineers for in-office, hybrid and remote roles. AI/ML, backend, full-stack and more. You only pay when you hire.",
+    "Scalewrk helps New York startups hire engineers for in-office, hybrid and remote roles. AI/ML, backend, full-stack and more.",
   path: "/tech-recruiter-new-york",
 });
 
@@ -60,7 +60,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "You pay a one-time fee only when you make a hire. We'll go over the exact terms on the intro call.",
+    a: "It depends on the role. Book a call and we'll walk you through pricing and answer any other questions.",
   },
 ];
 
@@ -122,12 +122,6 @@ export default function NewYorkPage() {
               <CheckList items={h.body} className="mt-4" />
             </div>
           ))}
-        </div>
-        <div className="mt-6 flex items-center gap-4 rounded-2xl border border-line p-5">
-          <IconBadge icon={CircleDollarSign} />
-          <p className="text-body">
-            <span className="font-semibold text-ink">No hire, no fee.</span> You only pay when you make a hire.
-          </p>
         </div>
       </Section>
 

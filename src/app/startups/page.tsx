@@ -1,26 +1,22 @@
 import {
-  CalendarCheck,
-  CircleDollarSign,
   Handshake,
   ListChecks,
   Phone,
   Repeat,
   Search,
-  ShieldCheck,
   Target,
-  Users,
 } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { ProcessCards } from "@/components/ProcessCards";
-import { CalendarIcon, Button, PageHero, Section, SectionHeading, Text } from "@/components/ui";
-import { IconBadge, YesNo } from "@/components/visuals";
+import { CalendarIcon, Button, PageHero, Section, SectionHeading } from "@/components/ui";
+import { YesNo } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
   title: "Technical Recruiter for Growing Startups",
   description:
-    "An embedded technical recruiter for growing startups, seed to Series C+. We only hire engineers and you only pay when you hire.",
+    "An embedded technical recruiter for growing startups, seed to Series C+. We only hire engineers. Book a call to talk through your roles.",
   path: "/startups",
 });
 
@@ -68,20 +64,6 @@ const comparison: { label: string; values: [boolean, string][] }[] = [
       [true, "Stage, equity and risk"],
     ],
   },
-  {
-    label: "Pay only when you hire",
-    values: [
-      [false, "Salaries, hiring or not"],
-      [true, "Fee per hire"],
-      [true, "Fee per hire"],
-    ],
-  },
-];
-
-const terms = [
-  { icon: CircleDollarSign, label: "Fee", value: "[PLACEHOLDER: e.g. X% of first-year base salary]" },
-  { icon: CalendarCheck, label: "When you pay", value: "[PLACEHOLDER: e.g. on the start date]" },
-  { icon: ShieldCheck, label: "Replacement guarantee", value: "[PLACEHOLDER: e.g. 90 days]" },
 ];
 
 const faqs = [
@@ -103,7 +85,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "You pay a one-time fee only when you make a hire. We'll go over the exact terms on the intro call.",
+    a: "It depends on the role. Book a call and we'll walk you through pricing and answer any other questions.",
   },
 ];
 
@@ -180,34 +162,6 @@ export default function StartupsPage() {
               ))}
             </tbody>
           </table>
-        </div>
-      </Section>
-
-      {/* Engagement model */}
-      <Section id="pricing">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <SectionHeading
-            eyebrow="Pricing"
-            title="No hire, no fee."
-            intro="You pay a one-time fee only when you make a hire. No retainer. No monthly cost. Nothing to start."
-          />
-          <div className="space-y-3">
-            {terms.map((t) => (
-              <div key={t.label} className="flex items-center gap-4 rounded-2xl border border-line p-5">
-                <IconBadge icon={t.icon} />
-                <div>
-                  <p className="font-medium">{t.label}</p>
-                  <p className="text-body">
-                    <Text>{t.value}</Text>
-                  </p>
-                </div>
-              </div>
-            ))}
-            <div className="flex items-center gap-4 rounded-2xl border border-line p-5">
-              <IconBadge icon={Users} />
-              <p className="text-body">Hire one engineer or your whole team. Works alongside your in-house team.</p>
-            </div>
-          </div>
         </div>
       </Section>
 
