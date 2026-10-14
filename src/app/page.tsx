@@ -92,7 +92,7 @@ const exampleBoard = [
   { role: "Full-Stack Engineer", step: 1, stage: "Planning the role", tone: "bg-slate-100 text-slate-700" },
   { role: "Founding AI Engineer", step: 2, stage: "Shortlist sent", tone: "bg-brand-soft text-brand-dark" },
   { role: "Senior Backend Engineer", step: 3, stage: "Interviewing", tone: "bg-amber-50 text-amber-800" },
-  { role: "Platform Engineer", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
+  { role: "Founding Account Executive", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
 ];
 
 // ["A", "B", "C"] → "A, B and C"

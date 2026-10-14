@@ -255,4 +255,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Share your profile form: removed the "Or link to your resume" field.
 - **2026-10-14:** Roles page cut down: compact cards, 2 per row on desktop, showing the name, one-line summary, key skills, "Hire for [role]" and a "See open jobs" / "Share your profile" link. Common titles and "what we look for" are no longer shown (still in roles.ts).
 - **2026-10-14:** Share your profile: "Primary role" dropdown replaced with a text box, "What role are you looking for?" (sent as `role`), with role names suggested as you type (`suggestions` on `Field`).
+- **2026-10-14 (preview branch):** Home hero card: "Platform Engineer" row replaced with "Founding Account Executive" (Offer out), so the card shows a sales role.
 
