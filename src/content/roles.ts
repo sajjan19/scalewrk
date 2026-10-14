@@ -42,6 +42,18 @@ export const showRolesPage = false;
 // Set to true to bring it back (12 featured role tiles).
 export const showRolePreview = false;
 
+// Short "Roles we often hire" tag row under "What we do" on the Home page. Edit freely.
+export const quickRoles = [
+  "AI / ML Engineers",
+  "Backend",
+  "Full-Stack",
+  "Founding Engineers",
+  "Engineering Leaders",
+  "Account Executives",
+  "SDRs",
+  "Sales Leaders",
+];
+
 export type Role = {
   slug: string;
   name: string;

@@ -14,7 +14,7 @@ import {
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
-import { showRolePreview } from "@/content/roles";
+import { quickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
@@ -200,6 +200,18 @@ export default function Home() {
               </span>
             </Link>
           ))}
+        </div>
+
+        {/* Quick look at the roles we often hire (list in roles.ts → quickRoles) */}
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <p className="shrink-0 text-sm font-medium text-muted">Roles we often hire:</p>
+          <ul className="flex flex-wrap gap-2">
+            {quickRoles.map((r) => (
+              <li key={r} className="rounded-full bg-white px-3 py-1 text-sm font-medium text-body ring-1 ring-line">
+                {r}
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 
