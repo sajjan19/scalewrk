@@ -42,7 +42,9 @@ export const showRolesPage = false;
 // Set to true to bring it back (12 featured role tiles).
 export const showRolePreview = false;
 
-// Short "Roles we often hire" tag row under "What we do" on the Home page. Edit freely.
+// Short "Roles we often hire" tag row under "What we do" on the Home page. Hidden for now;
+// set showQuickRoles to true to bring it back.
+export const showQuickRoles = false;
 export const quickRoles = [
   "AI / ML Engineers",
   "Backend",

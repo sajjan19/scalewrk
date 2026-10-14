@@ -274,4 +274,6 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Process cards: title now sits beside the soft icon badge (not under it).
 - **2026-10-14:** Every icon card now puts the title beside the icon (same as the process cards): Home What we do and Why Scalewrk, Contact cards, New York How we help, About How we work, Mission & Vision (mission/vision labels and the 4 beliefs).
 - **2026-10-14:** Home headline: "Built to **Scale**. Powered by **Talent**." (gradient on Scale and Talent) with "AI-powered sourcing. Human expertise. Exceptional talent, delivered faster." Also the site tagline and Home share image.
+- **2026-10-14:** Home headline shows one sentence per line ("Built to Scale." / "Powered by Talent."), never wrapping on tablet and desktop; desktop size is now text-6xl so "Powered by Talent." fits beside the hero card.
+- **2026-10-14:** "Roles we often hire" tag row hidden (`showQuickRoles = false` in roles.ts).
 

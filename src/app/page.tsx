@@ -14,7 +14,7 @@ import {
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
-import { quickRoles, showRolePreview } from "@/content/roles";
+import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
@@ -118,8 +118,14 @@ export default function Home() {
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
-            <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-              Built to <span className="text-gradient">Scale</span>. Powered by <span className="text-gradient">Talent</span>.
+            {/* One sentence per line; on tablets and up each line never wraps */}
+            <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl">
+              <span className="block sm:whitespace-nowrap">
+                Built to <span className="text-gradient">Scale</span>.
+              </span>
+              <span className="block sm:whitespace-nowrap">
+                Powered by <span className="text-gradient">Talent</span>.
+              </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
@@ -206,7 +212,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Quick look at the roles we often hire (list in roles.ts → quickRoles) */}
+        {/* Quick look at the roles we often hire (list in roles.ts → quickRoles). Hidden for now */}
+        {showQuickRoles && (
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <p className="shrink-0 text-sm font-medium text-muted">Roles we often hire:</p>
           <ul className="flex flex-wrap gap-2">
@@ -217,6 +224,7 @@ export default function Home() {
             ))}
           </ul>
         </div>
+        )}
       </Section>
 
       {/* Past employers (founders' experience) and, once real, clients */}
