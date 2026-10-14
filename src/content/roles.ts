@@ -38,6 +38,10 @@ import {
 // with its menu, footer and sitemap links.
 export const showRolesPage = false;
 
+// The "Roles we hire" preview section on Home and New York. Off for now: no roles to show yet.
+// Set to true to bring it back (12 featured role tiles).
+export const showRolePreview = false;
+
 export type Role = {
   slug: string;
   name: string;

@@ -14,6 +14,7 @@ import {
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
+import { showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
@@ -299,7 +300,8 @@ export default function Home() {
         </ul>
       </Section>
 
-      {/* Roles */}
+      {/* Roles we hire (preview tiles). Hidden for now, see showRolePreview in roles.ts */}
+      {showRolePreview && (
       <Section className="theme-startup">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" intro="From AI engineers to founding account executives." />
@@ -307,10 +309,11 @@ export default function Home() {
         </div>
         <RoleTiles />
       </Section>
+      )}
 
       {/* Latest jobs (newest 3 from src/content/jobs.ts). Hidden until there are jobs */}
       {hasOpenJobs && (
-      <Section tone="mist" className="theme-engineer">
+      <Section tone={showRolePreview ? "mist" : "white"} className="theme-engineer">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
           <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -328,7 +331,8 @@ export default function Home() {
       )}
 
       {/* Testimonials (src/content/testimonials.ts) */}
-      <Testimonials tone={hasOpenJobs ? "white" : "mist"} />
+      {/* Testimonials: the opposite background of whatever section sits right before it */}
+      <Testimonials tone={hasOpenJobs ? (showRolePreview ? "white" : "mist") : showRolePreview ? "mist" : "white"} />
 
       <CtaBand />
     </>

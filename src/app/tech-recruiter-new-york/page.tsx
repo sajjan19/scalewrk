@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Building2, MapPin, Plane, Search, UserCheck } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
+import { showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
 import { Arrow, Button, CalendarIcon, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
@@ -127,7 +128,8 @@ export default function NewYorkPage() {
         </div>
       </Section>
 
-      {/* Roles */}
+      {/* Roles we hire (preview tiles). Hidden for now, see showRolePreview in roles.ts */}
+      {showRolePreview && (
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" />
@@ -135,6 +137,7 @@ export default function NewYorkPage() {
         </div>
         <RoleTiles />
       </Section>
+      )}
 
       {/* New York jobs (only while there are some) */}
       {cityJobs.length > 0 && (
@@ -155,8 +158,8 @@ export default function NewYorkPage() {
       </Section>
       )}
 
-      {/* For engineers (grey when it sits after the jobs section, white when that is hidden) */}
-      <Section tone={cityJobs.length > 0 ? "mist" : "white"} className="theme-engineer">
+      {/* For engineers: grey unless the section right before it (roles preview) is grey */}
+      <Section tone={cityJobs.length === 0 && showRolePreview ? "white" : "mist"} className="theme-engineer">
         <div className="grid items-center gap-8 rounded-3xl bg-white p-6 ring-1 ring-line sm:p-10 lg:grid-cols-[1fr_auto]">
           <div className="flex items-start gap-5">
             <IconBadge icon={MapPin} size="lg" />
@@ -173,8 +176,8 @@ export default function NewYorkPage() {
         </div>
       </Section>
 
-      {/* FAQ */}
-      <Section>
+      {/* FAQ: opposite background of the engineers section */}
+      <Section tone={cityJobs.length === 0 && showRolePreview ? "mist" : "white"}>
         <SectionHeading eyebrow="FAQ" title="Questions New York founders ask us" />
         <div className="mt-10 divide-y divide-line rounded-2xl ring-1 ring-line">
           {faqs.map((f) => (

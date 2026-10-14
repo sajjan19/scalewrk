@@ -79,6 +79,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Future
 
+- [ ] **Bring back "Roles we hire"** on Home and New York (12 role tiles): set `showRolePreview = true` in `src/content/roles.ts`.
 - [ ] **Bring back the Roles page** (/roles, all engineering and sales roles) once the team is bigger: set `showRolesPage = true` in `src/content/roles.ts`. Its menu, footer and sitemap links and the "See all roles" links come back automatically.
 
 - [ ] **Bring back a Partners page** (referrals from VCs, accelerators, startup lawyers, fractional CFOs). Removed on 2026-10-14 to keep the site to two audiences (startups and engineers). Bring it back once referrals are a real channel. Decide first:
