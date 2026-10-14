@@ -27,12 +27,12 @@ export default function MeetPage() {
           Great meeting <span className="text-gradient">you.</span>
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-body">
-          We&apos;re the tech recruiter for growing startups. When you&apos;re ready to hire engineers, we&apos;re ready to help.
+          We&apos;re the tech recruiter for growing startups. When you&apos;re ready to hire engineers or sales people, we&apos;re ready to help.
         </p>
 
         <ul className="mt-6 space-y-3">
           {[
-            { icon: Code2, text: "Engineers across AI, software, hardware and more" },
+            { icon: Code2, text: "Engineers across AI, software, hardware and more, plus sales and GTM roles" },
             { icon: MapPin, text: "Seed to Series C+ startups across the US and Canada" },
             { icon: CircleDollarSign, text: "You only pay when you hire" },
           ].map((item) => (

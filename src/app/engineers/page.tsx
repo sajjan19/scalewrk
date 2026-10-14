@@ -8,24 +8,24 @@ import { visibleJobs } from "@/content/jobs";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Startup Jobs for Engineers",
+  title: "Startup Jobs in Engineering and Sales",
   description:
-    "Looking for an engineering role at a growing startup? Scalewrk matches AI/ML, backend, full-stack, frontend and platform engineers with startups across the US and Canada.",
+    "Looking for an engineering or sales role at a growing startup? Scalewrk matches engineers, account executives, SDRs and more with startups across the US and Canada.",
   path: "/engineers",
 });
 
 // Only real (non-example) jobs count as open roles
 const realJobs = visibleJobs.filter((j) => !j.example).length;
 
-// How it works for engineers (same card style as the startup process)
+// How it works for candidates (same card style as the startup process)
 const steps = [
   { icon: FileText, title: "Share your profile", body: ["Your LinkedIn or resume", "What you want next"] },
-  { icon: Phone, title: "Intro call", body: ["We learn your goals", "Stack, stage and pay"] },
+  { icon: Phone, title: "Intro call", body: ["We learn your goals", "Skills, stage and pay"] },
   { icon: Target, title: "Roles that fit", body: ["Only startups that match", "The real story up front"] },
   { icon: Handshake, title: "Interviews and offer", body: ["We guide you through each step", "Honest feedback either way"] },
 ];
 
-// What engineers can count on
+// What candidates can count on
 const promises = [
   { icon: Eye, text: "The real story up front: stage, team, role and pay" },
   { icon: Target, text: "We only reach out when a role fits what you want" },
@@ -38,13 +38,13 @@ export default function EngineersPage() {
   return (
     <div className="theme-engineer">
       <PageHero
-        eyebrow="For engineers"
+        eyebrow="For candidates"
         title={
           <>
             Find your <span className="text-gradient">next startup role</span>.
           </>
         }
-        intro="We work with startups across the US and Canada that need great engineers. We'll match you with one where you can thrive."
+        intro="We work with startups across the US and Canada that need great engineers and sales people. We'll match you with one where you can thrive."
       >
         <Button href="/share-profile" variant="brand">
           Share your profile <Arrow />

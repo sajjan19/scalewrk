@@ -12,7 +12,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Share Your Profile",
   description:
-    "Engineers: share your LinkedIn or resume with Scalewrk. We'll reach out when a startup in the US or Canada fits what you want next.",
+    "Engineers and sales people: share your LinkedIn or resume with Scalewrk. We'll reach out when a startup in the US or Canada fits what you want next.",
   path: "/share-profile",
 });
 
@@ -28,7 +28,7 @@ export default function ShareProfilePage() {
     <section className="theme-engineer pt-12 pb-20 sm:pt-20 sm:pb-28">
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
         <div>
-          <Eyebrow>For engineers</Eyebrow>
+          <Eyebrow>For candidates</Eyebrow>
           <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
             Share your <span className="text-gradient">profile</span>.
           </h1>
@@ -50,7 +50,7 @@ export default function ShareProfilePage() {
           <p className="mt-8 text-sm text-muted">
             Want to know more first? See{" "}
             <Link href="/engineers" className="underline hover:text-ink">
-              how we work with engineers
+              how we work with candidates
             </Link>{" "}
             or read our{" "}
             <Link href="/privacy" className="underline hover:text-ink">
@@ -64,7 +64,7 @@ export default function ShareProfilePage() {
           <h2 className="mb-6 text-xl font-semibold">Your profile</h2>
           <Form
             endpoint={site.forms.engineers}
-            subject="New engineer profile (scalewrk.ai)"
+            subject="New candidate profile (scalewrk.ai)"
             submitLabel="Submit profile"
             successTitle="Got it, thanks."
             successBody="We'll review your profile and reach out when we have a role that fits."
@@ -103,7 +103,7 @@ export default function ShareProfilePage() {
               type="url"
               placeholder="Google Drive, Dropbox or personal site"
             />
-            <TextArea label="What are you looking for next?" name="message" placeholder="Stage, stack, team size, anything else" />
+            <TextArea label="What are you looking for next?" name="message" placeholder="Stage, team size, product, anything else" />
           </Form>
         </div>
       </Container>

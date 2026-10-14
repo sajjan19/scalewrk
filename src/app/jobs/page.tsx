@@ -4,9 +4,9 @@ import { PageHero, Section } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Startup Jobs for Engineers",
+  title: "Startup Jobs in Engineering and Sales",
   description:
-    "Open engineering roles at growing startups across the US and Canada. AI/ML, backend, frontend, platform and more.",
+    "Open engineering and sales roles at growing startups across the US and Canada. AI/ML, backend, frontend, account executives and more.",
   path: "/jobs",
 });
 

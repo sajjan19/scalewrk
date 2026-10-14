@@ -18,7 +18,7 @@ const values = [
   {
     icon: MessageCircle,
     title: "Honest",
-    body: ["We tell founders when a role will be hard to fill", "We tell engineers when a job isn't right for them"],
+    body: ["We tell founders when a role will be hard to fill", "We tell candidates when a job isn't right for them"],
   },
   {
     icon: Filter,
@@ -28,7 +28,7 @@ const values = [
   {
     icon: HeartHandshake,
     title: "Here for the long run",
-    body: ["We learn your company once", "We keep showing up", "Your recruiter for every engineering hire"],
+    body: ["We learn your company once", "We keep showing up", "Your recruiter for every tech and sales hire"],
   },
 ];
 
@@ -37,7 +37,7 @@ const facts = [
   { icon: Flag, label: "Founded", value: String(site.founded) },
   { icon: MapPin, label: "Based in", value: site.basedIn },
   { icon: Globe, label: "Hiring across", value: "US and Canada" },
-  { icon: Code2, label: "Focus", value: "Engineers only" },
+  { icon: Code2, label: "Focus", value: "Tech and sales" },
   { icon: CircleDollarSign, label: "Pricing", value: "Fee per hire" },
 ];
 
@@ -48,10 +48,10 @@ export default function AboutPage() {
         eyebrow="About Scalewrk"
         title={
           <>
-            <span className="text-gradient">Meet the team</span> that matches startups and engineers.
+            <span className="text-gradient">Meet the team</span> that matches startups with great people.
           </>
         }
-        intro="We meet founders and engineers at tech events, through our network and online. Then we bring the right people together."
+        intro="We meet founders, engineers and sales people at tech events, through our network and online. Then we bring the right people together."
       >
         <Button href="/mission" variant="secondary">
           Mission & Vision <Arrow />

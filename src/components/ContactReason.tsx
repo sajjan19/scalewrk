@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Field, Select, TextArea } from "./Form";
 
 // "I'm reaching out as a" dropdown on the Contact form.
-// Engineers also get the relocation question. "Something else" gets a text box.
+// Candidates also get the relocation question. "Something else" gets a text box.
 // The message box hint changes to match who's writing.
 const messageHints: Record<string, string> = {
   "Founder or hiring manager": "What roles are you hiring for?",
   "Investor, accelerator or advisor": "Tell us about your portfolio or clients",
-  Engineer: "What kind of role are you looking for?",
+  "Candidate (engineering or sales)": "What kind of role are you looking for?",
 };
 
 export function ContactReason() {
@@ -21,9 +21,9 @@ export function ContactReason() {
         name="reason"
         required
         onChange={setReason}
-        options={["Founder or hiring manager", "Investor, accelerator or advisor", "Engineer", "Something else"]}
+        options={["Founder or hiring manager", "Investor, accelerator or advisor", "Candidate (engineering or sales)", "Something else"]}
       />
-      {reason === "Engineer" && (
+      {reason === "Candidate (engineering or sales)" && (
         <Select label="Open to relocating?" name="relocation" options={["Yes", "Maybe, for the right role", "No"]} />
       )}
       {reason === "Something else" && (

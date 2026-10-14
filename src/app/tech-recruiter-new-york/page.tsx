@@ -19,7 +19,7 @@ import nyPhoto from "../../../public/places/new-york.jpg";
 export const metadata = pageMetadata({
   title: "Tech Recruiter for New York Startups",
   description:
-    "Scalewrk helps New York startups hire engineers for in-office, hybrid and remote roles. AI/ML, backend, full-stack and more. You only pay when you hire.",
+    "Scalewrk helps New York startups hire engineers and sales teams for in-office, hybrid and remote roles. AI/ML, backend, account executives and more. You only pay when you hire.",
   path: "/tech-recruiter-new-york",
 });
 
@@ -48,7 +48,7 @@ const help = [
 const faqs = [
   {
     q: "Do you work with startups in New York?",
-    a: "Yes. We help New York startups hire engineers for in-office, hybrid and remote roles.",
+    a: "Yes. We help New York startups hire engineers and sales teams for in-office, hybrid and remote roles.",
   },
   {
     q: "Are you based in New York?",
@@ -89,7 +89,7 @@ export default function NewYorkPage() {
               Tech recruiting for <span className="text-gradient text-gradient-light">New York startups</span>.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-white/85 sm:text-xl">
-              We help New York startups hire great engineers and help engineers find the right New York startup.
+              We help New York startups hire great engineers and sales teams and help them find the right New York startup.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
@@ -134,7 +134,7 @@ export default function NewYorkPage() {
       {/* Roles */}
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading eyebrow="Roles we hire" title="Engineers for your whole stack" />
+          <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" />
           <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See all {roles.length} roles <Arrow />
           </Link>

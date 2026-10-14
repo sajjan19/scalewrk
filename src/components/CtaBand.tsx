@@ -2,10 +2,10 @@ import { bookingHref } from "@/content/site";
 import { Arrow, CalendarIcon, Button, Container } from "./ui";
 
 // Dark "Book a call" band used at the bottom of most pages.
-// Pass `action` to use a different button (e.g. "Share your profile" on engineer pages).
+// Pass `action` to use a different button (e.g. "Share your profile" on candidate pages).
 export function CtaBand({
   title = "Ready to grow your team?",
-  body = "Tell us what you're building and we'll help you find the engineers to build it.",
+  body = "Tell us what you're building and we'll help you find the people to build and sell it.",
   action,
 }: {
   title?: string;

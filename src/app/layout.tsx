@@ -60,6 +60,8 @@ const organizationJsonLd = {
     "AI engineer recruiting",
     "Machine learning engineer recruiting",
     "Software engineer recruiting",
+    "Startup sales recruiting",
+    "Account executive recruiting",
     "Startup hiring",
   ],
   founder: { "@type": "Person", name: "Punit Singh" },

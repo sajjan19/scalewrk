@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Book a Call",
   description:
-    "Book a call with Scalewrk. Founders: talk through the engineers you need to hire. Engineers: tell us what you want in your next startup role.",
+    "Book a call with Scalewrk. Founders: talk through the engineers and sales people you need to hire. Candidates: tell us what you want in your next startup role.",
   path: "/contact",
 });
 
@@ -29,17 +29,17 @@ export default function ContactPage() {
             Pick a time for a call with the Scalewrk team.
           </p>
 
-          {/* What to bring, for founders (blue) and for engineers (purple) */}
+          {/* What to bring, for founders (blue) and for candidates (purple) */}
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
               {
                 icon: Building2,
                 theme: "theme-startup",
-                title: "Hiring engineers?",
+                title: "Hiring engineers or sales?",
                 intro: "Bring what you have, even if it's just one role:",
                 points: [
                   "The roles you need and how senior",
-                  "What you're building and your tech stack",
+                  "What you're building and who you sell to",
                   "Pay range, including equity",
                   "On-site, hybrid or remote, and where",
                   "When you need someone to start",
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 intro: "Have these handy:",
                 points: [
                   "Your LinkedIn or resume",
-                  "Your main role and stack",
+                  "Your main role and key skills",
                   "What you want next: stage, team and product",
                   "Pay range and how much equity matters",
                   "Work style, location and when you could start",

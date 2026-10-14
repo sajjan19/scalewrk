@@ -20,7 +20,7 @@ export const site = {
   phone: "(555) 555-0123",
   tagline: "Tech hiring for growing startups.",
   description:
-    "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire AI/ML, backend, full-stack, frontend and DevOps engineers from seed to Series C and beyond.",
+    "Scalewrk is a startup tech recruiter for growing companies across the US and Canada. We hire engineers and sales teams, from AI/ML and backend to account executives, from seed to Series C and beyond.",
 
   // PLACEHOLDER: replace with your real Calendly event link,
   // e.g. "https://calendly.com/scalewrk/intro-call"
@@ -79,7 +79,7 @@ export const nav: NavItem[] = [
   },
   {
     href: "/engineers",
-    label: "For Engineers",
+    label: "For Candidates",
     theme: "theme-engineer",
     children: [
       { href: "/engineers", label: "How we work" },
