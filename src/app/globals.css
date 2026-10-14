@@ -247,14 +247,27 @@ body[data-menu="open"] .mobile-book-bar {
   display: none;
 }
 
-/* Home hero network illustration: lines flow toward the middle, nodes float gently */
-@keyframes net-flow {
+/* Home hero network illustration (HeroNetwork.tsx): flowing candidate lines, twinkling stars, floating pills */
+/* Candidate connection lines: dashes move outward from Scalewrk */
+@keyframes net-flow-out {
   to {
-    stroke-dashoffset: -8;
+    stroke-dashoffset: -6;
   }
 }
-.net-flow {
-  animation: net-flow 2.5s linear infinite;
+.net-flow-out {
+  animation: net-flow-out 1.2s linear infinite;
+}
+@keyframes net-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.net-twinkle {
+  animation: net-twinkle 3s ease-in-out infinite;
 }
 @keyframes net-float {
   0%,
@@ -269,9 +282,12 @@ body[data-menu="open"] .mobile-book-bar {
   animation: net-float 5s ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  .net-flow,
-  .net-float {
+  .net-twinkle,
+  .net-float,
+  .net-flow-out {
     animation: none;
   }
+  .net-particle {
+    display: none;
+  }
 }
-
