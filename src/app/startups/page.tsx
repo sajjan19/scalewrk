@@ -99,7 +99,7 @@ export default function StartupsPage() {
             Your hiring partner from <span className="text-gradient">seed to scale</span>.
           </>
         }
-        intro="Your first engineers and sellers are some of the most important hires you'll make. We run your searches like part of your team, so you can focus on building."
+        intro="From your first engineer to your first sales team, we run the search so you can run the company."
       >
         <Button href={bookingHref} variant="brand">
           <CalendarIcon /> Book a call
