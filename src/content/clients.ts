@@ -12,10 +12,11 @@
 */
 
 // `role`: the role we filled there, shown under the name.
-export type Client = { name: string; role?: string; logo?: string };
+// `url`: their website. The card links there in a new tab.
+export type Client = { name: string; role?: string; logo?: string; url?: string };
 
 export const showClients = true;
 
 export const clients: Client[] = [
-  { name: "Equall", role: "Founding Engineer", logo: "/clients/equall.png" },
+  { name: "Equall", role: "Founding Engineer", logo: "/clients/equall.png", url: "https://equall.com/" },
 ];

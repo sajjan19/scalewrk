@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container, Text } from "./ui";
-import { clients, showClients } from "@/content/clients";
+import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
 import { alsoRecruitedFor, companyLogos } from "@/content/companyLogos";
 
@@ -75,21 +75,42 @@ export function ClientsSection() {
         )}
         <ul className="mt-6 flex flex-wrap justify-center gap-3">
           {clients.map((client, i) => (
-            <li key={i} className="flex items-center gap-4 rounded-2xl border border-line bg-white px-5 py-4">
-              {client.logo && (
-                <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />
-              )}
-              <span className="text-left">
-                <span className="block text-lg font-semibold text-ink">
-                  <Text>{client.name}</Text>
-                </span>
-                {/* The role we filled there */}
-                {client.role && <span className="block text-sm text-muted">{client.role}</span>}
-              </span>
+            <li key={i}>
+              {/* Links to their website in a new tab (when `url` is set) */}
+              <ClientCard client={client} />
             </li>
           ))}
         </ul>
       </Container>
     </section>
+  );
+}
+
+// One "Recent placements" card: icon, name and role. Opens their site in a new tab when `url` is set.
+function ClientCard({ client }: { client: Client }) {
+  const inner = (
+    <>
+      {client.logo && <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />}
+      <span className="text-left">
+        <span className="block text-lg font-semibold text-ink group-hover:text-brand">
+          <Text>{client.name}</Text>
+        </span>
+        {/* The role we filled there */}
+        {client.role && <span className="block text-sm text-muted">{client.role}</span>}
+      </span>
+    </>
+  );
+  const box = "flex items-center gap-4 rounded-2xl border border-line bg-white px-5 py-4";
+  if (!client.url) return <div className={box}>{inner}</div>;
+  return (
+    <a
+      href={client.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${client.name} website (opens in a new tab)`}
+      className={`lift group ${box} hover:border-brand/30`}
+    >
+      {inner}
+    </a>
   );
 }
