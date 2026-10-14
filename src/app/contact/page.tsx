@@ -2,7 +2,7 @@ import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { ContactReason } from "@/components/ContactReason";
 import { Field, Form } from "@/components/Form";
 import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
-import { Building2, UserRound } from "lucide-react";
+import { Rocket, UserRound } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
@@ -33,7 +33,7 @@ export default function ContactPage() {
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
               {
-                icon: Building2,
+                icon: Rocket,
                 theme: "theme-startup",
                 audience: "For Startups",
                 title: "Hiring engineers or sales?",
