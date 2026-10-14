@@ -74,7 +74,6 @@ export const nav: NavItem[] = [
     children: [
       { href: "/startups", label: "How we work" },
       { href: "/roles", label: "Roles we hire" },
-      { href: "/startups#pricing", label: "Pricing" },
     ],
   },
   {

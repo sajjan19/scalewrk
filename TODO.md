@@ -36,12 +36,6 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 - [ ] Personal Calendly links for Punit and Mandeep: `calendlyUrl` in `src/content/founders.ts` (until then, both About buttons use the shared calendar)
 
-## Pricing (`src/app/startups/page.tsx` → Engagement model)
-
-- [ ] Fee (e.g. X% of first-year base salary)
-- [ ] When the fee is due (e.g. on start date)
-- [ ] Replacement guarantee period (e.g. 90 days)
-
 ## Decisions
 
 - [ ] **Resume uploads**: Formspree only accepts files on paid plans (Personal or higher). Upgrade, switch the Engineers form to a free attachment service (ask Claude), or set `resumeUpload: false` in `site.ts` to hide the upload field.

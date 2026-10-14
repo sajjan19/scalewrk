@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
-import { CircleDollarSign, Code2, MapPin } from "lucide-react";
+import { Code2, MapPin } from "lucide-react";
 import { Arrow, CalendarIcon, Container } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
@@ -34,7 +34,6 @@ export default function MeetPage() {
           {[
             { icon: Code2, text: "Engineers across AI, software, hardware and more, plus sales and GTM roles" },
             { icon: MapPin, text: "Seed to Series C+ startups across the US and Canada" },
-            { icon: CircleDollarSign, text: "You only pay when you hire" },
           ].map((item) => (
             <li key={item.text} className="flex items-center gap-3 text-body">
               <IconBadge icon={item.icon} size="sm" />

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CircleDollarSign, Code2, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
+import { Code2, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
 import { Arrow, Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
@@ -38,7 +38,6 @@ const facts = [
   { icon: MapPin, label: "Based in", value: site.basedIn },
   { icon: Globe, label: "Hiring across", value: "US and Canada" },
   { icon: Code2, label: "Focus", value: "Tech and sales" },
-  { icon: CircleDollarSign, label: "Pricing", value: "Fee per hire" },
 ];
 
 export default function AboutPage() {
@@ -61,7 +60,7 @@ export default function AboutPage() {
       {/* Quick facts */}
       <section className="border-b border-line bg-mist py-6">
         <Container>
-          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {facts.map((f) => (
               <li key={f.label} className="flex items-center gap-3">
                 <IconBadge icon={f.icon} size="sm" />
