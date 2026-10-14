@@ -97,12 +97,6 @@ export default function ShareProfilePage() {
             {site.resumeUpload && (
               <FileField label="Resume" name="resume" accept=".pdf,.doc,.docx" hint="PDF or Word, up to 10 MB." />
             )}
-            <Field
-              label="Or link to your resume"
-              name="resume_link"
-              type="url"
-              placeholder="Google Drive, Dropbox or personal site"
-            />
             <TextArea label="What are you looking for next?" name="message" placeholder="Stage, stack, team size, anything else" />
           </Form>
         </div>

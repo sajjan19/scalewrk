@@ -108,15 +108,31 @@ type FieldProps = {
   placeholder?: string;
   autoComplete?: string;
   hint?: string;
+  suggestions?: string[]; // optional: shown as you type (you can still type anything)
 };
 
-export function Field({ label, name, type = "text", required, placeholder, autoComplete, hint }: FieldProps) {
+export function Field({ label, name, type = "text", required, placeholder, autoComplete, hint, suggestions }: FieldProps) {
   return (
     <label className="block">
       <span className="text-sm font-medium">
         {label} {!required && <span className="font-normal text-muted">(optional)</span>}
       </span>
-      <input name={name} type={type} required={required} placeholder={placeholder} autoComplete={autoComplete} className={inputClass} />
+      <input
+        name={name}
+        type={type}
+        required={required}
+        placeholder={placeholder}
+        autoComplete={autoComplete}
+        list={suggestions ? `${name}-suggestions` : undefined}
+        className={inputClass}
+      />
+      {suggestions && (
+        <datalist id={`${name}-suggestions`}>
+          {suggestions.map((s) => (
+            <option key={s} value={s} />
+          ))}
+        </datalist>
+      )}
       {hint && <span className="mt-1.5 block text-sm text-muted">{hint}</span>}
     </label>
   );

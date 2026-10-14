@@ -251,3 +251,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Placement fact icons are fixed per kind of fact (rocket = stage, building = industry, pin = location), so they never change with the value. The legal scales icon was replaced with a generic building.
 - **2026-10-14:** Contact "what to bring" cards are bullet lists (5 points each): startups card blue, engineers card purple.
 - **2026-10-14:** Home: every "see more" link now sits top right next to its section heading (See the full process, See how we compare, Meet the team, See all roles, View all jobs). On phones they sit under the heading.
+- **2026-10-14:** Share your profile form: removed the "Or link to your resume" field.
+- **2026-10-14:** Roles page cut down: compact cards, 2 per row on desktop, showing the name, one-line summary, key skills, "Hire for [role]" and a "See open jobs" / "Share your profile" link. Common titles and "what we look for" are no longer shown (still in roles.ts).
+- **2026-10-14:** Share your profile: "Primary role" dropdown replaced with a text box, "What role are you looking for?" (sent as `role`), with role names suggested as you type (`suggestions` on `Field`).
+

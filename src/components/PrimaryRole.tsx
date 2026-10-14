@@ -1,19 +1,16 @@
-"use client";
-
-import { useState } from "react";
 import { roles } from "@/content/roles";
-import { Field, Select } from "./Form";
+import { Field } from "./Form";
 
-// "Primary role" dropdown on the engineers form.
-// Picking "Other" shows a text box so they can describe their role.
+// "What role are you looking for?" on the Share your profile form.
+// People type their own answer; the role names from the Roles page show as suggestions.
 export function PrimaryRole() {
-  const [role, setRole] = useState("");
   return (
-    <>
-      <Select label="Primary role" name="role" required onChange={setRole} options={[...roles.map((r) => r.name), "Other"]} />
-      {role === "Other" && (
-        <Field label="What's your role?" name="role_other" required placeholder="QA Engineer, Embedded Engineer, Solutions Engineer…" />
-      )}
-    </>
+    <Field
+      label="What role are you looking for?"
+      name="role"
+      required
+      placeholder="e.g. Backend Engineer, Founding Engineer, ML Engineer"
+      suggestions={roles.map((r) => r.name)}
+    />
   );
 }
