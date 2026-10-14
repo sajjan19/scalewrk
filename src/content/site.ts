@@ -6,6 +6,7 @@
 */
 
 import { hasOpenJobs } from "./jobs";
+import { showRolesPage } from "./roles";
 
 export const site = {
   name: "Scalewrk",
@@ -75,7 +76,7 @@ export const nav: NavItem[] = [
     theme: "theme-startup",
     children: [
       { href: "/startups", label: "How we work" },
-      { href: "/roles", label: "Roles we hire" },
+      ...(showRolesPage ? [{ href: "/roles", label: "Roles we hire" }] : []),
     ],
   },
   {

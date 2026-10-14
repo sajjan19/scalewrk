@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
+import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
 import { LogoMark } from "@/components/Logo";
@@ -20,7 +21,6 @@ import { Arrow, CalendarIcon, Button, CheckList, Container, Section, SectionHead
 import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
-import { roles } from "@/content/roles";
 import { hasOpenJobs, latestJobs } from "@/content/jobs";
 import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
@@ -127,8 +127,8 @@ export default function Home() {
               <Button href={bookingHref} variant="brand">
                 <CalendarIcon /> Book a call
               </Button>
-              <Button href="/roles" variant="secondary">
-                Roles we hire
+              <Button href="/startups" variant="secondary">
+                How we work
               </Button>
             </div>
             <p className="mt-4 text-sm text-muted">
@@ -303,28 +303,9 @@ export default function Home() {
       <Section className="theme-startup">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" intro="From AI engineers to founding account executives." />
-          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-            See all {roles.length} roles <Arrow />
-          </Link>
+          <SeeAllRolesLink />
         </div>
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {roles.filter((r) => r.featured).map((role) => (
-            <li key={role.slug}>
-              <Link
-                href={`/roles#${role.slug}`}
-                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:p-5"
-              >
-                <IconBadge icon={role.icon} />
-                <span className="flex min-w-0 flex-1 items-center justify-between gap-2 font-semibold">
-                  {role.name}
-                  <span className="text-muted transition-colors group-hover:text-brand">
-                    <Arrow />
-                  </span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <RoleTiles />
       </Section>
 
       {/* Latest jobs (newest 3 from src/content/jobs.ts). Hidden until there are jobs */}

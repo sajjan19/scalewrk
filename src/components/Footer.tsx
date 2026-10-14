@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { site } from "@/content/site";
 import { hasOpenJobs } from "@/content/jobs";
+import { showRolesPage } from "@/content/roles";
 import { Logo } from "./Logo";
 import { MailIcon, PhoneIcon, SocialIcon, type SocialNetwork } from "./SocialIcons";
 
 // Footer page links (every main page, including the ones inside the top-menu dropdowns)
 const footerLinks = [
   { href: "/startups", label: "For Startups" },
-  { href: "/roles", label: "Roles" },
+  ...(showRolesPage ? [{ href: "/roles", label: "Roles" }] : []), // only while the Roles page is on
   { href: "/engineers", label: "For Candidates" },
   ...(hasOpenJobs ? [{ href: "/jobs", label: "Jobs" }] : []), // only while there are jobs
   { href: "/share-profile", label: "Share your profile" },

@@ -2,7 +2,7 @@ import { roles } from "@/content/roles";
 import { Field } from "./Form";
 
 // "What role are you looking for?" on the Share your profile form.
-// People type their own answer; the role names from the Roles page (engineering and sales) show as suggestions.
+// People type their own answer; the role names in roles.ts (engineering and sales) show as suggestions.
 export function PrimaryRole() {
   return (
     <Field

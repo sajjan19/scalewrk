@@ -69,7 +69,7 @@ const comparison: { label: string; values: [boolean, string][] }[] = [
 const faqs = [
   {
     q: "What roles do you hire for?",
-    a: "Engineering and sales. On the tech side: AI/ML, backend, frontend, data, hardware and engineering leaders. On the sales side: account executives, SDRs, customer success, RevOps, marketing and sales leaders. See them all on our Roles page.",
+    a: "Engineering and sales. On the tech side: AI/ML, backend, frontend, data, hardware and engineering leaders. On the sales side: account executives, SDRs, customer success, RevOps, marketing and sales leaders.",
   },
   {
     q: "Where are the startups you work with?",

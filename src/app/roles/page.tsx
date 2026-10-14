@@ -4,7 +4,8 @@ import { CtaBand } from "@/components/CtaBand";
 import { RoleJumpBar } from "@/components/RoleJumpBar";
 import { Arrow, CalendarIcon, Button, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
-import { roles } from "@/content/roles";
+import { roles, showRolesPage } from "@/content/roles";
+import { notFound } from "next/navigation";
 import { hasOpenJobs, jobs, visibleJobs } from "@/content/jobs";
 import { IconBadge } from "@/components/visuals";
 import { pageMetadata } from "@/lib/metadata";
@@ -14,9 +15,12 @@ export const metadata = pageMetadata({
   description:
     "Startup recruiting for engineering and sales: AI/ML, backend, full-stack, frontend, DevOps and engineering leaders, plus account executives, SDRs, customer success and sales leaders.",
   path: "/roles",
+  noindex: !showRolesPage,
 });
 
 export default function RolesPage() {
+  // Off for now (see showRolesPage in roles.ts)
+  if (!showRolesPage) notFound();
   return (
     <div className="theme-startup">
       <PageHero

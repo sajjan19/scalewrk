@@ -33,6 +33,11 @@ import {
   Users,
 } from "lucide-react";
 
+// The full Roles page (/roles) is off for now while the team is small. Home and New York still show a
+// short preview of the kinds of roles we hire (the `featured` ones). Set to true to bring the page back,
+// with its menu, footer and sitemap links.
+export const showRolesPage = false;
+
 export type Role = {
   slug: string;
   name: string;

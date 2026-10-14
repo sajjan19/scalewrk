@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Building2, MapPin, Plane, Search, UserCheck } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
+import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { JobCard } from "@/components/JobCard";
 import { Arrow, Button, CalendarIcon, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { bookingHref } from "@/content/site";
-import { roles } from "@/content/roles";
 import { visibleJobs } from "@/content/jobs";
 import { pageMetadata } from "@/lib/metadata";
 import nyPhoto from "../../../public/places/new-york.jpg";
@@ -131,28 +131,9 @@ export default function NewYorkPage() {
       <Section tone="mist">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" />
-          <Link href="/roles" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-            See all {roles.length} roles <Arrow />
-          </Link>
+          <SeeAllRolesLink />
         </div>
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {roles.filter((r) => r.featured).map((role) => (
-            <li key={role.slug}>
-              <Link
-                href={`/roles#${role.slug}`}
-                className="lift group flex h-full items-center gap-4 rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:p-5"
-              >
-                <IconBadge icon={role.icon} />
-                <span className="flex min-w-0 flex-1 items-center justify-between gap-2 font-semibold">
-                  {role.name}
-                  <span className="text-muted transition-colors group-hover:text-brand">
-                    <Arrow />
-                  </span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <RoleTiles />
       </Section>
 
       {/* New York jobs (only while there are some) */}

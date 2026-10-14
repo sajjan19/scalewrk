@@ -266,4 +266,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Contact card intros: "What helps us get started:" (startups) and "What helps us find your fit:" (candidates).
 - **2026-10-14:** Audience icons are consistent: startups = rocket, candidates = person (Home "What we do" and Contact cards).
 - **2026-10-14:** Contact "what to bring" cards now use the same design as the Home "What we do" cards: big icon on top, label, title, then check-mark bullets.
+- **2026-10-14:** Roles page turned off for now (team is small): `showRolesPage = false` in roles.ts. /roles shows "not found" and is noindexed; no Roles links in the menu, footer or sitemap; the Home hero's second button is now "How we work" (/startups). Home and New York still show the 12 featured roles as plain tiles (`RoleTiles.tsx`) so visitors see what kinds of roles we hire. Flip the flag to bring the page and all its links back.
 

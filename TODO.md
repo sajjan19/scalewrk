@@ -79,6 +79,8 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Future
 
+- [ ] **Bring back the Roles page** (/roles, all engineering and sales roles) once the team is bigger: set `showRolesPage = true` in `src/content/roles.ts`. Its menu, footer and sitemap links and the "See all roles" links come back automatically.
+
 - [ ] **Bring back a Partners page** (referrals from VCs, accelerators, startup lawyers, fractional CFOs). Removed on 2026-10-14 to keep the site to two audiences (startups and engineers). Bring it back once referrals are a real channel. Decide first:
   - the referral thank-you or fee
   - whether to offer partners hiring talks or office hours
@@ -86,4 +88,3 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
   The old page, its form (`PartnerType.tsx`), the Home "For partners" card, the /meet card and 2 example testimonials can be restored from git: `git show 2bd2c24:src/app/partners/page.tsx`.
 - [ ] Confirm Equall agreed to be listed under "Recent placements" on the Home page (`src/content/clients.ts`).
 - [ ] Jobs are hidden until the first real job is added: add it in `src/content/jobs.ts` with `example: false` and every jobs section and link comes back automatically.
-
