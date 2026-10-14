@@ -241,3 +241,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
   - Neutral (logo colors): header, footer, Home hero, founders, testimonials, About, Mission, Contact.
 - **2026-10-14:** Clients section renamed "Recent placements" and now real: Equall (Founding Engineer). Cards show the company and the role filled (`role` in clients.ts). Placeholder Client 1–5 removed.
 - **2026-10-14:** Paraform added to the "Where our team has recruited" strip via `alsoRecruitedFor` in companyLogos.ts (team-level, not in a founder bio). No logo yet, so it shows as text; companies without a logo no longer get the dashed placeholder tile.
+- **2026-10-14:** Paraform logo added to the strip (`public/logos/paraform.png`, from the user, trimmed).

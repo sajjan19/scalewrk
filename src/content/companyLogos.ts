@@ -11,7 +11,7 @@
 export const companyLogos: Record<string, { iconPath?: string; color?: string; image?: string }> = {
   TikTok: { image: "/logos/tiktok.svg" }, // official logo with wordmark (file from the user)
   PayPal: { image: "/logos/paypal.svg" }, // official full-color logo (file from the user)
-  Paraform: {}, // no logo file yet: shows the name as text
+  Paraform: { image: "/logos/paraform.png" }, // logo from the user (trimmed)
   "Sully.ai": { image: "/logos/sully.png" }, // blue sully.ai logo from when Punit recruited for them (they have since rebranded)
 };
 
