@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/content/site";
+import { hasOpenJobs } from "@/content/jobs";
 import { Logo } from "./Logo";
 import { MailIcon, PhoneIcon, SocialIcon, type SocialNetwork } from "./SocialIcons";
 
@@ -8,7 +9,7 @@ const footerLinks = [
   { href: "/startups", label: "For Startups" },
   { href: "/roles", label: "Roles" },
   { href: "/engineers", label: "For Candidates" },
-  { href: "/jobs", label: "Jobs" },
+  ...(hasOpenJobs ? [{ href: "/jobs", label: "Jobs" }] : []), // only while there are jobs
   { href: "/share-profile", label: "Share your profile" },
   { href: "/about", label: "About" },
   { href: "/mission", label: "Mission & Vision" },

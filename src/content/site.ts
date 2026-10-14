@@ -5,6 +5,8 @@
   Anything marked PLACEHOLDER still needs a real value before launch.
 */
 
+import { hasOpenJobs } from "./jobs";
+
 export const site = {
   name: "Scalewrk",
   legalName: "Scalewrk Talent",
@@ -82,7 +84,8 @@ export const nav: NavItem[] = [
     theme: "theme-engineer",
     children: [
       { href: "/engineers", label: "How we work" },
-      { href: "/jobs", label: "Open jobs" },
+      // "Open jobs" only shows while there are jobs to show
+      ...(hasOpenJobs ? [{ href: "/jobs", label: "Open jobs" }] : []),
       { href: "/share-profile", label: "Share your profile" },
     ],
   },

@@ -552,12 +552,17 @@ export const jobs: Job[] = [
   },
 ];
 
-// Show the example listings on the site (turn off once you have real jobs)
-export const showExampleJobs = true;
+// Show the example listings on the site. Off for now: there are no real jobs yet, so every jobs
+// section, link and menu item is hidden. Add a real job (`example: false`) and they all come back
+// automatically, in the same design. Set this to true to preview the layout with the examples.
+export const showExampleJobs = false;
 
 export const visibleJobs = jobs
   .filter((j) => !j.example || showExampleJobs)
   .sort((a, b) => b.posted.localeCompare(a.posted)); // newest first
+
+// True when there is at least one job to show. Every jobs link and section checks this.
+export const hasOpenJobs = visibleJobs.length > 0;
 
 export function latestJobs(count: number) {
   return visibleJobs.slice(0, count);

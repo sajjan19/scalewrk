@@ -2,12 +2,14 @@ import { Suspense } from "react";
 import { JobList } from "@/components/JobList";
 import { PageHero, Section } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
+import { hasOpenJobs } from "@/content/jobs";
 
 export const metadata = pageMetadata({
   title: "Startup Jobs in Engineering and Sales",
   description:
     "Open engineering and sales roles at growing startups across the US and Canada. AI/ML, backend, frontend, account executives and more.",
   path: "/jobs",
+  noindex: !hasOpenJobs, // not linked or listed while there are no jobs
 });
 
 export default function JobsPage() {

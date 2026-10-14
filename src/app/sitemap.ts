@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
-import { jobs } from "@/content/jobs";
+import { hasOpenJobs, jobs } from "@/content/jobs";
 
 // /meet is left out on purpose: it's the event QR-code page, not for search.
-const routes = ["", "/startups", "/jobs", "/roles", "/engineers", "/share-profile", "/about", "/mission", "/tech-recruiter-new-york", "/contact", "/privacy"];
+const routes = ["", "/startups", ...(hasOpenJobs ? ["/jobs"] : []), "/roles", "/engineers", "/share-profile", "/about", "/mission", "/tech-recruiter-new-york", "/contact", "/privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Real job listings only (example listings are hidden from Google)

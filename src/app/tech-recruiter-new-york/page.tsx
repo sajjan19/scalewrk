@@ -95,9 +95,11 @@ export default function NewYorkPage() {
               <Button href={bookingHref} variant="brand">
                 <CalendarIcon /> Book a call
               </Button>
-              <Button href={`/jobs?location=${encodeURIComponent(city)}`} variant="light">
-                See New York jobs <Arrow />
-              </Button>
+              {cityJobs.length > 0 && (
+                <Button href={`/jobs?location=${encodeURIComponent(city)}`} variant="light">
+                  See New York jobs <Arrow />
+                </Button>
+              )}
             </div>
           </div>
         </Container>
@@ -153,7 +155,8 @@ export default function NewYorkPage() {
         </ul>
       </Section>
 
-      {/* New York jobs */}
+      {/* New York jobs (only while there are some) */}
+      {cityJobs.length > 0 && (
       <Section className="theme-engineer">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Jobs" title="New York startups hiring now" />
@@ -161,23 +164,18 @@ export default function NewYorkPage() {
             View all jobs <Arrow />
           </Link>
         </div>
-        {cityJobs.length > 0 ? (
-          <ul className="mt-10 space-y-3">
+        <ul className="mt-10 space-y-3">
             {cityJobs.map((job) => (
               <li key={job.slug}>
                 <JobCard job={job} />
               </li>
             ))}
           </ul>
-        ) : (
-          <p className="mt-10 rounded-2xl border border-line p-6 text-body">
-            No New York jobs right now. Share your profile and we&apos;ll reach out when one fits.
-          </p>
-        )}
       </Section>
+      )}
 
-      {/* For engineers */}
-      <Section tone="mist" className="theme-engineer">
+      {/* For engineers (grey when it sits after the jobs section, white when that is hidden) */}
+      <Section tone={cityJobs.length > 0 ? "mist" : "white"} className="theme-engineer">
         <div className="grid items-center gap-8 rounded-3xl bg-white p-6 ring-1 ring-line sm:p-10 lg:grid-cols-[1fr_auto]">
           <div className="flex items-start gap-5">
             <IconBadge icon={MapPin} size="lg" />

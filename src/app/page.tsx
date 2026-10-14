@@ -21,7 +21,7 @@ import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
-import { latestJobs } from "@/content/jobs";
+import { hasOpenJobs, latestJobs } from "@/content/jobs";
 import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -327,7 +327,8 @@ export default function Home() {
         </ul>
       </Section>
 
-      {/* Latest jobs (newest 3 from src/content/jobs.ts) */}
+      {/* Latest jobs (newest 3 from src/content/jobs.ts). Hidden until there are jobs */}
+      {hasOpenJobs && (
       <Section tone="mist" className="theme-engineer">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
@@ -343,9 +344,10 @@ export default function Home() {
           ))}
         </ul>
       </Section>
+      )}
 
       {/* Testimonials (src/content/testimonials.ts) */}
-      <Testimonials />
+      <Testimonials tone={hasOpenJobs ? "white" : "mist"} />
 
       <CtaBand />
     </>

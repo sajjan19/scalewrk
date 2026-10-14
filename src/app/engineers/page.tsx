@@ -4,7 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { ProcessCards } from "@/components/ProcessCards";
 import { Arrow, Button, PageHero, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
-import { visibleJobs } from "@/content/jobs";
+import { hasOpenJobs, visibleJobs } from "@/content/jobs";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -49,9 +49,11 @@ export default function EngineersPage() {
         <Button href="/share-profile" variant="brand">
           Share your profile <Arrow />
         </Button>
-        <Button href="/jobs" variant="secondary">
-          See open jobs <Arrow />
-        </Button>
+        {hasOpenJobs && (
+          <Button href="/jobs" variant="secondary">
+            See open jobs <Arrow />
+          </Button>
+        )}
       </PageHero>
 
       {/* How it works */}
@@ -72,7 +74,8 @@ export default function EngineersPage() {
               <span className="text-[15px] leading-relaxed text-body">{item.text}</span>
             </li>
           ))}
-          {/* Shortcut to the jobs board (fills the last grid spot) */}
+          {/* Shortcut to the jobs board (fills the last grid spot, only while there are jobs) */}
+          {hasOpenJobs && (
           <li>
             <Link
               href="/jobs"
@@ -96,6 +99,7 @@ export default function EngineersPage() {
               </span>
             </Link>
           </li>
+          )}
         </ul>
       </Section>
 

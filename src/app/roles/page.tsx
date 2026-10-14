@@ -5,7 +5,7 @@ import { RoleJumpBar } from "@/components/RoleJumpBar";
 import { Arrow, CalendarIcon, Button, PageHero, Section, SectionHeading } from "@/components/ui";
 import { bookingHref } from "@/content/site";
 import { roles } from "@/content/roles";
-import { jobs, visibleJobs } from "@/content/jobs";
+import { hasOpenJobs, jobs, visibleJobs } from "@/content/jobs";
 import { IconBadge } from "@/components/visuals";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -33,7 +33,8 @@ export default function RolesPage() {
         </Button>
       </PageHero>
 
-      {/* Link to the jobs board */}
+      {/* Link to the jobs board (only while there are jobs) */}
+      {hasOpenJobs && (
       <div className="theme-engineer border-b border-line bg-mist">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p className="text-body">
@@ -44,6 +45,7 @@ export default function RolesPage() {
           </Link>
         </div>
       </div>
+      )}
 
       <Section className="!pb-0">
         <SectionHeading eyebrow="Roles we hire" title="Who we hire" intro="Every role we recruit for." />

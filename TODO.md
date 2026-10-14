@@ -85,3 +85,5 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
   - a Formspree form for partners
   The old page, its form (`PartnerType.tsx`), the Home "For partners" card, the /meet card and 2 example testimonials can be restored from git: `git show 2bd2c24:src/app/partners/page.tsx`.
 - [ ] Confirm Equall agreed to be listed under "Recent placements" on the Home page (`src/content/clients.ts`).
+- [ ] Jobs are hidden until the first real job is added: add it in `src/content/jobs.ts` with `example: false` and every jobs section and link comes back automatically.
+

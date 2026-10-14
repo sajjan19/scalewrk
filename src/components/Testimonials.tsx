@@ -4,11 +4,11 @@ import { TestimonialCarousel } from "./TestimonialCarousel";
 import { visibleTestimonials } from "@/content/testimonials";
 
 // Testimonials on the Home page. Hidden when there are none.
-export function Testimonials() {
+export function Testimonials({ tone = "white" }: { tone?: "white" | "mist" }) {
   if (visibleTestimonials.length === 0) return null;
   const hasExamples = visibleTestimonials.some((t) => t.example);
   return (
-    <Section>
+    <Section tone={tone}>
       <SectionHeading eyebrow="Testimonials" title="What founders and candidates say" />
       {hasExamples && (
         <p className="mt-4 w-fit rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-900 ring-1 ring-amber-200">
