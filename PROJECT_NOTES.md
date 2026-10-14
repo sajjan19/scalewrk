@@ -263,4 +263,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** For Startups hero intro: "From your first engineer to your first sales team, we run the search so you can run the company."
 - **2026-10-14:** Contact "what to bring" cards now have a small label on top: "For startups" (blue) and "For candidates" (purple, person icon instead of code icon).
 - **2026-10-14:** Every `</>` (Code2) icon swapped for a person icon (UserRound): Home "What we do" candidates card, About "Focus" fact, Meet page. Audience labels capitalized to match the menu: "For Startups" / "For Candidates".
+- **2026-10-14:** Contact card intros: "What helps us get started:" (startups) and "What helps us find your fit:" (candidates).
 

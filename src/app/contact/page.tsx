@@ -37,7 +37,7 @@ export default function ContactPage() {
                 theme: "theme-startup",
                 audience: "For Startups",
                 title: "Hiring engineers or sales?",
-                intro: "Bring what you have, even if it's just one role:",
+                intro: "What helps us get started:",
                 points: [
                   "The roles you need and how senior",
                   "What you're building and who you sell to",
@@ -51,7 +51,7 @@ export default function ContactPage() {
                 theme: "theme-engineer",
                 audience: "For Candidates",
                 title: "Looking for your next role?",
-                intro: "Have these handy:",
+                intro: "What helps us find your fit:",
                 points: [
                   "Your LinkedIn or resume",
                   "Your main role and key skills",
