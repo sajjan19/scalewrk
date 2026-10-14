@@ -180,6 +180,8 @@ export function HeroNetwork() {
 
       {/* Scalewrk in the middle (moves the most) */}
       <div className="net-layer absolute inset-0" style={layer(depth.center)}>
+      {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
+      <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
       <span className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]">
         <LogoMark className="h-16 w-auto sm:h-20" />
       </span>

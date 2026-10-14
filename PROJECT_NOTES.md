@@ -285,4 +285,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Hero illustration: spots at different distances with small angle nudges (lines of different lengths), a tilted oval orbit instead of a circle, and the stars back to tiny dots in a few sizes (still twinkling purple/blue).
 - **2026-10-14:** Hero illustration has an Apple TV-style hover: it tilts in 3D toward the mouse and its layers shift by different amounts (glow, lines, pills, the S). Off for reduced motion; no effect on touch screens.
 - **2026-10-14:** Hero illustration: removed the white rounded tile behind the S; the S logo floats on its own with a soft glow, and lines/pulses start a little away from the middle (`GAP`) so they don't run under it.
+- **2026-10-14:** Hero illustration: a soft white circle behind the S that fades into the background, so the S blends in.
 
