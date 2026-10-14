@@ -134,16 +134,11 @@ export default function Home() {
               <Button href={bookingHref} variant="brand">
                 <CalendarIcon /> Book a call
               </Button>
-              <Button href="/startups" variant="secondary">
-                How we work
+              {/* One button per audience: startups book a call, candidates go to For Candidates */}
+              <Button href="/engineers" variant="secondary">
+                Find your next role <Arrow />
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">
-              Looking for a job?{" "}
-              <Link href="/engineers" className="theme-engineer inline-flex items-center gap-1.5 nudge font-medium text-brand hover:text-brand-dark">
-                See how we help candidates <Arrow />
-              </Link>
-            </p>
           </div>
 
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
