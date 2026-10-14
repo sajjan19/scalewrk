@@ -88,6 +88,7 @@ export function ClientsSection() {
 
 // One "Recent placements" card: icon, name and role. Opens their site in a new tab when `url` is set.
 function ClientCard({ client }: { client: Client }) {
+  const tags = [client.stage, client.industry, client.location].filter((t): t is string => Boolean(t));
   const inner = (
     <>
       {client.logo && <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />}
@@ -97,6 +98,16 @@ function ClientCard({ client }: { client: Client }) {
         </span>
         {/* The role we filled there */}
         {client.role && <span className="block text-sm text-muted">{client.role}</span>}
+        {/* Stage, industry and location tags */}
+        {tags.length > 0 && (
+          <span className="mt-2 flex flex-wrap gap-1.5">
+            {tags.map((t) => (
+              <span key={t} className="rounded-full bg-mist px-2.5 py-0.5 text-xs font-medium text-body">
+                <Text>{t}</Text>
+              </span>
+            ))}
+          </span>
+        )}
       </span>
     </>
   );

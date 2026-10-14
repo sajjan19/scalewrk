@@ -13,10 +13,27 @@
 
 // `role`: the role we filled there, shown under the name.
 // `url`: their website. The card links there in a new tab.
-export type Client = { name: string; role?: string; logo?: string; url?: string };
+// `stage`, `industry`, `location`: small tags under the role. Use [square brackets] for anything not confirmed yet.
+export type Client = {
+  name: string;
+  role?: string;
+  logo?: string;
+  url?: string;
+  stage?: string;
+  industry?: string;
+  location?: string;
+};
 
 export const showClients = true;
 
 export const clients: Client[] = [
-  { name: "Equall", role: "Founding Engineer", logo: "/clients/equall.png", url: "https://equall.com/" },
+  {
+    name: "Equall",
+    role: "Founding Engineer",
+    logo: "/clients/equall.png",
+    url: "https://equall.com/",
+    stage: "Seed",
+    industry: "Legal AI / LegalTech",
+    location: "[Location]", // PLACEHOLDER: e.g. "New York" or "Remote"
+  },
 ];
