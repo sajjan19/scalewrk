@@ -52,14 +52,6 @@ const whatWeDo = [
     href: "/engineers",
     link: "How we work with engineers",
   },
-  {
-    icon: Handshake,
-    audience: "For partners",
-    title: "We help your founders hire",
-    body: ["Send us founders who are hiring", "We help them hire great engineers", "Founders only pay when they hire"],
-    href: "/partners",
-    link: "How we work with partners",
-  },
 ];
 
 const steps = [
@@ -191,7 +183,7 @@ export default function Home() {
       {/* What we do */}
       <Section tone="mist">
         <SectionHeading eyebrow="What we do" title="We bring startups and engineers together" />
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
           {whatWeDo.map((item) => (
             <Link
               key={item.title}

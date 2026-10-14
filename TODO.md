@@ -12,7 +12,6 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 - [ ] **Calendly link**: create the intro-call event, then paste its link into `src/content/site.ts` → `calendlyUrl`. Until then, Contact and /meet show an amber box with an "Email us to book" link.
 - [ ] **Formspree: Contact form**: create the form at formspree.io, send it to info@scalewrk.ai, and paste the URL into `site.ts` → `forms.contact`.
-- [ ] **Formspree: Partners form**: same steps, `forms.partners`.
 - [ ] **Formspree: Testimonials form**: same steps, `forms.testimonials`.
 - [ ] **Formspree: Engineers form**: same steps, `forms.engineers`. See "Resume uploads" below.
 - [ ] **LinkedIn company page URL**: `site.ts` → `social.linkedin`. Used in the footer and on /meet.
@@ -46,11 +45,8 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 ## Decisions
 
 - [ ] **Resume uploads**: Formspree only accepts files on paid plans (Personal or higher). Upgrade, switch the Engineers form to a free attachment service (ask Claude), or set `resumeUpload: false` in `site.ts` to hide the upload field.
-- [ ] **Partner referral incentive**: do we offer a referral fee or anything in return? (The Partners page doesn't mention one yet.)
 - [ ] **Promises in the copy**: keep or soften each one:
-  - "We reply within one business day" (Contact and Partners pages)
-  - "Hiring office hours or talks" offered to partners (Partners page)
-  - "Punit or Mandeep works with you from the first call to the signed offer" / "Every search run by Punit or Mandeep" (Home, Startups, Partners, New York)
+  - "Punit or Mandeep works with you from the first call to the signed offer" / "Every search run by Punit or Mandeep" (Home, Startups, New York)
 
 ## Company logos (founders' experience strip)
 
@@ -86,3 +82,11 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
 - [x] Team titles decided: Punit "Founder & Principal Recruiter", Mandeep "Founding Recruiter"
 - [ ] Approve the mission and vision wording with Punit (`src/app/mission/page.tsx`)
+
+## Future
+
+- [ ] **Bring back a Partners page** (referrals from VCs, accelerators, startup lawyers, fractional CFOs). Removed on 2026-10-14 to keep the site to two audiences (startups and engineers). Bring it back once referrals are a real channel. Decide first:
+  - the referral thank-you or fee
+  - whether to offer partners hiring talks or office hours
+  - a Formspree form for partners
+  The old page, its form (`PartnerType.tsx`), the Home "For partners" card, the /meet card and 2 example testimonials can be restored from git: `git show 2bd2c24:src/app/partners/page.tsx`.

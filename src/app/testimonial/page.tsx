@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 /*
-  /testimonial: the page you send to happy clients, engineers and partners.
+  /testimonial: the page you send to happy clients and engineers.
   Not in the menu or sitemap. Approved quotes go in src/content/testimonials.ts.
 */
 export const metadata = pageMetadata({
@@ -43,7 +43,7 @@ export default function TestimonialPage() {
               label="I'm a"
               name="type"
               required
-              options={["Founder or hiring manager", "Engineer we placed", "Partner (VC, accelerator, lawyer or CFO)", "Other"]}
+              options={["Founder or hiring manager", "Engineer we placed", "Other"]}
             />
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Name" name="name" required autoComplete="name" />

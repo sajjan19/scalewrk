@@ -71,6 +71,13 @@ export default function ContactPage() {
                 {site.phone}
               </a>
             </div>
+            <p className="mt-8 text-body">
+              Know a founder who&apos;s hiring? Introduce us at{" "}
+              <a href={`mailto:${site.email}`} className="font-medium text-brand hover:text-brand-dark">
+                {site.email}
+              </a>
+              .
+            </p>
           </div>
           <div className="rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
             <Form

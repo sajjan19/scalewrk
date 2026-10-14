@@ -70,12 +70,8 @@ export default function MeetPage() {
           <CalendlyEmbed height={680} />
         </div>
 
-        <div className="mt-10 grid gap-3 text-[15px] sm:grid-cols-2">
-          <Link href="/partners" className="lift rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
-            <span className="font-medium">Investor, lawyer, or CFO?</span>
-            <span className="flex items-center gap-1.5 text-body">Refer your founders <Arrow /></span>
-          </Link>
-          <Link href="/engineers" className="lift rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
+        <div className="mt-10 text-[15px]">
+          <Link href="/share-profile" className="lift block rounded-xl bg-mist p-4 hover:bg-white hover:ring-1 hover:ring-brand/30">
             <span className="font-medium">Engineer?</span>
             <span className="flex items-center gap-1.5 text-body">Share your profile <Arrow /></span>
           </Link>

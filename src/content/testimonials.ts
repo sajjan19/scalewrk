@@ -15,7 +15,7 @@ export type Testimonial = {
   name: string;
   title: string;
   company: string;
-  type: "Founder" | "Engineer" | "Partner";
+  type: "Founder" | "Engineer";
   photo?: string; // optional, e.g. "/testimonials/jane.jpg" in /public/testimonials/
   example: boolean;
 };
@@ -43,15 +43,6 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We send our portfolio founders to Scalewrk for engineering hires. They treat every intro like a long-term relationship.",
-    name: "[Partner name]",
-    title: "Platform Lead",
-    company: "[Venture firm]",
-    type: "Partner",
-    example: true,
-  },
-  {
-    quote:
       "Every candidate on the shortlist could have joined our team. No time wasted on people who weren't a fit.",
     name: "[Founder name]",
     title: "CTO",
@@ -66,15 +57,6 @@ export const testimonials: Testimonial[] = [
     title: "Machine Learning Engineer",
     company: "Company D (Series B)",
     type: "Engineer",
-    example: true,
-  },
-  {
-    quote:
-      "My clients need to hire fast without blowing their budget. Fee per hire with no retainer makes Scalewrk an easy recommendation.",
-    name: "[Partner name]",
-    title: "Fractional CFO",
-    company: "[Advisory firm]",
-    type: "Partner",
     example: true,
   },
 ];

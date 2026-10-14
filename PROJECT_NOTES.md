@@ -234,3 +234,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-12:** Comparison intro is now "Your three hiring options at a glance."
 - **2026-10-12:** Comparison table has vertical lines between the columns (In-house only, Big agency, Scalewrk).
 - **2026-10-12:** Phone menu: while it is open the page behind can't scroll; the menu itself scrolls (fills the screen under the header). The phone "Book a call" bar hides while the menu is open.
+- **2026-10-14:** Dropped the Partners audience for now (user's decision: stick to For Startups and For Engineers). Removed `/partners` (page, share image, `PartnerType.tsx`, `forms.partners`), the menu/footer/sitemap links, the Home "For partners" card (What we do is now 2 cards), the /meet partner card (its engineer card now goes to /share-profile), the 2 example partner testimonials and the "Partner" testimonial type. Contact now says "Know a founder who's hiring? Introduce us at info@scalewrk.ai." Restore from commit 2bd2c24 if needed (see TODO "Future").
+
