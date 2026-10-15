@@ -289,4 +289,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Hero illustration: macOS Dock-style magnify. Pills and the S grow as the mouse gets close (closest grows most, up to 45%, reach 140px), easing back on leave. Works with the tilt; off for reduced motion.
 - **2026-10-14:** Hero illustration: gentler magnify (up to 18%). Pills now: Full-Stack Engineer (top), AI Engineer, Founding AE, SDR; stages Seed, Series A, Series B, Series E.
 - **2026-10-15:** Menu: a group with only one page shows as a plain link. "For Startups" (only How we work while Roles is hidden) is now a direct link to /startups, still blue. It turns back into a dropdown automatically when the Roles page comes back.
+- **2026-10-15:** Mobile polish for the Home page: sections use less vertical space on phones (py-12, all pages), the hero headline scales with screen width so "Built to Scale." and "Powered by Talent." each stay on one line, tighter hero spacing, a slightly smaller illustration, and tighter card padding on phones.
+- **2026-10-15:** On phones, the numbered process cards (Home, For Startups, For Candidates) and the Home "Why Scalewrk" cards are swipeable rows (about 80% wide so the next card peeks in) instead of a tall stack. Desktop is unchanged.
+- **2026-10-15:** Home hero buttons sit side by side on phones too (sharing the width); the candidate button reads "Find a role" on phones and "Find your next role" on bigger screens.
 

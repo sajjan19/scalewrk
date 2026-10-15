@@ -6,11 +6,14 @@ export type ProcessStep = { icon: LucideIcon; title: string; body: string[] };
   Numbered process cards joined by lines (Home "How it works" and For Startups "How a search works").
   - `cols`: cards per row on desktop (3 or 4). Tablets always show 2 per row.
   - `ongoingLast`: tint the last card and tag it "Ongoing".
+  - Phones: a swipeable row (each card about 80% wide, so the next one peeks in).
 */
 export function ProcessCards({ steps, cols = 3, ongoingLast = false }: { steps: ProcessStep[]; cols?: 3 | 4; ongoingLast?: boolean }) {
   const grid = cols === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3";
   return (
-    <ol className={`grid gap-4 md:grid-cols-2 md:gap-x-10 ${grid}`}>
+    <ol
+      className={`no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:scroll-px-8 sm:px-8 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:gap-x-10 md:overflow-visible md:px-0 md:pb-0 ${grid}`}
+    >
       {steps.map((step, i) => {
         const last = i === steps.length - 1;
         const ongoing = ongoingLast && last;
@@ -20,7 +23,7 @@ export function ProcessCards({ steps, cols = 3, ongoingLast = false }: { steps: 
         return (
           <li
             key={step.title}
-            className={`relative rounded-2xl border p-6 transition hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)] ${
+            className={`relative w-[82%] shrink-0 snap-start rounded-2xl border p-5 transition sm:w-[60%] sm:p-6 md:w-auto hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.35)] ${
               ongoing ? "border-brand/20 bg-brand-soft/60" : "border-line bg-white hover:border-brand/30"
             }`}
           >

@@ -115,32 +115,34 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
         />
-        <Container className="relative grid items-center gap-12 pt-12 pb-16 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
+        <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
-            {/* One sentence per line; on tablets and up each line never wraps */}
-            <h1 className="mt-6 text-[2.75rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl">
-              <span className="block sm:whitespace-nowrap">
+            {/* One sentence per line, never wrapping (the size shrinks on small phones so it fits) */}
+            <h1 className="mt-5 text-[clamp(1.75rem,9vw,2.75rem)] leading-[1.08] font-semibold tracking-tight sm:mt-6 sm:text-6xl">
+              <span className="block whitespace-nowrap">
                 Built to <span className="text-gradient">Scale</span>.
               </span>
-              <span className="block sm:whitespace-nowrap">
+              <span className="block whitespace-nowrap">
                 Powered by <span className="text-gradient">Talent</span>.
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={bookingHref} variant="brand">
+            {/* One button per audience: startups book a call, candidates go to For Candidates.
+                Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
+            <div className="mt-7 flex gap-2 sm:mt-8 sm:gap-3">
+              <Button href={bookingHref} variant="brand" className="flex-1 sm:flex-none">
                 <CalendarIcon /> Book a call
               </Button>
-              {/* One button per audience: startups book a call, candidates go to For Candidates */}
-              <Button href="/engineers" variant="secondary">
-                Find your next role <Arrow />
+              <Button href="/engineers" variant="secondary" className="flex-1 sm:flex-none">
+                <span className="sm:hidden">Find a role</span>
+                <span className="hidden sm:inline">Find your next role</span> <Arrow />
               </Button>
             </div>
           </div>
@@ -199,7 +201,7 @@ export default function Home() {
             <Link
               key={item.title}
               href={item.href}
-              className={`lift group flex flex-col rounded-2xl border border-line bg-white p-6 hover:border-brand/30 sm:p-8 ${item.theme}`}
+              className={`lift group flex flex-col rounded-2xl border border-line bg-white p-5 hover:border-brand/30 sm:p-8 ${item.theme}`}
             >
               <div className="flex items-center gap-4">
                 <IconBadge icon={item.icon} size="lg" />
@@ -260,9 +262,10 @@ export default function Home() {
             See how we compare <Arrow />
           </Link>
         </div>
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        {/* Phones and tablets: swipeable row. Desktop: 3 across */}
+        <div className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:mt-12 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
           {reasons.map((r) => (
-            <div key={r.title} className="flex flex-col rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
+            <div key={r.title} className="flex w-[82%] shrink-0 snap-start flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:w-[60%] sm:p-8 lg:w-auto">
               <div className="flex items-center gap-4">
                 <IconBadge icon={r.icon} size="lg" />
                 <p className="text-xl leading-tight font-semibold tracking-tight">{r.title}</p>

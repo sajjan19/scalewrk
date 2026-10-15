@@ -94,7 +94,7 @@ export function HeroNetwork() {
       ref={box}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="net-tilt relative mx-auto aspect-square w-full max-w-xs sm:max-w-md lg:mx-0 lg:justify-self-end"
+      className="net-tilt relative mx-auto aspect-square w-full max-w-[300px] sm:max-w-md lg:mx-0 lg:justify-self-end"
       aria-hidden="true"
     >
       {/* Soft glow behind the middle */}
