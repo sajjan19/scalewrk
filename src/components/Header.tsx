@@ -48,7 +48,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`rise relative rounded-lg px-3 py-2 text-[15px] ${
+                className={`rise relative rounded-lg px-3 py-2 text-[15px] ${item.theme ?? ""} ${
                   active ? "font-medium text-brand" : "text-body hover:text-brand"
                 }`}
               >

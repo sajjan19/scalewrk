@@ -69,7 +69,7 @@ export type NavItem = {
   children?: { href: string; label: string }[];
 };
 
-export const nav: NavItem[] = [
+const navItems: NavItem[] = [
   {
     href: "/startups",
     label: "For Startups",
@@ -99,5 +99,10 @@ export const nav: NavItem[] = [
     ],
   },
 ];
+
+// A group with only one page left (e.g. For Startups while Roles is hidden) shows as a plain link, no dropdown
+export const nav: NavItem[] = navItems.map((item) =>
+  item.children && item.children.length <= 1 ? { ...item, children: undefined } : item,
+);
 
 export const bookingHref = "/contact#book";

@@ -288,4 +288,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Hero illustration: a soft white circle behind the S that fades into the background, so the S blends in.
 - **2026-10-14:** Hero illustration: macOS Dock-style magnify. Pills and the S grow as the mouse gets close (closest grows most, up to 45%, reach 140px), easing back on leave. Works with the tilt; off for reduced motion.
 - **2026-10-14:** Hero illustration: gentler magnify (up to 18%). Pills now: Full-Stack Engineer (top), AI Engineer, Founding AE, SDR; stages Seed, Series A, Series B, Series E.
+- **2026-10-15:** Menu: a group with only one page shows as a plain link. "For Startups" (only How we work while Roles is hidden) is now a direct link to /startups, still blue. It turns back into a dropdown automatically when the Roles page comes back.
 
