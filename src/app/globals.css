@@ -290,7 +290,14 @@ body[data-menu="open"] .mobile-book-bar {
 .net-layer {
   transition: transform 0.25s ease-out;
 }
+/* macOS Dock-style magnify on the hero pills and the S (HeroNetwork.tsx sets `scale`) */
+.net-magnify {
+  transition: scale 0.18s ease-out;
+}
 @media (prefers-reduced-motion: reduce) {
+  .net-magnify {
+    scale: 1 !important;
+  }
   .net-tilt,
   .net-layer {
     transform: none !important;
