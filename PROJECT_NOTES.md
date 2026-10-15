@@ -287,4 +287,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-14:** Hero illustration: removed the white rounded tile behind the S; the S logo floats on its own with a soft glow, and lines/pulses start a little away from the middle (`GAP`) so they don't run under it.
 - **2026-10-14:** Hero illustration: a soft white circle behind the S that fades into the background, so the S blends in.
 - **2026-10-14:** Hero illustration: macOS Dock-style magnify. Pills and the S grow as the mouse gets close (closest grows most, up to 45%, reach 140px), easing back on leave. Works with the tilt; off for reduced motion.
+- **2026-10-14:** Hero illustration: gentler magnify (up to 18%). Pills now: Full-Stack Engineer (top), AI Engineer, Founding AE, SDR; stages Seed, Series A, Series B, Series E.
 

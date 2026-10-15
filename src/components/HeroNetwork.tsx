@@ -24,8 +24,9 @@ const PURPLE = "#7a2ff5";
 const BLUE = "#0d6efd";
 
 // Candidates sit top/right/bottom/left, startups on the diagonals
-const candidateRoles = ["AI Engineer", "Backend", "Founding AE", "SDR"];
-const startupStages = ["Seed", "Series A", "Series B", "Series C+"];
+// The long "Full-Stack Engineer" sits at the top so it never runs off the edge on phones
+const candidateRoles = ["Full-Stack Engineer", "AI Engineer", "Founding AE", "SDR"];
+const startupStages = ["Seed", "Series A", "Series B", "Series E"];
 
 // Each spot gets its own distance and a small angle nudge, so the layout feels organic, not a perfect circle
 const radii = [38, 27, 33, 34, 32, 25, 35, 30];
@@ -54,7 +55,7 @@ const dots: [number, number, number][] = [
 ];
 
 // Dock-style magnify: how much the closest item grows, and how far (px) the effect reaches
-const MAGNIFY = 0.45;
+const MAGNIFY = 0.18;
 const REACH = 140;
 
 // How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
