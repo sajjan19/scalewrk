@@ -1,12 +1,12 @@
 import { Container } from "./ui";
 import { CountUp } from "./CountUp";
-import { stats } from "@/content/stats";
+import { showExampleStats, stats } from "@/content/stats";
 
 // "By the numbers" on the Home page. Numbers live in src/content/stats.ts.
-// Live site: only the stats that have a real value. Local preview: all of them, empty ones with an "Example" number.
+// Stats without a real value show their example number (tagged "Example") while showExampleStats is on.
 export function StatsSection() {
   const filled = stats.filter((s) => s.value);
-  const preview = process.env.NODE_ENV === "development";
+  const preview = showExampleStats || process.env.NODE_ENV === "development";
   const shown = preview ? stats : filled;
   if (shown.length === 0) return null;
   return (
@@ -15,7 +15,7 @@ export function StatsSection() {
         <p className="text-center text-xs font-semibold tracking-[0.14em] text-muted uppercase">By the numbers</p>
         {preview && filled.length < stats.length && (
           <p className="mx-auto mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-center text-xs font-medium text-amber-900 ring-1 ring-amber-200">
-            Example numbers (preview only). Only real numbers show on the live site (src/content/stats.ts)
+            Placeholder: these are example numbers, not real results yet
           </p>
         )}
         <dl className={`mt-8 grid grid-cols-2 gap-x-4 gap-y-8 text-center ${shown.length >= 4 ? "lg:grid-cols-4" : shown.length === 3 ? "lg:grid-cols-3" : ""}`}>

@@ -54,7 +54,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Results numbers (Home "By the numbers")
 
-- [ ] Fill in real numbers in `src/content/stats.ts` once you have them (placements made, average days to signed offer, % still in role after a year, % of shortlisted candidates who get an offer). Each one shows on the live site as soon as it has a value.
+- [ ] Fill in real numbers in `src/content/stats.ts` once you have them (placements made, average days to signed offer, % still in role after a year, % of shortlisted candidates who get an offer). Each one shows on the live site as soon as it has a value. Right now the live site shows EXAMPLE numbers (tagged "Example"); replace them or set `showExampleStats = false`.
 
 ## Clients
 
