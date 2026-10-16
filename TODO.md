@@ -52,6 +52,10 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] After each placement, send the client and engineer `https://scalewrk.ai/testimonial`
 - [ ] Replace the 6 example quotes in `src/content/testimonials.ts` with approved real ones (set `example: false`), or set `showExampleTestimonials = false`
 
+## Results numbers (Home "By the numbers")
+
+- [ ] Fill in real numbers in `src/content/stats.ts` once you have them (placements made, average days to signed offer, % still in role after a year, % of shortlisted candidates who get an offer). Each one shows on the live site as soon as it has a value.
+
 ## Clients
 
 - [ ] When you have clients who agree to be listed: replace `[Client 1]`… in `src/content/clients.ts` with real names (optional logo in `public/clients/`). The placeholder note disappears automatically

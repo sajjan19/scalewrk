@@ -12,6 +12,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
+import { StatsSection } from "@/components/StatsSection";
 import { CtaBand } from "@/components/CtaBand";
 import { HeroNetwork } from "@/components/HeroNetwork";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
@@ -239,6 +240,8 @@ export default function Home() {
 
       {/* Clients, once real */}
       <ClientsSection />
+      {/* Results numbers (src/content/stats.ts). Hidden on the live site until real numbers are filled in */}
+      <StatsSection />
 
       {/* How it works */}
       <Section tone="mist" className="theme-startup">
