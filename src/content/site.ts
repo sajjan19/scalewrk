@@ -98,6 +98,7 @@ const navItems: NavItem[] = [
       { href: "/mission", label: "Mission & Vision" },
     ],
   },
+  { href: "/contact", label: "Contact" },
 ];
 
 // A group with only one page left (e.g. For Startups while Roles is hidden) shows as a plain link, no dropdown

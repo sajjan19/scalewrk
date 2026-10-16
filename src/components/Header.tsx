@@ -83,7 +83,7 @@ export function Header() {
           className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-line bg-white px-5 pb-6 lg:hidden"
         >
           <ul className="divide-y divide-line">
-            {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item: NavItem) => {
+            {[{ href: "/", label: "Home" }, ...nav].map((item: NavItem) => {
               // An item with sub-pages (About) is a label with its links underneath
               const links = item.children ?? [{ href: item.href, label: item.label }];
               return (
