@@ -12,7 +12,7 @@ export function StatsSection() {
   return (
     <section className="border-b border-line py-12 sm:py-16">
       <Container>
-        <p className="text-center text-xs font-semibold tracking-[0.14em] text-muted uppercase">By the numbers</p>
+        <p className="text-center text-sm font-medium text-brand">By the numbers</p>
         {preview && filled.length < stats.length && (
           <p className="mx-auto mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-center text-xs font-medium text-amber-900 ring-1 ring-amber-200">
             Placeholder: these are example numbers, not real results yet

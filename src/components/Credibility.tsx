@@ -16,7 +16,7 @@ export function FounderExperienceStrip({ className = "" }: { className?: string 
     <section className={`border-b border-line py-6 sm:py-8 ${className}`}>
       {/* Small label centered above the logos, so they don't read as clients */}
       <Container>
-        <p className="text-center text-xs font-semibold tracking-[0.14em] text-muted uppercase">Where our team has recruited</p>
+        <p className="text-center text-sm font-medium text-brand">Where our team has recruited</p>
         {/* Screen readers get the plain list once; the moving logos are just for show */}
         <ul className="sr-only">
           {companies.map((c) => (
@@ -69,7 +69,7 @@ export function ClientsSection() {
     <section className="tone-white py-12 sm:py-16">
       {/* Same small label as the logo strip, centered above the cards */}
       <Container>
-        <p className="text-center text-xs font-semibold tracking-[0.14em] text-muted uppercase">Recent placements</p>
+        <p className="text-center text-sm font-medium text-brand">Recent placements</p>
         {clients.some((c) => c.name.startsWith("[")) && (
           <p className="mx-auto mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-center text-xs font-medium text-amber-900 ring-1 ring-amber-200">
             Placeholder: client names coming soon

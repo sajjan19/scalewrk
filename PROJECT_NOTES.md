@@ -371,3 +371,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Carousel arrows and dots (testimonials and swipe rows) now glide with a custom ease-in-out scroll (~0.55s, src/lib/glide.ts) instead of the browser's smooth scroll; snapping pauses during the glide.
 - Home order is now: Hero, logo strip, By the numbers (hidden live until real), Recent placements, What we do (grey), How it works (white), Why Scalewrk (grey), Our team (white), Testimonials (grey), CTA.
 - By the numbers is now live with the example numbers, each tagged "Example" plus a note "Placeholder: these are example numbers, not real results yet" (showExampleStats = true in stats.ts). Replace with real values or set the flag to false.
+- Section labels made consistent: "Where our team has recruited", "By the numbers" and "Recent placements" now use the same purple label style as other sections (e.g. "What we do"), centered.
