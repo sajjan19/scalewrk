@@ -19,6 +19,9 @@ export function ScrollReveal() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const items = [...document.querySelectorAll<HTMLElement>(SELECTOR)];
+    // What to watch for each item: usually the item itself. Cards inside a sideways-swiping row
+    // (phones) watch the row instead, so they all come in together and swiping doesn't replay them.
+    const groups = new Map<Element, HTMLElement[]>();
 
     items.forEach((el) => {
       // Cards in a grid or row come in one after another (small delay by position, capped)
@@ -26,26 +29,31 @@ export function ScrollReveal() {
       const inRow = parent && !parent.classList.contains("reveal-group");
       const index = inRow ? [...parent.children].indexOf(el) : 0;
       el.style.setProperty("--reveal-delay", `${Math.min(index, 4) * 90}ms`);
+      // A swiping row cuts off anything that moves outside it, so those cards only fade (no rise)
+      const swipeRow = inRow && getComputedStyle(parent).overflowX !== "visible";
       el.classList.add("reveal");
+      if (swipeRow) el.classList.add("reveal-fade");
+      const target = swipeRow ? parent : el;
+      groups.set(target, [...(groups.get(target) ?? []), el]);
     });
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const el = entry.target as HTMLElement;
-          if (entry.isIntersecting) el.classList.add("is-visible");
+          const els = groups.get(entry.target) ?? [];
+          if (entry.isIntersecting) els.forEach((el) => el.classList.add("is-visible"));
           // Reset only once it's back below the screen, so it plays again on the way down
-          else if (entry.boundingClientRect.top > 0) el.classList.remove("is-visible");
+          else if (entry.boundingClientRect.top > 0) els.forEach((el) => el.classList.remove("is-visible"));
         });
       },
       { rootMargin: "0px 0px -10% 0px" },
     );
-    items.forEach((el) => observer.observe(el));
+    groups.forEach((_, target) => observer.observe(target));
 
     return () => {
       observer.disconnect();
       items.forEach((el) => {
-        el.classList.remove("reveal", "is-visible");
+        el.classList.remove("reveal", "reveal-fade", "is-visible");
         el.style.removeProperty("--reveal-delay");
       });
     };

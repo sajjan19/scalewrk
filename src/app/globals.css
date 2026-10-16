@@ -332,6 +332,10 @@ body[data-menu="open"] .mobile-book-bar {
   opacity: 1;
   translate: 0 0;
 }
+/* Cards in a sideways-swiping row (phones) only fade: the row would cut off the rise */
+.reveal-fade {
+  translate: none;
+}
 
 /* Phone menu (Header.tsx), like apple.com: the sheet drops down from the header,
    then each link fades in and slides down a little, one after another */
