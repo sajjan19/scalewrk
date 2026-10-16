@@ -356,3 +356,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Star trail removed; hero illustration back to its tilt and Dock magnify hover.
 - New city pages: `/tech-recruiter-san-francisco` (same Pacific time zone angle) and `/tech-recruiter-vancouver` (home city, can meet in person, hiring across Canada and the US). All three city pages now share `CityPage.tsx`; each page only holds its own copy. Linked in the footer and sitemap, each has its own OG image. SF and Vancouver have no hero photo yet (dark brand background).
 - City page photos: San Francisco = Golden Gate Bridge by Maarten van den Heuvel, Vancouver = downtown and False Creek by Adrian Yu (both Unsplash License, credited in the hero corner). Files in public/places/.
+- City pages: photo credit in the hero corner removed (Unsplash License does not require it); photographer names stay in the code.

@@ -20,6 +20,7 @@ export type CityPageProps = {
   city: string; // "New York"
   jobsLocation: string; // the location as written in jobs.ts, e.g. "New York, NY"
   intro: string;
+  // credit and creditUrl are kept for our records only (the Unsplash License does not require showing them)
   photo?: { src: StaticImageData; alt: string; credit: string; creditUrl: string; position?: string };
   help: { icon: LucideIcon; title: string; body: string[] }[];
   engineerTitle: string;
@@ -73,16 +74,6 @@ export function CityPage({ city, jobsLocation, intro, photo, help, engineerTitle
             </div>
           </div>
         </Container>
-        {photo && (
-          <a
-            href={photo.creditUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute right-3 bottom-2 text-[11px] text-white/60 hover:text-white"
-          >
-            Photo: {photo.credit} / Unsplash
-          </a>
-        )}
       </section>
 
       {/* How we help */}
