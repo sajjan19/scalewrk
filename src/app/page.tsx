@@ -76,7 +76,7 @@ const reasons = [
     icon: UserCheck,
     title: "The same people on every search",
     body: ["Punit or Mandeep runs every search", "With you from the first call to the signed offer"],
-    versus: "At big agencies, a junior recruiter often does the work.",
+    versus: "Big agencies often pass you to a junior.",
   },
   {
     icon: HeartHandshake,
