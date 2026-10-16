@@ -9,9 +9,9 @@ import { useEffect, useRef } from "react";
   Drawn on a canvas behind the hero text. Mouse only; off for people who turn off motion.
   It only draws while something is moving, so it costs nothing when the mouse is still.
 */
-const GAP = 18; // distance between dots (px)
-const TAIL = 14; // points in the tail that follows the mouse
-const GLOW = 2600; // how wide the glow around the tail is (bigger = wider)
+const GAP = 28; // distance between dots (px): bigger = fewer stars
+const TAIL = 10; // points in the tail that follows the mouse
+const GLOW = 1600; // how wide the glow around the tail is (bigger = wider)
 const RING_SPEED = 260; // px per second
 const RING_LIFE = 1.3; // seconds
 const RING_WIDTH = 26;
@@ -74,7 +74,7 @@ export function HeroStarTrail() {
         for (let i = 0; i < TAIL; i++) tail.push({ x, y });
         lastRing = { x, y };
       }
-      if (Math.hypot(x - lastRing.x, y - lastRing.y) > 60) {
+      if (Math.hypot(x - lastRing.x, y - lastRing.y) > 120) {
         rings.push({ x, y, born: performance.now() / 1000 });
         lastRing = { x, y };
         if (rings.length > 12) rings.shift();
@@ -140,7 +140,7 @@ export function HeroStarTrail() {
             rings.forEach((r) => {
               const age = now - r.born;
               const off = Math.abs(Math.hypot(x - r.x, y - r.y) - age * RING_SPEED);
-              if (off < RING_WIDTH) light += (1 - off / RING_WIDTH) * (1 - age / RING_LIFE) * 0.45;
+              if (off < RING_WIDTH) light += (1 - off / RING_WIDTH) * (1 - age / RING_LIFE) * 0.3;
             });
             if (light < 0.06) continue;
             light = Math.min(light, 1);
