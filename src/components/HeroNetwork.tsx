@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import type { MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
@@ -11,8 +11,6 @@ import { LogoMark } from "./Logo";
   - Startup lines carry blue pulses into the S.
   - Tiny dots around it twinkle, alternating purple and blue.
   - Spots sit at different distances from the S, so it does not look like a perfect circle.
-  - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
-    different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - Apple TV-style focus: the pill (or the S) under the mouse lifts, grows, tilts toward it and gets a shine.
   Purely decorative, no claims. All motion is off for people who turn off motion.
   Hidden on phones: the pills crowd at that size and the hover effects need a mouse.
@@ -55,9 +53,6 @@ const dots: [number, number, number][] = [
   [95, 46, 0.4], [5, 44, 0.6], [22, 70, 0.35], [80, 28, 0.45], [58, 4, 0.4], [40, 92, 0.6],
 ];
 
-// How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
-const depth = { glow: 4, lines: 8, pills: 16, center: 24 };
-const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
 
 // Apple TV-style focus on one pill (or the S): it lifts, grows, tilts toward the mouse
 // and a soft shine follows the pointer. Styles are .net-focus / .is-focused in globals.css.
@@ -80,35 +75,15 @@ function focusLeave(e: MouseEvent<HTMLElement>) {
 }
 
 export function HeroNetwork() {
-  const box = useRef<HTMLDivElement>(null);
-
-  // Mouse position inside the box, from -1 to 1 on each axis (tilts the whole scene a little)
-  function onMove(e: MouseEvent<HTMLDivElement>) {
-    const el = box.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    el.style.setProperty("--mx", String(((e.clientX - r.left) / r.width) * 2 - 1));
-    el.style.setProperty("--my", String(((e.clientY - r.top) / r.height) * 2 - 1));
-  }
-  function onLeave() {
-    const el = box.current;
-    if (!el) return;
-    el.style.setProperty("--mx", "0");
-    el.style.setProperty("--my", "0");
-  }
-
   return (
     <div
-      ref={box}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className="net-tilt relative mx-auto hidden aspect-square w-full max-w-md sm:block lg:mx-0 lg:justify-self-end"
+      className="relative mx-auto hidden aspect-square w-full max-w-md sm:block lg:mx-0 lg:justify-self-end"
       aria-hidden="true"
     >
       {/* Soft glow behind the middle */}
-      <div className="net-layer absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" style={layer(depth.glow)} />
+      <div className="absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" />
 
-      <svg viewBox="0 0 100 100" className="net-layer absolute inset-0 h-full w-full overflow-visible" style={layer(depth.lines)}>
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
         <defs>
           <filter id="net-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="0.6" result="blur" />
@@ -180,7 +155,7 @@ export function HeroNetwork() {
       </svg>
 
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
-      <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
+      <div className="absolute inset-0">
       {nodes.map((n, i) => (
         <span
           key={i}
@@ -204,8 +179,8 @@ export function HeroNetwork() {
 
       </div>
 
-      {/* Scalewrk in the middle (moves the most). The layer lets the mouse through to the pills; only the S catches it */}
-      <div className="net-layer pointer-events-none absolute inset-0" style={layer(depth.center)}>
+      {/* Scalewrk in the middle. The layer lets the mouse through to the pills; only the S catches it */}
+      <div className="pointer-events-none absolute inset-0">
       {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
       <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
       <span

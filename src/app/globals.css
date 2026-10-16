@@ -281,15 +281,6 @@ body[data-menu="open"] .mobile-book-bar {
 .net-float {
   animation: net-float 5s ease-in-out infinite;
 }
-/* Apple TV-style hover tilt (HeroNetwork.tsx sets --mx / --my from -1 to 1) */
-.net-tilt {
-  transform: perspective(900px) rotateX(calc(var(--my, 0) * -8deg)) rotateY(calc(var(--mx, 0) * 8deg));
-  transition: transform 0.25s ease-out;
-  will-change: transform;
-}
-.net-layer {
-  transition: transform 0.25s ease-out;
-}
 /* Apple TV-style focus on one hero pill or the S (HeroNetwork.tsx sets --fx/--fy from -1 to 1
    and --gx/--gy for the shine). Uses `transform`; the centering uses `translate`, so they don't clash.
    Moving: quick and smooth. Letting go: springs back. */
@@ -333,10 +324,6 @@ body[data-menu="open"] .mobile-book-bar {
 @media (prefers-reduced-motion: reduce) {
   .net-focus,
   .net-focus.is-focused {
-    transform: none !important;
-  }
-  .net-tilt,
-  .net-layer {
     transform: none !important;
   }
   .net-twinkle,
