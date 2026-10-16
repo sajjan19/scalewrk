@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { glideTo } from "@/lib/glide";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Testimonial } from "@/content/testimonials";
 import { Text } from "./ui";
@@ -54,8 +55,9 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
     };
   }, [update]);
 
-  const goTo = (i: number) => track.current?.scrollTo({ left: i * step(), behavior: "smooth" });
-  const move = (dir: 1 | -1) => track.current?.scrollBy({ left: dir * step(), behavior: "smooth" });
+  // Arrows and dots glide smoothly to the card (see src/lib/glide.ts)
+  const goTo = (i: number) => track.current && glideTo(track.current, i * step());
+  const move = (dir: 1 | -1) => goTo(active + dir);
 
   return (
     <div aria-roledescription="carousel" aria-label="Testimonials">

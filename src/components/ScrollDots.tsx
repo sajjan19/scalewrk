@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { glideTo } from "@/lib/glide";
 
 /*
   Controls under a swipeable row of cards (phones and tablets): previous arrow, dots, next arrow.
@@ -32,9 +33,12 @@ export function ScrollDots({ targetId, count, className = "" }: { targetId: stri
     return () => row.removeEventListener("scroll", onScroll);
   }, [targetId, count]);
 
+  // Arrows and dots glide smoothly to the card (see src/lib/glide.ts)
   function goTo(i: number) {
-    const card = document.getElementById(targetId)?.children[Math.max(0, Math.min(count - 1, i))] as HTMLElement | undefined;
-    card?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    const row = document.getElementById(targetId);
+    const cards = row ? ([...row.children] as HTMLElement[]) : [];
+    const card = cards[Math.max(0, Math.min(count - 1, i))];
+    if (row && card) glideTo(row, card.offsetLeft - cards[0].offsetLeft);
   }
 
   const arrow =
