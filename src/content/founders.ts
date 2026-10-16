@@ -7,7 +7,7 @@
 
 import type { ComponentType } from "react";
 import { Camera, Clapperboard, Dog, Dumbbell, Mountain, Music, Plane, Sunset, UtensilsCrossed } from "lucide-react";
-import { MuayThaiFighter, SoccerBall } from "@/components/icons";
+import { JiuJitsuBelt, MuayThaiFighter, SoccerBall } from "@/components/icons";
 
 type Icon = ComponentType<{ className?: string; strokeWidth?: number }>;
 
@@ -65,6 +65,7 @@ export const founders: Founder[] = [
     outsideWork: [
       { icon: Dumbbell, label: "Fitness" },
       { icon: MuayThaiFighter, label: "Muay Thai" },
+      { icon: JiuJitsuBelt, label: "Brazilian Jiu-Jitsu" },
       { icon: SoccerBall, label: "Soccer" },
       { icon: Mountain, label: "Hiking" },
       { icon: Camera, label: "Photography" },
