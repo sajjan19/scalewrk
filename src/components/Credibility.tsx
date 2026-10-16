@@ -125,7 +125,7 @@ function ClientCard({ client }: { client: Client }) {
   );
 
   return (
-    <div className="block w-full max-w-md rounded-2xl border border-line bg-white p-6 text-left">
+    <div className="lift block w-full max-w-md rounded-2xl border border-line bg-white p-6 text-left hover:border-brand/30">
       {/* Company: logo, name and website */}
       <div className="flex items-start gap-4">
         {client.url ? (
