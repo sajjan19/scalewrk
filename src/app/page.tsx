@@ -69,19 +69,19 @@ const reasons = [
   {
     icon: Sparkles,
     title: "Tech and sales only",
-    body: "We only hire engineers and salespeople, the people who build and sell your product.",
+    body: ["We only hire engineers and salespeople", "The people who build and sell your product"],
     versus: "Big agencies hire for every kind of job.",
   },
   {
     icon: UserCheck,
     title: "The same people on every search",
-    body: "Punit or Mandeep works with you from the first call to the signed offer.",
+    body: ["Punit or Mandeep runs every search", "With you from the first call to the signed offer"],
     versus: "At big agencies, a junior recruiter often does the work.",
   },
   {
     icon: HeartHandshake,
     title: "With you for the long run",
-    body: "We get to know you and your team, then stay with you as you grow. Every new hire gets faster.",
+    body: ["We get to know you and your team", "We stay with you as you grow"],
     versus: "Many recruiters start from zero every time.",
   },
 ];
@@ -270,7 +270,7 @@ export default function Home() {
                 <IconBadge icon={r.icon} size="lg" />
                 <p className="text-xl leading-tight font-semibold tracking-tight">{r.title}</p>
               </div>
-              <p className="mt-4 leading-relaxed text-body">{r.body}</p>
+              <CheckList items={r.body} className="mt-4" />
               <div className="mt-auto pt-6">
                 <p className="border-t border-line pt-4 text-sm leading-relaxed text-muted">{r.versus}</p>
               </div>
