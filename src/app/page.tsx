@@ -69,7 +69,7 @@ const reasons = [
   {
     icon: Sparkles,
     title: "Tech and sales only",
-    body: ["We only hire engineers and salespeople", "The people who build and sell your product"],
+    body: ["We only hire engineers and salespeople", "We know these roles inside and out"],
     versus: "Big agencies hire for every kind of job.",
   },
   {

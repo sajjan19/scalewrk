@@ -299,3 +299,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Home "Why Scalewrk": first card now reads "We only hire engineers and salespeople, the people who build and sell your product." (removed the AI and machine learning line).
 - Home "Why Scalewrk": third card now reads "We get to know you and your team, then stay with you as you grow." (no longer says "in person").
 - Home "Why Scalewrk": each card is now 2 check bullets (CheckList) instead of a sentence. Dropped "Every new hire gets faster" (speed claim).
+- Why Scalewrk first card, second bullet: "We know these roles inside and out".
