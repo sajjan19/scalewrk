@@ -339,3 +339,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Mandeep bio: "helps small businesses in Canada and the US grow through IT consulting".
 - Hero network: replaced the Dock-style magnify with an Apple TV-style focus on each pill and the S. The one under the mouse grows 15%, tilts toward the pointer, lifts with a deeper shadow and gets a soft brand-tinted shine that follows the mouse; it springs back when the mouse leaves (.net-focus / .net-glare in globals.css). The S layer lets the mouse through so pills under it can be hovered. The whole scene still tilts a little.
 - Hero network: removed the whole-scene tilt and layer parallax. Only the per-item Apple TV focus remains.
+- Hero pill shine made stronger (38% brand tint under the mouse, fading out).

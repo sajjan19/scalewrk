@@ -310,10 +310,12 @@ body[data-menu="open"] .mobile-book-bar {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  /* A brighter spot right under the mouse, fading out over most of the pill */
   background: radial-gradient(
     circle at var(--gx, 50%) var(--gy, 50%),
-    color-mix(in srgb, var(--color-brand) 16%, transparent),
-    transparent 65%
+    color-mix(in srgb, var(--color-brand) 38%, transparent),
+    color-mix(in srgb, var(--color-brand) 12%, transparent) 40%,
+    transparent 75%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
