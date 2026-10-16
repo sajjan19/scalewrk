@@ -15,6 +15,8 @@ const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/about#mission", label: "Mission & Vision" },
   { href: "/tech-recruiter-new-york", label: "New York" },
+  { href: "/tech-recruiter-san-francisco", label: "San Francisco" },
+  { href: "/tech-recruiter-vancouver", label: "Vancouver" },
   { href: "/contact", label: "Contact" },
   { href: "/testimonial", label: "Leave a testimonial" },
 ];

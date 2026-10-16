@@ -354,3 +354,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero illustration: removed its hover tilt and Dock magnify (and their CSS).
 - Star trail: fewer stars (28px spacing, smaller glow, shorter tail, fewer and fainter rings).
 - Star trail removed; hero illustration back to its tilt and Dock magnify hover.
+- New city pages: `/tech-recruiter-san-francisco` (same Pacific time zone angle) and `/tech-recruiter-vancouver` (home city, can meet in person, hiring across Canada and the US). All three city pages now share `CityPage.tsx`; each page only holds its own copy. Linked in the footer and sitemap, each has its own OG image. SF and Vancouver have no hero photo yet (dark brand background).
