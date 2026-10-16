@@ -79,7 +79,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 ## Future
 
-- [ ] Hero photos for the San Francisco and Vancouver pages: pick an Unsplash photo for each, save it to `public/places/`, and pass it as `photo` in the page (same as New York).
+- [x] Hero photos for the San Francisco and Vancouver pages (Unsplash: Maarten van den Heuvel, Adrian Yu)
 
 - [ ] **Bring back "Roles we hire"** on Home and New York (12 role tiles): set `showRolePreview = true` in `src/content/roles.ts`.
 - [ ] **Bring back the Roles page** (/roles, all engineering and sales roles) once the team is bigger: set `showRolesPage = true` in `src/content/roles.ts`. Its menu, footer and sitemap links and the "See all roles" links come back automatically.

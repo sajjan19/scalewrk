@@ -1,11 +1,11 @@
 import { Building2, Clock, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import sfPhoto from "../../../public/places/san-francisco.jpg";
 
 /*
   City page for San Francisco and the Bay Area (helps startups searching "tech recruiter San Francisco" find us).
   Layout lives in CityPage.tsx. Keep the copy specific to San Francisco.
-  No photo yet: the hero uses the dark brand background until one is added (see TODO.md).
 */
 
 export const metadata = pageMetadata({
@@ -21,6 +21,13 @@ export default function SanFranciscoPage() {
       city="San Francisco"
       jobsLocation="San Francisco, CA"
       intro="We help San Francisco and Bay Area startups hire great engineers and salespeople. We also help those people find the right Bay Area startup."
+      // Photo by Maarten van den Heuvel on Unsplash (Unsplash License)
+      photo={{
+        src: sfPhoto,
+        alt: "Golden Gate Bridge with San Francisco across the bay",
+        credit: "Maarten van den Heuvel",
+        creditUrl: "https://unsplash.com/photos/golden-gate-bridge-during-daytime-gZXx8lKAb7Y",
+      }}
       help={[
         {
           icon: Building2,

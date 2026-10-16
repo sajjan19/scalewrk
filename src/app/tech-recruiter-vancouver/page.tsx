@@ -1,11 +1,11 @@
 import { Globe, MapPin, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import vancouverPhoto from "../../../public/places/vancouver.jpg";
 
 /*
   City page for Vancouver, our home city (helps startups searching "tech recruiter Vancouver" find us).
   Layout lives in CityPage.tsx. Keep the copy specific to Vancouver.
-  No photo yet: the hero uses the dark brand background until one is added (see TODO.md).
 */
 
 export const metadata = pageMetadata({
@@ -21,6 +21,13 @@ export default function VancouverPage() {
       city="Vancouver"
       jobsLocation="Vancouver, BC"
       intro="We're based in Vancouver. We help local startups hire great engineers and salespeople. We also help those people find the right Vancouver startup."
+      // Photo by Adrian Yu on Unsplash (Unsplash License)
+      photo={{
+        src: vancouverPhoto,
+        alt: "Downtown Vancouver and False Creek with the North Shore mountains behind",
+        credit: "Adrian Yu",
+        creditUrl: "https://unsplash.com/photos/vancouver-skyline-and-false-creek-waterfront-Wc45W-dQFlA",
+      }}
       help={[
         {
           icon: MapPin,
