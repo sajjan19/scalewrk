@@ -1,6 +1,7 @@
 import { Building2, Car, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import seattlePhoto from "../../../public/places/seattle.jpg";
 
 /*
   City page for Seattle (helps startups searching "tech recruiter Seattle" find us).
@@ -20,6 +21,13 @@ export default function SeattlePage() {
       city="Seattle"
       jobsLocation="Seattle, WA"
       intro="Home to cloud giants and a fast-growing startup scene, Seattle is full of engineers ready for their next big thing. We help Seattle startups hire great engineers and salespeople. We also help those people find their next Seattle startup."
+      // Photo by Thom Milkovic on Unsplash (Unsplash License)
+      photo={{
+        src: seattlePhoto,
+        alt: "Seattle skyline and the Space Needle with Mount Rainier behind",
+        credit: "Thom Milkovic",
+        creditUrl: "https://unsplash.com/photos/space-needle-and-seattle-skyline-skUTVJi8-jc",
+      }}
       help={[
         {
           icon: Building2,

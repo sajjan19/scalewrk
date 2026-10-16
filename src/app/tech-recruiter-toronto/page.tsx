@@ -1,6 +1,7 @@
 import { Building2, Clock, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import torontoPhoto from "../../../public/places/toronto.jpg";
 
 /*
   City page for Toronto (helps startups searching "tech recruiter Toronto" find us).
@@ -20,6 +21,13 @@ export default function TorontoPage() {
       city="Toronto"
       jobsLocation="Toronto, ON"
       intro="From fintech on Bay Street to AI labs downtown, Toronto is Canada's biggest tech hub. We help Toronto startups hire great engineers and salespeople. We also help those people find their next Toronto startup."
+      // Photo by Berkay Gumustekin on Unsplash (Unsplash License)
+      photo={{
+        src: torontoPhoto,
+        alt: "Toronto skyline and the CN Tower at sunset across Lake Ontario",
+        credit: "Berkay Gumustekin",
+        creditUrl: "https://unsplash.com/photos/toronto-skyline-and-cn-tower-hRg1KL4-AUE",
+      }}
       help={[
         {
           icon: Building2,
