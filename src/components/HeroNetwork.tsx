@@ -27,7 +27,7 @@ const BLUE = "#0d6efd";
 // Candidates sit top/right/bottom/left, startups on the diagonals
 // The long "Full-Stack Engineer" sits at the top so it never runs off the edge on phones
 const candidateRoles = ["Full-Stack Engineer", "AI Engineer", "Founding AE", "SDR"];
-const startupStages = ["Seed", "Series A", "Series B", "Series E"];
+const startupStages = ["Seed", "Series A", "Series C", "Series E"];
 
 // Each spot gets its own distance and a small angle nudge, so the layout feels organic, not a perfect circle
 const radii = [38, 27, 33, 34, 32, 25, 35, 30];

@@ -304,3 +304,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Why Scalewrk third card bullets: "We get to know you, your team and how you work" / "We stay with you as you grow, hire after hire".
 - Why Scalewrk third card bullets changed to "We build a real relationship with your team" / "We grow with you from first hire to full team".
 - Hero network: removed the grey dashed orbit behind the pills.
+- Hero network: "Series B" pill changed to "Series C".
