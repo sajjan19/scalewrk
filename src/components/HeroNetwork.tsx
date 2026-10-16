@@ -208,33 +208,3 @@ export function HeroNetwork() {
     </div>
   );
 }
-
-// Phones: the full illustration doesn't fit, so the same pills scroll by in one row under the buttons
-export function HeroPillsMarquee() {
-  const pills = nodes.map((n) => ({ kind: n.kind, label: n.label }));
-  return (
-    <div className="marquee -mx-5 sm:hidden" aria-hidden="true">
-      <div className="marquee-track py-3" style={{ animationDuration: "40s" }}>
-        {[0, 1].map((copy) => (
-          <div key={copy} className="flex shrink-0 gap-2 pr-2">
-            {[...pills, ...pills].map((p, i) => (
-              <span
-                key={i}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full bg-white py-1 pr-3 pl-1 text-xs font-semibold whitespace-nowrap text-ink ${
-                  p.kind === "candidate"
-                    ? "theme-engineer shadow-[0_6px_16px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
-                    : "theme-startup shadow-[0_6px_16px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
-                }`}
-              >
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand">
-                  {p.kind === "candidate" ? <UserRound className="h-3 w-3" strokeWidth={2} /> : <Rocket className="h-3 w-3" strokeWidth={2} />}
-                </span>
-                {p.label}
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
