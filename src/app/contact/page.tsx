@@ -1,91 +1,25 @@
-import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { ContactReason } from "@/components/ContactReason";
 import { Field, Form } from "@/components/Form";
 import { MailIcon, PhoneIcon } from "@/components/SocialIcons";
-import { Rocket, UserRound } from "lucide-react";
-import { CheckList, Container, Eyebrow } from "@/components/ui";
-import { IconBadge } from "@/components/visuals";
-import { site } from "@/content/site";
+import { Container, Eyebrow } from "@/components/ui";
+import { bookingHref, site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Book a Call",
-  description:
-    "Book a call with Scalewrk. Founders: talk through the engineers and sales people you need to hire. Candidates: tell us what you want in your next startup role.",
+  title: "Contact",
+  description: "Contact Scalewrk by email, phone or a quick message. Startup recruiting for engineering and sales roles.",
   path: "/contact",
 });
 
+// Email, phone and the contact form. Booking a call has its own page (/book-a-call).
 export default function ContactPage() {
   return (
     <>
-      <section id="book" className="scroll-mt-16 pt-12 pb-16 sm:pt-20">
-        <Container>
-          <Eyebrow>Book a call</Eyebrow>
-          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-            Let&apos;s talk about <span className="text-gradient">your next hire</span> or{" "}
-            <span className="text-gradient">your next role</span>.
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">
-            Pick a time for a call with the Scalewrk team.
-          </p>
-
-          {/* What to bring, for founders (blue) and for candidates (purple) */}
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              {
-                icon: Rocket,
-                theme: "theme-startup",
-                audience: "For Startups",
-                title: "Hiring engineers or sales?",
-                intro: "What helps us get started:",
-                points: [
-                  "The roles you need and how senior",
-                  "What you're building and who you sell to",
-                  "Pay range, including equity",
-                  "On-site, hybrid or remote, and where",
-                  "When you need someone to start",
-                ],
-              },
-              {
-                icon: UserRound,
-                theme: "theme-engineer",
-                audience: "For Candidates",
-                title: "Looking for your next role?",
-                intro: "What helps us find your fit:",
-                points: [
-                  "Your LinkedIn or resume",
-                  "Your main role and key skills",
-                  "What you want next: stage, team and product",
-                  "Pay range and how much equity matters",
-                  "Work style, location and when you could start",
-                ],
-              },
-            ].map((c) => (
-              // Same card style as "What we do" on the Home page
-              <div key={c.title} className={`flex flex-col rounded-2xl border border-line bg-white p-6 sm:p-8 ${c.theme}`}>
-                <div className="flex items-center gap-4">
-                  <IconBadge icon={c.icon} size="lg" />
-                  <div>
-                    <p className="text-sm font-medium text-brand">{c.audience}</p>
-                    <p className="text-xl leading-tight font-semibold tracking-tight">{c.title}</p>
-                  </div>
-                </div>
-                <p className="mt-5 text-sm text-muted">{c.intro}</p>
-                <CheckList items={c.points} className="mt-3" />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <CalendlyEmbed />
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-line bg-mist py-16 sm:py-24">
+      <section className="pt-12 pb-16 sm:pt-20 sm:pb-24">
         <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h2 className="text-3xl font-semibold tracking-tight">Other ways to reach us</h2>
+            <Eyebrow>Contact</Eyebrow>
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Get in touch</h1>
             <p className="mt-4 text-lg leading-relaxed text-body">
               Reach us by email or phone, or send a quick message by filling out the form.
             </p>
@@ -103,6 +37,13 @@ export default function ContactPage() {
               </a>
             </div>
             <p className="mt-8 text-body">
+              Prefer to talk?{" "}
+              <a href={bookingHref} className="font-medium text-brand hover:text-brand-dark">
+                Book a call
+              </a>
+              .
+            </p>
+            <p className="mt-3 text-body">
               Know a founder who&apos;s hiring? Introduce us at{" "}
               <a href={`mailto:${site.email}`} className="font-medium text-brand hover:text-brand-dark">
                 {site.email}

@@ -32,13 +32,14 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
 | `/about` | Headline "Meet the team that matches startups and engineers", quick facts strip (Founded 2026, Vancouver, US and Canada, engineers only, fee per hire), founder cards (Punit first) with bio, experience, outside-of-work tags and a "Book a call with …" button, values | Yes | Yes |
-| `/contact` | Headline for both sides ("your next hire or your next role"), "Hiring engineers?" / "Looking for your next role?" cards, Calendly embed (`#book`) + contact form | Footer, "Book a call" buttons | Yes |
+| `/book-a-call` | Headline for both sides ("your next hire or your next role"), "Hiring engineers?" / "Looking for your next role?" cards, Calendly embed (`#book`) | "Book a call" buttons | Yes |
+| `/contact` | "Get in touch": email, phone, "Prefer to talk? Book a call" link, referral line, contact form | Header, footer | Yes |
 | `/jobs/<slug>` | One page per job listing: company (described, not named), what you'll do, needs, nice to have, interview steps, summary box + Apply (prefills the engineers form) | Via Jobs page | Real jobs only |
 | `/meet` | Event QR-code landing page: "Great meeting you", booking, save contact (vCard) | No | **No** (`noindex`) |
 | `/testimonial` | Form for clients, engineers and partners to send a testimonial (type, name, title, company, quote, rating, how to credit, permission checkbox) | Footer ("Leave a testimonial") + Home testimonials section | **No** (`noindex`) |
 | `/privacy` | Short privacy note (needs legal review) | Footer | Yes |
 
-Every "Book a call" button links to `/contact#book`. On phones, a sticky "Book a call" bar slides up once you start scrolling and hides at the top of the page (not shown on `/contact`, `/meet`, `/testimonial`; job pages say "Apply for this role", `/jobs` says "Share your profile", `/engineers` says "View all jobs").
+Every "Book a call" button links to `/book-a-call` (`bookingHref` in site.ts). On phones, a sticky "Book a call" bar slides up once you start scrolling and hides at the top of the page (not shown on `/book-a-call`, `/meet`, `/testimonial`; job pages say "Apply for this role", `/jobs` says "Share your profile", `/engineers` says "View all jobs").
 
 ---
 
@@ -313,3 +314,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Nav: For Startups is a dropdown again (How we work, Book a call), mirroring For Candidates (How we work, Share your profile).
 - Nav: For Startups and For Candidates are both plain links (no dropdowns). Share your profile is reached from the For Candidates page.
 - Nav: "Contact" added to the desktop menu (after About). It is now part of navItems in site.ts, so the phone menu uses the same entry.
+- Split Contact in two: `/book-a-call` has the headline, what-to-bring cards and the calendar; `/contact` is just "Get in touch" (email, phone, form). All "Book a call" buttons point to `/book-a-call`.

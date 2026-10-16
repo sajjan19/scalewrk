@@ -10,7 +10,7 @@ import { Arrow, CalendarIcon } from "./ui";
 // It slides up once you start scrolling and hides again at the top of the page.
 // Engineer pages show engineer actions: job pages "Apply for this role", the Jobs and Engineers pages
 // "Share your profile". Hidden on pages that already show the calendar or a form.
-const hiddenOn = ["/contact", "/meet", "/testimonial", "/share-profile"];
+const hiddenOn = ["/book-a-call", "/meet", "/testimonial", "/share-profile"];
 
 // How far (in pixels) you scroll before the bar appears
 const SHOW_AFTER = 40;

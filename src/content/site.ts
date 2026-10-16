@@ -106,4 +106,4 @@ export const nav: NavItem[] = navItems.map((item) =>
   item.children && item.children.length <= 1 ? { ...item, children: undefined } : item,
 );
 
-export const bookingHref = "/contact#book";
+export const bookingHref = "/book-a-call";
