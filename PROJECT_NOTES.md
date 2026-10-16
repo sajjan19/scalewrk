@@ -295,3 +295,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 
 
 - Home hero: the network illustration is hidden on phones (below 640px). The pills crowded at that size and the tilt and magnify need a mouse. Tablets and desktop still show it.
+
+- Home "Why Scalewrk": first card now reads "We only hire engineers and salespeople, the people who build and sell your product." (removed the AI and machine learning line).

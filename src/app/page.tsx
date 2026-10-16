@@ -69,7 +69,7 @@ const reasons = [
   {
     icon: Sparkles,
     title: "Tech and sales only",
-    body: "We hire the people who build and sell your product. AI and machine learning is our strongest area.",
+    body: "We only hire engineers and salespeople, the people who build and sell your product.",
     versus: "Big agencies hire for every kind of job.",
   },
   {
