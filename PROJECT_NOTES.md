@@ -344,3 +344,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Recent placements card: removed the "Placed" tag.
 - Secondary buttons are now outlined and see-through (2px border, dark text; border darkens and a faint fill on hover) instead of solid black. Used for "Find your next role" (Home), "View all jobs" (For Candidates) and "Share your profile" (New York).
 - Secondary button outline is now solid black.
+- Secondary (outline) buttons: on hover the black outline turns into the purple-to-blue gradient (.btn-outline in globals.css).
+- Buttons with an arrow now lift on hover like every other button (they used to slide right); the arrow inside still nudges right.
