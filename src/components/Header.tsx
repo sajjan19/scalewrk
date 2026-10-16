@@ -26,14 +26,18 @@ export function Header() {
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     document.body.dataset.menu = "open"; // hides the phone "Book a call" bar (see globals.css)
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previous;
       delete document.body.dataset.menu;
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/70 bg-white/90 backdrop-blur">
+    // No blur while the menu is open: blur would trap the full-screen menu inside the header
+    <header className={`sticky top-0 z-40 border-b ${open ? "border-transparent bg-white" : "border-line/70 bg-white/90 backdrop-blur"}`}>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href="/" aria-label="Scalewrk home" className="rise -m-1 inline-block p-1">
           <Logo />
@@ -70,49 +74,47 @@ export function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpenOn(open ? null : pathname)}
         >
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
-            {open ? <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /> : <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />}
-          </svg>
+          {/* Two lines that turn into an X (like apple.com) */}
+          <span className="relative block h-4 w-[18px]" aria-hidden="true">
+            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[4px]"}`} />
+            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[11px]"}`} />
+          </span>
         </button>
       </div>
 
+      {/* Phone menu, like apple.com: fills the screen below the header, big bold links that drop in one after another */}
       {open && (
         <nav
           id="mobile-menu"
           aria-label="Main"
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-line bg-white px-5 pb-6 lg:hidden"
+          className="menu-sheet fixed inset-x-0 top-16 bottom-0 overflow-y-auto overscroll-contain bg-white px-8 pt-6 pb-10 lg:hidden"
         >
-          <ul className="divide-y divide-line">
-            {[{ href: "/", label: "Home" }, ...nav].map((item: NavItem) => {
-              // An item with sub-pages (About) is a label with its links underneath
-              const links = item.children ?? [{ href: item.href, label: item.label }];
-              return (
-                <li key={item.href} className={`${item.children ? "py-3" : ""} ${item.theme ?? ""}`}>
-                  {item.children && <p className="pt-1 pb-1 text-sm font-medium text-muted">{item.label}</p>}
-                  {links.map((link) => {
-                    const active = pathname === link.href;
-                    return (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setOpenOn(null)}
-                        aria-current={active ? "page" : undefined}
-                        className={`rise flex items-center justify-between text-lg font-medium ${item.children ? "py-2" : "py-4"} ${
-                          active ? "text-brand" : "hover:text-brand"
-                        }`}
-                      >
-                        {link.label}
-                        {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />}
-                      </Link>
-                    );
-                  })}
-                </li>
-              );
-            })}
+          <ul className="space-y-1">
+            {[{ href: "/", label: "Home" }, ...nav]
+              .flatMap((item: NavItem) => (item.children ?? [item]).map((link) => ({ ...link, theme: item.theme })))
+              .map((link, i) => {
+                const active = pathname === link.href;
+                return (
+                  <li key={link.href} className={`menu-item ${link.theme ?? ""}`} style={{ animationDelay: `${i * 35 + 60}ms` }}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setOpenOn(null)}
+                      aria-current={active ? "page" : undefined}
+                      className={`block py-1.5 text-[28px] leading-tight font-semibold tracking-tight transition-colors ${
+                        active ? "text-brand" : "text-ink hover:text-brand"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
-          <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn-brand lift mt-4 flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium">
-            <CalendarIcon /> Book a call
-          </Link>
+          <div className="menu-item mt-8" style={{ animationDelay: `${(nav.length + 1) * 35 + 60}ms` }}>
+            <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn-brand lift flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium">
+              <CalendarIcon /> Book a call
+            </Link>
+          </div>
         </nav>
       )}
     </header>

@@ -322,3 +322,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Scroll animation: inside every <Section> (all pages), headings and cards fade and slide up as they scroll into view and reverse when scrolling back up. Pure CSS scroll-driven animation (`.reveal-group` in globals.css, added by Section in ui.tsx). Off for people who turn off motion; browsers without support just show everything. Heroes, the logo strip and the CTA band do not animate.
 - Scroll animation made faster: finishes within the first 40% of an item entering the screen (was 90%), 20px slide (was 28px).
 - Scroll animation set in between: finishes within 65% of an item entering the screen, 24px slide.
+- Phone menu redesigned like apple.com: fills the screen below the header, big bold links (28px) that drop in one after another, two-line icon that turns into an X, Escape closes it. Header blur is off while it is open (blur would trap the fixed menu inside the header).
