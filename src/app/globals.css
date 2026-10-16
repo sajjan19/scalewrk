@@ -364,6 +364,32 @@ body[data-menu="open"] .mobile-book-bar {
 .menu-item {
   animation: menu-item-in 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
 }
+/* Closing: links fade up quickly, then the sheet folds back up into the header */
+@keyframes menu-sheet-out {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+@keyframes menu-item-out {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+  to {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+}
+.menu-sheet.menu-closing {
+  animation: menu-sheet-out 260ms cubic-bezier(0.4, 0, 0.2, 1) 40ms both;
+}
+.menu-closing .menu-item {
+  animation: menu-item-out 160ms ease-in both;
+  animation-delay: 0ms !important;
+}
 @media (prefers-reduced-motion: reduce) {
   .menu-sheet,
   .menu-item {

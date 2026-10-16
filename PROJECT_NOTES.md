@@ -324,3 +324,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Scroll animation set in between: finishes within 65% of an item entering the screen, 24px slide.
 - Phone menu redesigned like apple.com: fills the screen below the header, big bold links (28px) that drop in one after another, two-line icon that turns into an X, Escape closes it. Header blur is off while it is open (blur would trap the fixed menu inside the header).
 - Phone menu: three-line icon (middle line fades, the others form an X); links spread evenly down the screen with Book a call at the bottom.
+- Phone menu closing animation: links fade up, then the sheet folds back into the header (about 0.3s). Plays for the X button and Escape; tapping a link closes right away since the page changes.

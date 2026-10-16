@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { bookingHref, nav, type NavItem } from "@/content/site";
 import { Logo } from "./Logo";
@@ -19,6 +19,19 @@ export function Header() {
   // The mobile menu remembers which page it was opened on, so it closes itself after navigating
   const [openOn, setOpenOn] = useState<string | null>(null);
   const open = openOn === pathname;
+  // True for a moment while the menu plays its closing animation (then it's removed)
+  const [closing, setClosing] = useState(false);
+  const iconOpen = open && !closing;
+
+  // Close with an animation (the X button and Escape). Tapping a link closes right away since the page changes.
+  const closeMenu = useCallback(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return setOpenOn(null);
+    setClosing(true);
+    window.setTimeout(() => {
+      setOpenOn(null);
+      setClosing(false);
+    }, 300); // matches the closing animation in globals.css
+  }, []);
 
   // While the phone menu is open, stop the page behind it from scrolling (the menu scrolls instead)
   useEffect(() => {
@@ -26,14 +39,14 @@ export function Header() {
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     document.body.dataset.menu = "open"; // hides the phone "Book a call" bar (see globals.css)
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeMenu();
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previous;
       delete document.body.dataset.menu;
       window.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [open, closeMenu]);
 
   return (
     // No blur while the menu is open: blur would trap the full-screen menu inside the header
@@ -72,13 +85,13 @@ export function Header() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpenOn(open ? null : pathname)}
+          onClick={() => (open ? closeMenu() : setOpenOn(pathname))}
         >
           {/* Three lines: the middle one fades out and the other two turn into an X */}
           <span className="relative block h-4 w-[18px]" aria-hidden="true">
-            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[2px]"}`} />
-            <span className={`absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 rounded-full bg-ink transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
-            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[13px]"}`} />
+            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${iconOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[2px]"}`} />
+            <span className={`absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 rounded-full bg-ink transition-opacity duration-200 ${iconOpen ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${iconOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[13px]"}`} />
           </span>
         </button>
       </div>
@@ -88,7 +101,7 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Main"
-          className="menu-sheet fixed inset-x-0 top-16 bottom-0 flex flex-col overflow-y-auto overscroll-contain bg-white px-8 pt-4 pb-10 lg:hidden"
+          className={`menu-sheet ${closing ? "menu-closing" : ""} fixed inset-x-0 top-16 bottom-0 flex flex-col overflow-y-auto overscroll-contain bg-white px-8 pt-4 pb-10 lg:hidden`}
         >
           {/* Links spread evenly over the screen height */}
           <ul className="flex flex-1 flex-col justify-evenly">
