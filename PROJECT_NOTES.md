@@ -335,3 +335,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Logo strip and Recent placements: back to labels centered above (logos full width, card centered), both in the small uppercase style. Side-divider layout removed.
 - Mandeep "Outside of work": added Brazilian Jiu-Jitsu (custom belt icon `JiuJitsuBelt` in icons.tsx), after Muay Thai.
 - Mandeep interests: Brazilian Jiu-Jitsu now uses the Muay Thai fighter icon (belt icon removed); added "Vibe coding" (code icon).
+- Recent placements card redesigned: logo, name with small arrow and domain on the left, "Placed" tag on the right; divider; "Role filled" label with the role as a big headline; stage, industry and location as small chips. Removed the purple role box.
+- Mandeep bio: "helps small businesses in Canada and the US grow through IT consulting".

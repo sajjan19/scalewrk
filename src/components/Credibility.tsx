@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Building2, MapPin, Rocket, UserCheck } from "lucide-react";
+import { ArrowUpRight, Building2, Check, MapPin, Rocket } from "lucide-react";
 import { Container, Text } from "./ui";
 import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
@@ -99,70 +99,73 @@ function ClientCard({ client }: { client: Client }) {
   ].filter((f): f is { icon: typeof Rocket; text: string } => Boolean(f.text));
   const domain = client.url?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-  // Logo, name, website and ↗ (the only part that links to their site)
+  // Logo, name and website (the only part that links to their site)
   const company = (
     <>
       {client.logo ? (
-        <Image src={client.logo} alt="" width={112} height={112} className="h-14 w-14 flex-none rounded-xl object-cover" />
+        <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />
       ) : (
-        <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-xl text-xl font-semibold" aria-hidden="true">
+        <span className="btn-brand flex h-12 w-12 flex-none items-center justify-center rounded-xl text-lg font-semibold" aria-hidden="true">
           {client.name.charAt(0)}
         </span>
       )}
-      <span className="min-w-0 flex-1">
-        <span className="block text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-brand">
+      <span className="min-w-0">
+        <span className="flex items-center gap-1 text-lg leading-tight font-semibold tracking-tight text-ink transition-colors group-hover:text-brand">
           <Text>{client.name}</Text>
+          {client.url && (
+            <ArrowUpRight
+              className="h-4 w-4 flex-none text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
+              aria-hidden="true"
+            />
+          )}
         </span>
         {domain && <span className="block text-sm text-muted">{domain}</span>}
       </span>
-      {client.url && (
-        <ArrowUpRight
-          className="h-5 w-5 flex-none text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
-          aria-hidden="true"
-        />
-      )}
     </>
   );
 
-  const inner = (
-    <>
-      {client.url ? (
-        <a
-          href={client.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${client.name} website (opens in a new tab)`}
-          className="group -m-2 flex items-center gap-4 rounded-xl p-2 transition-colors hover:bg-mist"
-        >
-          {company}
-        </a>
-      ) : (
-        <span className="flex items-center gap-4">{company}</span>
-      )}
+  return (
+    <div className="block w-full max-w-md rounded-2xl border border-line bg-white p-6 text-left">
+      {/* Company on the left, a small "Placed" tag on the right */}
+      <div className="flex items-start justify-between gap-4">
+        {client.url ? (
+          <a
+            href={client.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${client.name} website (opens in a new tab)`}
+            className="group flex min-w-0 items-center gap-3"
+          >
+            {company}
+          </a>
+        ) : (
+          <span className="flex min-w-0 items-center gap-3">{company}</span>
+        )}
+        <span className="inline-flex flex-none items-center gap-1 rounded-full bg-brand-soft px-2.5 py-1 text-xs font-medium text-brand-dark">
+          <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
+          Placed
+        </span>
+      </div>
 
-      {/* The role we filled */}
+      {/* The role we filled, as the headline of the card */}
       {client.role && (
-        <span className="mt-5 flex items-center gap-3 rounded-xl bg-brand-soft px-4 py-3">
-          <UserCheck className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
-          <span>
-            <span className="block text-xs font-medium tracking-wide text-brand-dark uppercase">Role filled</span>
-            <span className="block font-semibold text-ink">{client.role}</span>
-          </span>
-        </span>
+        <div className="mt-6 border-t border-line pt-5">
+          <p className="text-xs font-semibold tracking-[0.14em] text-muted uppercase">Role filled</p>
+          <p className="mt-1 text-2xl font-semibold tracking-tight text-ink">{client.role}</p>
+        </div>
       )}
 
-      {/* Stage, industry and location */}
+      {/* Stage, industry and location as small chips */}
       {facts.length > 0 && (
-        <span className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-body">
+        <ul className="mt-4 flex flex-wrap gap-2">
           {facts.map((f) => (
-            <span key={f.text} className="inline-flex items-center gap-1.5">
-              <f.icon className="h-4 w-4 text-brand" aria-hidden="true" />
+            <li key={f.text} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-sm text-body ring-1 ring-line">
+              <f.icon className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
               <Text>{f.text}</Text>
-            </span>
+            </li>
           ))}
-        </span>
+        </ul>
       )}
-    </>
+    </div>
   );
-  return <div className="block w-full max-w-md rounded-2xl border border-line bg-white p-5 text-left sm:p-6">{inner}</div>;
 }
