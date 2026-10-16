@@ -77,8 +77,6 @@ const navItems: NavItem[] = [
     children: [
       { href: "/startups", label: "How we work" },
       ...(showRolesPage ? [{ href: "/roles", label: "Roles we hire" }] : []),
-      // Mirrors "Share your profile" under For Candidates: each audience gets its main action
-      { href: "/contact#book", label: "Book a call" },
     ],
   },
   {
@@ -87,9 +85,9 @@ const navItems: NavItem[] = [
     theme: "theme-engineer",
     children: [
       { href: "/engineers", label: "How we work" },
-      // "Open jobs" only shows while there are jobs to show
+      // "Open jobs" only shows while there are jobs to show (then this becomes a dropdown again).
+      // "Share your profile" isn't in the menu: the For Candidates page has a big button for it.
       ...(hasOpenJobs ? [{ href: "/jobs", label: "Open jobs" }] : []),
-      { href: "/share-profile", label: "Share your profile" },
     ],
   },
   {
