@@ -342,3 +342,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero pill shine made stronger (38% brand tint under the mouse, fading out).
 - Hero network: back to the earlier animation (whole-scene Apple TV tilt with layer parallax + Dock-style magnify). The per-pill focus and shine were removed.
 - Recent placements card: removed the "Placed" tag.
+- Secondary buttons are now outlined and see-through (2px border, dark text; border darkens and a faint fill on hover) instead of solid black. Used for "Find your next role" (Home), "View all jobs" (For Candidates) and "Share your profile" (New York).
