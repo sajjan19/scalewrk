@@ -293,3 +293,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - **2026-10-15:** On phones, the numbered process cards (Home, For Startups, For Candidates) and the Home "Why Scalewrk" cards are swipeable rows (about 80% wide so the next card peeks in) instead of a tall stack. Desktop is unchanged.
 - **2026-10-15:** Home hero buttons sit side by side on phones too (sharing the width); the candidate button reads "Find a role" on phones and "Find your next role" on bigger screens.
 
+
+- Home hero: the network illustration is hidden on phones (below 640px). The pills crowded at that size and the tilt and magnify need a mouse. Tablets and desktop still show it.

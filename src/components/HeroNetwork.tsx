@@ -15,6 +15,7 @@ import { LogoMark } from "./Logo";
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
   Purely decorative, no claims. All motion is off for people who turn off motion.
+  Hidden on phones: the pills crowd at that size and the hover effects need a mouse.
 */
 
 // How far from the middle the lines start (leaves a clear space around the S)
@@ -94,7 +95,7 @@ export function HeroNetwork() {
       ref={box}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="net-tilt relative mx-auto aspect-square w-full max-w-[300px] sm:max-w-md lg:mx-0 lg:justify-self-end"
+      className="net-tilt relative mx-auto hidden aspect-square w-full max-w-md sm:block lg:mx-0 lg:justify-self-end"
       aria-hidden="true"
     >
       {/* Soft glow behind the middle */}
