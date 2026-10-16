@@ -28,7 +28,7 @@ export function ScrollReveal() {
       const parent = el.parentElement;
       const inRow = parent && !parent.classList.contains("reveal-group");
       const index = inRow ? [...parent.children].indexOf(el) : 0;
-      el.style.setProperty("--reveal-delay", `${Math.min(index, 4) * 90}ms`);
+      el.style.setProperty("--reveal-delay", `${Math.min(index, 4) * 70}ms`);
       // A swiping row cuts off anything that moves outside it, so those cards only fade (no rise)
       const swipeRow = inRow && getComputedStyle(parent).overflowX !== "visible";
       el.classList.add("reveal");
