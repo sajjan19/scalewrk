@@ -341,3 +341,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero network: removed the whole-scene tilt and layer parallax. Only the per-item Apple TV focus remains.
 - Hero pill shine made stronger (38% brand tint under the mouse, fading out).
 - Hero network: back to the earlier animation (whole-scene Apple TV tilt with layer parallax + Dock-style magnify). The per-pill focus and shine were removed.
+- Recent placements card: removed the "Placed" tag.

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Building2, Check, MapPin, Rocket } from "lucide-react";
+import { ArrowUpRight, Building2, MapPin, Rocket } from "lucide-react";
 import { Container, Text } from "./ui";
 import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
@@ -126,8 +126,8 @@ function ClientCard({ client }: { client: Client }) {
 
   return (
     <div className="block w-full max-w-md rounded-2xl border border-line bg-white p-6 text-left">
-      {/* Company on the left, a small "Placed" tag on the right */}
-      <div className="flex items-start justify-between gap-4">
+      {/* Company: logo, name and website */}
+      <div className="flex items-start gap-4">
         {client.url ? (
           <a
             href={client.url}
@@ -141,10 +141,6 @@ function ClientCard({ client }: { client: Client }) {
         ) : (
           <span className="flex min-w-0 items-center gap-3">{company}</span>
         )}
-        <span className="inline-flex flex-none items-center gap-1 rounded-full bg-brand-soft px-2.5 py-1 text-xs font-medium text-brand-dark">
-          <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
-          Placed
-        </span>
       </div>
 
       {/* The role we filled, as the headline of the card */}
