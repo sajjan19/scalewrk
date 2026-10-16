@@ -308,3 +308,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero network roles: Full-Stack Engineer (top), AI Engineer (right), Founding Engineer (bottom), Head of Sales (left). Replaced SDR and Founding AE.
 - Mission page: mission and vision cards restyled to match the site (rounded-2xl, ring, dark title, normal body text instead of big bold text). "What we believe" uses CheckList bullets like the rest of the site.
 - Mission wording: "Help growing startups hire great engineers and salespeople. Help those people find the startup where they can do their best work." (also the page description and the New York page line).
+- Mission page card titles: "Mission" and "Vision".

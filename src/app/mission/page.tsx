@@ -15,12 +15,12 @@ export const metadata = pageMetadata({
 const statements = [
   {
     icon: Target,
-    label: "Our mission",
+    label: "Mission",
     text: "Help growing startups hire great engineers and salespeople. Help those people find the startup where they can do their best work.",
   },
   {
     icon: Compass,
-    label: "Our vision",
+    label: "Vision",
     text: "To be the first call a startup makes when it needs to grow its team and the first call a candidate makes when they want something new.",
   },
 ];
