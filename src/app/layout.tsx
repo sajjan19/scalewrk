@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileBookBar } from "@/components/MobileBookBar";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <MobileBookBar />
+        <ScrollReveal />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
