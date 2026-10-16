@@ -77,6 +77,8 @@ const navItems: NavItem[] = [
     children: [
       { href: "/startups", label: "How we work" },
       ...(showRolesPage ? [{ href: "/roles", label: "Roles we hire" }] : []),
+      // Mirrors "Share your profile" under For Candidates: each audience gets its main action
+      { href: "/contact#book", label: "Book a call" },
     ],
   },
   {

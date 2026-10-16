@@ -310,3 +310,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Mission wording: "Help growing startups hire great engineers and salespeople. Help those people find the startup where they can do their best work." (also the page description and the New York page line).
 - Mission page card titles: "Mission" and "Vision".
 - Why Scalewrk card titles shortened to fit one line on desktop: "Tech and sales only", "Hands-on from day one", "Here for the long run".
+- Nav: For Startups is a dropdown again (How we work, Book a call), mirroring For Candidates (How we work, Share your profile).
