@@ -7,6 +7,7 @@ import { showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
 import { Arrow, Button, CalendarIcon, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
+import { HeroScroll } from "@/components/HeroScroll";
 import { bookingHref } from "@/content/site";
 import { visibleJobs } from "@/content/jobs";
 
@@ -34,16 +35,23 @@ export function CityPage({ city, jobsLocation, intro, photo, help, engineerTitle
     <div className="theme-startup">
       {/* Hero: photo with the text on top (dark brand background until there's a photo) */}
       <section className="relative isolate overflow-hidden bg-ink">
+        {/* Scroll effect: the photo drifts down and zooms in a little as you scroll, the text fades out (HeroScroll.tsx) */}
+        <HeroScroll />
         {photo && (
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            priority
-            placeholder="blur"
-            sizes="100vw"
-            className={`-z-10 object-cover ${photo.position ?? "object-center"}`}
-          />
+          <div
+            className="absolute inset-0 -z-10 will-change-transform"
+            style={{ transform: "translate3d(0, calc(var(--hero-p, 0) * 30%), 0) scale(calc(1.05 + var(--hero-p, 0) * 0.1))" }}
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              priority
+              placeholder="blur"
+              sizes="100vw"
+              className={`object-cover ${photo.position ?? "object-center"}`}
+            />
+          </div>
         )}
         {/* Dark layer so the white text is easy to read: even on phones, darker on the left on bigger screens */}
         <div
@@ -57,7 +65,10 @@ export function CityPage({ city, jobsLocation, intro, photo, help, engineerTitle
           />
         )}
         <Container>
-          <div className="py-20 sm:py-32">
+          <div
+            className="py-20 sm:py-32"
+            style={{ opacity: "calc(1 - var(--hero-p, 0) * 1.4)", transform: "translate3d(0, calc(var(--hero-p, 0) * -60px), 0)" }}
+          >
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance text-white sm:text-6xl">
               Tech recruiting for <span className="text-gradient text-gradient-light">{city} startups</span>.
             </h1>
