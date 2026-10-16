@@ -15,7 +15,7 @@ import { LogoMark } from "./Logo";
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
   Purely decorative, no claims. All motion is off for people who turn off motion.
-  Hidden on phones: the pills crowd at that size and the hover effects need a mouse.
+  On phones it shows a bit smaller (max 340px) under the headline and buttons.
 */
 
 // How far from the middle the lines start (leaves a clear space around the S)
@@ -31,7 +31,7 @@ const startupStages = ["Seed", "Series A", "Series C", "Series E"];
 
 // Each spot gets its own distance and a small angle nudge, so the layout feels organic, not a perfect circle
 const radii = [38, 27, 33, 34, 32, 25, 35, 30];
-const nudges = [0, 6, -8, -5, 10, -6, 7, 4]; // degrees
+const nudges = [0, 6, -8, -9, 13, -6, 7, 4]; // degrees (Series A and Founding Engineer spread apart so they never touch on small phones)
 
 const nodes = Array.from({ length: 8 }, (_, i) => {
   const angle = ((i / 8) * 360 - 90 + nudges[i]) * (Math.PI / 180);
@@ -95,7 +95,7 @@ export function HeroNetwork() {
       ref={box}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="net-tilt relative mx-auto hidden aspect-square w-full max-w-md sm:block lg:mx-0 lg:justify-self-end"
+      className="net-tilt relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end"
       aria-hidden="true"
     >
       {/* Soft glow behind the middle */}
@@ -178,7 +178,7 @@ export function HeroNetwork() {
         <span
           key={i}
           data-magnify
-          className={`net-float net-magnify absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
+          className={`net-float net-magnify absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
             n.kind === "candidate"
               ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
               : "theme-startup shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
