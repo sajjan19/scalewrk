@@ -1,10 +1,11 @@
+import { cities } from "@/content/cities";
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { hasOpenJobs, jobs } from "@/content/jobs";
 import { showRolesPage } from "@/content/roles";
 
 // /meet is left out on purpose: it's the event QR-code page, not for search.
-const routes = ["", "/startups", ...(hasOpenJobs ? ["/jobs"] : []), ...(showRolesPage ? ["/roles"] : []), "/engineers", "/share-profile", "/about", "/tech-recruiter-new-york", "/tech-recruiter-san-francisco", "/tech-recruiter-vancouver", "/tech-recruiter-toronto", "/tech-recruiter-seattle", "/book-a-call", "/contact", "/privacy"];
+const routes = ["", "/startups", ...(hasOpenJobs ? ["/jobs"] : []), ...(showRolesPage ? ["/roles"] : []), "/engineers", "/share-profile", "/about", ...cities.map((c) => `/tech-recruiter-${c.slug}`), "/book-a-call", "/contact", "/privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Real job listings only (example listings are hidden from Google)

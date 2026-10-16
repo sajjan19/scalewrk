@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/content/site";
 import { hasOpenJobs } from "@/content/jobs";
 import { showRolesPage } from "@/content/roles";
+import { cities } from "@/content/cities";
 import { Logo } from "./Logo";
 import { MailIcon, PhoneIcon, SocialIcon, type SocialNetwork } from "./SocialIcons";
 
@@ -14,11 +15,6 @@ const footerLinks = [
   { href: "/share-profile", label: "Share your profile" },
   { href: "/about", label: "About" },
   { href: "/about#mission", label: "Mission & Vision" },
-  { href: "/tech-recruiter-new-york", label: "New York" },
-  { href: "/tech-recruiter-san-francisco", label: "San Francisco" },
-  { href: "/tech-recruiter-vancouver", label: "Vancouver" },
-  { href: "/tech-recruiter-toronto", label: "Toronto" },
-  { href: "/tech-recruiter-seattle", label: "Seattle" },
   { href: "/contact", label: "Contact" },
   { href: "/testimonial", label: "Leave a testimonial" },
 ];
@@ -36,7 +32,7 @@ export function Footer() {
           </linearGradient>
         </defs>
       </svg>
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <Logo light />
           <p className="mt-4 max-w-xs leading-relaxed">
@@ -65,6 +61,19 @@ export function Footer() {
               <li key={item.href}>
                 <Link href={item.href} className="rise inline-block text-white link-gradient">
                   {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-sm font-medium text-white/60">Cities</p>
+          <ul className="mt-4 space-y-3">
+            {cities.map((c) => (
+              <li key={c.slug}>
+                <Link href={`/tech-recruiter-${c.slug}`} className="rise inline-block text-white link-gradient">
+                  {c.label}
                 </Link>
               </li>
             ))}
