@@ -1,6 +1,7 @@
 import { Building2, Plane, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import austinPhoto from "../../../public/places/austin.jpg";
 
 /*
   City page for Austin (helps startups searching "tech recruiter Austin" find us).
@@ -20,6 +21,13 @@ export default function AustinPage() {
       city="Austin"
       jobsLocation="Austin, TX"
       intro="Austin mixes live music with one of the fastest-growing tech scenes in the US, from SaaS to chips to AI. We help Austin startups hire great engineers and salespeople. We also help those people find their next Austin startup."
+      // Photo by MJ Tangonan on Unsplash (Unsplash License)
+      photo={{
+        src: austinPhoto,
+        alt: "Downtown Austin skyline over Lady Bird Lake",
+        credit: "MJ Tangonan",
+        creditUrl: "https://unsplash.com/photos/river-near-buildings-during-daytime-wKfTNWaDYgs",
+      }}
       help={[
         {
           icon: Building2,

@@ -1,6 +1,7 @@
 import { Building2, TrainFront, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import newJerseyPhoto from "../../../public/places/new-jersey.jpg";
 
 /*
   City page for New Jersey (helps startups searching "tech recruiter New Jersey" find us).
@@ -20,6 +21,13 @@ export default function NewJerseyPage() {
       city="New Jersey"
       jobsLocation="New Jersey"
       intro="Right next to New York, New Jersey is home to fintech, pharma and growing startup hubs in Jersey City, Newark and Princeton. We help New Jersey startups hire great engineers and salespeople. We also help those people find their next New Jersey startup."
+      // Photo by Gautam Krishnan on Unsplash (Unsplash License)
+      photo={{
+        src: newJerseyPhoto,
+        alt: "The historic railroad terminal in Jersey City with the city towers behind",
+        credit: "Gautam Krishnan",
+        creditUrl: "https://unsplash.com/photos/skyline-view-of-building-with-clock-OWMN3ujgWBc",
+      }}
       help={[
         {
           icon: Building2,

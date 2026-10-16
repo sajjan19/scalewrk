@@ -1,6 +1,7 @@
 import { Building2, GraduationCap, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import bostonPhoto from "../../../public/places/boston.jpg";
 
 /*
   City page for Boston (helps startups searching "tech recruiter Boston" find us).
@@ -20,6 +21,13 @@ export default function BostonPage() {
       city="Boston"
       jobsLocation="Boston, MA"
       intro="With world-class universities and deep roots in biotech and robotics, Boston turns research into startups. We help Boston startups hire great engineers and salespeople. We also help those people find their next Boston startup."
+      // Photo by Jacob Licht on Unsplash (Unsplash License)
+      photo={{
+        src: bostonPhoto,
+        alt: "Boston Back Bay skyline across the Charles River with sailboats",
+        credit: "Jacob Licht",
+        creditUrl: "https://unsplash.com/photos/body-of-water-near-cityscape-at-daytime-8nA_iHrxHIo",
+      }}
       help={[
         {
           icon: Building2,

@@ -1,6 +1,7 @@
 import { Building2, Clock, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import chicagoPhoto from "../../../public/places/chicago.jpg";
 
 /*
   City page for Chicago (helps startups searching "tech recruiter Chicago" find us).
@@ -20,6 +21,13 @@ export default function ChicagoPage() {
       city="Chicago"
       jobsLocation="Chicago, IL"
       intro="From trading firms on LaSalle Street to logistics and health tech, Chicago builds practical tech at scale. We help Chicago startups hire great engineers and salespeople. We also help those people find their next Chicago startup."
+      // Photo by Pedro Lastra on Unsplash (Unsplash License)
+      photo={{
+        src: chicagoPhoto,
+        alt: "Aerial view of downtown Chicago and Lake Michigan",
+        credit: "Pedro Lastra",
+        creditUrl: "https://unsplash.com/photos/white-and-brown-city-buildings-during-daytime-Nyvq2juw4_o",
+      }}
       help={[
         {
           icon: Building2,
