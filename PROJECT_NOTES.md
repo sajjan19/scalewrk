@@ -301,3 +301,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Home "Why Scalewrk": each card is now 2 check bullets (CheckList) instead of a sentence. Dropped "Every new hire gets faster" (speed claim).
 - Why Scalewrk first card, second bullet: "We know these roles inside and out".
 - Why Scalewrk middle card footnote shortened to "Big agencies often pass you to a junior." so all three fit on one line.
+- Why Scalewrk third card bullets: "We get to know you, your team and how you work" / "We stay with you as you grow, hire after hire".
