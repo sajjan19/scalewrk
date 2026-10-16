@@ -81,7 +81,7 @@ const reasons = [
   {
     icon: HeartHandshake,
     title: "With you for the long run",
-    body: "We meet founders in person and stay with you as you grow. Every new hire gets faster.",
+    body: "We get to know you and your team, then stay with you as you grow. Every new hire gets faster.",
     versus: "Many recruiters start from zero every time.",
   },
 ];
