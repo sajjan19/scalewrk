@@ -1,6 +1,7 @@
 import { Building2, Languages, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import montrealPhoto from "../../../public/places/montreal.jpg";
 
 /*
   City page for Montreal (helps startups searching "tech recruiter Montreal" find us).
@@ -20,6 +21,13 @@ export default function MontrealPage() {
       city="Montreal"
       jobsLocation="Montreal, QC"
       intro="With world-class AI research and a creative tech scene, Montreal punches above its weight. We help Montreal startups hire great engineers and salespeople. We also help those people find their next Montreal startup."
+      // Photo by Marc-Olivier Jodoin on Unsplash (Unsplash License)
+      photo={{
+        src: montrealPhoto,
+        alt: "Montreal skyline at dusk reflected in the river",
+        credit: "Marc-Olivier Jodoin",
+        creditUrl: "https://unsplash.com/photos/landscape-photography-of-skyscrapers-BG9oZ15a4Xk",
+      }}
       help={[
         {
           icon: Building2,

@@ -1,6 +1,7 @@
 import { Building2, Plane, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import lasVegasPhoto from "../../../public/places/las-vegas.jpg";
 
 /*
   City page for Las Vegas (helps startups searching "tech recruiter Las Vegas" find us).
@@ -20,6 +21,13 @@ export default function LasVegasPage() {
       city="Las Vegas"
       jobsLocation="Las Vegas, NV"
       intro="Las Vegas is more than the Strip. Its startup scene keeps growing, from gaming tech to hospitality and fintech. We help Las Vegas startups hire great engineers and salespeople. We also help those people find their next Vegas startup."
+      // Photo by Yves Scheuber on Unsplash (Unsplash License)
+      photo={{
+        src: lasVegasPhoto,
+        alt: "The Las Vegas Strip at night with the Bellagio fountains",
+        credit: "Yves Scheuber",
+        creditUrl: "https://unsplash.com/photos/a-city-with-a-fountain-in-the-middle-of-it-6R1d2ihF-zE",
+      }}
       help={[
         {
           icon: Building2,

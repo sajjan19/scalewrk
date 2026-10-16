@@ -1,6 +1,7 @@
 import { Building2, Clock, Search } from "lucide-react";
 import { CityPage } from "@/components/CityPage";
 import { pageMetadata } from "@/lib/metadata";
+import losAngelesPhoto from "../../../public/places/los-angeles.jpg";
 
 /*
   City page for Los Angeles (helps startups searching "tech recruiter Los Angeles" find us).
@@ -20,6 +21,13 @@ export default function LosAngelesPage() {
       city="Los Angeles"
       jobsLocation="Los Angeles, CA"
       intro="From Silicon Beach in Santa Monica to downtown, LA startups mix tech with media, entertainment and commerce. We help Los Angeles startups hire great engineers and salespeople. We also help those people find their next LA startup."
+      // Photo by Cedric Letsch on Unsplash (Unsplash License)
+      photo={{
+        src: losAngelesPhoto,
+        alt: "Palm trees in front of the downtown Los Angeles skyline at sunset",
+        credit: "Cedric Letsch",
+        creditUrl: "https://unsplash.com/photos/los-angeles-skyline-with-palm-trees-UZVlSjrIJ3o",
+      }}
       help={[
         {
           icon: Building2,
