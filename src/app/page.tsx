@@ -74,13 +74,13 @@ const reasons = [
   },
   {
     icon: UserCheck,
-    title: "The same people on every search",
+    title: "Hands-on from day one",
     body: ["Punit or Mandeep runs every search", "With you from the first call to the signed offer"],
     versus: "Big agencies often pass you to a junior.",
   },
   {
     icon: HeartHandshake,
-    title: "With you for the long run",
+    title: "Here for the long run",
     body: ["We build a real relationship with your team", "We grow with you from first hire to full team"],
     versus: "Many recruiters start from zero every time.",
   },
