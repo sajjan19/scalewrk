@@ -353,3 +353,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Home hero: star trail that follows the mouse (inspired by lookdeep.health, our own code): HeroStarTrail.tsx draws a hidden grid of tiny dots on a canvas behind the hero; dots near the mouse light up purple to blue with a soft tail behind the pointer and faint rings while moving; fades out when the mouse leaves. Mouse only, off for reduced motion, idle when nothing moves.
 - Hero illustration: removed its hover tilt and Dock magnify (and their CSS).
 - Star trail: fewer stars (28px spacing, smaller glow, shorter tail, fewer and fainter rings).
+- Star trail removed; hero illustration back to its tilt and Dock magnify hover.

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, type MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
@@ -10,7 +11,9 @@ import { LogoMark } from "./Logo";
   - Startup lines carry blue pulses into the S.
   - Tiny dots around it twinkle, alternating purple and blue.
   - Spots sit at different distances from the S, so it does not look like a perfect circle.
-  - No hover effect of its own: the star trail behind the hero (HeroStarTrail.tsx) follows the mouse instead.
+  - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
+    different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
+  - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
   Purely decorative, no claims. All motion is off for people who turn off motion.
   On phones it shows a bit smaller (max 340px) under the headline and buttons.
 */
@@ -52,18 +55,53 @@ const dots: [number, number, number][] = [
   [95, 46, 0.4], [5, 44, 0.6], [22, 70, 0.35], [80, 28, 0.45], [58, 4, 0.4], [40, 92, 0.6],
 ];
 
+// Dock-style magnify: how much the closest item grows, and how far (px) the effect reaches
+const MAGNIFY = 0.18;
+const REACH = 140;
 
+// How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
+const depth = { glow: 4, lines: 8, pills: 16, center: 24 };
+const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
 
 export function HeroNetwork() {
+  const box = useRef<HTMLDivElement>(null);
+
+  // Mouse position inside the box, from -1 to 1 on each axis
+  function onMove(e: MouseEvent<HTMLDivElement>) {
+    const el = box.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", String(((e.clientX - r.left) / r.width) * 2 - 1));
+    el.style.setProperty("--my", String(((e.clientY - r.top) / r.height) * 2 - 1));
+
+    // Grow each item based on how close the mouse is to its center
+    el.querySelectorAll<HTMLElement>("[data-magnify]").forEach((item) => {
+      const b = item.getBoundingClientRect();
+      const d = Math.hypot(e.clientX - (b.left + b.width / 2), e.clientY - (b.top + b.height / 2));
+      const closeness = Math.max(0, 1 - d / REACH);
+      item.style.scale = String(1 + MAGNIFY * closeness * closeness);
+    });
+  }
+  function onLeave() {
+    const el = box.current;
+    if (!el) return;
+    el.style.setProperty("--mx", "0");
+    el.style.setProperty("--my", "0");
+    el.querySelectorAll<HTMLElement>("[data-magnify]").forEach((item) => (item.style.scale = "1"));
+  }
+
   return (
     <div
-      className="relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end"
+      ref={box}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      className="net-tilt relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end"
       aria-hidden="true"
     >
       {/* Soft glow behind the middle */}
-      <div className="absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" />
+      <div className="net-layer absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" style={layer(depth.glow)} />
 
-      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
+      <svg viewBox="0 0 100 100" className="net-layer absolute inset-0 h-full w-full overflow-visible" style={layer(depth.lines)}>
         <defs>
           <filter id="net-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="0.6" result="blur" />
@@ -135,11 +173,12 @@ export function HeroNetwork() {
       </svg>
 
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
-      <div className="absolute inset-0">
+      <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
       {nodes.map((n, i) => (
         <span
           key={i}
-          className={`net-float absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
+          data-magnify
+          className={`net-float net-magnify absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
             n.kind === "candidate"
               ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
               : "theme-startup shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
@@ -155,12 +194,13 @@ export function HeroNetwork() {
 
       </div>
 
-      {/* Scalewrk in the middle */}
-      <div className="absolute inset-0">
+      {/* Scalewrk in the middle (moves the most) */}
+      <div className="net-layer absolute inset-0" style={layer(depth.center)}>
       {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
       <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
       <span
-        className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]"
+        data-magnify
+        className="net-magnify absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]"
       >
         <LogoMark className="h-16 w-auto sm:h-20" />
       </span>
