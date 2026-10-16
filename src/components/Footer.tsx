@@ -32,7 +32,7 @@ export function Footer() {
           </linearGradient>
         </defs>
       </svg>
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_1.4fr_0.9fr]">
         <div>
           <Logo light />
           <p className="mt-4 max-w-xs leading-relaxed">
@@ -69,7 +69,8 @@ export function Footer() {
 
         <div>
           <p className="text-sm font-medium text-white/60">Cities</p>
-          <ul className="mt-4 space-y-3">
+          {/* Two short columns so the long city list doesn't stretch the footer */}
+          <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
             {cities.map((c) => (
               <li key={c.slug}>
                 <Link href={`/tech-recruiter-${c.slug}`} className="rise inline-block text-white link-gradient">

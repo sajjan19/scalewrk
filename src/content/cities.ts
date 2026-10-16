@@ -2,6 +2,10 @@
 // To add a city: create src/app/tech-recruiter-<slug>/page.tsx (copy another city) and add it here.
 export const cities = [
   { slug: "new-york", label: "New York" },
+  { slug: "new-jersey", label: "New Jersey" },
+  { slug: "boston", label: "Boston" },
+  { slug: "chicago", label: "Chicago" },
+  { slug: "austin", label: "Austin" },
   { slug: "san-francisco", label: "San Francisco" },
   { slug: "los-angeles", label: "Los Angeles" },
   { slug: "seattle", label: "Seattle" },
