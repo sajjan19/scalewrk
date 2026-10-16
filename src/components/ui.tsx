@@ -13,7 +13,7 @@ type ButtonProps = {
 
 const buttonStyles = {
   primary: "bg-ink text-white hover:bg-ink/85",
-  secondary: "btn-outline border-2 border-ink bg-transparent text-ink hover:bg-ink/5", // see-through with a black outline that turns purple-to-blue on hover (globals.css)
+  secondary: "border-2 border-ink bg-transparent text-ink hover:bg-ink hover:text-white", // see-through with a black outline; fills black with white text on hover
   light: "bg-white text-ink hover:bg-white/90",
   brand: "btn-brand", // logo gradient, used for every "Book a call" button
 };

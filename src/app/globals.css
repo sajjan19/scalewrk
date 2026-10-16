@@ -400,31 +400,3 @@ body[data-menu="open"] .mobile-book-bar {
   ) {
   background-color: var(--color-mist);
 }
-
-/* Secondary (outline) buttons: on hover the black outline turns into the purple-to-blue logo gradient.
-   The gradient ring is a layer cut out with a mask so the middle stays see-through. */
-.btn-outline {
-  position: relative;
-}
-.btn-outline::before {
-  content: "";
-  position: absolute;
-  inset: -2px; /* sits exactly over the 2px border */
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(90deg, var(--color-violet), var(--color-blue));
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-.btn-outline:hover {
-  border-color: transparent;
-}
-.btn-outline:hover::before {
-  opacity: 1;
-}

@@ -346,3 +346,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Secondary button outline is now solid black.
 - Secondary (outline) buttons: on hover the black outline turns into the purple-to-blue gradient (.btn-outline in globals.css).
 - Buttons with an arrow now lift on hover like every other button (they used to slide right); the arrow inside still nudges right.
+- Outline buttons: gradient hover removed; on hover they now fill black with white text.
