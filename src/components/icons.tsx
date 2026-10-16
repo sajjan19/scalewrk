@@ -45,25 +45,3 @@ export function SoccerBall({ className = "h-5 w-5", strokeWidth = 1.75 }: IconPr
   );
 }
 
-// A martial arts belt tied in a knot, with the two ends hanging down (Brazilian Jiu-Jitsu)
-export function JiuJitsuBelt({ className = "h-5 w-5", strokeWidth = 1.75 }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {/* belt around the waist, left and right of the knot */}
-      <path d="M2.5 6.5h7v4h-7zM14.5 6.5h7v4h-7z" />
-      {/* knot */}
-      <rect x="9.5" y="5" width="5" height="7" rx="1" />
-      {/* hanging ends */}
-      <path d="M10.6 12 7.2 20.5h2.9l1.9-5.2M13.4 12l3.4 8.5h-2.9L12 15.3" />
-    </svg>
-  );
-}

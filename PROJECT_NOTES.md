@@ -334,3 +334,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Recent placements: same layout as the logo strip (small uppercase label on the left with a divider, card beside it; phones: label centered above).
 - Logo strip and Recent placements: back to labels centered above (logos full width, card centered), both in the small uppercase style. Side-divider layout removed.
 - Mandeep "Outside of work": added Brazilian Jiu-Jitsu (custom belt icon `JiuJitsuBelt` in icons.tsx), after Muay Thai.
+- Mandeep interests: Brazilian Jiu-Jitsu now uses the Muay Thai fighter icon (belt icon removed); added "Vibe coding" (code icon).
