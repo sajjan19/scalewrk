@@ -305,3 +305,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Why Scalewrk third card bullets changed to "We build a real relationship with your team" / "We grow with you from first hire to full team".
 - Hero network: removed the grey dashed orbit behind the pills.
 - Hero network: "Series B" pill changed to "Series C".
+- Hero network roles: Full-Stack Engineer (top), AI Engineer (right), Founding Engineer (bottom), Head of Sales (left). Replaced SDR and Founding AE.

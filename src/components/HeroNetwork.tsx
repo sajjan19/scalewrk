@@ -25,8 +25,8 @@ const PURPLE = "#7a2ff5";
 const BLUE = "#0d6efd";
 
 // Candidates sit top/right/bottom/left, startups on the diagonals
-// The long "Full-Stack Engineer" sits at the top so it never runs off the edge on phones
-const candidateRoles = ["Full-Stack Engineer", "AI Engineer", "Founding AE", "SDR"];
+// The long names sit at the top and bottom so they never run off the side edges
+const candidateRoles = ["Full-Stack Engineer", "AI Engineer", "Founding Engineer", "Head of Sales"];
 const startupStages = ["Seed", "Series A", "Series C", "Series E"];
 
 // Each spot gets its own distance and a small angle nudge, so the layout feels organic, not a perfect circle
