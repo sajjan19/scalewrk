@@ -13,29 +13,30 @@ export function FounderExperienceStrip({ className = "" }: { className?: string 
   // Repeat the logos so one set is wider than the screen, then show that set twice for a seamless loop
   const oneSet = Array.from({ length: 6 }, () => companies).flat();
   return (
-    <section className={`border-b border-line py-8 ${className}`}>
-      <Container>
-        {/* Label above the logos so they don't read as clients: these are where the team has recruited */}
-        <p className="mb-5 text-center text-sm font-medium text-muted">Where our team has recruited</p>
+    <section className={`border-b border-line py-6 sm:py-8 ${className}`}>
+      {/* Label on the left, logos scrolling beside it (phones: label above). Label first so the logos don't read as clients */}
+      <Container className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
+        <p className="shrink-0 text-xs font-semibold tracking-[0.14em] text-muted uppercase md:w-52 md:border-r md:border-line md:py-2 md:pr-8 md:leading-relaxed">
+          Where our team has recruited
+        </p>
         {/* Screen readers get the plain list once; the moving logos are just for show */}
         <ul className="sr-only">
           {companies.map((c) => (
             <li key={c}>{c}</li>
           ))}
         </ul>
-      </Container>
-      {/* Logos run the full width of the screen */}
-      <div className="marquee w-full" aria-hidden="true">
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 items-center gap-x-14 pr-14">
-              {oneSet.map((c, i) => (
-                <CompanyMark key={i} name={c} />
-              ))}
-            </div>
-          ))}
+        <div className="marquee w-full min-w-0 flex-1" aria-hidden="true">
+          <div className="marquee-track">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center gap-x-14 pr-14">
+                {oneSet.map((c, i) => (
+                  <CompanyMark key={i} name={c} />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
