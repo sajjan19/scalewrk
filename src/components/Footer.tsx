@@ -17,6 +17,8 @@ const footerLinks = [
   { href: "/tech-recruiter-new-york", label: "New York" },
   { href: "/tech-recruiter-san-francisco", label: "San Francisco" },
   { href: "/tech-recruiter-vancouver", label: "Vancouver" },
+  { href: "/tech-recruiter-toronto", label: "Toronto" },
+  { href: "/tech-recruiter-seattle", label: "Seattle" },
   { href: "/contact", label: "Contact" },
   { href: "/testimonial", label: "Leave a testimonial" },
 ];
