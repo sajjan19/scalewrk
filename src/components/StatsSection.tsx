@@ -10,7 +10,7 @@ export function StatsSection() {
   const shown = preview ? stats : filled;
   if (shown.length === 0) return null;
   return (
-    <section className="border-y border-line py-12 sm:py-16">
+    <section className="border-b border-line py-12 sm:py-16">
       <Container>
         <p className="text-center text-xs font-semibold tracking-[0.14em] text-muted uppercase">By the numbers</p>
         {preview && filled.length < stats.length && (

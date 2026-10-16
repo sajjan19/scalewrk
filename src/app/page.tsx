@@ -198,6 +198,10 @@ export default function Home() {
       {/* "Where our team has recruited" right under the hero, so trust comes first */}
       <FounderExperienceStrip />
 
+      {/* Results numbers (src/content/stats.ts). Hidden on the live site until real numbers are filled in */}
+      <StatsSection />
+      <ClientsSection />
+
       {/* What we do */}
       <Section tone="mist">
         <SectionHeading eyebrow="What we do" title="We bring startups and great people together" />
@@ -238,13 +242,8 @@ export default function Home() {
         )}
       </Section>
 
-      {/* Clients, once real */}
-      <ClientsSection />
-      {/* Results numbers (src/content/stats.ts). Hidden on the live site until real numbers are filled in */}
-      <StatsSection />
-
       {/* How it works */}
-      <Section tone="mist" className="theme-startup">
+      <Section className="theme-startup">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
           <Link href="/startups" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -257,7 +256,7 @@ export default function Home() {
       </Section>
 
       {/* Why Scalewrk */}
-      <Section className="theme-startup">
+      <Section tone="mist" className="theme-startup">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Why Scalewrk"
@@ -287,7 +286,7 @@ export default function Home() {
       </Section>
 
       {/* Founders: who runs every search (same heading style as Roles) */}
-      <Section tone="mist">
+      <Section>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Our team"
@@ -366,7 +365,7 @@ export default function Home() {
 
       {/* Testimonials (src/content/testimonials.ts) */}
       {/* Testimonials: the opposite background of whatever section sits right before it */}
-      <Testimonials tone={hasOpenJobs ? (showRolePreview ? "white" : "mist") : showRolePreview ? "mist" : "white"} />
+      <Testimonials tone={hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist"} />
 
       <CtaBand />
     </>
