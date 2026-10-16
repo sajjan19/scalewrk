@@ -395,3 +395,15 @@ body[data-menu="open"] .mobile-book-bar {
     animation: none;
   }
 }
+
+/* Cards on white sections are light grey so they stand out; on grey sections they stay white.
+   `tone-white` is added by <Section> (and the Recent placements strip). Covers the site's card styles:
+   rounded-2xl/3xl boxes with a white fill, a border or a ring. Tinted cards (brand, amber, dark) are left alone. */
+.tone-white
+  :is(.rounded-2xl, .rounded-3xl):is(.bg-white, .border, .ring-1):not(
+    [class*="bg-brand-soft"],
+    [class*="bg-amber"],
+    .bg-ink
+  ) {
+  background-color: var(--color-mist);
+}

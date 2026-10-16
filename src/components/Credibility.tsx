@@ -66,7 +66,7 @@ export function ClientsSection() {
   const visible = showClients || process.env.NODE_ENV === "development";
   if (!visible || clients.length === 0) return null;
   return (
-    <section className="py-12 sm:py-16">
+    <section className="tone-white py-12 sm:py-16">
       <Container>
         <p className="text-center text-sm font-medium text-muted">Recent placements</p>
         {clients.some((c) => c.name.startsWith("[")) && (

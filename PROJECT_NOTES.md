@@ -329,3 +329,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Scroll animation fix: cards inside a sideways-swiping row (phones) fade in together with the row and do not rise (the row was cutting off their tops), and swiping no longer hides and replays them.
 - Scroll animation a little faster: 0.7s (was 1s), cards 70ms apart (was 90ms).
 - Testimonial page: removed the heart icon above the heading.
+- Cards on white sections are now light grey (mist); on grey sections they stay white. Done in one CSS rule (`.tone-white` in globals.css, class added by <Section> and the Recent placements strip), so new cards follow it automatically.

@@ -69,7 +69,7 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`py-12 sm:py-24 ${tone === "mist" ? "bg-mist" : ""} ${className}`}>
+    <section id={id} className={`py-12 sm:py-24 ${tone === "mist" ? "bg-mist" : "tone-white"} ${className}`}>
       {/* reveal-group: content fades and slides in as it scrolls into view (see globals.css) */}
       <Container className="reveal-group">{children}</Container>
     </section>
