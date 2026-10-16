@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle } from "lucide-react";
+import { Compass, UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle, Target } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
-import { Arrow, Button, CalendarIcon, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { Button, CalendarIcon, CheckList, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
 import { bookingHref, isSet, site } from "@/content/site";
 import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
@@ -10,9 +10,23 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "Scalewrk was founded by tech recruiter Punit Singh to be the embedded hiring partner for growing startups across the US and Canada.",
+    "Meet the Scalewrk team and read our mission and vision. Founded by tech recruiter Punit Singh to help growing startups across the US and Canada hire engineers and salespeople.",
   path: "/about",
 });
+
+// Mission and vision (this used to be its own page at /mission, which now redirects here)
+const statements = [
+  {
+    icon: Target,
+    label: "Mission",
+    text: "Help growing startups hire great engineers and salespeople. Help those people find the startup where they can do their best work.",
+  },
+  {
+    icon: Compass,
+    label: "Vision",
+    text: "To be the first call a startup makes when it needs to grow its team and the first call a candidate makes when they want something new.",
+  },
+];
 
 const values = [
   {
@@ -51,11 +65,7 @@ export default function AboutPage() {
           </>
         }
         intro="We meet founders, engineers and sales people at tech events, through our network and online. Then we bring the right people together."
-      >
-        <Button href="/mission" variant="secondary">
-          Mission & Vision <Arrow />
-        </Button>
-      </PageHero>
+      />
 
       {/* Quick facts */}
       <section className="border-b border-line bg-mist py-6">
@@ -71,6 +81,24 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+        </Container>
+      </section>
+
+      {/* Mission and vision */}
+      <section id="mission" className="scroll-mt-16 pt-12 sm:pt-24">
+        <Container>
+          <SectionHeading eyebrow="Mission & Vision" title="Why Scalewrk exists" />
+          <div className="mt-10 grid gap-4 sm:mt-12 lg:grid-cols-2">
+            {statements.map((s) => (
+              <div key={s.label} className="flex flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:p-8">
+                <div className="flex items-center gap-4">
+                  <IconBadge icon={s.icon} size="lg" />
+                  <p className="text-xl leading-tight font-semibold tracking-tight">{s.label}</p>
+                </div>
+                <p className="mt-4 text-lg leading-relaxed text-body">{s.text}</p>
+              </div>
+            ))}
+          </div>
         </Container>
       </section>
 
@@ -178,14 +206,7 @@ export default function AboutPage() {
                 <IconBadge icon={v.icon} size="lg" />
                 <p className="text-xl leading-tight font-semibold tracking-tight">{v.title}</p>
               </div>
-              <ul className="mt-4 space-y-1.5">
-                {v.body.map((point) => (
-                  <li key={point} className="flex gap-2 leading-snug text-body">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              <CheckList items={v.body} className="mt-4" />
             </div>
           ))}
         </div>

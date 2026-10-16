@@ -27,7 +27,7 @@ Marketing site for **Scalewrk** (legal name **Scalewrk Talent**, domain **scalew
 | `/startups` | For founders: 6-step process, in-house vs. agency vs. Scalewrk comparison, fee-per-hire engagement model (pricing placeholders), FAQ | Yes | Yes |
 | `/jobs` | Jobs board with filters (from `src/content/jobs.ts`) + "share your profile" prompt | Yes | Yes |
 | `/roles` | Link to /jobs, then 20 role families (9 marked `featured` show on Home) with top 3 common titles, key skills, "what we look for", a "Hire for [role name]" button, "See open jobs for [role name]" (links to /jobs?role=slug) or "Share your profile" when the role has no jobs, and an open jobs count (real jobs only); jump links | Yes | Yes |
-| `/mission` | Mission and vision: hero "Why Scalewrk exists.", mission and vision cards, "What we believe" (4 cards with bullets), link to About. Linked from the About hero and the footer. Copy is a draft for the founders to approve | Yes | Yes |
+| `/mission` | Redirects to `/about#mission` (Mission & Vision now lives on the About page) | No | No |
 | `/tech-recruiter-new-york` | City page for New York startups (SEO): how we help, featured roles, New York jobs (location "New York, NY"), engineer block, FAQ. Linked from the footer | Yes | Yes |
 | `/partners` | VCs, accelerators, lawyers, fractional CFOs: how we support, why refer, how referrals work, partner form | Yes | Yes |
 | `/engineers` | Candidate pitch + profile form (LinkedIn required, current location, how they want to work, where they'd like to work, open to relocating, resume upload or link) | Yes | Yes |
@@ -315,3 +315,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Nav: For Startups and For Candidates are both plain links (no dropdowns). Share your profile is reached from the For Candidates page.
 - Nav: "Contact" added to the desktop menu (after About). It is now part of navItems in site.ts, so the phone menu uses the same entry.
 - Split Contact in two: `/book-a-call` has the headline, what-to-bring cards and the calendar; `/contact` is just "Get in touch" (email, phone, form). All "Book a call" buttons point to `/book-a-call`.
+- Merged Mission & Vision into the About page (section `#mission` after the quick facts, before the team). `/mission` redirects there (next.config.ts). About is a plain menu link now; footer "Mission & Vision" links to `/about#mission`. The old "What we believe" cards were dropped since they repeated About's "What founders can count on" (which now uses CheckList bullets).

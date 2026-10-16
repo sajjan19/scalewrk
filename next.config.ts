@@ -5,6 +5,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Allow higher-quality images for founder headshots (default is 75 only)
   images: { qualities: [75, 90] },
+  // Mission & Vision moved onto the About page
+  async redirects() {
+    return [{ source: "/mission", destination: "/about#mission", permanent: true }];
+  },
   turbopack: {
     rules: {
       "*.css": {

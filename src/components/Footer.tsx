@@ -13,7 +13,7 @@ const footerLinks = [
   ...(hasOpenJobs ? [{ href: "/jobs", label: "Jobs" }] : []), // only while there are jobs
   { href: "/share-profile", label: "Share your profile" },
   { href: "/about", label: "About" },
-  { href: "/mission", label: "Mission & Vision" },
+  { href: "/about#mission", label: "Mission & Vision" },
   { href: "/tech-recruiter-new-york", label: "New York" },
   { href: "/contact", label: "Contact" },
   { href: "/testimonial", label: "Leave a testimonial" },

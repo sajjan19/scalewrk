@@ -75,7 +75,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
 - [x] Team titles decided: Punit "Founder & Principal Recruiter", Mandeep "Founding Recruiter"
-- [ ] Approve the mission and vision wording with Punit (`src/app/mission/page.tsx`)
+- [ ] Approve the mission and vision wording with Punit (`statements` in `src/app/about/page.tsx`)
 
 ## Future
 

@@ -93,10 +93,6 @@ const navItems: NavItem[] = [
   {
     href: "/about",
     label: "About",
-    children: [
-      { href: "/about", label: "Our Team" },
-      { href: "/mission", label: "Mission & Vision" },
-    ],
   },
   { href: "/contact", label: "Contact" },
 ];
