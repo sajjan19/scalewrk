@@ -68,14 +68,17 @@ export function ClientsSection() {
   if (!visible || clients.length === 0) return null;
   return (
     <section className="tone-white py-12 sm:py-16">
-      <Container>
-        <p className="text-center text-sm font-medium text-muted">Recent placements</p>
-        {clients.some((c) => c.name.startsWith("[")) && (
-          <p className="mx-auto mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-center text-xs font-medium text-amber-900 ring-1 ring-amber-200">
-            Placeholder: client names coming soon
-          </p>
-        )}
-        <ul className="mt-6 flex flex-wrap justify-center gap-4">
+      {/* Same layout as the logo strip above: small label on the left with a divider (phones: label above) */}
+      <Container className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
+        <div className="shrink-0 text-center md:flex md:w-52 md:flex-col md:justify-center md:self-stretch md:border-r md:border-line md:pr-8 md:text-left">
+          <p className="text-xs font-semibold tracking-[0.14em] text-muted uppercase md:py-2 md:leading-relaxed">Recent placements</p>
+          {clients.some((c) => c.name.startsWith("[")) && (
+            <p className="mt-2 w-fit rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-900 ring-1 ring-amber-200 max-md:mx-auto">
+              Placeholder: client names coming soon
+            </p>
+          )}
+        </div>
+        <ul className="flex w-full flex-1 flex-wrap justify-center gap-4 md:justify-start">
           {clients.map((client, i) => (
             <li key={i} className="w-full max-w-md">
               <ClientCard client={client} />
