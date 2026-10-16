@@ -19,6 +19,7 @@ export default function SanFranciscoPage() {
   return (
     <CityPage
       city="San Francisco"
+      headline={{ before: "Where Bay Area startups find their ", highlight: "builders and closers", after: "." }}
       jobsLocation="San Francisco, CA"
       intro="We help San Francisco and Bay Area startups hire great engineers and salespeople. We also help those people find the right Bay Area startup."
       // Photo by Maarten van den Heuvel on Unsplash (Unsplash License)

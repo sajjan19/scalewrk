@@ -19,6 +19,7 @@ export default function NewYorkPage() {
   return (
     <CityPage
       city="New York"
+      headline={{ before: "Hiring for the city that ", highlight: "never sleeps", after: "." }}
       jobsLocation="New York, NY"
       intro="We help New York startups hire great engineers and salespeople. We also help those people find the right New York startup."
       // Photo by Jermaine Ee on Unsplash (Unsplash License)

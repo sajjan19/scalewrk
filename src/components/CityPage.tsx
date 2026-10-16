@@ -18,6 +18,8 @@ import { visibleJobs } from "@/content/jobs";
 */
 export type CityPageProps = {
   city: string; // "New York"
+  // The big headline: plain text plus the words shown in the gradient
+  headline: { before?: string; highlight: string; after?: string };
   jobsLocation: string; // the location as written in jobs.ts, e.g. "New York, NY"
   intro: string;
   // credit and creditUrl are kept for our records only (the Unsplash License does not require showing them)
@@ -28,7 +30,7 @@ export type CityPageProps = {
   faqs: { q: string; a: string }[];
 };
 
-export function CityPage({ city, jobsLocation, intro, photo, help, engineerTitle, engineerBody, faqs }: CityPageProps) {
+export function CityPage({ city, headline, jobsLocation, intro, photo, help, engineerTitle, engineerBody, faqs }: CityPageProps) {
   const cityJobs = visibleJobs.filter((j) => j.location === jobsLocation);
   return (
     <div className="theme-startup">
@@ -59,7 +61,9 @@ export function CityPage({ city, jobsLocation, intro, photo, help, engineerTitle
         <Container>
           <div className="py-20 sm:py-32">
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance text-white sm:text-6xl">
-              Tech recruiting for <span className="text-gradient text-gradient-light">{city} startups</span>.
+              {headline.before}
+              <span className="text-gradient text-gradient-light">{headline.highlight}</span>
+              {headline.after}
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-white/85 sm:text-xl">{intro}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

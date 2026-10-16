@@ -19,6 +19,7 @@ export default function VancouverPage() {
   return (
     <CityPage
       city="Vancouver"
+      headline={{ highlight: "Vancouver’s own", after: " startup recruiters." }}
       jobsLocation="Vancouver, BC"
       intro="We're based in Vancouver. We help local startups hire great engineers and salespeople. We also help those people find the right Vancouver startup."
       // Photo by Adrian Yu on Unsplash (Unsplash License)
