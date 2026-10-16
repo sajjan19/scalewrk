@@ -10,7 +10,7 @@ import { LogoMark } from "./Logo";
   - Candidate lines are stronger, with purple pulses flowing out from the S.
   - Startup lines carry blue pulses into the S.
   - Tiny dots around it twinkle, alternating purple and blue.
-  - Spots sit at different distances on a tilted oval, so it does not look like a perfect circle.
+  - Spots sit at different distances from the S, so it does not look like a perfect circle.
   - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
@@ -111,9 +111,6 @@ export function HeroNetwork() {
             </feMerge>
           </filter>
         </defs>
-
-        {/* Dashed orbit: a tilted oval rather than a perfect circle */}
-        <ellipse cx="50" cy="50" rx="38" ry="29" transform="rotate(-18 50 50)" fill="none" stroke="#d4d8ea" strokeWidth="0.4" strokeDasharray="1 1.5" />
 
         {/* Lines: candidates purple and stronger (dashes flow out), startups blue and lighter */}
         {nodes.map((n, i) =>
