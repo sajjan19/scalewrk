@@ -332,3 +332,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Cards on white sections are now light grey (mist); on grey sections they stay white. Done in one CSS rule (`.tone-white` in globals.css, class added by <Section> and the Recent placements strip), so new cards follow it automatically.
 - Logo strip redesigned: small uppercase label "Where our team has recruited" on the left with a divider line, logos scrolling beside it (phones: label centered above). Tighter padding.
 - Recent placements: same layout as the logo strip (small uppercase label on the left with a divider, card beside it; phones: label centered above).
+- Logo strip and Recent placements: back to labels centered above (logos full width, card centered), both in the small uppercase style. Side-divider layout removed.
