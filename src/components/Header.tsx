@@ -74,10 +74,11 @@ export function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpenOn(open ? null : pathname)}
         >
-          {/* Two lines that turn into an X (like apple.com) */}
+          {/* Three lines: the middle one fades out and the other two turn into an X */}
           <span className="relative block h-4 w-[18px]" aria-hidden="true">
-            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[4px]"}`} />
-            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[11px]"}`} />
+            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[2px]"}`} />
+            <span className={`absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 rounded-full bg-ink transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 h-[1.5px] w-full rounded-full bg-ink transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "top-[13px]"}`} />
           </span>
         </button>
       </div>
@@ -87,9 +88,10 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Main"
-          className="menu-sheet fixed inset-x-0 top-16 bottom-0 overflow-y-auto overscroll-contain bg-white px-8 pt-6 pb-10 lg:hidden"
+          className="menu-sheet fixed inset-x-0 top-16 bottom-0 flex flex-col overflow-y-auto overscroll-contain bg-white px-8 pt-4 pb-10 lg:hidden"
         >
-          <ul className="space-y-1">
+          {/* Links spread evenly over the screen height */}
+          <ul className="flex flex-1 flex-col justify-evenly">
             {[{ href: "/", label: "Home" }, ...nav]
               .flatMap((item: NavItem) => (item.children ?? [item]).map((link) => ({ ...link, theme: item.theme })))
               .map((link, i) => {
