@@ -84,29 +84,28 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Sections alternate white and grey: facts (grey), mission (white), team (grey), how we work (white) */}
       {/* Mission and vision */}
-      <section id="mission" className="scroll-mt-16 pt-12 sm:pt-24">
-        <Container>
-          <SectionHeading eyebrow="Mission & Vision" title="Why Scalewrk exists" />
-          <div className="mt-10 grid gap-4 sm:mt-12 lg:grid-cols-2">
-            {statements.map((s) => (
-              <div key={s.label} className="flex flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:p-8">
-                <div className="flex items-center gap-4">
-                  <IconBadge icon={s.icon} size="lg" />
-                  <p className="text-xl leading-tight font-semibold tracking-tight">{s.label}</p>
-                </div>
-                <p className="mt-4 text-lg leading-relaxed text-body">{s.text}</p>
+      <Section id="mission" className="scroll-mt-16">
+        <SectionHeading eyebrow="Mission & Vision" title="Why Scalewrk exists" />
+        <div className="mt-10 grid gap-4 sm:mt-12 lg:grid-cols-2">
+          {statements.map((s) => (
+            <div key={s.label} className="flex flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:p-8">
+              <div className="flex items-center gap-4">
+                <IconBadge icon={s.icon} size="lg" />
+                <p className="text-xl leading-tight font-semibold tracking-tight">{s.label}</p>
               </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              <p className="mt-4 text-lg leading-relaxed text-body">{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-      <Section>
+      <Section tone="mist">
         <SectionHeading eyebrow="Our team" title="Who you'll work with" />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {founders.map((f) => (
-            <article key={f.name} id={founderId(f.name)} className="flex scroll-mt-24 flex-col rounded-2xl border border-line p-6 sm:p-8">
+            <article key={f.name} id={founderId(f.name)} className="flex scroll-mt-24 flex-col rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
               {f.photo ? (
                 <Image
                   src={f.photo}
@@ -197,7 +196,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="mist">
+      <Section>
         <SectionHeading eyebrow="How we work" title="What founders can count on" />
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {values.map((v) => (
