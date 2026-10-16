@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { CtaBand } from "@/components/CtaBand";
-import { HeroNetwork } from "@/components/HeroNetwork";
+import { HeroNetwork, HeroPillsMarquee } from "@/components/HeroNetwork";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
@@ -22,6 +22,7 @@ import { LogoMark } from "@/components/Logo";
 import { Arrow, CalendarIcon, Button, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
+import { ScrollDots } from "@/components/ScrollDots";
 import { bookingHref } from "@/content/site";
 import { hasOpenJobs, latestJobs } from "@/content/jobs";
 import { founderId, founders } from "@/content/founders";
@@ -116,7 +117,8 @@ export default function Home() {
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
         />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
-          <div>
+          {/* min-w-0 keeps the scrolling pills (phones) from stretching this column */}
+          <div className="min-w-0">
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
@@ -145,6 +147,12 @@ export default function Home() {
                 <span className="hidden sm:inline">Find your next role</span> <Arrow />
               </Button>
             </div>
+            {/* Phones only: the illustration's pills scrolling by */}
+            {!showHeroTracker && (
+              <div className="mt-8">
+                <HeroPillsMarquee />
+              </div>
+            )}
           </div>
 
           {showHeroTracker && (
@@ -193,6 +201,9 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Phones: "Where our team has recruited" right under the hero, so trust comes first */}
+      <FounderExperienceStrip className="sm:hidden" />
+
       {/* What we do */}
       <Section tone="mist">
         <SectionHeading eyebrow="What we do" title="We bring startups and great people together" />
@@ -210,7 +221,8 @@ export default function Home() {
                   <p className="text-xl leading-tight font-semibold tracking-tight">{item.title}</p>
                 </div>
               </div>
-              <CheckList items={item.body} className="mt-5" />
+              {/* Phones show the first 2 bullets to keep the cards short */}
+              <CheckList items={item.body} className="mt-5 [&>li:nth-child(n+3)]:hidden sm:[&>li:nth-child(n+3)]:flex" />
               <span className="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-brand group-hover:text-brand-dark">
                 {item.link} <Arrow />
               </span>
@@ -233,8 +245,8 @@ export default function Home() {
         )}
       </Section>
 
-      {/* Past employers (founders' experience) and, once real, clients */}
-      <FounderExperienceStrip />
+      {/* Past employers (founders' experience) and, once real, clients. Phones show the strip under the hero instead */}
+      <FounderExperienceStrip className="hidden sm:block" />
       <ClientsSection />
 
       {/* How it works */}
@@ -263,7 +275,7 @@ export default function Home() {
           </Link>
         </div>
         {/* Phones and tablets: swipeable row. Desktop: 3 across */}
-        <div className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:mt-12 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
+        <div id="why-cards" className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:mt-12 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
           {reasons.map((r) => (
             <div key={r.title} className="flex w-[82%] shrink-0 snap-start flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:w-[60%] sm:p-8 lg:w-auto">
               <div className="flex items-center gap-4">
@@ -277,6 +289,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <ScrollDots targetId="why-cards" count={reasons.length} className="lg:hidden" />
       </Section>
 
       {/* Founders: who runs every search (same heading style as Roles) */}
@@ -291,7 +304,7 @@ export default function Home() {
             Meet the team <Arrow />
           </Link>
         </div>
-        <ul className="mt-12 grid gap-4 md:grid-cols-2">
+        <ul className="mt-8 grid gap-3 sm:mt-12 sm:gap-4 md:grid-cols-2">
           {founders.map((f) => {
             const background = f.experienceAt.length
               ? `Recruited for ${listWithAnd(f.experienceAt)}`
@@ -302,7 +315,7 @@ export default function Home() {
               <li key={f.name}>
                 <Link
                   href={`/about#${founderId(f.name)}`}
-                  className="lift group flex h-full items-center gap-5 rounded-2xl bg-white p-6 ring-1 ring-line hover:ring-brand/30"
+                  className="lift group flex h-full items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line hover:ring-brand/30 sm:gap-5 sm:p-6"
                 >
                   {f.photo ? (
                     <Image
@@ -311,17 +324,18 @@ export default function Home() {
                       width={160}
                       height={160}
                       quality={90}
-                      className="h-20 w-20 flex-none rounded-full object-cover object-[60%_40%]"
+                      className="h-14 w-14 flex-none rounded-full object-cover object-[60%_40%] sm:h-20 sm:w-20"
                     />
                   ) : (
-                    <span className="btn-brand flex h-20 w-20 flex-none items-center justify-center rounded-full text-xl font-semibold" aria-hidden="true">
+                    <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-full text-lg font-semibold sm:h-20 sm:w-20 sm:text-xl" aria-hidden="true">
                       {f.initials}
                     </span>
                   )}
                   <div className="flex-1">
                     <p className="text-lg font-semibold group-hover:text-brand">{f.name}</p>
                     <p className="text-body">{f.title}</p>
-                    {background && <p className="mt-1 text-sm text-muted">{background}</p>}
+                    {/* Hidden on phones to keep the rows short (the intro above already says it) */}
+                    {background && <p className="mt-1 hidden text-sm text-muted sm:block">{background}</p>}
                   </div>
                   <span className="text-muted transition-colors group-hover:text-brand">
                     <Arrow />

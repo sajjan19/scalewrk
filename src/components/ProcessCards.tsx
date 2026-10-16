@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { ScrollDots } from "./ScrollDots";
 
 export type ProcessStep = { icon: LucideIcon; title: string; body: string[] };
 
@@ -6,12 +7,15 @@ export type ProcessStep = { icon: LucideIcon; title: string; body: string[] };
   Numbered process cards joined by lines (Home "How it works" and For Startups "How a search works").
   - `cols`: cards per row on desktop (3 or 4). Tablets always show 2 per row.
   - `ongoingLast`: tint the last card and tag it "Ongoing".
-  - Phones: a swipeable row (each card about 80% wide, so the next one peeks in).
+  - Phones: a swipeable row (each card about 80% wide, so the next one peeks in), with dots underneath.
 */
 export function ProcessCards({ steps, cols = 3, ongoingLast = false }: { steps: ProcessStep[]; cols?: 3 | 4; ongoingLast?: boolean }) {
   const grid = cols === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3";
+  const rowId = `process-${steps.map((s) => s.title).join("-").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
+    <>
     <ol
+      id={rowId}
       className={`no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:scroll-px-8 sm:px-8 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:gap-x-10 md:overflow-visible md:px-0 md:pb-0 ${grid}`}
     >
       {steps.map((step, i) => {
@@ -59,5 +63,7 @@ export function ProcessCards({ steps, cols = 3, ongoingLast = false }: { steps: 
         );
       })}
     </ol>
+    <ScrollDots targetId={rowId} count={steps.length} className="md:hidden" />
+    </>
   );
 }

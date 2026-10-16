@@ -7,13 +7,13 @@ import { alsoRecruitedFor, companyLogos } from "@/content/companyLogos";
 
 // "Our founders have recruited for" strip: past employers in brand colors (or official logo files).
 // The logos scroll right to left in a loop (see .marquee in globals.css).
-export function FounderExperienceStrip() {
+export function FounderExperienceStrip({ className = "" }: { className?: string }) {
   const companies = [...new Set([...founders.flatMap((f) => f.experienceAt), ...alsoRecruitedFor])];
   if (companies.length === 0) return null;
   // Repeat the logos so one set is wider than the screen, then show that set twice for a seamless loop
   const oneSet = Array.from({ length: 6 }, () => companies).flat();
   return (
-    <section className="border-b border-line py-8">
+    <section className={`border-b border-line py-8 ${className}`}>
       <Container>
         {/* Label above the logos so they don't read as clients: these are where the team has recruited */}
         <p className="mb-5 text-center text-sm font-medium text-muted">Where our team has recruited</p>
