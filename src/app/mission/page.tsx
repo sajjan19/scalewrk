@@ -1,6 +1,6 @@
 import { Compass, HeartHandshake, MessageCircle, Puzzle, Rocket, Target } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
-import { Arrow, Button, PageHero, Section, SectionHeading } from "@/components/ui";
+import { Arrow, Button, CheckList, PageHero, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -66,12 +66,12 @@ export default function MissionPage() {
       <Section>
         <div className="grid gap-4 lg:grid-cols-2">
           {statements.map((s) => (
-            <div key={s.label} className="flex flex-col rounded-3xl border border-line p-8 sm:p-10">
+            <div key={s.label} className="flex flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:p-8">
               <div className="flex items-center gap-4">
                 <IconBadge icon={s.icon} size="lg" />
-                <p className="text-xl leading-tight font-semibold tracking-tight text-brand">{s.label}</p>
+                <p className="text-xl leading-tight font-semibold tracking-tight">{s.label}</p>
               </div>
-              <p className="mt-5 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">{s.text}</p>
+              <p className="mt-4 text-lg leading-relaxed text-body">{s.text}</p>
             </div>
           ))}
         </div>
@@ -82,19 +82,12 @@ export default function MissionPage() {
         <SectionHeading eyebrow="What we believe" title="The ideas behind every search" />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {beliefs.map((b) => (
-            <div key={b.title} className="rounded-2xl bg-white p-6 ring-1 ring-line">
+            <div key={b.title} className="rounded-2xl bg-white p-5 ring-1 ring-line sm:p-6">
               <div className="flex items-center gap-4">
                 <IconBadge icon={b.icon} size="lg" />
                 <p className="text-lg leading-tight font-semibold tracking-tight">{b.title}</p>
               </div>
-              <ul className="mt-4 space-y-1.5">
-                {b.body.map((point) => (
-                  <li key={point} className="flex gap-2 leading-snug text-body">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              <CheckList items={b.body} className="mt-4" />
             </div>
           ))}
         </div>
