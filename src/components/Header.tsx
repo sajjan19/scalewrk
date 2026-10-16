@@ -74,7 +74,7 @@ export function Header() {
               </Link>
             );
           })}
-          <Link href={bookingHref} className="btn-brand lift ml-3 inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[15px] font-medium">
+          <Link href={bookingHref} className="btn btn-brand lift ml-3 inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[15px] font-medium">
             <CalendarIcon /> Book a call
           </Link>
         </nav>
@@ -126,7 +126,7 @@ export function Header() {
               })}
           </ul>
           <div className="menu-item mt-8" style={{ animationDelay: `${(nav.length + 1) * 35 + 60}ms` }}>
-            <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn-brand lift flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium">
+            <Link href={bookingHref} onClick={() => setOpenOn(null)} className="btn btn-brand lift flex min-h-12 items-center justify-center gap-2 rounded-xl text-[15px] font-medium">
               <CalendarIcon /> Book a call
             </Link>
           </div>

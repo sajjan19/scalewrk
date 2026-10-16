@@ -347,3 +347,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Secondary (outline) buttons: on hover the black outline turns into the purple-to-blue gradient (.btn-outline in globals.css).
 - Buttons with an arrow now lift on hover like every other button (they used to slide right); the arrow inside still nudges right.
 - Outline buttons: gradient hover removed; on hover they now fill black with white text.
+- Apple TV remote-style buttons site-wide: every `.btn` (all Button components, header and phone-menu Book a call, /meet, form submit buttons, JobList) tilts toward the mouse, grows 6% and gets a soft white shine that follows the pointer; springs back on leave. TvButtons.tsx (in the layout) + .btn / .tv-on in globals.css. Mouse only; off for reduced motion.

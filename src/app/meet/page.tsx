@@ -44,7 +44,7 @@ export default function MeetPage() {
 
         <a
           href="#book"
-          className="btn-brand lift mt-8 flex min-h-14 items-center justify-center gap-2 rounded-xl text-base font-medium"
+          className="btn btn-brand lift mt-8 flex min-h-14 items-center justify-center gap-2 rounded-xl text-base font-medium"
         >
           <CalendarIcon /> Book a call
         </a>

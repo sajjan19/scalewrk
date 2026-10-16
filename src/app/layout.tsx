@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileBookBar } from "@/components/MobileBookBar";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { TvButtons } from "@/components/TvButtons";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <MobileBookBar />
         <ScrollReveal />
+        <TvButtons />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

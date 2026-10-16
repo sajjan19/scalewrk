@@ -400,3 +400,41 @@ body[data-menu="open"] .mobile-book-bar {
   ) {
   background-color: var(--color-mist);
 }
+
+/* Apple TV remote-style buttons (TvButtons.tsx sets --tx/--ty from -1 to 1 and --sx/--sy for the shine).
+   While the mouse is on a button it tilts toward the pointer, grows a little and a shine follows the mouse.
+   Quick while moving, springs back when the mouse leaves. */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    background-position 400ms ease;
+}
+.btn.tv-on {
+  transform: perspective(600px) rotateX(calc(var(--ty, 0) * -10deg)) rotateY(calc(var(--tx, 0) * 10deg)) scale(1.06);
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    background-position 400ms ease;
+}
+.btn::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--sx, 50%) var(--sy, 50%), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.btn.tv-on::after {
+  opacity: 1;
+}

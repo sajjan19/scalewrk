@@ -79,7 +79,7 @@ export function JobList() {
             <button type="button" onClick={clear} className="lift rounded-xl bg-white px-5 py-2.5 font-medium ring-1 ring-line hover:ring-ink/30">
               Clear filters
             </button>
-            <Link href="/share-profile" className="btn-brand lift rounded-xl px-5 py-2.5 font-medium">
+            <Link href="/share-profile" className="btn btn-brand lift inline-block rounded-xl px-5 py-2.5 font-medium">
               Share your profile
             </Link>
           </div>
