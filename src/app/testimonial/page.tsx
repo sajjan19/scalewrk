@@ -1,7 +1,5 @@
-import { Heart } from "lucide-react";
 import { Checkbox, Field, Form, Select, TextArea } from "@/components/Form";
 import { Container, Eyebrow } from "@/components/ui";
-import { IconBadge } from "@/components/visuals";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -20,10 +18,7 @@ export default function TestimonialPage() {
   return (
     <section className="pt-12 pb-20 sm:pt-20 sm:pb-28">
       <Container className="max-w-2xl">
-        <IconBadge icon={Heart} size="lg" />
-        <Eyebrow>
-          <span className="mt-5 block">Share your experience</span>
-        </Eyebrow>
+        <Eyebrow>Share your experience</Eyebrow>
         <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
           How was working with <span className="text-gradient">Scalewrk</span>?
         </h1>

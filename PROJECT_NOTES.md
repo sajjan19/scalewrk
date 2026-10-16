@@ -328,3 +328,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Scroll animation is now Apple-style (replaces the scroll-linked CSS version): `ScrollReveal.tsx` (in the layout) watches every block and card inside a <Section>; when one comes on screen it fades in and glides up 48px over about 1s, cards in a row one after another (90ms apart). Plays again when you scroll back above it and down again. Off for reduced motion; nothing is hidden without JavaScript.
 - Scroll animation fix: cards inside a sideways-swiping row (phones) fade in together with the row and do not rise (the row was cutting off their tops), and swiping no longer hides and replays them.
 - Scroll animation a little faster: 0.7s (was 1s), cards 70ms apart (was 90ms).
+- Testimonial page: removed the heart icon above the heading.
