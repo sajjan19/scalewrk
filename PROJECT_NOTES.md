@@ -321,3 +321,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - About: sections alternate white and grey (facts grey, Mission & Vision white, team grey with white cards, How we work white).
 - Scroll animation: inside every <Section> (all pages), headings and cards fade and slide up as they scroll into view and reverse when scrolling back up. Pure CSS scroll-driven animation (`.reveal-group` in globals.css, added by Section in ui.tsx). Off for people who turn off motion; browsers without support just show everything. Heroes, the logo strip and the CTA band do not animate.
 - Scroll animation made faster: finishes within the first 40% of an item entering the screen (was 90%), 20px slide (was 28px).
+- Scroll animation set in between: finishes within 65% of an item entering the screen, 24px slide.
