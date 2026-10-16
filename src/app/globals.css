@@ -311,3 +311,28 @@ body[data-menu="open"] .mobile-book-bar {
     display: none;
   }
 }
+
+/* Scroll animation: inside every <Section>, blocks fade and slide up as they scroll into view,
+   and fade back out the same way when you scroll back up. Card grids and lists animate card by card.
+   Pure CSS (scroll-driven animations): browsers without support, or people who turn off motion,
+   just see everything as normal. Uses `translate` (not `transform`) so hover lifts still work. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+/* No @supports check (the CSS build drops it). Browsers without scroll timelines run the
+   animation with no duration, so content just shows at its end state right away. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-group > :not(.grid, ol, ul, .reveal-row),
+  .reveal-group > :is(.grid, ol, ul, .reveal-row) > * {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 90%;
+  }
+}

@@ -266,7 +266,7 @@ export default function Home() {
           </Link>
         </div>
         {/* Phones and tablets: swipeable row. Desktop: 3 across */}
-        <div id="why-cards" className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:mt-12 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
+        <div id="why-cards" className="reveal-row no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:mt-12 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
           {reasons.map((r) => (
             <div key={r.title} className="flex w-[82%] shrink-0 snap-start flex-col rounded-2xl bg-white p-5 ring-1 ring-line sm:w-[60%] sm:p-8 lg:w-auto">
               <div className="flex items-center gap-4">
