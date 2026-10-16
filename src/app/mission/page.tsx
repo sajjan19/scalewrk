@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Mission & Vision",
   description:
-    "Scalewrk's mission is to help growing startups hire great engineers and sales teams and help them find the startup where they can do their best work.",
+    "Scalewrk's mission is to help growing startups hire great engineers and salespeople. We also help those people find the startup where they can do their best work.",
   path: "/mission",
 });
 
@@ -16,7 +16,7 @@ const statements = [
   {
     icon: Target,
     label: "Our mission",
-    text: "Help growing startups hire great engineers and sales teams and help them find the startup where they can do their best work.",
+    text: "Help growing startups hire great engineers and salespeople. Help those people find the startup where they can do their best work.",
   },
   {
     icon: Compass,

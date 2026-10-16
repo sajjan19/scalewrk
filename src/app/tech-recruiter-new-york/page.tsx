@@ -90,7 +90,7 @@ export default function NewYorkPage() {
               Tech recruiting for <span className="text-gradient text-gradient-light">New York startups</span>.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-white/85 sm:text-xl">
-              We help New York startups hire great engineers and sales teams and help them find the right New York startup.
+              We help New York startups hire great engineers and salespeople. We also help those people find the right New York startup.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={bookingHref} variant="brand">
