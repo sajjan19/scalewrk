@@ -379,3 +379,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Punit About card: "Experience recruiting for" folded into the same Background list (TikTok, PayPal, Sully.ai, each with "Recruiting"). Punit has no education or dates yet; add `education` / details in founders.ts when known.
 - Background tweaks: Apple years removed; "University of British Columbia (UBC)"; Punit education added: BCIT, School of Business + Media.
 - Home hero on phones: illustration now sits between the subheading and the two buttons (a second HeroNetwork copy, sm:hidden). Tablets and desktop keep it beside the text. Each copy has its own glow filter id (useId).
+- Phone hero illustration made smaller (max 290px), so the two buttons show without scrolling on a typical phone.

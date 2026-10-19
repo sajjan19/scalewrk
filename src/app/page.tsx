@@ -137,7 +137,7 @@ export default function Home() {
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
             {/* Phones: the illustration sits between the subheading and the buttons */}
-            {!showHeroTracker && <HeroNetwork className="mt-6 sm:hidden" />}
+            {!showHeroTracker && <HeroNetwork className="mt-4 !max-w-[290px] sm:hidden" />}
             {/* One button per audience: startups book a call, candidates go to For Candidates.
                 Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
             <div className="mt-7 flex gap-2 sm:mt-8 sm:gap-3">
