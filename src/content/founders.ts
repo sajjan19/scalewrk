@@ -39,6 +39,7 @@ export const founders: Founder[] = [
       "Punit has hired across engineering, sales and go-to-market teams. That gives a clear view of the people who drive product and revenue at a startup. That experience goes into every Scalewrk search.",
     ],
     experienceAt: ["TikTok", "PayPal", "Sully.ai"],
+    education: [{ name: "British Columbia Institute of Technology (BCIT)", detail: "School of Business + Media" }],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
@@ -61,9 +62,9 @@ export const founders: Founder[] = [
       "Mandeep has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps Mandeep understand what founders need and match engineers with startups where they can thrive.",
     ],
     experienceAt: [],
-    previouslyAt: [{ name: "Apple", detail: "Sales, technical support and Apple Business · 2018–2025" }],
+    previouslyAt: [{ name: "Apple", detail: "Sales, technical support and Apple Business" }],
     education: [
-      { name: "University of British Columbia", detail: "BSc in Computer Science" },
+      { name: "University of British Columbia (UBC)", detail: "BSc in Computer Science" },
       { name: "British Columbia Institute of Technology (BCIT)", detail: "New Media and Web Development" },
     ],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
