@@ -19,8 +19,9 @@ export type Founder = {
   location: string;
   bio: string[];
   experienceAt: string[]; // companies they recruited for (also shown on the Home strip)
-  previouslyAt?: string[]; // companies they worked at in other roles (About page only)
-  education?: string[]; // schools and programs (About page only)
+  // "Background" list on the About card: past jobs (briefcase icon) and schools (graduation cap icon)
+  previouslyAt?: { name: string; detail?: string }[]; // companies they worked at in other roles
+  education?: { name: string; detail?: string }[]; // schools and programs
   linkedin: string;
   calendlyUrl: string; // their own booking link; while it says PLACEHOLDER, the button uses the shared calendar
   outsideWork: { icon: Icon; label: string }[]; // "Outside of work" tags on the About card
@@ -60,14 +61,16 @@ export const founders: Founder[] = [
       "Mandeep has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps Mandeep understand what founders need and match engineers with startups where they can thrive.",
     ],
     experienceAt: [],
-    previouslyAt: ["Apple"],
-    education: ["University of British Columbia, BSc in Computer Science", "British Columbia Institute of Technology (BCIT), New Media and Web Development"],
+    previouslyAt: [{ name: "Apple", detail: "Sales, technical support and Apple Business · 2018–2025" }],
+    education: [
+      { name: "University of British Columbia", detail: "BSc in Computer Science" },
+      { name: "British Columbia Institute of Technology (BCIT)", detail: "New Media and Web Development" },
+    ],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
       { icon: Dumbbell, label: "Fitness" },
       { icon: MuayThaiFighter, label: "Muay Thai" },
-      { icon: MuayThaiFighter, label: "Brazilian Jiu-Jitsu" },
       { icon: SoccerBall, label: "Soccer" },
       { icon: Mountain, label: "Hiking" },
       { icon: CodeXml, label: "Vibe coding" },

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Compass, UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle, Target } from "lucide-react";
+import { Briefcase, Compass, GraduationCap, UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle, Target } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
 import { Button, CalendarIcon, CheckList, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
@@ -154,18 +154,24 @@ export default function AboutPage() {
                   ))}
                 </p>
               )}
-              {f.previouslyAt && f.previouslyAt.length > 0 && (
-                <p className="mt-6 text-sm text-body">
-                  <span className="font-medium text-ink">Previously at:</span> {f.previouslyAt.join(" · ")}
-                </p>
-              )}
-              {/* Education: one school per line */}
-              {f.education && f.education.length > 0 && (
-                <div className="mt-2 text-sm text-body">
-                  <p className="font-medium text-ink">Education:</p>
-                  <ul className="mt-1 space-y-1">
-                    {f.education.map((e) => (
-                      <li key={e}>{e}</li>
+              {/* Background: past jobs and schools, one per row with a small icon */}
+              {((f.previouslyAt?.length ?? 0) > 0 || (f.education?.length ?? 0) > 0) && (
+                <div className="mt-6">
+                  <p className="text-sm font-medium text-ink">Background</p>
+                  <ul className="mt-3 space-y-3">
+                    {[
+                      ...(f.previouslyAt ?? []).map((item) => ({ ...item, icon: Briefcase })),
+                      ...(f.education ?? []).map((item) => ({ ...item, icon: GraduationCap })),
+                    ].map((item) => (
+                      <li key={item.name} className="flex items-start gap-3">
+                        <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-brand-soft text-brand">
+                          <item.icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+                        </span>
+                        <span className="min-w-0 pt-0.5">
+                          <span className="block text-sm leading-snug font-medium text-ink">{item.name}</span>
+                          {item.detail && <span className="mt-0.5 block text-sm leading-snug text-muted">{item.detail}</span>}
+                        </span>
+                      </li>
                     ))}
                   </ul>
                 </div>
