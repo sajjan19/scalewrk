@@ -143,23 +143,13 @@ export default function AboutPage() {
                 ))}
               </div>
 
-              {f.experienceAt.length > 0 && (
-                <p className="mt-6 text-sm text-body">
-                  <span className="font-medium text-ink">Experience recruiting for:</span>{" "}
-                  {f.experienceAt.map((c, i) => (
-                    <span key={i}>
-                      {i > 0 && " · "}
-                      <Text>{c}</Text>
-                    </span>
-                  ))}
-                </p>
-              )}
-              {/* Background: past jobs and schools, one per row with a small icon */}
-              {((f.previouslyAt?.length ?? 0) > 0 || (f.education?.length ?? 0) > 0) && (
+              {/* Background: companies recruited for, past jobs and schools, one per row with a small icon */}
+              {(f.experienceAt.length > 0 || (f.previouslyAt?.length ?? 0) > 0 || (f.education?.length ?? 0) > 0) && (
                 <div className="mt-6">
                   <p className="text-sm font-medium text-ink">Background</p>
                   <ul className="mt-3 space-y-3">
                     {[
+                      ...f.experienceAt.map((name) => ({ name, detail: "Recruiting", icon: Briefcase })),
                       ...(f.previouslyAt ?? []).map((item) => ({ ...item, icon: Briefcase })),
                       ...(f.education ?? []).map((item) => ({ ...item, icon: GraduationCap })),
                     ].map((item) => (

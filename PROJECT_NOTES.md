@@ -376,3 +376,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - About: education shows one school per line under an "Education:" label.
 - About card: "Previously at" and "Education" merged into one "Background" list (briefcase icon for jobs, graduation cap for schools; name in bold, details underneath). Data is {name, detail} in founders.ts.
 - Mandeep interests: removed Brazilian Jiu-Jitsu.
+- Punit About card: "Experience recruiting for" folded into the same Background list (TikTok, PayPal, Sully.ai, each with "Recruiting"). Punit has no education or dates yet; add `education` / details in founders.ts when known.
