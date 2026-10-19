@@ -61,7 +61,7 @@ export const founders: Founder[] = [
     ],
     experienceAt: [],
     previouslyAt: ["Apple"],
-    education: ["University of British Columbia, BSc in Computer Science", "BCIT, New Media and Web Development"],
+    education: ["University of British Columbia, BSc in Computer Science", "British Columbia Institute of Technology (BCIT), New Media and Web Development"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
