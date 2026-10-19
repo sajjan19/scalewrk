@@ -136,6 +136,8 @@ export default function Home() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
+            {/* Phones: the illustration sits between the subheading and the buttons */}
+            {!showHeroTracker && <HeroNetwork className="mt-6 sm:hidden" />}
             {/* One button per audience: startups book a call, candidates go to For Candidates.
                 Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
             <div className="mt-7 flex gap-2 sm:mt-8 sm:gap-3">
@@ -191,7 +193,8 @@ export default function Home() {
           )}
 
           {/* Network illustration: startups and candidates linked through Scalewrk */}
-          {!showHeroTracker && <HeroNetwork />}
+          {/* Tablets and desktop: the illustration sits beside the text */}
+          {!showHeroTracker && <HeroNetwork className="hidden sm:block" />}
         </Container>
       </section>
 

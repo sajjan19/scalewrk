@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import { useId, useRef, type MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
@@ -15,7 +15,7 @@ import { LogoMark } from "./Logo";
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
   Purely decorative, no claims. All motion is off for people who turn off motion.
-  On phones it shows a bit smaller (max 340px) under the headline and buttons.
+  On phones the Home hero shows it between the subheading and the buttons (max 340px wide).
 */
 
 // How far from the middle the lines start (leaves a clear space around the S)
@@ -63,8 +63,11 @@ const REACH = 140;
 const depth = { glow: 4, lines: 8, pills: 16, center: 24 };
 const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
 
-export function HeroNetwork() {
+// `className` decides where it shows (the Home hero renders one copy for phones and one for bigger screens)
+export function HeroNetwork({ className = "" }: { className?: string }) {
   const box = useRef<HTMLDivElement>(null);
+  // Each copy gets its own glow filter id, so a hidden copy can't break the other one's glow
+  const glowId = `net-glow-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
 
   // Mouse position inside the box, from -1 to 1 on each axis
   function onMove(e: MouseEvent<HTMLDivElement>) {
@@ -95,7 +98,7 @@ export function HeroNetwork() {
       ref={box}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="net-tilt relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end"
+      className={`net-tilt relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end ${className}`}
       aria-hidden="true"
     >
       {/* Soft glow behind the middle */}
@@ -103,7 +106,7 @@ export function HeroNetwork() {
 
       <svg viewBox="0 0 100 100" className="net-layer absolute inset-0 h-full w-full overflow-visible" style={layer(depth.lines)}>
         <defs>
-          <filter id="net-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="0.6" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -150,7 +153,7 @@ export function HeroNetwork() {
           const out = n.kind === "candidate";
           const [fromX, toX, fromY, toY] = out ? [n.sx, n.x, n.sy, n.y] : [n.x, n.sx, n.y, n.sy];
           return (
-            <circle key={`p${i}`} r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter="url(#net-glow)" className="net-particle">
+            <circle key={`p${i}`} r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter={`url(#${glowId})`} className="net-particle">
               <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
               <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
               <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
