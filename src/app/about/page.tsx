@@ -159,6 +159,11 @@ export default function AboutPage() {
                   <span className="font-medium text-ink">Previously at:</span> {f.previouslyAt.join(" · ")}
                 </p>
               )}
+              {f.education && f.education.length > 0 && (
+                <p className="mt-2 text-sm text-body">
+                  <span className="font-medium text-ink">Education:</span> {f.education.join(" · ")}
+                </p>
+              )}
 
               {f.outsideWork.length > 0 && (
                 <div className="mt-6">

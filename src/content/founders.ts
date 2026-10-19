@@ -20,6 +20,7 @@ export type Founder = {
   bio: string[];
   experienceAt: string[]; // companies they recruited for (also shown on the Home strip)
   previouslyAt?: string[]; // companies they worked at in other roles (About page only)
+  education?: string[]; // schools and programs (About page only)
   linkedin: string;
   calendlyUrl: string; // their own booking link; while it says PLACEHOLDER, the button uses the shared calendar
   outsideWork: { icon: Icon; label: string }[]; // "Outside of work" tags on the About card
@@ -60,6 +61,7 @@ export const founders: Founder[] = [
     ],
     experienceAt: [],
     previouslyAt: ["Apple"],
+    education: ["University of British Columbia, BSc in Computer Science", "BCIT, New Media and Web Development"],
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
