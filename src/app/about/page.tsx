@@ -159,10 +159,16 @@ export default function AboutPage() {
                   <span className="font-medium text-ink">Previously at:</span> {f.previouslyAt.join(" · ")}
                 </p>
               )}
+              {/* Education: one school per line */}
               {f.education && f.education.length > 0 && (
-                <p className="mt-2 text-sm text-body">
-                  <span className="font-medium text-ink">Education:</span> {f.education.join(" · ")}
-                </p>
+                <div className="mt-2 text-sm text-body">
+                  <p className="font-medium text-ink">Education:</p>
+                  <ul className="mt-1 space-y-1">
+                    {f.education.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </div>
               )}
 
               {f.outsideWork.length > 0 && (

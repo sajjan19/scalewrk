@@ -373,3 +373,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - By the numbers is now live with the example numbers, each tagged "Example" plus a note "Placeholder: these are example numbers, not real results yet" (showExampleStats = true in stats.ts). Replace with real values or set the flag to false.
 - Section labels made consistent: "Where our team has recruited", "By the numbers" and "Recent placements" now use the same purple label style as other sections (e.g. "What we do"), centered.
 - Mandeep education on the About card: University of British Columbia, BSc in Computer Science · BCIT, New Media and Web Development (`education` field in founders.ts).
+- About: education shows one school per line under an "Education:" label.
