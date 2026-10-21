@@ -587,3 +587,12 @@ body[data-menu="open"] .mobile-book-bar {
 @media (prefers-reduced-motion: reduce) {
   .aurora { animation: none; }
 }
+
+/* Dark "night sky" Home hero: brighter stars and an indigo glow behind the S instead of a white one */
+.hero-night [data-star],
+.hero-night .net-twinkle {
+  filter: brightness(1.9) saturate(0.8);
+}
+.hero-night .net-halo {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(99, 102, 241, 0.12) 40%, rgba(99, 102, 241, 0) 70%);
+}
