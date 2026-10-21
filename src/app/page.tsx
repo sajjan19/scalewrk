@@ -118,11 +118,14 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      {/* Background: soft lavender wash (light purple at the top left, light blue at the bottom right) */}
-      <section
-        className="relative overflow-hidden border-b border-line"
-        style={{ background: "linear-gradient(135deg, #f5f0ff 0%, #f7f6ff 45%, #eef4ff 100%)" }}
-      >
+      {/* Background: aurora glow. Mostly white, with big soft purple, blue and pink glows drifting slowly behind
+          everything, like northern lights (.aurora in globals.css) */}
+      <section className="relative overflow-hidden border-b border-line bg-white">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <span className="aurora" style={{ top: "-20%", left: "-10%", width: "55%", height: "70%", background: "#a78bfa", animationDuration: "26s" }} />
+          <span className="aurora" style={{ top: "-25%", right: "-10%", width: "60%", height: "80%", background: "#93c5fd", animationDuration: "32s", animationDelay: "-10s" }} />
+          <span className="aurora" style={{ bottom: "-30%", left: "30%", width: "50%", height: "60%", background: "#f0abfc", animationDuration: "38s", animationDelay: "-20s" }} />
+        </div>
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"

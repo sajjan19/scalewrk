@@ -570,3 +570,20 @@ body[data-menu="open"] .mobile-book-bar {
 @media (prefers-reduced-motion: reduce) {
   .hero-pop { animation: none; }
 }
+
+/* Aurora glow behind the Home hero: big blurred colour blobs that drift and breathe slowly */
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(8%, 6%) scale(1.12); }
+  66% { transform: translate(-6%, 4%) scale(0.92); }
+}
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.35;
+  filter: blur(80px);
+  animation: aurora 30s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora { animation: none; }
+}
