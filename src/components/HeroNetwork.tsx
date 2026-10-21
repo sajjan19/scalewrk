@@ -103,9 +103,26 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
       ref={box}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className={`net-tilt relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end ${className}`}
+      className={`relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-md lg:mx-0 lg:justify-self-end ${className}`}
       aria-hidden="true"
     >
+      {/* Twinkling stars, alternating purple and blue. Outside the tilting layer, so they stay still on hover */}
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
+        {dots.map(([x, y, r], i) => (
+          <circle
+            key={`d${i}`}
+            cx={x}
+            cy={y}
+            r={r}
+            fill={i % 2 === 0 ? PURPLE : BLUE}
+            className="net-twinkle"
+            style={{ animationDelay: `${(i * 45) / 100}s` }}
+          />
+        ))}
+      </svg>
+
+      {/* Everything that reacts to the mouse (tilts and shifts) */}
+      <div className="net-tilt absolute inset-0">
       {/* Soft glow behind the middle */}
       <div className="net-layer absolute inset-[22%] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-2xl" style={layer(depth.glow)} />
 
@@ -166,18 +183,6 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
           );
         })}
 
-        {/* Twinkling dots, alternating purple and blue */}
-        {dots.map(([x, y, r], i) => (
-          <circle
-            key={`d${i}`}
-            cx={x}
-            cy={y}
-            r={r}
-            fill={i % 2 === 0 ? PURPLE : BLUE}
-            className="net-twinkle"
-            style={{ animationDelay: `${(i * 45) / 100}s` }}
-          />
-        ))}
       </svg>
 
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
@@ -212,6 +217,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
       >
         <LogoMark className="h-16 w-auto sm:h-20" />
       </span>
+      </div>
       </div>
     </div>
   );

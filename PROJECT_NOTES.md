@@ -393,3 +393,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Shooting stars now random (ShootingStars.tsx uses JavaScript): one at a time, a random 10 to 20 seconds apart, each with a random length (70 to 220px), spot, distance and speed.
 - Shooting stars go in random directions (anything from down-right to down-left), starting on the side that keeps them crossing the hero.
 - Hero illustration hover: the S now shifts 8px toward the mouse (was 24px), so it stays steadier.
+- Hero illustration: its twinkling stars now sit outside the tilting layer, so they stay still when you hover; only the S, lines and pills react.
