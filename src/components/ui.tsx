@@ -111,10 +111,13 @@ export function PageHero({ eyebrow, title, intro, children }: { eyebrow: string;
   return (
     <section className="border-b border-line pt-12 pb-14 sm:pt-20 sm:pb-20">
       <Container>
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">{title}</h1>
-        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-body text-pretty sm:text-xl">{intro}</p>
-        {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
+        {/* Each piece pops up on page load, one after another (same .hero-pop animation as the Home hero) */}
+        <div style={{ "--d": "0ms" } as React.CSSProperties} className="hero-pop">
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </div>
+        <h1 style={{ "--d": "120ms" } as React.CSSProperties} className="hero-pop max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">{title}</h1>
+        <p style={{ "--d": "260ms" } as React.CSSProperties} className="hero-pop mt-5 max-w-3xl text-lg leading-relaxed text-body text-pretty sm:text-xl">{intro}</p>
+        {children && <div style={{ "--d": "400ms" } as React.CSSProperties} className="hero-pop mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
       </Container>
     </section>
   );
