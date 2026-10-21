@@ -568,9 +568,9 @@ body[data-menu="open"] .mobile-book-bar {
 
 
 /* Home hero text: each piece pops up (rises, grows a touch and fades in) on page load, one after another.
-   Set the delay per element with style="--d: 120ms". */
+   Set the delay per element with style="--d: 120ms" (and the starting size with --s; the illustration uses 0.85). */
 @keyframes hero-pop {
-  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  from { opacity: 0; transform: translateY(18px) scale(var(--s, 0.96)); }
   to { opacity: 1; transform: none; }
 }
 .hero-pop {

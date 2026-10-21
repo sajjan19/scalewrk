@@ -162,7 +162,9 @@ export default function Home() {
                 (up to 290px; smaller on short phones so the buttons still fit on screen) */}
             {!showHeroTracker && (
               <div className="flex flex-1 items-center justify-center py-2 sm:hidden">
-                <HeroNetwork className="!max-w-[min(290px,calc(100svh-25rem))]" />
+                <div style={{ "--d": "450ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop w-full">
+                  <HeroNetwork className="!max-w-[min(290px,calc(100svh-25rem))]" />
+                </div>
               </div>
             )}
             {/* One button per audience: startups book a call, candidates go to For Candidates.
@@ -221,7 +223,12 @@ export default function Home() {
 
           {/* Network illustration: startups and candidates linked through Scalewrk */}
           {/* Tablets and desktop: the illustration sits beside the text */}
-          {!showHeroTracker && <HeroNetwork className="hidden sm:block" />}
+          {/* The illustration pops up too, a little after the headline */}
+          {!showHeroTracker && (
+            <div style={{ "--d": "300ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop hidden sm:block">
+              <HeroNetwork />
+            </div>
+          )}
         </Container>
       </section>
 

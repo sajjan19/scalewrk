@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 /*
   A comet for the Home hero: rarer and slower than the shooting stars, with a long glowing tail.
-  Every 30 to 50 seconds (first one after 8 to 14 seconds) it drifts across the hero on a gentle curve,
+  Every 60 to 100 seconds (first one after 15 to 25 seconds) it drifts across the hero on a gentle curve,
   left to right or right to left at random, taking 3 to 4.5 seconds. The tail follows the curve
   (CSS motion path). Styles: .comet in globals.css. Off for people who turn off motion.
   The parent needs `relative overflow-hidden`.
@@ -50,10 +50,10 @@ export function Comet() {
           () => comet.remove(),
           () => comet.remove(),
         );
-      timer = window.setTimeout(fly, between(30000, 50000));
+      timer = window.setTimeout(fly, between(60000, 100000));
     };
 
-    timer = window.setTimeout(fly, between(8000, 14000));
+    timer = window.setTimeout(fly, between(15000, 25000));
     return () => clearTimeout(timer);
   }, []);
 
