@@ -14,6 +14,7 @@ import { LogoMark } from "./Logo";
   - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
+  - A small moon circles the S, and soft pulse waves ripple out from it every few seconds.
   Purely decorative, no claims. All motion is off for people who turn off motion.
   On phones the Home hero shows it between the subheading and the buttons (max 340px wide).
 */
@@ -232,6 +233,19 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
       <div className="net-layer absolute inset-0" style={layer(depth.center)}>
       {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
       <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
+      {/* Pulse waves: soft rings ripple out from the S every few seconds, like a signal to everyone around it */}
+      {[0, 1.4, 2.8].map((delay) => (
+        <span
+          key={delay}
+          className="net-wave absolute top-1/2 left-1/2 h-24 w-24 rounded-full border border-violet/40 sm:h-28 sm:w-28"
+          style={{ animationDelay: `${delay}s` }}
+        />
+      ))}
+      {/* A small moon circling close around the S on a faint orbit */}
+      <span className="absolute top-1/2 left-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-violet/15 sm:h-32 sm:w-32" />
+      <span className="net-moon-orbit absolute top-1/2 left-1/2 h-28 w-28 sm:h-32 sm:w-32">
+        <span className="absolute top-0 left-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-violet to-blue shadow-[0_0_8px_2px_rgba(122,47,245,0.55)]" />
+      </span>
       <span
         data-magnify
         className="net-magnify absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]"

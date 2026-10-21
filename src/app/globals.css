@@ -545,3 +545,50 @@ body[data-menu="open"] .mobile-book-bar {
     animation: none;
   }
 }
+
+/* Star flares in the Home hero (StarFlares.tsx animates them). A soft glow in the sparkle's own colour. */
+.star-flare {
+  position: absolute;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+}
+@media (prefers-reduced-motion: reduce) {
+  .star-flare {
+    display: none;
+  }
+}
+
+/* Hero illustration: a moon circling the S, and pulse waves rippling out from it (HeroNetwork.tsx) */
+@keyframes net-moon {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.net-moon-orbit {
+  transform: translate(-50%, -50%);
+  animation: net-moon 9s linear infinite;
+}
+@keyframes net-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.55);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+.net-wave {
+  transform: translate(-50%, -50%) scale(0.55);
+  opacity: 0;
+  animation: net-wave 4.2s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .net-moon-orbit,
+  .net-wave {
+    animation: none;
+  }
+}

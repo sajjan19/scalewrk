@@ -19,6 +19,7 @@ import { StarField } from "@/components/StarField";
 import { StarGuard } from "@/components/StarGuard";
 import { ShootingStars } from "@/components/ShootingStars";
 import { Comet } from "@/components/Comet";
+import { StarFlares } from "@/components/StarFlares";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
@@ -130,6 +131,8 @@ export default function Home() {
         <ShootingStars />
         {/* A rare comet with a long tail drifts across on a gentle curve */}
         <Comet />
+        {/* Now and then a star flares into a sparkle */}
+        <StarFlares />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
