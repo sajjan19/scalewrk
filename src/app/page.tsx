@@ -118,7 +118,11 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-line">
+      {/* Background: soft lavender wash (light purple at the top left, light blue at the bottom right) */}
+      <section
+        className="relative overflow-hidden border-b border-line"
+        style={{ background: "linear-gradient(135deg, #f5f0ff 0%, #f7f6ff 45%, #eef4ff 100%)" }}
+      >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"

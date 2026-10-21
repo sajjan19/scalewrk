@@ -413,3 +413,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Fewer shooting stars (every 40–70s) and comets (every 60–100s, first after 15–25s).
 - Inner page heroes (PageHero in ui.tsx: Startups, Candidates etc.) use the same .hero-pop load animation.
 - Hero illustration: pills (with lines and pulses) now slowly orbit the S together, one full turn every 2 minutes (ORBIT in HeroNetwork.tsx). Runs on phones too; checked no overlaps or edge clipping through a full turn at 375 and 1280 wide. Replaces the old back-and-forth drift.
+- Hero background options being tried (1 lavender wash, 2 aurora, 3 night sky, 4 twilight fade, 5 dot grid). Now: 1 lavender wash (inline gradient on the hero section in page.tsx).
