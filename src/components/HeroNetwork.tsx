@@ -51,6 +51,19 @@ const nodes = Array.from({ length: 8 }, (_, i) => {
   };
 });
 
+// Phones: the pills sit in neat rows instead of a circle, so they never crowd each other on a small screen.
+// [x, y] in % of the box, in the same order as the desktop spots above (Full-Stack Engineer, Seed, AI Engineer,
+// Series A, Founding Engineer, Series C, Head of Sales, Series E). Some pills reach a little past the box edge.
+const phoneSpots: [number, number][] = [
+  [50, 7], [80, 26], [86, 46], [80, 67], [50, 89], [20, 67], [14, 46], [20, 26],
+];
+const phoneNodes = nodes.map((n, i) => {
+  const [x, y] = phoneSpots[i];
+  const angle = Math.atan2(y - 50, x - 50);
+  const round = (v: number) => Math.round(v * 100) / 100;
+  return { ...n, x, y, sx: round(50 + GAP * Math.cos(angle)), sy: round(50 + GAP * Math.sin(angle)) };
+});
+
 // Tiny dots around it, in a few small sizes (they twinkle, alternating purple and blue)
 const dots: [number, number, number][] = [
   [12, 14, 0.6], [88, 12, 0.4], [8, 86, 0.5], [90, 88, 0.7], [32, 6, 0.35], [68, 95, 0.5],
@@ -71,7 +84,9 @@ const depth = { glow: 4, lines: 8, pills: 16, center: 8 }; // the S moves only a
 const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
 
 // `className` decides where it shows (the Home hero renders one copy for phones and one for bigger screens)
-export function HeroNetwork({ className = "" }: { className?: string }) {
+// `phone` uses the row layout above (the Home hero's phone copy)
+export function HeroNetwork({ className = "", phone = false }: { className?: string; phone?: boolean }) {
+  const spots = phone ? phoneNodes : nodes;
   const box = useRef<HTMLDivElement>(null);
   // Each copy gets its own glow filter id, so a hidden copy can't break the other one's glow
   const glowId = `net-glow-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
@@ -140,7 +155,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         </defs>
 
         {/* Lines: candidates purple and stronger (dashes flow out), startups blue and lighter */}
-        {nodes.map((n, i) =>
+        {spots.map((n, i) =>
           n.kind === "candidate" ? (
             <g key={i}>
               <line x1={n.sx} y1={n.sy} x2={n.x} y2={n.y} stroke={PURPLE} strokeOpacity="0.18" strokeWidth="1.6" strokeLinecap="round" />
@@ -174,7 +189,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         )}
 
         {/* Pulses: purple ones go out to candidates, blue ones come in from startups */}
-        {nodes.map((n, i) => {
+        {spots.map((n, i) => {
           const out = n.kind === "candidate";
           const [fromX, toX, fromY, toY] = out ? [n.sx, n.x, n.sy, n.y] : [n.x, n.sx, n.y, n.sy];
           return (
@@ -192,7 +207,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
 
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
       <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
-      {nodes.map((n, i) => (
+      {spots.map((n, i) => (
         <div key={i} className="pointer-events-none absolute inset-0">
         <span className="absolute h-0 w-0" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
         <span

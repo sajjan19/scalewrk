@@ -168,7 +168,7 @@ export default function Home() {
             {!showHeroTracker && (
               <div className="flex flex-1 items-center justify-center py-2 sm:hidden">
                 <div style={{ "--d": "450ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop w-full">
-                  <HeroNetwork className="!max-w-[min(290px,calc(100svh-25rem))]" />
+                  <HeroNetwork phone className="!max-w-[min(290px,calc(100svh-25rem))]" />
                 </div>
               </div>
             )}
