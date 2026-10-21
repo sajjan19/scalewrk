@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /*
-  Shooting stars for the Home hero: now and then (a random 40 to 70 seconds apart) a purple-to-blue
+  Shooting stars for the Home hero: now and then (a random 1 to 2 minutes apart) a purple-to-blue
   streak with a glowing head shoots across. Each one gets a random direction (anything from down-right
   to down-left), length, starting spot, distance and speed, so no two look the same. Only one at a time.
   Styles: .shooting-star in globals.css. Off for people who turn off motion.
@@ -46,11 +46,11 @@ export function ShootingStars() {
           () => star.remove(),
           () => star.remove(),
         );
-      timer = window.setTimeout(shoot, between(40000, 70000));
+      timer = window.setTimeout(shoot, between(60000, 120000));
     };
 
     // First one a few seconds after the page loads
-    timer = window.setTimeout(shoot, between(2500, 5000));
+    timer = window.setTimeout(shoot, between(12000, 20000));
     return () => clearTimeout(timer);
   }, []);
 
