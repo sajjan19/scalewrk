@@ -154,10 +154,10 @@ export default function Home() {
             {/* One sentence per line, never wrapping (the size shrinks on small phones so it fits) */}
             <h1 className="mt-5 text-white text-[clamp(1.75rem,9vw,2.75rem)] leading-[1.08] font-semibold tracking-tight sm:mt-6 sm:text-6xl">
               <span style={{ "--d": "120ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
-                Built to <span className="text-gradient">Scale</span>.
+                Built to <span className="text-gradient text-gradient-light">Scale</span>.
               </span>
               <span style={{ "--d": "240ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
-                Powered by <span className="text-gradient">Talent</span>.
+                Powered by <span className="text-gradient text-gradient-light">Talent</span>.
               </span>
             </h1>
             <p data-no-stars style={{ "--d": "380ms" } as React.CSSProperties} className="hero-pop mt-6 max-w-xl text-lg leading-relaxed text-slate-300 text-pretty sm:text-xl">
@@ -175,7 +175,7 @@ export default function Home() {
             {/* One button per audience: startups book a call, candidates go to For Candidates.
                 Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
             <div style={{ "--d": "520ms" } as React.CSSProperties} className="hero-pop mt-2 flex gap-2 sm:mt-8 sm:gap-3">
-              <Button href={bookingHref} variant="brand" className="flex-1 sm:flex-none">
+              <Button href={bookingHref} variant="brand" className="hero-glow flex-1 sm:flex-none">
                 <CalendarIcon /> Book a call
               </Button>
               <Button href="/engineers" variant="secondary" className="flex-1 !border-white !text-white hover:!bg-white hover:!text-ink sm:flex-none">
@@ -236,6 +236,8 @@ export default function Home() {
           )}
         </Container>
       </section>
+      {/* Smooth fade from the dark hero into the white page below */}
+      <div aria-hidden="true" className="h-16 bg-gradient-to-b from-[#1e1b4b] to-white sm:h-24" />
 
       {/* "Where our team has recruited" right under the hero, so trust comes first */}
       <FounderExperienceStrip />

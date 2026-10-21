@@ -197,14 +197,14 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         <span className="absolute h-0 w-0" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
         <span
           data-magnify
-          className={`net-float net-magnify pointer-events-auto absolute top-0 left-0 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
+          className={`net-pill net-float net-magnify pointer-events-auto absolute top-0 left-0 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
             n.kind === "candidate"
               ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
               : "theme-startup shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
           }`}
           style={{ animationDelay: `${(i * 4) / 10}s` }}
         >
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand sm:h-6 sm:w-6">
+          <span className="net-pill-icon flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand sm:h-6 sm:w-6">
             {n.kind === "candidate" ? <UserRound className="h-3.5 w-3.5" strokeWidth={2} /> : <Rocket className="h-3.5 w-3.5" strokeWidth={2} />}
           </span>
           {n.label}
