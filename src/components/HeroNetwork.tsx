@@ -7,8 +7,8 @@ import { LogoMark } from "./Logo";
 /*
   Home hero illustration (light style): Scalewrk as the connection between startups and people.
   - Startups (blue, rocket icon) on the left, talent (purple, person icon) on the right, the S in the middle.
-  - Curved lines join every startup and every person to the S, plus faint mesh lines between neighbours,
-    so it reads as one network.
+  - Curved blue-to-purple lines join every startup and every person to the S; a thin spine runs down
+    each side through the ports, and soft rings ripple out from the S (the hub).
   - "Matches": a blue pulse travels from a startup into the S, then a purple pulse carries on out to a person.
   - Tiny dots around it twinkle, alternating purple and blue.
   - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
@@ -24,8 +24,8 @@ const BLUE = "#0d6efd";
 const round = (v: number) => Math.round(v * 100) / 100; // same numbers on the server and in the browser
 
 // Rows from top to bottom. The middle rows sit a little further out so they clear the S.
-const rows = [12, 32, 68, 88];
-const inner = [44, 38, 38, 44]; // how close to the middle each row's pill reaches (% from the left, startup side)
+const rows = [12, 34, 66, 88];
+const inner = [37, 31, 31, 37]; // how close to the middle each row's pill reaches (% from the left, startup side)
 
 // Startups: the pill's right edge sits at x (they extend to the left)
 const startups = ["Seed", "Series A", "Series C", "Series E"].map((label, i) => ({ label, x: inner[i], y: rows[i] }));
@@ -39,23 +39,19 @@ const people = ["Full-Stack Engineer", "AI Engineer", "Head of Sales", "Founding
 // Curved line between a pill and the S. `dir` is -1 for the startup side, 1 for the people side.
 // Startup paths run pill → S (pulses flow in), people paths run S → pill (pulses flow out).
 function curve(x: number, y: number, dir: -1 | 1) {
-  const sx = round(50 + dir * 8); // just outside the S
-  const sy = round(50 + (y - 50) * 0.18);
+  const sx = round(50 + dir * 9); // just outside the S
+  const sy = round(50 + (y - 50) * 0.22);
   const ex = round(x - dir * 1.5); // just short of the pill edge
-  const c1x = round(sx + dir * 10);
-  const c2x = round(ex - dir * 12);
+  const c1x = round(sx + dir * 9);
+  const c2x = round(ex - dir * 9);
   return dir === 1
     ? `M ${sx} ${sy} C ${c1x} ${sy}, ${c2x} ${y}, ${ex} ${y}`
     : `M ${ex} ${y} C ${c2x} ${y}, ${c1x} ${sy}, ${sx} ${sy}`;
 }
 
-// Faint mesh lines between neighbouring pills on each side and a few across, for the network feel
-const mesh: [number, number, number, number][] = [
-  ...startups.slice(1).map((n, i) => [startups[i].x - 6, startups[i].y, n.x - 6, n.y] as [number, number, number, number]),
-  ...people.slice(1).map((n, i) => [people[i].x + 6, people[i].y, n.x + 6, n.y] as [number, number, number, number]),
-  [startups[0].x - 3, startups[0].y, people[0].x + 3, people[0].y],
-  [startups[3].x - 3, startups[3].y, people[3].x + 3, people[3].y],
-];
+// A thin "spine" down each side joining the ports, so each side reads as one connected group
+const spine = (side: { x: number; y: number }[], dx: number) =>
+  `M ${side.map((n) => `${round(n.x + dx)} ${n.y}`).join(" L ")}`;
 
 // Tiny dots around it, in a few small sizes (they twinkle, alternating purple and blue)
 const dots: [number, number, number][] = [
@@ -135,6 +131,11 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
 
       <svg viewBox="0 0 100 100" className="net-layer absolute inset-0 h-full w-full overflow-visible" style={layer(depth.lines)}>
         <defs>
+          {/* Lines fade from blue (startups) to purple (talent) */}
+          <linearGradient id={`${glowId}-line`} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor={BLUE} />
+            <stop offset="1" stopColor={PURPLE} />
+          </linearGradient>
           <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="0.6" result="blur" />
             <feMerge>
@@ -145,27 +146,30 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         </defs>
 
         {/* Side labels */}
-        <text x="18" y="2" textAnchor="middle" fontSize="2.6" fontWeight="600" letterSpacing="0.3" fill={BLUE} opacity="0.7">
+        <text x="18" y="2.5" textAnchor="middle" fontSize="2.4" fontWeight="600" letterSpacing="0.45" fill={BLUE} opacity="0.75">
           STARTUPS
         </text>
-        <text x="82" y="2" textAnchor="middle" fontSize="2.6" fontWeight="600" letterSpacing="0.3" fill={PURPLE} opacity="0.7">
+        <text x="82" y="2.5" textAnchor="middle" fontSize="2.4" fontWeight="600" letterSpacing="0.45" fill={PURPLE} opacity="0.75">
           TALENT
         </text>
 
-        {/* Faint mesh between neighbours, so it reads as a network */}
-        {mesh.map(([x1, y1, x2, y2], i) => (
-          <line key={`m${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#c7cbe0" strokeWidth="0.3" strokeDasharray="0.8 1.4" />
+        {/* Spines: one thin line down each side through the ports */}
+        <path d={spine(startups, 1.5)} fill="none" stroke={BLUE} strokeOpacity="0.18" strokeWidth="0.4" />
+        <path d={spine(people, -1.5)} fill="none" stroke={PURPLE} strokeOpacity="0.18" strokeWidth="0.4" />
+
+        {/* Hub rings: soft circles that ripple out from the S */}
+        {[0, 1.6].map((delay) => (
+          <circle key={delay} cx="50" cy="50" r="11" fill="none" stroke={`url(#${glowId}-line)`} strokeWidth="0.5" opacity="0" className="net-particle">
+            <animate attributeName="r" values="11;19" dur="3.2s" begin={`${delay}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.5;0" dur="3.2s" begin={`${delay}s`} repeatCount="indefinite" />
+          </circle>
         ))}
 
-        {/* Startups → S (blue) */}
-        {startups.map((n, i) => (
-          <path key={`s${i}`} d={curve(n.x, n.y, -1)} fill="none" stroke={BLUE} strokeOpacity="0.4" strokeWidth="0.6" strokeDasharray="2 1.6" />
-        ))}
-        {/* S → people (purple, stronger, dashes flow out) */}
-        {people.map((n, i) => (
-          <g key={`p${i}`}>
-            <path d={curve(n.x, n.y, 1)} fill="none" stroke={PURPLE} strokeOpacity="0.16" strokeWidth="1.6" strokeLinecap="round" />
-            <path d={curve(n.x, n.y, 1)} fill="none" stroke={PURPLE} strokeWidth="0.7" strokeLinecap="round" strokeDasharray="1.5 1.5" className="net-flow-out" />
+        {/* Every startup and every person is linked to the S: a soft wide line with a crisp thin one on top */}
+        {[...startups.map((n) => curve(n.x, n.y, -1)), ...people.map((n) => curve(n.x, n.y, 1))].map((d, i) => (
+          <g key={`c${i}`}>
+            <path d={d} fill="none" stroke={`url(#${glowId}-line)`} strokeOpacity="0.14" strokeWidth="1.8" strokeLinecap="round" />
+            <path d={d} fill="none" stroke={`url(#${glowId}-line)`} strokeOpacity="0.7" strokeWidth="0.45" strokeLinecap="round" />
           </g>
         ))}
 
