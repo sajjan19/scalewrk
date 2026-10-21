@@ -58,7 +58,7 @@ export const founders: Founder[] = [
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",
     bio: [
-      "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. He also helps small businesses in Canada and the US grow through IT consulting.",
+      "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. He also helped small businesses in Canada and the US grow through IT consulting.",
       "He has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps him understand what founders need and match engineers with startups where they can thrive.",
     ],
     experienceAt: [],
