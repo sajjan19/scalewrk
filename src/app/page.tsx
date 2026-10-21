@@ -136,8 +136,10 @@ export default function Home() {
         <Comet />
         {/* Now and then a star flares into a sparkle */}
         <StarFlares />
-        <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
-          <div>
+        <Container className="relative grid items-center gap-8 pt-6 pb-5 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
+          {/* Phones: this column fills the visible screen (below the header), so the two buttons sit right
+              above the browser's bottom bar on first load. svh = the screen height with the browser bars showing */}
+          <div className="flex min-h-[calc(100svh-4rem-2.75rem)] flex-col sm:block sm:min-h-0">
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
@@ -155,11 +157,16 @@ export default function Home() {
             <p data-no-stars className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
-            {/* Phones: the illustration sits between the subheading and the buttons */}
-            {!showHeroTracker && <HeroNetwork className="mt-4 !max-w-[290px] sm:hidden" />}
+            {/* Phones: the illustration sits between the subheading and the buttons, using the space left over
+                (up to 290px; smaller on short phones so the buttons still fit on screen) */}
+            {!showHeroTracker && (
+              <div className="flex flex-1 items-center justify-center py-2 sm:hidden">
+                <HeroNetwork className="!max-w-[min(290px,calc(100svh-25rem))]" />
+              </div>
+            )}
             {/* One button per audience: startups book a call, candidates go to For Candidates.
                 Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
-            <div className="mt-7 flex gap-2 sm:mt-8 sm:gap-3">
+            <div className="mt-2 flex gap-2 sm:mt-8 sm:gap-3">
               <Button href={bookingHref} variant="brand" className="flex-1 sm:flex-none">
                 <CalendarIcon /> Book a call
               </Button>
