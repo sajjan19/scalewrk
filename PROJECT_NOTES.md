@@ -402,4 +402,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero star flares (StarFlares.tsx, .star-flare): every 3 to 7 seconds a random spot flares into a four-point sparkle (10 to 20px, purple or blue), turns 90 degrees and fades over about 1.5 seconds. Never behind the headline or subheading. Off for reduced motion.
 - Shooting stars rarer: a random 20 to 40 seconds apart.
 - Hero scroll depth: StarField splits stars into 3 layers by size (small = far, drifts slower than the page; big = near, a bit faster); ScrollDepth.tsx sets --scroll on the hero. StarGuard re-checks while scrolling so no star slides behind the subheading. Off for reduced motion.
-- Hero constellations (Constellations.tsx, line styles set inline): every 7 to 12 seconds, 3 to 5 nearby background stars link up with faint purple lines that draw in one after another, hold about 2 seconds, then fade. Lines avoid text, buttons and pills; scrolling fades them right away. Off for reduced motion.
+- Constellations removed from the hero.
