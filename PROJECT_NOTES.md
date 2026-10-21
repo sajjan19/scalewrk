@@ -408,3 +408,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Bios use "he/him" after the first mention instead of repeating names (both founders are he/him). Why Scalewrk intro says "Every search run by a co-founder" so Punit is named once there (in the card).
 - About: Mandeep's bio keeps the IT consulting line and it is also a Background row, so both cards have 4 Background rows. Bio p2 reworded.
 - Phone hero fills the visible screen (100svh minus the header): the illustration takes the leftover space (up to 290px, smaller on short phones) and the two buttons sit right above the browser's bottom bar on first load.
+- Home hero text pops up on page load, one piece after another (badge, each headline line, subheading, buttons). `.hero-pop` in globals.css; delay set per element with `--d`. Off for reduced motion.

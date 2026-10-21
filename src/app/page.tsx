@@ -140,21 +140,22 @@ export default function Home() {
           {/* Phones: this column fills the visible screen (below the header), so the two buttons sit right
               above the browser's bottom bar on first load. svh = the screen height with the browser bars showing */}
           <div className="flex min-h-[calc(100svh-4rem-2.75rem)] flex-col sm:block sm:min-h-0">
-            <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
+            <p style={{ "--d": "0ms" } as React.CSSProperties} className="hero-pop inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
+            {/* Hero text pops up one piece at a time on page load (.hero-pop in globals.css; --d = delay) */}
             {/* One sentence per line, never wrapping (the size shrinks on small phones so it fits) */}
             <h1 className="mt-5 text-[clamp(1.75rem,9vw,2.75rem)] leading-[1.08] font-semibold tracking-tight sm:mt-6 sm:text-6xl">
-              <span className="block whitespace-nowrap">
+              <span style={{ "--d": "120ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
                 Built to <span className="text-gradient">Scale</span>.
               </span>
-              <span className="block whitespace-nowrap">
+              <span style={{ "--d": "240ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
                 Powered by <span className="text-gradient">Talent</span>.
               </span>
             </h1>
-            <p data-no-stars className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
+            <p data-no-stars style={{ "--d": "380ms" } as React.CSSProperties} className="hero-pop mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
             {/* Phones: the illustration sits between the subheading and the buttons, using the space left over
@@ -166,7 +167,7 @@ export default function Home() {
             )}
             {/* One button per audience: startups book a call, candidates go to For Candidates.
                 Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
-            <div className="mt-2 flex gap-2 sm:mt-8 sm:gap-3">
+            <div style={{ "--d": "520ms" } as React.CSSProperties} className="hero-pop mt-2 flex gap-2 sm:mt-8 sm:gap-3">
               <Button href={bookingHref} variant="brand" className="flex-1 sm:flex-none">
                 <CalendarIcon /> Book a call
               </Button>
