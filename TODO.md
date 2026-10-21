@@ -40,7 +40,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 - [ ] **Resume uploads**: Formspree only accepts files on paid plans (Personal or higher). Upgrade, switch the Engineers form to a free attachment service (ask Claude), or set `resumeUpload: false` in `site.ts` to hide the upload field.
 - [ ] **Promises in the copy**: keep or soften each one:
-  - "Punit or Mandeep works with you from the first call to the signed offer" / "Every search run by Punit or Mandeep" (Home, Startups, New York)
+  - "Every search run by Punit" / "Punit runs every search" (Home, Startups, city pages)
 
 ## Company logos (founders' experience strip)
 
@@ -78,7 +78,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Make a QR code pointing to `https://scalewrk.ai/meet` for events
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
-- [x] Team titles decided: Punit "Founder & Principal Recruiter", Mandeep "Founding Recruiter"
+- [x] Team titles decided: Punit "Founder & Principal Recruiter", Mandeep "Head of Growth & Technology"
 - [ ] Approve the mission and vision wording with Punit (`statements` in `src/app/about/page.tsx`)
 
 ## Future

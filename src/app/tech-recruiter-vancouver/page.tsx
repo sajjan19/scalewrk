@@ -42,7 +42,7 @@ export default function VancouverPage() {
         {
           icon: Search,
           title: "A search run like part of your team",
-          body: ["Punit or Mandeep runs it", "A small shortlist that fits", "We help you close the offer"],
+          body: ["Punit runs every search", "A small shortlist that fits", "We help you close the offer"],
         },
       ]}
       engineerTitle="Engineer in Vancouver or moving here?"

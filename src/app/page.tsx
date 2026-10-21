@@ -83,7 +83,7 @@ const reasons = [
   {
     icon: UserCheck,
     title: "Hands-on from day one",
-    body: ["Punit or Mandeep runs every search", "With you from the first call to the signed offer"],
+    body: ["Punit runs every search", "With you from the first call to the signed offer"],
     versus: "Big agencies often pass you to a junior.",
   },
   {
@@ -283,7 +283,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Why Scalewrk"
             title="Recruiting that knows engineering"
-            intro="Tech and sales roles. Startups only. Every search run by Punit or Mandeep."
+            intro="Tech and sales roles. Startups only. Every search run by Punit."
           />
           <Link href="/startups#compare" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See how we compare <Arrow />

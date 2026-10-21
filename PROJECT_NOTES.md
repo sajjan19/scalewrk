@@ -403,3 +403,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Shooting stars rarer: a random 20 to 40 seconds apart.
 - Hero scroll depth: StarField splits stars into 3 layers by size (small = far, drifts slower than the page; big = near, a bit faster); ScrollDepth.tsx sets --scroll on the hero. StarGuard re-checks while scrolling so no star slides behind the subheading. Off for reduced motion.
 - Constellations removed from the hero.
+- Mandeep is now "Head of Growth & Technology" (built the website, runs social media, networks at events, brings in companies and talent). About bio has a new first paragraph saying so. All "Punit or Mandeep runs every search" copy now says Punit runs every search (Home, For Startups comparison, all 12 city pages).

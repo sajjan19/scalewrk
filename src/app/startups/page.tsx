@@ -45,7 +45,7 @@ const comparison: { label: string; values: [boolean, string][] }[] = [
     values: [
       [false, "Often the founders"],
       [false, "Often a junior recruiter"],
-      [true, "Punit or Mandeep, start to finish"],
+      [true, "Punit, start to finish"],
     ],
   },
   {
