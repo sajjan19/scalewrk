@@ -154,10 +154,10 @@ export default function Home() {
             {/* One sentence per line, never wrapping (the size shrinks on small phones so it fits) */}
             <h1 className="mt-5 text-white text-[clamp(1.75rem,9vw,2.75rem)] leading-[1.08] font-semibold tracking-tight sm:mt-6 sm:text-6xl">
               <span style={{ "--d": "120ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
-                Built to <span className="text-gradient">Scale</span>.
+                Built to <span className="text-glass">Scale</span>.
               </span>
               <span style={{ "--d": "240ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
-                Powered by <span className="text-gradient">Talent</span>.
+                Powered by <span className="text-glass">Talent</span>.
               </span>
             </h1>
             <p data-no-stars style={{ "--d": "380ms" } as React.CSSProperties} className="hero-pop mt-6 max-w-xl text-lg leading-relaxed text-slate-300 text-pretty sm:text-xl">
