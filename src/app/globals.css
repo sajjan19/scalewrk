@@ -473,3 +473,38 @@ body[data-menu="open"] .mobile-book-bar {
     display: none;
   }
 }
+
+/* Comet in the Home hero (Comet.tsx moves it along a curved motion path).
+   The streak points along the path; its head is the right end, the tail fades out behind it. */
+.comet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(13, 110, 253, 0), rgba(13, 110, 253, 0.35) 45%, var(--color-violet) 90%, #fff);
+  offset-rotate: auto;
+  offset-anchor: right center;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px rgba(122, 47, 245, 0.5));
+}
+/* The glowing head */
+.comet::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow:
+    0 0 8px 3px var(--color-violet),
+    0 0 18px 6px rgba(13, 110, 253, 0.45);
+  transform: translateY(-50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .comet {
+    display: none;
+  }
+}
