@@ -72,7 +72,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`rise relative rounded-lg px-3 py-2 text-[15px] ${item.theme ?? ""} ${
-                  active ? "font-medium text-brand" : "text-body hover:text-brand"
+                  active ? "font-medium text-brand" : "text-ink hover:text-brand"
                 }`}
               >
                 {item.label}
@@ -181,7 +181,7 @@ function DropdownMenu({ item, pathname, active }: { item: NavItem; pathname: str
         aria-controls={menuId}
         onClick={() => setOpenOn(open ? null : pathname)}
         className={`rise relative inline-flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] ${
-          active ? "font-medium text-brand" : "text-body hover:text-brand"
+          active ? "font-medium text-brand" : "text-ink hover:text-brand"
         }`}
       >
         {item.label}
