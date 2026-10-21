@@ -262,17 +262,21 @@ body[data-menu="open"] .mobile-book-bar {
 .net-twinkle {
   animation: net-twinkle 3s ease-in-out infinite;
 }
+/* Pills gently bob up and down. Uses `transform` (smooth, on the GPU) rather than margin, which made the
+   browser re-lay out the pill every frame and snap it to whole pixels (a slight stutter). The pills' centering
+   uses the separate `translate` property, so the two don't clash. */
 @keyframes net-float {
   0%,
   100% {
-    margin-top: 0;
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    margin-top: -6px;
+    transform: translate3d(0, -6px, 0);
   }
 }
 .net-float {
   animation: net-float 5s ease-in-out infinite;
+  will-change: transform;
 }
 /* Apple TV-style hover tilt (HeroNetwork.tsx sets --mx / --my from -1 to 1) */
 .net-tilt {

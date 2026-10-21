@@ -395,3 +395,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero illustration hover: the S now shifts 8px toward the mouse (was 24px), so it stays steadier.
 - Hero illustration: its twinkling stars now sit outside the tilting layer, so they stay still when you hover; only the S, lines and pills react.
 - Hero stars everywhere again (60 + 45 extra on the headline side), except behind the subheading: StarGuard.tsx hides any star that sits behind an element marked `data-no-stars` (re-checks on resize).
+- Hero pills now bob with a GPU transform instead of margin-top, so the float is smooth (no pixel snapping).
