@@ -15,7 +15,7 @@ function random(seed: number) {
   };
 }
 
-export function StarField({ seed = 1, count = 24, className = "" }: { seed?: number; count?: number; className?: string }) {
+export function StarField({ seed = 1, count = 50, className = "" }: { seed?: number; count?: number; className?: string }) {
   const rand = random(seed);
   const stars = Array.from({ length: count }, (_, i) => ({
     left: Math.round(rand() * 1000) / 10,

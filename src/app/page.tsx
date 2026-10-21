@@ -119,7 +119,7 @@ export default function Home() {
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
         />
         {/* Twinkling stars across the hero */}
-        <StarField seed={3} count={30} />
+        <StarField seed={3} count={60} />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">

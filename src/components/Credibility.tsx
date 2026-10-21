@@ -68,7 +68,7 @@ export function ClientsSection() {
   if (!visible || clients.length === 0) return null;
   return (
     <section className="tone-white relative overflow-hidden py-12 sm:py-16">
-      <StarField seed={13} count={14} />
+      <StarField seed={13} count={30} />
       {/* Same small label as the logo strip, centered above the cards */}
       <Container className="relative">
         <p className="text-center text-sm font-medium text-brand">Recent placements</p>

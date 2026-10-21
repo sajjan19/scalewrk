@@ -12,7 +12,7 @@ export function StatsSection() {
   if (shown.length === 0) return null;
   return (
     <section className="relative overflow-hidden border-b border-line py-12 sm:py-16">
-      <StarField seed={11} count={14} />
+      <StarField seed={11} count={30} />
       <Container className="relative">
         <p className="text-center text-sm font-medium text-brand">By the numbers</p>
         {preview && filled.length < stats.length && (
