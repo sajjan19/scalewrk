@@ -509,37 +509,28 @@ body[data-menu="open"] .mobile-book-bar {
   }
 }
 
-/* Orbit drift in the hero illustration (HeroNetwork.tsx): each pill, its line and its pulse slowly swing
-   a few degrees (--drift) around the S and back. The pill's anchor turns the opposite way so text stays upright.
+/* Orbit in the hero illustration (HeroNetwork.tsx): the pills, their lines and pulses slowly circle the S
+   together. Each pill's anchor turns the opposite way so the text stays upright.
    Uses the `rotate` property so it doesn't clash with the pills' float (`transform`) and centering (`translate`). */
 @keyframes net-drift {
-  0%,
-  100% {
-    rotate: calc(var(--drift, 4deg) * -1);
-  }
-  50% {
-    rotate: var(--drift, 4deg);
+  to {
+    rotate: 360deg;
   }
 }
 @keyframes net-drift-counter {
-  0%,
-  100% {
-    rotate: var(--drift, 4deg);
-  }
-  50% {
-    rotate: calc(var(--drift, 4deg) * -1);
+  to {
+    rotate: -360deg;
   }
 }
 .net-drift {
-  animation: net-drift 24s ease-in-out infinite;
+  animation: net-drift 120s linear infinite;
   transform-box: view-box; /* SVG groups turn around the middle of the picture */
   transform-origin: 50% 50%;
 }
 .net-drift-counter {
-  animation: net-drift-counter 24s ease-in-out infinite;
+  animation: net-drift-counter 120s linear infinite;
 }
-/* Phones: the pills sit too close together to drift without touching, so they stay put there */
-@media (prefers-reduced-motion: reduce), (max-width: 639px) {
+@media (prefers-reduced-motion: reduce) {
   .net-drift,
   .net-drift-counter {
     animation: none;

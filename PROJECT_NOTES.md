@@ -412,3 +412,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero illustration pops up too (phone 450ms, desktop 300ms, starts at 85% size via `--s`).
 - Fewer shooting stars (every 40–70s) and comets (every 60–100s, first after 15–25s).
 - Inner page heroes (PageHero in ui.tsx: Startups, Candidates etc.) use the same .hero-pop load animation.
+- Hero illustration: pills (with lines and pulses) now slowly orbit the S together, one full turn every 2 minutes (ORBIT in HeroNetwork.tsx). Runs on phones too; checked no overlaps or edge clipping through a full turn at 375 and 1280 wide. Replaces the old back-and-forth drift.
