@@ -438,3 +438,52 @@ body[data-menu="open"] .mobile-book-bar {
 .btn.tv-on::after {
   opacity: 1;
 }
+
+/* Shooting stars in the Home hero (ShootingStars.tsx). Each streak is tilted, then slides along its own
+   length so it travels from top right to bottom left; it only shows for the first part of each cycle. */
+@keyframes shooting-star {
+  0% {
+    transform: rotate(-35deg) translateX(0);
+    opacity: 0;
+  }
+  0.6% {
+    opacity: 1;
+  }
+  4% {
+    transform: rotate(-35deg) translateX(-520px);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-35deg) translateX(-520px);
+    opacity: 0;
+  }
+}
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--color-violet), rgba(13, 110, 253, 0.55) 35%, rgba(13, 110, 253, 0));
+  opacity: 0;
+  transform-origin: left center;
+  animation: shooting-star 22s ease-in infinite;
+}
+/* The glowing head at the front of the streak */
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow:
+    0 0 6px 2px var(--color-violet),
+    0 0 12px 4px rgba(13, 110, 253, 0.45);
+  transform: translateY(-50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star {
+    display: none;
+  }
+}

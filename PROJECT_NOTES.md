@@ -388,3 +388,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Stars throughout the Home page: StarField.tsx sprinkles tiny twinkling purple and blue dots (fixed seeded positions, 60% opacity) behind the content of the hero, By the numbers, Recent placements and every Section (Section has a new `stars` prop; Testimonials passes it through). Sits behind cards and text.
 - More page stars: 50 per section (was 24), 60 in the hero, 30 in By the numbers and Recent placements. Illustration stars unchanged.
 - Background stars now only in the Home hero (60); removed from every other section. Section keeps an optional `stars` prop for later.
+- Home hero: 4 shooting stars (ShootingStars.tsx, .shooting-star in globals.css): purple-to-blue streaks with a glowing head, crossing top right to bottom left on staggered 9 to 13 second cycles. Hidden for reduced motion.
+- Shooting stars less often: 3 stars on 21 to 24 second cycles (one about every 7 seconds). Extra 45 stars over the headline side of the hero (left half on desktop).

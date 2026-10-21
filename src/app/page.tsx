@@ -16,6 +16,7 @@ import { StatsSection } from "@/components/StatsSection";
 import { CtaBand } from "@/components/CtaBand";
 import { HeroNetwork } from "@/components/HeroNetwork";
 import { StarField } from "@/components/StarField";
+import { ShootingStars } from "@/components/ShootingStars";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
@@ -120,6 +121,10 @@ export default function Home() {
         />
         {/* Twinkling stars across the hero */}
         <StarField seed={3} count={60} />
+        {/* Extra stars over the headline side (the left half on desktop) */}
+        <StarField seed={5} count={45} className="lg:right-1/2" />
+        {/* Now and then a shooting star crosses the hero */}
+        <ShootingStars />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
