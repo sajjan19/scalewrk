@@ -565,3 +565,4 @@ body[data-menu="open"] .mobile-book-bar {
   transform: translate3d(0, calc(var(--scroll, 0px) * var(--depth, 0)), 0);
   will-change: transform;
 }
+
