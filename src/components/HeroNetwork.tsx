@@ -65,7 +65,7 @@ const MAGNIFY = 0.18;
 const REACH = 140;
 
 // How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
-const depth = { glow: 4, lines: 8, pills: 16, center: 24 };
+const depth = { glow: 4, lines: 8, pills: 16, center: 8 }; // the S moves only a little, so it stays steady in the middle
 const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
 
 // `className` decides where it shows (the Home hero renders one copy for phones and one for bigger screens)

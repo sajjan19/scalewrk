@@ -392,3 +392,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Shooting stars less often: 3 stars on 21 to 24 second cycles (one about every 7 seconds). Extra 45 stars over the headline side of the hero (left half on desktop).
 - Shooting stars now random (ShootingStars.tsx uses JavaScript): one at a time, a random 10 to 20 seconds apart, each with a random length (70 to 220px), spot, distance and speed.
 - Shooting stars go in random directions (anything from down-right to down-left), starting on the side that keeps them crossing the hero.
+- Hero illustration hover: the S now shifts 8px toward the mouse (was 24px), so it stays steadier.
