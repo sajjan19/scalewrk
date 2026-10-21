@@ -405,6 +405,32 @@ body[data-menu="open"] .mobile-book-bar {
   background-color: var(--color-mist);
 }
 
+/* Liquid glass cards: the same white or grey cards, now see-through with a frosted blur, a bright top edge
+   and a soft sheen from the top left. White and grey sections get a very faint purple and blue wash
+   behind them so the glass has some colour to pick up. */
+:is(.tone-white, .bg-mist) {
+  background-image:
+    radial-gradient(40rem 24rem at 10% 0%, rgba(122, 47, 245, 0.05), transparent 70%),
+    radial-gradient(40rem 24rem at 90% 100%, rgba(13, 110, 253, 0.05), transparent 70%);
+}
+:is(.tone-white, .bg-mist)
+  :is(.rounded-2xl, .rounded-3xl):is(.bg-white, .border, .ring-1):not(
+    [class*="bg-brand-soft"],
+    [class*="bg-amber"],
+    .bg-ink
+  ) {
+  background-color: rgba(255, 255, 255, 0.55);
+  background-image: linear-gradient(140deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.35) 45%, rgba(245, 243, 255, 0.45));
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.04),
+    0 0 0 1px rgba(15, 23, 42, 0.06),
+    0 12px 32px -16px rgba(30, 27, 75, 0.25);
+}
+
 /* Apple TV remote-style buttons (TvButtons.tsx sets --tx/--ty from -1 to 1 and --sx/--sy for the shine).
    While the mouse is on a button it tilts toward the pointer, grows a little and a shine follows the mouse.
    Quick while moving, springs back when the mouse leaves. */
@@ -556,15 +582,43 @@ body[data-menu="open"] .mobile-book-bar {
 .hero-night .net-logo {
   filter: none;
 }
-/* Glassy pills: see-through dark glass with a thin light border */
+/* Hero pills in liquid glass (see .glass-dark below), with a soft icon circle */
 .hero-night .net-pill {
-  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  --tw-ring-color: rgba(255, 255, 255, 0.22);
 }
 .hero-night .net-pill-icon {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   color: #c4b5fd;
+}
+
+/* Liquid glass (Apple style): see-through, blurs and brightens what's behind it, with a bright top edge and
+   a soft sheen. --header-space is the room pages leave for the floating glass header (12px gap + 64px bar + 12px). */
+:root {
+  --header-space: 88px;
+}
+/* The floating header bar (Header.tsx) */
+.glass-bar {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.55));
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(15, 23, 42, 0.07),
+    0 10px 30px -12px rgba(15, 23, 42, 0.3);
+}
+/* Glass on the dark hero: the badge, the "Find a role" button and the illustration pills */
+.glass-dark,
+.hero-night .net-pill {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1));
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+  backdrop-filter: blur(12px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 10px 28px -12px rgba(0, 0, 0, 0.65);
+}
+.glass-dark.btn:hover {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.16));
 }

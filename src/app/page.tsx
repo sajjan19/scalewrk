@@ -121,7 +121,7 @@ export default function Home() {
       {/* Background: dark night sky (deep navy to indigo). .hero-night in globals.css brightens the stars
           and swaps the white glow behind the S for a soft indigo one */}
       <section
-        className="hero-night relative overflow-hidden border-b border-white/10"
+        className="hero-night relative -mt-[var(--header-space)] overflow-hidden border-b border-white/10"
         style={{ background: "linear-gradient(160deg, #0b1020 0%, #141a3a 55%, #1e1b4b 100%)" }}
       >
         <div
@@ -141,11 +141,11 @@ export default function Home() {
         <Comet />
         {/* Now and then a star flares into a sparkle */}
         <StarFlares />
-        <Container className="relative grid items-center gap-8 pt-6 pb-5 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
+        <Container className="relative grid items-center gap-8 pt-[calc(var(--header-space)+1.5rem)] pb-5 sm:gap-12 sm:pt-[calc(var(--header-space)+5rem)] sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
           {/* Phones: this column fills the visible screen (below the header), so the two buttons sit right
               above the browser's bottom bar on first load. svh = the screen height with the browser bars showing */}
-          <div className="flex min-h-[calc(100svh-4rem-2.75rem)] flex-col sm:block sm:min-h-0">
-            <p style={{ "--d": "0ms" } as React.CSSProperties} className="hero-pop inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm text-slate-200">
+          <div className="flex min-h-[calc(100svh-var(--header-space)-2.75rem)] flex-col sm:block sm:min-h-0">
+            <p style={{ "--d": "0ms" } as React.CSSProperties} className="glass-dark hero-pop inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-slate-100">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
@@ -178,7 +178,7 @@ export default function Home() {
               <Button href={bookingHref} variant="brand" className="flex-1 sm:flex-none">
                 <CalendarIcon /> Book a call
               </Button>
-              <Button href="/engineers" variant="secondary" className="flex-1 !border-white !text-white hover:!bg-white hover:!text-ink sm:flex-none">
+              <Button href="/engineers" variant="secondary" className="glass-dark flex-1 !border-transparent !text-white sm:flex-none">
                 <span className="sm:hidden">Find a role</span>
                 <span className="hidden sm:inline">Find your next role</span> <Arrow />
               </Button>

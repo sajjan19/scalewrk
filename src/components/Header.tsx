@@ -49,8 +49,14 @@ export function Header() {
   }, [open, closeMenu]);
 
   return (
-    // No blur while the menu is open: blur would trap the full-screen menu inside the header
-    <header className={`sticky top-0 z-40 border-b ${open ? "border-transparent bg-white" : "border-line/70 bg-white/90 backdrop-blur"}`}>
+    // Floating liquid glass bar (.glass-bar in globals.css) that floats over the page. Pages leave room for it
+    // with padding on <main> (--header-space). While the phone menu is open it turns into a plain white
+    // full-width bar: blur would trap the full-screen menu inside the header
+    <header
+      className={`fixed z-40 ${
+        open ? "inset-x-0 top-0 border-b border-transparent bg-white" : "glass-bar inset-x-3 top-3 mx-auto max-w-6xl rounded-2xl"
+      }`}
+    >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href="/" aria-label="Scalewrk home" className="rise -m-1 inline-block p-1">
           <Logo />

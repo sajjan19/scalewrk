@@ -64,7 +64,7 @@ export function RoleJumpBar() {
   };
 
   return (
-    <div className="sticky top-16 z-30 border-b border-line bg-white/95 backdrop-blur">
+    <div className="sticky top-[var(--header-space)] z-30 border-b border-line bg-white/95 backdrop-blur">
       <div className="relative mx-auto w-full max-w-6xl">
         <div ref={scroller} className="no-scrollbar overflow-x-auto scroll-smooth">
           <nav aria-label="Roles" className="flex w-max gap-2 px-5 py-3 sm:px-8">
