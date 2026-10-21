@@ -3,6 +3,7 @@
 */
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
+import { StarField } from "./StarField";
 
 type ButtonProps = {
   href: string;
@@ -62,16 +63,22 @@ export function Section({
   className = "",
   tone = "white",
   id,
+  stars,
 }: {
   children: ReactNode;
   className?: string;
   tone?: "white" | "mist";
   id?: string;
+  stars?: number; // add a light sprinkle of twinkling stars behind the content (the number picks the pattern)
 }) {
   return (
-    <section id={id} className={`py-12 sm:py-24 ${tone === "mist" ? "bg-mist" : "tone-white"} ${className}`}>
+    <section
+      id={id}
+      className={`py-12 sm:py-24 ${tone === "mist" ? "bg-mist" : "tone-white"} ${stars ? "relative overflow-hidden" : ""} ${className}`}
+    >
+      {stars ? <StarField seed={stars} /> : null}
       {/* reveal-group: content fades and slides in as it scrolls into view (see globals.css) */}
-      <Container className="reveal-group">{children}</Container>
+      <Container className={`reveal-group ${stars ? "relative" : ""}`}>{children}</Container>
     </section>
   );
 }

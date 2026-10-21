@@ -15,6 +15,7 @@ import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility
 import { StatsSection } from "@/components/StatsSection";
 import { CtaBand } from "@/components/CtaBand";
 import { HeroNetwork } from "@/components/HeroNetwork";
+import { StarField } from "@/components/StarField";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
@@ -117,6 +118,8 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
         />
+        {/* Twinkling stars across the hero */}
+        <StarField seed={3} count={30} />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
@@ -206,7 +209,7 @@ export default function Home() {
       <ClientsSection />
 
       {/* What we do */}
-      <Section tone="mist">
+      <Section tone="mist" stars={7}>
         <SectionHeading eyebrow="What we do" title="We bring startups and great people together" />
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           {whatWeDo.map((item) => (
@@ -246,7 +249,7 @@ export default function Home() {
       </Section>
 
       {/* How it works */}
-      <Section className="theme-startup">
+      <Section className="theme-startup" stars={14}>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="How it works" title="From first call to signed offer" />
           <Link href="/startups" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -259,7 +262,7 @@ export default function Home() {
       </Section>
 
       {/* Why Scalewrk */}
-      <Section tone="mist" className="theme-startup">
+      <Section tone="mist" className="theme-startup" stars={21}>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Why Scalewrk"
@@ -289,7 +292,7 @@ export default function Home() {
       </Section>
 
       {/* Founders: who runs every search (same heading style as Roles) */}
-      <Section>
+      <Section stars={28}>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Our team"
@@ -338,7 +341,7 @@ export default function Home() {
 
       {/* Roles we hire (preview tiles). Hidden for now, see showRolePreview in roles.ts */}
       {showRolePreview && (
-      <Section className="theme-startup">
+      <Section className="theme-startup" stars={35}>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Roles we hire" title="Engineering and sales roles" intro="From AI engineers to founding account executives." />
           <SeeAllRolesLink />
@@ -349,7 +352,7 @@ export default function Home() {
 
       {/* Latest jobs (newest 3 from src/content/jobs.ts). Hidden until there are jobs */}
       {hasOpenJobs && (
-      <Section tone={showRolePreview ? "mist" : "white"} className="theme-engineer">
+      <Section tone={showRolePreview ? "mist" : "white"} className="theme-engineer" stars={42}>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Latest jobs" title="Startups hiring now" intro="The newest roles we're hiring for." />
           <Link href="/jobs" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
@@ -368,7 +371,7 @@ export default function Home() {
 
       {/* Testimonials (src/content/testimonials.ts) */}
       {/* Testimonials: the opposite background of whatever section sits right before it */}
-      <Testimonials tone={hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist"} />
+      <Testimonials stars={77} tone={hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist"} />
 
       <CtaBand />
     </>
