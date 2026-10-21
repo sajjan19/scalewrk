@@ -439,25 +439,8 @@ body[data-menu="open"] .mobile-book-bar {
   opacity: 1;
 }
 
-/* Shooting stars in the Home hero (ShootingStars.tsx). Each streak is tilted, then slides along its own
-   length so it travels from top right to bottom left; it only shows for the first part of each cycle. */
-@keyframes shooting-star {
-  0% {
-    transform: rotate(-35deg) translateX(0);
-    opacity: 0;
-  }
-  0.6% {
-    opacity: 1;
-  }
-  4% {
-    transform: rotate(-35deg) translateX(-520px);
-    opacity: 0;
-  }
-  100% {
-    transform: rotate(-35deg) translateX(-520px);
-    opacity: 0;
-  }
-}
+/* Shooting stars in the Home hero (ShootingStars.tsx creates them and animates each one with random
+   length, spot, distance and speed). This is just the look of one streak. */
 .shooting-star {
   position: absolute;
   height: 2px;
@@ -465,7 +448,6 @@ body[data-menu="open"] .mobile-book-bar {
   background: linear-gradient(90deg, var(--color-violet), rgba(13, 110, 253, 0.55) 35%, rgba(13, 110, 253, 0));
   opacity: 0;
   transform-origin: left center;
-  animation: shooting-star 22s ease-in infinite;
 }
 /* The glowing head at the front of the streak */
 .shooting-star::before {
