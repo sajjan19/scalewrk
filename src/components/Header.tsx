@@ -48,34 +48,12 @@ export function Header() {
     };
   }, [open, closeMenu]);
 
-  // Home page: while the header sits over the dark hero it goes dark too (white logo and links),
-  // then turns white once you scroll past the hero
-  const [overHero, setOverHero] = useState(false);
-  useEffect(() => {
-    const check = () => {
-      const hero = document.querySelector(".hero-night");
-      setOverHero(!!hero && hero.getBoundingClientRect().bottom > 64);
-    };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    window.addEventListener("resize", check);
-    return () => {
-      window.removeEventListener("scroll", check);
-      window.removeEventListener("resize", check);
-    };
-  }, [pathname]);
-  const night = overHero && !open;
-
   return (
     // No blur while the menu is open: blur would trap the full-screen menu inside the header
-    <header
-      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
-        open ? "border-transparent bg-white" : night ? "header-night border-white/10 bg-[#0b1020]" : "border-line/70 bg-white/90 backdrop-blur"
-      }`}
-    >
+    <header className={`sticky top-0 z-40 border-b ${open ? "border-transparent bg-white" : "border-line/70 bg-white/90 backdrop-blur"}`}>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href="/" aria-label="Scalewrk home" className="rise -m-1 inline-block p-1">
-          <Logo light={night} />
+          <Logo />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">

@@ -548,39 +548,13 @@ body[data-menu="open"] .mobile-book-bar {
 .hero-night .net-twinkle {
   filter: brightness(1.9) saturate(0.8);
 }
-.hero-night .net-halo {
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(99, 102, 241, 0.12) 40%, rgba(99, 102, 241, 0) 70%);
-}
 
-/* Night sky hero extras */
-/* Header while it sits over the dark hero (Header.tsx): light links and menu icon */
-.header-night nav a:not(.btn),
-.header-night nav button {
-  color: #cbd5e1;
+/* Night sky hero: no glow behind or around the S */
+.hero-night .net-halo {
+  display: none;
 }
-.header-night nav a:not(.btn):hover,
-.header-night nav button:hover {
-  color: #ffffff;
-}
-.header-night button[aria-expanded] span span {
-  background: #ffffff;
-}
-/* Soft purple glow around the hero's "Book a call" button */
-.hero-glow {
-  box-shadow: 0 0 28px -4px rgba(122, 47, 245, 0.7), 0 0 60px -10px rgba(13, 110, 253, 0.5);
-}
-/* Faint horizon glow behind the illustration (centre on phones, right side on desktop) */
-.hero-night::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 70% 40% at 50% 75%, rgba(99, 102, 241, 0.28), transparent 70%);
-}
-@media (min-width: 1024px) {
-  .hero-night::before {
-    background: radial-gradient(ellipse 45% 55% at 78% 70%, rgba(99, 102, 241, 0.3), transparent 70%);
-  }
+.hero-night .net-logo {
+  filter: none;
 }
 /* Glassy pills: see-through dark glass with a thin light border */
 .hero-night .net-pill {
