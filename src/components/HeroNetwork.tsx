@@ -5,58 +5,54 @@ import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
 /*
-  Home hero illustration (light style): Scalewrk as the connection between startups and people.
-  - Startups (blue, rocket icon) on the left, talent (purple, person icon) on the right, the S in the middle.
-  - Curved blue-to-purple lines join every startup and every person to the S; a thin spine runs down
-    each side through the ports, and soft rings ripple out from the S (the hub).
-  - "Matches": a blue pulse travels from a startup into the S, then a purple pulse carries on out to a person.
+  Home hero illustration (light style): Scalewrk in the middle, linked to candidate roles
+  (purple) and startup stages (blue) around it.
+  - Candidate lines are stronger, with purple pulses flowing out from the S.
+  - Startup lines carry blue pulses into the S.
   - Tiny dots around it twinkle, alternating purple and blue.
+  - Spots sit at different distances from the S, so it does not look like a perfect circle.
   - Apple TV-style hover: the whole thing tilts toward the mouse and the layers shift by
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
   Purely decorative, no claims. All motion is off for people who turn off motion.
-  On phones the Home hero shows it between the subheading and the buttons.
+  On phones the Home hero shows it between the subheading and the buttons (max 340px wide).
 */
+
+// How far from the middle the lines start (leaves a clear space around the S)
+const GAP = 13;
 
 const PURPLE = "#7a2ff5";
 const BLUE = "#0d6efd";
 
-const round = (v: number) => Math.round(v * 100) / 100; // same numbers on the server and in the browser
+// Candidates sit top/right/bottom/left, startups on the diagonals
+// The long names sit at the top and bottom so they never run off the side edges
+const candidateRoles = ["Full-Stack Engineer", "AI Engineer", "Founding Engineer", "Head of Sales"];
+const startupStages = ["Seed", "Series A", "Series C", "Series E"];
 
-// Rows from top to bottom. The middle rows sit a little further out so they clear the S.
-const rows = [12, 34, 66, 88];
-const inner = [37, 31, 31, 37]; // how close to the middle each row's pill reaches (% from the left, startup side)
+// Each spot gets its own distance and a small angle nudge, so the layout feels organic, not a perfect circle
+const radii = [38, 27, 33, 34, 32, 25, 35, 30];
+const nudges = [0, 6, -8, -9, 13, -6, 7, 4]; // degrees (Series A and Founding Engineer spread apart so they never touch on small phones)
 
-// Startups: the pill's right edge sits at x (they extend to the left)
-const startups = ["Seed", "Series A", "Series C", "Series E"].map((label, i) => ({ label, x: inner[i], y: rows[i] }));
-// People: the pill's left edge sits at x (they extend to the right)
-const people = ["Full-Stack Engineer", "AI Engineer", "Head of Sales", "Founding Engineer"].map((label, i) => ({
-  label,
-  x: 100 - inner[i],
-  y: rows[i],
-}));
-
-// Curved line between a pill and the S. `dir` is -1 for the startup side, 1 for the people side.
-// Startup paths run pill → S (pulses flow in), people paths run S → pill (pulses flow out).
-function curve(x: number, y: number, dir: -1 | 1) {
-  const sx = round(50 + dir * 9); // just outside the S
-  const sy = round(50 + (y - 50) * 0.22);
-  const ex = round(x - dir * 1.5); // just short of the pill edge
-  const c1x = round(sx + dir * 9);
-  const c2x = round(ex - dir * 9);
-  return dir === 1
-    ? `M ${sx} ${sy} C ${c1x} ${sy}, ${c2x} ${y}, ${ex} ${y}`
-    : `M ${ex} ${y} C ${c2x} ${y}, ${c1x} ${sy}, ${sx} ${sy}`;
-}
-
-// A thin "spine" down each side joining the ports, so each side reads as one connected group
-const spine = (side: { x: number; y: number }[], dx: number) =>
-  `M ${side.map((n) => `${round(n.x + dx)} ${n.y}`).join(" L ")}`;
+const nodes = Array.from({ length: 8 }, (_, i) => {
+  const angle = ((i / 8) * 360 - 90 + nudges[i]) * (Math.PI / 180);
+  const radius = radii[i];
+  const kind = i % 2 === 0 ? ("candidate" as const) : ("startup" as const);
+  const round = (v: number) => Math.round(v * 100) / 100; // same numbers on the server and in the browser
+  return {
+    x: round(50 + radius * Math.cos(angle)),
+    y: round(50 + radius * Math.sin(angle)),
+    // Where the line starts: just outside the S, so lines don't run underneath it
+    sx: round(50 + GAP * Math.cos(angle)),
+    sy: round(50 + GAP * Math.sin(angle)),
+    kind,
+    label: kind === "candidate" ? candidateRoles[i / 2] : startupStages[(i - 1) / 2],
+  };
+});
 
 // Tiny dots around it, in a few small sizes (they twinkle, alternating purple and blue)
 const dots: [number, number, number][] = [
-  [6, 4, 0.5], [94, 6, 0.4], [4, 50, 0.6], [96, 52, 0.5], [30, 50, 0.35], [70, 50, 0.35],
-  [8, 97, 0.5], [92, 96, 0.6], [50, 6, 0.4], [50, 95, 0.45], [20, 22, 0.35], [80, 78, 0.35],
+  [12, 14, 0.6], [88, 12, 0.4], [8, 86, 0.5], [90, 88, 0.7], [32, 6, 0.35], [68, 95, 0.5],
+  [95, 46, 0.4], [5, 44, 0.6], [22, 70, 0.35], [80, 28, 0.45], [58, 4, 0.4], [40, 92, 0.6],
 ];
 
 // Dock-style magnify: how much the closest item grows, and how far (px) the effect reaches
@@ -66,9 +62,6 @@ const REACH = 140;
 // How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
 const depth = { glow: 4, lines: 8, pills: 16, center: 24 };
 const layer = (px: number) => ({ transform: `translate(calc(var(--mx, 0) * ${px}px), calc(var(--my, 0) * ${px}px))` });
-
-// One "match" takes CYCLE seconds: the blue pulse runs startup → S in the first half, the purple one S → person in the second
-const CYCLE = 3.2;
 
 // `className` decides where it shows (the Home hero renders one copy for phones and one for bigger screens)
 export function HeroNetwork({ className = "" }: { className?: string }) {
@@ -100,24 +93,6 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
     el.querySelectorAll<HTMLElement>("[data-magnify]").forEach((item) => (item.style.scale = "1"));
   }
 
-  const pill = (label: string, x: number, y: number, kind: "startup" | "person", i: number) => (
-    <span
-      key={label}
-      data-magnify
-      className={`net-float net-magnify absolute flex -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
-        kind === "person"
-          ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
-          : "theme-startup -translate-x-full shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
-      }`}
-      style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${(i * 4 + (kind === "person" ? 2 : 0)) / 10}s` }}
-    >
-      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand sm:h-6 sm:w-6">
-        {kind === "person" ? <UserRound className="h-3.5 w-3.5" strokeWidth={2} /> : <Rocket className="h-3.5 w-3.5" strokeWidth={2} />}
-      </span>
-      {label}
-    </span>
-  );
-
   return (
     <div
       ref={box}
@@ -131,11 +106,6 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
 
       <svg viewBox="0 0 100 100" className="net-layer absolute inset-0 h-full w-full overflow-visible" style={layer(depth.lines)}>
         <defs>
-          {/* Lines fade from blue (startups) to purple (talent) */}
-          <linearGradient id={`${glowId}-line`} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stopColor={BLUE} />
-            <stop offset="1" stopColor={PURPLE} />
-          </linearGradient>
           <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="0.6" result="blur" />
             <feMerge>
@@ -145,57 +115,49 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
           </filter>
         </defs>
 
-        {/* Side labels */}
-        <text x="18" y="2.5" textAnchor="middle" fontSize="2.4" fontWeight="600" letterSpacing="0.45" fill={BLUE} opacity="0.75">
-          STARTUPS
-        </text>
-        <text x="82" y="2.5" textAnchor="middle" fontSize="2.4" fontWeight="600" letterSpacing="0.45" fill={PURPLE} opacity="0.75">
-          TALENT
-        </text>
-
-        {/* Spines: one thin line down each side through the ports */}
-        <path d={spine(startups, 1.5)} fill="none" stroke={BLUE} strokeOpacity="0.18" strokeWidth="0.4" />
-        <path d={spine(people, -1.5)} fill="none" stroke={PURPLE} strokeOpacity="0.18" strokeWidth="0.4" />
-
-        {/* Hub rings: soft circles that ripple out from the S */}
-        {[0, 1.6].map((delay) => (
-          <circle key={delay} cx="50" cy="50" r="11" fill="none" stroke={`url(#${glowId}-line)`} strokeWidth="0.5" opacity="0" className="net-particle">
-            <animate attributeName="r" values="11;19" dur="3.2s" begin={`${delay}s`} repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.5;0" dur="3.2s" begin={`${delay}s`} repeatCount="indefinite" />
-          </circle>
-        ))}
-
-        {/* Every startup and every person is linked to the S: a soft wide line with a crisp thin one on top */}
-        {[...startups.map((n) => curve(n.x, n.y, -1)), ...people.map((n) => curve(n.x, n.y, 1))].map((d, i) => (
-          <g key={`c${i}`}>
-            <path d={d} fill="none" stroke={`url(#${glowId}-line)`} strokeOpacity="0.14" strokeWidth="1.8" strokeLinecap="round" />
-            <path d={d} fill="none" stroke={`url(#${glowId}-line)`} strokeOpacity="0.7" strokeWidth="0.45" strokeLinecap="round" />
-          </g>
-        ))}
-
-        {/* Little "ports" where lines meet the pills */}
-        {startups.map((n, i) => (
-          <circle key={`sp${i}`} cx={n.x + 1.5} cy={n.y} r="0.9" fill={BLUE} />
-        ))}
-        {people.map((n, i) => (
-          <circle key={`pp${i}`} cx={n.x - 1.5} cy={n.y} r="0.9" fill={PURPLE} />
-        ))}
-
-        {/* Matches: a blue pulse runs from a startup into the S, then a purple one carries on to a person */}
-        {startups.map((s, i) => {
-          const p = people[(i + 1) % people.length]; // each startup matches with a different person
-          const begin = `${(i * CYCLE) / startups.length}s`;
-          return (
-            <g key={`match${i}`} className="net-particle">
-              <circle r="1" fill={BLUE} filter={`url(#${glowId})`} opacity="0">
-                <animateMotion dur={`${CYCLE}s`} begin={begin} repeatCount="indefinite" path={curve(s.x, s.y, -1)} keyPoints="0;1;1" keyTimes="0;0.5;1" calcMode="linear" />
-                <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.45;0.5;1" dur={`${CYCLE}s`} begin={begin} repeatCount="indefinite" />
-              </circle>
-              <circle r="1.1" fill={PURPLE} filter={`url(#${glowId})`} opacity="0">
-                <animateMotion dur={`${CYCLE}s`} begin={begin} repeatCount="indefinite" path={curve(p.x, p.y, 1)} keyPoints="0;0;1" keyTimes="0;0.5;1" calcMode="linear" />
-                <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.5;0.55;0.95;1" dur={`${CYCLE}s`} begin={begin} repeatCount="indefinite" />
-              </circle>
+        {/* Lines: candidates purple and stronger (dashes flow out), startups blue and lighter */}
+        {nodes.map((n, i) =>
+          n.kind === "candidate" ? (
+            <g key={i}>
+              <line x1={n.sx} y1={n.sy} x2={n.x} y2={n.y} stroke={PURPLE} strokeOpacity="0.18" strokeWidth="1.6" strokeLinecap="round" />
+              <line
+                x1={n.sx}
+                y1={n.sy}
+                x2={n.x}
+                y2={n.y}
+                stroke={PURPLE}
+                strokeWidth="0.7"
+                strokeLinecap="round"
+                strokeDasharray="1.5 1.5"
+                className="net-flow-out"
+              />
             </g>
+          ) : (
+            <line
+              key={i}
+              x1={n.sx}
+              y1={n.sy}
+              x2={n.x}
+              y2={n.y}
+              stroke={BLUE}
+              strokeOpacity="0.45"
+              strokeWidth="0.5"
+              strokeLinecap="round"
+              strokeDasharray="2 2"
+            />
+          ),
+        )}
+
+        {/* Pulses: purple ones go out to candidates, blue ones come in from startups */}
+        {nodes.map((n, i) => {
+          const out = n.kind === "candidate";
+          const [fromX, toX, fromY, toY] = out ? [n.sx, n.x, n.sy, n.y] : [n.x, n.sx, n.y, n.sy];
+          return (
+            <circle key={`p${i}`} r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter={`url(#${glowId})`} className="net-particle">
+              <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+              <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+            </circle>
           );
         })}
 
@@ -213,22 +175,38 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         ))}
       </svg>
 
-      {/* Pills: startups on the left (blue icon), people on the right (purple icon) */}
+      {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
       <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
-        {startups.map((n, i) => pill(n.label, n.x, n.y, "startup", i))}
-        {people.map((n, i) => pill(n.label, n.x, n.y, "person", i))}
+      {nodes.map((n, i) => (
+        <span
+          key={i}
+          data-magnify
+          className={`net-float net-magnify absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
+            n.kind === "candidate"
+              ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
+              : "theme-startup shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
+          }`}
+          style={{ left: `${n.x}%`, top: `${n.y}%`, animationDelay: `${(i * 4) / 10}s` }}
+        >
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand sm:h-6 sm:w-6">
+            {n.kind === "candidate" ? <UserRound className="h-3.5 w-3.5" strokeWidth={2} /> : <Rocket className="h-3.5 w-3.5" strokeWidth={2} />}
+          </span>
+          {n.label}
+        </span>
+      ))}
+
       </div>
 
       {/* Scalewrk in the middle (moves the most) */}
       <div className="net-layer absolute inset-0" style={layer(depth.center)}>
-        {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
-        <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
-        <span
-          data-magnify
-          className="net-magnify absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]"
-        >
-          <LogoMark className="h-16 w-auto sm:h-20" />
-        </span>
+      {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
+      <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
+      <span
+        data-magnify
+        className="net-magnify absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]"
+      >
+        <LogoMark className="h-16 w-auto sm:h-20" />
+      </span>
       </div>
     </div>
   );
