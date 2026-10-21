@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, type MouseEvent } from "react";
+import { useId, useRef, type CSSProperties, type MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
@@ -65,6 +65,18 @@ const dots: [number, number, number][] = [
 // Dock-style magnify: how much the closest item grows, and how far (px) the effect reaches
 const MAGNIFY = 0.18;
 const REACH = 140;
+
+// Orbit drift: each spot slowly swings a few degrees back and forth along its orbit around the S,
+// with its own speed and starting point. The pill, its line and its pulse all use the same timing so they move together.
+// Series A (3) and Founding Engineer (4) sit close together on phones, so they drift in step and keep their gap.
+const drift = (i: number) => {
+  const k = i === 4 ? 3 : i;
+  return {
+    animationDuration: `${20 + ((k * 7) % 12)}s`,
+    animationDelay: `-${(k * 37) % 20}s`,
+    "--drift": `${3 + (k % 3)}deg`,
+  } as CSSProperties;
+};
 
 // How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
 const depth = { glow: 4, lines: 8, pills: 16, center: 8 }; // the S moves only a little, so it stays steady in the middle
@@ -142,7 +154,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         {/* Lines: candidates purple and stronger (dashes flow out), startups blue and lighter */}
         {nodes.map((n, i) =>
           n.kind === "candidate" ? (
-            <g key={i}>
+            <g key={i} className="net-drift" style={drift(i)}>
               <line x1={n.sx} y1={n.sy} x2={n.x} y2={n.y} stroke={PURPLE} strokeOpacity="0.18" strokeWidth="1.6" strokeLinecap="round" />
               <line
                 x1={n.sx}
@@ -157,18 +169,19 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
               />
             </g>
           ) : (
-            <line
-              key={i}
-              x1={n.sx}
-              y1={n.sy}
-              x2={n.x}
-              y2={n.y}
-              stroke={BLUE}
-              strokeOpacity="0.45"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              strokeDasharray="2 2"
-            />
+            <g key={i} className="net-drift" style={drift(i)}>
+              <line
+                x1={n.sx}
+                y1={n.sy}
+                x2={n.x}
+                y2={n.y}
+                stroke={BLUE}
+                strokeOpacity="0.45"
+                strokeWidth="0.5"
+                strokeLinecap="round"
+                strokeDasharray="2 2"
+              />
+            </g>
           ),
         )}
 
@@ -177,11 +190,13 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
           const out = n.kind === "candidate";
           const [fromX, toX, fromY, toY] = out ? [n.sx, n.x, n.sy, n.y] : [n.x, n.sx, n.y, n.sy];
           return (
-            <circle key={`p${i}`} r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter={`url(#${glowId})`} className="net-particle">
-              <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
-              <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
-            </circle>
+            <g key={`p${i}`} className="net-drift" style={drift(i)}>
+              <circle r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter={`url(#${glowId})`} className="net-particle">
+                <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+                <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
+              </circle>
+            </g>
           );
         })}
 
@@ -190,21 +205,25 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
       <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
       {nodes.map((n, i) => (
+        // Drift wrapper swings around the S; the anchor turns back the other way so the pill stays upright
+        <div key={i} className="net-drift pointer-events-none absolute inset-0" style={drift(i)}>
+        <span className="net-drift-counter absolute h-0 w-0" style={{ left: `${n.x}%`, top: `${n.y}%`, ...drift(i) }}>
         <span
-          key={i}
           data-magnify
-          className={`net-float net-magnify absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
+          className={`net-float net-magnify pointer-events-auto absolute top-0 left-0 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
             n.kind === "candidate"
               ? "theme-engineer shadow-[0_8px_24px_-8px_rgba(122,47,245,0.45)] ring-1 ring-[#7a2ff5]/30"
               : "theme-startup shadow-[0_8px_24px_-10px_rgba(11,16,32,0.3)] ring-1 ring-line"
           }`}
-          style={{ left: `${n.x}%`, top: `${n.y}%`, animationDelay: `${(i * 4) / 10}s` }}
+          style={{ animationDelay: `${(i * 4) / 10}s` }}
         >
           <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-soft text-brand sm:h-6 sm:w-6">
             {n.kind === "candidate" ? <UserRound className="h-3.5 w-3.5" strokeWidth={2} /> : <Rocket className="h-3.5 w-3.5" strokeWidth={2} />}
           </span>
           {n.label}
         </span>
+        </span>
+        </div>
       ))}
 
       </div>
