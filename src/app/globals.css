@@ -622,26 +622,3 @@ body[data-menu="open"] .mobile-book-bar {
 .glass-dark.btn:hover {
   background: linear-gradient(140deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.16));
 }
-
-/* Liquid glass words ("Scale" and "Talent" in the Home hero): see-through glass letters with a bright top,
-   a purple-blue tint lower down and a soft shine that sweeps across now and then */
-.text-glass {
-  color: transparent;
-  background-image:
-    linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.9) 50%, transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.45) 42%, rgba(167, 139, 250, 0.65) 58%, rgba(96, 165, 250, 0.9) 100%);
-  background-size: 250% 100%, 100% 100%;
-  background-position: 150% 0, 0 0;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35)) drop-shadow(0 8px 20px rgba(122, 47, 245, 0.45));
-  animation: text-glass-shine 7s ease-in-out 1.5s infinite;
-}
-@keyframes text-glass-shine {
-  0% { background-position: 150% 0, 0 0; }
-  30%, 100% { background-position: -50% 0, 0 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .text-glass { animation: none; }
-}
