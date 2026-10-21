@@ -509,34 +509,6 @@ body[data-menu="open"] .mobile-book-bar {
   }
 }
 
-/* Orbit in the hero illustration (HeroNetwork.tsx): the pills, their lines and pulses slowly circle the S
-   together. Each pill's anchor turns the opposite way so the text stays upright.
-   Uses the `rotate` property so it doesn't clash with the pills' float (`transform`) and centering (`translate`). */
-@keyframes net-drift {
-  to {
-    rotate: 360deg;
-  }
-}
-@keyframes net-drift-counter {
-  to {
-    rotate: -360deg;
-  }
-}
-.net-drift {
-  animation: net-drift 120s linear infinite;
-  transform-box: view-box; /* SVG groups turn around the middle of the picture */
-  transform-origin: 50% 50%;
-}
-.net-drift-counter {
-  animation: net-drift-counter 120s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .net-drift,
-  .net-drift-counter {
-    animation: none;
-  }
-}
-
 /* Star flares in the Home hero (StarFlares.tsx animates them). A soft glow in the sparkle's own colour. */
 .star-flare {
   position: absolute;
@@ -571,23 +543,6 @@ body[data-menu="open"] .mobile-book-bar {
   .hero-pop { animation: none; }
 }
 
-/* Aurora glow behind the Home hero: big blurred colour blobs that drift and breathe slowly */
-@keyframes aurora {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(8%, 6%) scale(1.12); }
-  66% { transform: translate(-6%, 4%) scale(0.92); }
-}
-.aurora {
-  position: absolute;
-  border-radius: 9999px;
-  opacity: 0.35;
-  filter: blur(80px);
-  animation: aurora 30s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .aurora { animation: none; }
-}
-
 /* Dark "night sky" Home hero: brighter stars and an indigo glow behind the S instead of a white one */
 .hero-night [data-star],
 .hero-night .net-twinkle {
@@ -595,15 +550,4 @@ body[data-menu="open"] .mobile-book-bar {
 }
 .hero-night .net-halo {
   background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(99, 102, 241, 0.12) 40%, rgba(99, 102, 241, 0) 70%);
-}
-
-/* Subtle dot grid behind the Home hero: faint dots every 22px, fading out toward the edges */
-.hero-dots::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(77, 80, 249, 0.22) 1px, transparent 1.2px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 30%, transparent 100%);
 }

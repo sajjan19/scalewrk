@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, type CSSProperties, type MouseEvent } from "react";
+import { useId, useRef, type MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
 import { LogoMark } from "./Logo";
 
@@ -15,7 +15,6 @@ import { LogoMark } from "./Logo";
     different amounts (glow least, lines a bit, pills more, the S most), so it feels 3D.
   - macOS Dock-style magnify: pills (and the S) near the mouse grow, the closest the most.
   Purely decorative, no claims. All motion is off for people who turn off motion.
-  The pills, lines and pulses slowly orbit the S together (one turn every 2 minutes).
   On phones the Home hero shows it between the subheading and the buttons (max 340px wide).
 */
 
@@ -66,11 +65,6 @@ const dots: [number, number, number][] = [
 // Dock-style magnify: how much the closest item grows, and how far (px) the effect reaches
 const MAGNIFY = 0.18;
 const REACH = 140;
-
-// Orbit: everything slowly circles the S together (one full turn every ORBIT seconds), so the pills keep
-// their spacing and never bump into each other. The pill, its line and its pulse share the same timing.
-const ORBIT = 120;
-const orbit = { animationDuration: `${ORBIT}s` } as CSSProperties;
 
 // How far (in px) each layer shifts toward the mouse, for the 3D parallax feel
 const depth = { glow: 4, lines: 8, pills: 16, center: 8 }; // the S moves only a little, so it stays steady in the middle
@@ -148,7 +142,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
         {/* Lines: candidates purple and stronger (dashes flow out), startups blue and lighter */}
         {nodes.map((n, i) =>
           n.kind === "candidate" ? (
-            <g key={i} className="net-drift" style={orbit}>
+            <g key={i}>
               <line x1={n.sx} y1={n.sy} x2={n.x} y2={n.y} stroke={PURPLE} strokeOpacity="0.18" strokeWidth="1.6" strokeLinecap="round" />
               <line
                 x1={n.sx}
@@ -163,7 +157,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
               />
             </g>
           ) : (
-            <g key={i} className="net-drift" style={orbit}>
+            <g key={i}>
               <line
                 x1={n.sx}
                 y1={n.sy}
@@ -184,7 +178,7 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
           const out = n.kind === "candidate";
           const [fromX, toX, fromY, toY] = out ? [n.sx, n.x, n.sy, n.y] : [n.x, n.sx, n.y, n.sy];
           return (
-            <g key={`p${i}`} className="net-drift" style={orbit}>
+            <g key={`p${i}`}>
               <circle r={out ? 1.1 : 0.9} fill={out ? PURPLE : BLUE} filter={`url(#${glowId})`} className="net-particle">
                 <animate attributeName="cx" from={fromX} to={toX} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
                 <animate attributeName="cy" from={fromY} to={toY} dur="2.4s" begin={`${(i * 3) / 10}s`} repeatCount="indefinite" />
@@ -199,9 +193,8 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
       {/* Pills: white, with a purple (candidate) or blue (startup) icon */}
       <div className="net-layer absolute inset-0" style={layer(depth.pills)}>
       {nodes.map((n, i) => (
-        // Drift wrapper swings around the S; the anchor turns back the other way so the pill stays upright
-        <div key={i} className="net-drift pointer-events-none absolute inset-0" style={orbit}>
-        <span className="net-drift-counter absolute h-0 w-0" style={{ left: `${n.x}%`, top: `${n.y}%`, ...orbit }}>
+        <div key={i} className="pointer-events-none absolute inset-0">
+        <span className="absolute h-0 w-0" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
         <span
           data-magnify
           className={`net-float net-magnify pointer-events-auto absolute top-0 left-0 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-white py-1 pr-2.5 pl-1 text-[11px] font-semibold whitespace-nowrap text-ink max-[360px]:pr-2 max-[360px]:text-[10px] sm:gap-1.5 sm:py-1.5 sm:pr-3 sm:pl-1.5 sm:text-sm ${
