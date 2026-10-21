@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 
 /*
   Shooting stars for the Home hero: now and then (a random 10 to 20 seconds apart) a purple-to-blue
-  streak with a glowing head shoots across from top right to bottom left. Each one gets a random
-  length, starting spot, distance and speed, so no two look the same. Only one at a time.
+  streak with a glowing head shoots across. Each one gets a random direction (anything from down-right
+  to down-left), length, starting spot, distance and speed, so no two look the same. Only one at a time.
   Styles: .shooting-star in globals.css. Off for people who turn off motion.
   The parent needs `relative overflow-hidden`.
 */
@@ -22,18 +22,23 @@ export function ShootingStars() {
     const shoot = () => {
       const star = document.createElement("span");
       star.className = "shooting-star";
+      // Direction of travel in degrees: 0 = right, 90 = straight down, 180 = left.
+      // The streak's head is its left end, so turning it by (direction - 180) points the head that way.
+      const direction = between(20, 160);
+      const turn = direction - 180;
       star.style.width = `${Math.round(between(70, 220))}px`;
-      star.style.top = `${between(0, 40)}%`;
-      star.style.left = `${between(35, 100)}%`;
+      star.style.top = `${between(0, 45)}%`;
+      // Start on the side it's moving away from, so it crosses the hero instead of leaving right away
+      star.style.left = direction < 90 ? `${between(0, 60)}%` : `${between(40, 100)}%`;
       el.appendChild(star);
       const distance = between(320, 640);
       const duration = between(700, 1300);
       star
         .animate(
           [
-            { transform: "rotate(-35deg) translateX(0)", opacity: 0 },
-            { transform: `rotate(-35deg) translateX(-${distance * 0.15}px)`, opacity: 1, offset: 0.15 },
-            { transform: `rotate(-35deg) translateX(-${distance}px)`, opacity: 0 },
+            { transform: `rotate(${turn}deg) translateX(0)`, opacity: 0 },
+            { transform: `rotate(${turn}deg) translateX(-${distance * 0.15}px)`, opacity: 1, offset: 0.15 },
+            { transform: `rotate(${turn}deg) translateX(-${distance}px)`, opacity: 0 },
           ],
           { duration, easing: "ease-in" },
         )

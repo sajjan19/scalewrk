@@ -391,3 +391,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Home hero: 4 shooting stars (ShootingStars.tsx, .shooting-star in globals.css): purple-to-blue streaks with a glowing head, crossing top right to bottom left on staggered 9 to 13 second cycles. Hidden for reduced motion.
 - Shooting stars less often: 3 stars on 21 to 24 second cycles (one about every 7 seconds). Extra 45 stars over the headline side of the hero (left half on desktop).
 - Shooting stars now random (ShootingStars.tsx uses JavaScript): one at a time, a random 10 to 20 seconds apart, each with a random length (70 to 220px), spot, distance and speed.
+- Shooting stars go in random directions (anything from down-right to down-left), starting on the side that keeps them crossing the hero.
