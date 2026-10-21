@@ -49,7 +49,7 @@ export function ShootingStars() {
       timer = window.setTimeout(shoot, between(60000, 120000));
     };
 
-    // First one a few seconds after the page loads
+    // First one 12 to 20 seconds after the page loads
     timer = window.setTimeout(shoot, between(12000, 20000));
     return () => clearTimeout(timer);
   }, []);
