@@ -394,4 +394,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Shooting stars go in random directions (anything from down-right to down-left), starting on the side that keeps them crossing the hero.
 - Hero illustration hover: the S now shifts 8px toward the mouse (was 24px), so it stays steadier.
 - Hero illustration: its twinkling stars now sit outside the tilting layer, so they stay still when you hover; only the S, lines and pills react.
-- Hero stars kept out from behind the text: phones/tablets only around the illustration; desktop on the illustration side plus a few in the empty space bottom right of the text. Checked: no star overlaps text at 1280 or 375 wide.
+- Hero stars everywhere again (60 + 45 extra on the headline side), except behind the subheading: StarGuard.tsx hides any star that sits behind an element marked `data-no-stars` (re-checks on resize).

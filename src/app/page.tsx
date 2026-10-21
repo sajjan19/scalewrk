@@ -16,6 +16,7 @@ import { StatsSection } from "@/components/StatsSection";
 import { CtaBand } from "@/components/CtaBand";
 import { HeroNetwork } from "@/components/HeroNetwork";
 import { StarField } from "@/components/StarField";
+import { StarGuard } from "@/components/StarGuard";
 import { ShootingStars } from "@/components/ShootingStars";
 import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
@@ -119,12 +120,11 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
         />
-        {/* Twinkling stars, kept out from behind the text:
-            phones and tablets: only around the illustration (between the subheading and the buttons);
-            desktop: the illustration side, plus a few in the empty space to the bottom right of the text */}
-        <StarField seed={3} count={40} className="top-[46%] bottom-[16%] lg:hidden" />
-        <StarField seed={3} count={50} className="hidden lg:block lg:left-[54%]" />
-        <StarField seed={5} count={14} className="hidden lg:block lg:top-[76%] lg:right-[47%] lg:left-[30%]" />
+        {/* Twinkling stars across the hero, plus extra ones over the headline side (left half on desktop).
+            StarGuard hides any that land behind the subheading (marked data-no-stars) */}
+        <StarField seed={3} count={60} />
+        <StarField seed={5} count={45} className="lg:right-1/2" />
+        <StarGuard />
         {/* Now and then a shooting star crosses the hero */}
         <ShootingStars />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
@@ -143,7 +143,7 @@ export default function Home() {
                 Powered by <span className="text-gradient">Talent</span>.
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
+            <p data-no-stars className="mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
             {/* Phones: the illustration sits between the subheading and the buttons */}

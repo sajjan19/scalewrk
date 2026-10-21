@@ -29,6 +29,7 @@ export function StarField({ seed = 1, count = 50, className = "" }: { seed?: num
       {stars.map((s, i) => (
         <span
           key={i}
+          data-star
           className={`net-twinkle absolute rounded-full ${s.purple ? "bg-violet" : "bg-blue"}`}
           style={{ left: `${s.left}%`, top: `${s.top}%`, width: s.size, height: s.size, animationDelay: `${s.delay}s` }}
         />
