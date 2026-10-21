@@ -438,38 +438,3 @@ body[data-menu="open"] .mobile-book-bar {
 .btn.tv-on::after {
   opacity: 1;
 }
-
-/* Hero sun (HeroNetwork.tsx): the glow breathes and the rays slowly turn */
-@keyframes net-sun-pulse {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.85;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.12);
-    opacity: 1;
-  }
-}
-@keyframes net-sun-spin {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-.net-sun-pulse {
-  transform: translate(-50%, -50%);
-  animation: net-sun-pulse 4s ease-in-out infinite;
-}
-.net-sun-spin {
-  transform: translate(-50%, -50%);
-  animation: net-sun-spin 40s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .net-sun-pulse,
-  .net-sun-spin {
-    animation: none;
-  }
-}

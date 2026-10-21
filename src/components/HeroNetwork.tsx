@@ -2,13 +2,10 @@
 
 import { useId, useRef, type MouseEvent } from "react";
 import { Rocket, UserRound } from "lucide-react";
-import { markPoints, markViewBox } from "@/lib/brand";
+import { LogoMark } from "./Logo";
 
 /*
-  Home hero illustration (light style): a little solar system. Scalewrk is the sun in the middle
-  (a glowing orb with a white S, soft pulsing glow and slowly turning rays); candidate roles and startup
-  stages are planets, each on its own faint orbit, linked to the sun by beams.
-  Scalewrk in the middle, linked to candidate roles
+  Home hero illustration (light style): Scalewrk in the middle, linked to candidate roles
   (purple) and startup stages (blue) around it.
   - Candidate lines are stronger, with purple pulses flowing out from the S.
   - Startup lines carry blue pulses into the S.
@@ -56,6 +53,11 @@ const nodes = Array.from({ length: 8 }, (_, i) => {
 const dots: [number, number, number][] = [
   [12, 14, 0.6], [88, 12, 0.4], [8, 86, 0.5], [90, 88, 0.7], [32, 6, 0.35], [68, 95, 0.5],
   [95, 46, 0.4], [5, 44, 0.6], [22, 70, 0.35], [80, 28, 0.45], [58, 4, 0.4], [40, 92, 0.6],
+  // more stars, scattered around the edges and between the pills
+  [3, 4, 0.3], [20, 3, 0.4], [45, 2, 0.3], [75, 3, 0.35], [97, 4, 0.3], [2, 24, 0.4], [98, 22, 0.35],
+  [16, 32, 0.3], [84, 40, 0.3], [2, 64, 0.35], [98, 62, 0.4], [14, 56, 0.3], [87, 70, 0.3], [4, 97, 0.3],
+  [26, 97, 0.35], [52, 98, 0.3], [82, 97, 0.35], [97, 76, 0.3], [30, 26, 0.25], [70, 74, 0.25],
+  [64, 18, 0.3], [36, 82, 0.3], [18, 44, 0.25], [76, 58, 0.25],
 ];
 
 // Dock-style magnify: how much the closest item grows, and how far (px) the effect reaches
@@ -117,11 +119,6 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
             </feMerge>
           </filter>
         </defs>
-
-        {/* Orbits: one faint ring per planet */}
-        {[...new Set(radii)].map((r) => (
-          <circle key={`o${r}`} cx="50" cy="50" r={r} fill="none" stroke="#8b8fb8" strokeOpacity="0.16" strokeWidth="0.25" />
-        ))}
 
         {/* Lines: candidates purple and stronger (dashes flow out), startups blue and lighter */}
         {nodes.map((n, i) =>
@@ -205,27 +202,16 @@ export function HeroNetwork({ className = "" }: { className?: string }) {
 
       </div>
 
-      {/* Scalewrk as the sun in the middle (moves the most) */}
+      {/* Scalewrk in the middle (moves the most) */}
       <div className="net-layer absolute inset-0" style={layer(depth.center)}>
-        {/* Corona: a soft glow that slowly breathes */}
-        <span className="net-sun-pulse absolute top-1/2 left-1/2 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(122,47,245,0.35)_0%,rgba(13,110,253,0.18)_45%,rgba(255,255,255,0)_70%)] sm:h-48 sm:w-48" />
-        {/* Rays: thin light rays that slowly turn */}
-        <span
-          className="net-sun-spin absolute top-1/2 left-1/2 h-32 w-32 rounded-full bg-[repeating-conic-gradient(rgba(122,47,245,0.22)_0deg_4deg,rgba(255,255,255,0)_4deg_15deg)] sm:h-40 sm:w-40"
-          style={{
-            maskImage: "radial-gradient(circle, transparent 40%, black 46%, black 58%, transparent 72%)",
-            WebkitMaskImage: "radial-gradient(circle, transparent 40%, black 46%, black 58%, transparent 72%)",
-          }}
-        />
-        {/* The sun itself: a glowing orb with the white S */}
-        <span
-          data-magnify
-          className="net-magnify absolute top-1/2 left-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_30%,#ffffff_0%,#d6c8ff_14%,#8a4dff_45%,#5b5cf6_70%,#0d6efd_100%)] shadow-[0_0_30px_8px_rgba(122,47,245,0.45),0_0_70px_18px_rgba(13,110,253,0.25)] sm:h-24 sm:w-24"
-        >
-          <svg viewBox={markViewBox} className="h-9 w-auto drop-shadow-[0_2px_6px_rgba(38,33,92,0.35)] sm:h-11" aria-hidden="true">
-            <polygon points={markPoints} fill="#ffffff" />
-          </svg>
-        </span>
+      {/* Soft white circle behind the S that fades out into the background (no hard edge) */}
+      <span className="absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0)_70%)] sm:h-44 sm:w-44" />
+      <span
+        data-magnify
+        className="net-magnify absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center drop-shadow-[0_10px_24px_rgba(77,80,249,0.45)]"
+      >
+        <LogoMark className="h-16 w-auto sm:h-20" />
+      </span>
       </div>
     </div>
   );
