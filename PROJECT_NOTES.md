@@ -420,3 +420,5 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Header nav links are black (text-ink) instead of grey, so they read well on the glass bar.
 - Fewer shooting stars again: first after 12–20s, then every 1–2 min. Comet: first after 40–60s, then every 2–3 min.
 - Phone hero illustration: pills sit in neat rows (phoneSpots in HeroNetwork.tsx, `phone` prop on the phone copy) instead of the circle, so they never crowd. Checked at 390 and 320 wide: no overlaps (smallest gap 12px), no side scroll. Desktop layout unchanged.
+
+- Floating liquid glass header removed: back to the plain sticky white header (no --header-space). Glass stays on the hero badge, "Find a role", the pills and the cards.
