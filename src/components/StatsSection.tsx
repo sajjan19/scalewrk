@@ -1,6 +1,5 @@
 import { Container } from "./ui";
 import { CountUp } from "./CountUp";
-import { StarField } from "./StarField";
 import { showExampleStats, stats } from "@/content/stats";
 
 // "By the numbers" on the Home page. Numbers live in src/content/stats.ts.
@@ -11,8 +10,7 @@ export function StatsSection() {
   const shown = preview ? stats : filled;
   if (shown.length === 0) return null;
   return (
-    <section className="relative overflow-hidden border-b border-line py-12 sm:py-16">
-      <StarField seed={11} count={30} />
+    <section className="border-b border-line py-12 sm:py-16">
       <Container className="relative">
         <p className="text-center text-sm font-medium text-brand">By the numbers</p>
         {preview && filled.length < stats.length && (

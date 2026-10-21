@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight, Building2, MapPin, Rocket } from "lucide-react";
 import { Container, Text } from "./ui";
-import { StarField } from "./StarField";
 import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
 import { alsoRecruitedFor, companyLogos } from "@/content/companyLogos";
@@ -67,8 +66,7 @@ export function ClientsSection() {
   const visible = showClients || process.env.NODE_ENV === "development";
   if (!visible || clients.length === 0) return null;
   return (
-    <section className="tone-white relative overflow-hidden py-12 sm:py-16">
-      <StarField seed={13} count={30} />
+    <section className="tone-white py-12 sm:py-16">
       {/* Same small label as the logo strip, centered above the cards */}
       <Container className="relative">
         <p className="text-center text-sm font-medium text-brand">Recent placements</p>

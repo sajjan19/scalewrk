@@ -387,3 +387,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Hero illustration: sun/planets version removed (back to the original). Added 24 more twinkling stars (36 total), scattered around the edges and between the pills.
 - Stars throughout the Home page: StarField.tsx sprinkles tiny twinkling purple and blue dots (fixed seeded positions, 60% opacity) behind the content of the hero, By the numbers, Recent placements and every Section (Section has a new `stars` prop; Testimonials passes it through). Sits behind cards and text.
 - More page stars: 50 per section (was 24), 60 in the hero, 30 in By the numbers and Recent placements. Illustration stars unchanged.
+- Background stars now only in the Home hero (60); removed from every other section. Section keeps an optional `stars` prop for later.
