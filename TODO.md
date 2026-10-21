@@ -78,7 +78,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [ ] Make a QR code pointing to `https://scalewrk.ai/meet` for events
 - [ ] Optional: send official logo SVG files to replace the redrawn mark
 - [ ] Optional: individual role pages (e.g. `/roles/ai-ml-engineers`) for stronger SEO
-- [x] Team titles decided: Punit "Founder & Principal Recruiter", Mandeep "Head of Growth & Technology"
+- [x] Team titles: Punit "Co-Founder & Principal Recruiter", Mandeep "Co-Founder, Head of Growth & Technology" (confirm with Punit)
 - [ ] Approve the mission and vision wording with Punit (`statements` in `src/app/about/page.tsx`)
 
 ## Future

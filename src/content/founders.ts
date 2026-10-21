@@ -30,7 +30,7 @@ export type Founder = {
 export const founders: Founder[] = [
   {
     name: "Punit Singh",
-    title: "Founder & Principal Recruiter",
+    title: "Co-Founder & Principal Recruiter",
     initials: "PS",
     photo: "/founders/punit.jpg",
     location: "Vancouver, Canada",
@@ -53,12 +53,11 @@ export const founders: Founder[] = [
   },
   {
     name: "Mandeep Sajjan",
-    title: "Head of Growth & Technology",
+    title: "Co-Founder, Head of Growth & Technology",
     initials: "MS",
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",
     bio: [
-      "Mandeep leads growth and technology at Scalewrk. Mandeep designed and built the website, runs our social media and meets founders and talent at events to bring new companies and people to Scalewrk.",
       "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. Mandeep also helps small businesses in Canada and the US grow through IT consulting.",
       "Mandeep has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps Mandeep understand what founders need and match engineers with startups where they can thrive.",
     ],

@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "Meet the Scalewrk team and read our mission and vision. Founded by tech recruiter Punit Singh to help growing startups across the US and Canada hire engineers and salespeople.",
+    "Meet the Scalewrk team and read our mission and vision. Founded by Punit Singh and Mandeep Sajjan to help growing startups across the US and Canada hire engineers and salespeople.",
   path: "/about",
 });
 

@@ -313,7 +313,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our team"
             title="Who you'll work with"
-            intro={`Our founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
+            intro={`Our co-founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
           />
           <Link href="/about" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             Meet the team <Arrow />
