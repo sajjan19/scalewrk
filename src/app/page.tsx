@@ -118,11 +118,11 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      {/* Background: dark night sky (deep navy to indigo). .hero-night in globals.css brightens the stars
-          and swaps the white glow behind the S for a soft indigo one */}
+      {/* Background: twilight fade. Deep indigo at the very top fading through lavender to white at the bottom,
+          so it blends into the next section */}
       <section
-        className="hero-night relative overflow-hidden border-b border-white/10"
-        style={{ background: "linear-gradient(160deg, #0b1020 0%, #141a3a 55%, #1e1b4b 100%)" }}
+        className="relative overflow-hidden border-b border-line"
+        style={{ background: "linear-gradient(180deg, #2a2468 0%, #6b5fd0 5%, #d9d3fa 18%, #f6f4ff 45%, #ffffff 80%)" }}
       >
         <div
           aria-hidden="true"
@@ -145,14 +145,14 @@ export default function Home() {
           {/* Phones: this column fills the visible screen (below the header), so the two buttons sit right
               above the browser's bottom bar on first load. svh = the screen height with the browser bars showing */}
           <div className="flex min-h-[calc(100svh-4rem-2.75rem)] flex-col sm:block sm:min-h-0">
-            <p style={{ "--d": "0ms" } as React.CSSProperties} className="hero-pop inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm text-slate-200">
+            <p style={{ "--d": "0ms" } as React.CSSProperties} className="hero-pop inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-body">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet to-blue" aria-hidden="true" />
               <span className="sm:hidden">Seed to Series C+ · US and Canada</span>
               <span className="hidden sm:inline">Seed to Series C+ startups across the US and Canada</span>
             </p>
             {/* Hero text pops up one piece at a time on page load (.hero-pop in globals.css; --d = delay) */}
             {/* One sentence per line, never wrapping (the size shrinks on small phones so it fits) */}
-            <h1 className="mt-5 text-white text-[clamp(1.75rem,9vw,2.75rem)] leading-[1.08] font-semibold tracking-tight sm:mt-6 sm:text-6xl">
+            <h1 className="mt-5 text-[clamp(1.75rem,9vw,2.75rem)] leading-[1.08] font-semibold tracking-tight sm:mt-6 sm:text-6xl">
               <span style={{ "--d": "120ms" } as React.CSSProperties} className="hero-pop block whitespace-nowrap">
                 Built to <span className="text-gradient">Scale</span>.
               </span>
@@ -160,7 +160,7 @@ export default function Home() {
                 Powered by <span className="text-gradient">Talent</span>.
               </span>
             </h1>
-            <p data-no-stars style={{ "--d": "380ms" } as React.CSSProperties} className="hero-pop mt-6 max-w-xl text-lg leading-relaxed text-slate-300 text-pretty sm:text-xl">
+            <p data-no-stars style={{ "--d": "380ms" } as React.CSSProperties} className="hero-pop mt-6 max-w-xl text-lg leading-relaxed text-body text-pretty sm:text-xl">
               AI-powered sourcing. Human expertise. Exceptional talent, delivered faster.
             </p>
             {/* Phones: the illustration sits between the subheading and the buttons, using the space left over
@@ -178,7 +178,7 @@ export default function Home() {
               <Button href={bookingHref} variant="brand" className="flex-1 sm:flex-none">
                 <CalendarIcon /> Book a call
               </Button>
-              <Button href="/engineers" variant="secondary" className="flex-1 !border-white !text-white hover:!bg-white hover:!text-ink sm:flex-none">
+              <Button href="/engineers" variant="secondary" className="flex-1 sm:flex-none">
                 <span className="sm:hidden">Find a role</span>
                 <span className="hidden sm:inline">Find your next role</span> <Arrow />
               </Button>
