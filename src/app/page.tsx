@@ -283,7 +283,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Why Scalewrk"
             title="Recruiting that knows engineering"
-            intro="Tech and sales roles. Startups only. Every search run by Punit."
+            intro="Tech and sales roles. Startups only. Every search run by a co-founder."
           />
           <Link href="/startups#compare" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
             See how we compare <Arrow />

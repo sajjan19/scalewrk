@@ -36,7 +36,7 @@ export const founders: Founder[] = [
     location: "Vancouver, Canada",
     bio: [
       "Punit has worked in tech recruiting since 2018, hiring for high-growth companies like TikTok, PayPal and Sully.ai.",
-      "Punit has hired across engineering, sales and go-to-market teams. That gives a clear view of the people who drive product and revenue at a startup. That experience goes into every Scalewrk search.",
+      "He has hired across engineering, sales and go-to-market teams. That gives him a clear view of the people who drive product and revenue at a startup. He brings that experience to every Scalewrk search.",
     ],
     experienceAt: ["TikTok", "PayPal", "Sully.ai"],
     education: [{ name: "British Columbia Institute of Technology (BCIT)", detail: "School of Business + Media" }],
@@ -58,8 +58,8 @@ export const founders: Founder[] = [
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",
     bio: [
-      "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. Mandeep also helps small businesses in Canada and the US grow through IT consulting.",
-      "Mandeep has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps Mandeep understand what founders need and match engineers with startups where they can thrive.",
+      "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. He also helps small businesses in Canada and the US grow through IT consulting.",
+      "He has spent years helping all kinds of people with their technology, from everyday users to business owners. That helps him understand what founders need and match engineers with startups where they can thrive.",
     ],
     experienceAt: [],
     previouslyAt: [{ name: "Apple", detail: "Sales, technical support and Apple Business" }],
