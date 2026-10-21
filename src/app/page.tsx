@@ -119,10 +119,12 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
         />
-        {/* Twinkling stars across the hero */}
-        <StarField seed={3} count={60} />
-        {/* Extra stars over the headline side (the left half on desktop) */}
-        <StarField seed={5} count={45} className="lg:right-1/2" />
+        {/* Twinkling stars, kept out from behind the text:
+            phones and tablets: only around the illustration (between the subheading and the buttons);
+            desktop: the illustration side, plus a few in the empty space to the bottom right of the text */}
+        <StarField seed={3} count={40} className="top-[46%] bottom-[16%] lg:hidden" />
+        <StarField seed={3} count={50} className="hidden lg:block lg:left-[54%]" />
+        <StarField seed={5} count={14} className="hidden lg:block lg:top-[76%] lg:right-[47%] lg:left-[30%]" />
         {/* Now and then a shooting star crosses the hero */}
         <ShootingStars />
         <Container className="relative grid items-center gap-8 pt-8 pb-12 sm:gap-12 sm:pt-20 sm:pb-24 lg:grid-cols-[1.15fr_1fr]">
