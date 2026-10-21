@@ -30,8 +30,10 @@ const candidateRoles = ["Full-Stack Engineer", "AI Engineer", "Founding Engineer
 const startupStages = ["Seed", "Series A", "Series C", "Series E"];
 
 // Each spot gets its own distance and a small angle nudge, so the layout feels organic, not a perfect circle
-const radii = [38, 27, 33, 34, 32, 25, 35, 30];
-const nudges = [0, 6, -8, -9, 13, -6, 7, 4]; // degrees (Series A and Founding Engineer spread apart so they never touch on small phones)
+const radii = [38, 27, 33, 34, 32, 27, 35, 30];
+// degrees. Series A and Founding Engineer are spread apart so they never touch on small phones;
+// Series C sits further left so it stays clear of Founding Engineer's purple line
+const nudges = [0, 6, -8, -9, 13, 6, 7, 4];
 
 const nodes = Array.from({ length: 8 }, (_, i) => {
   const angle = ((i / 8) * 360 - 90 + nudges[i]) * (Math.PI / 180);
