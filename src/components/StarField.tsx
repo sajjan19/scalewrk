@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 /*
   A light sprinkle of tiny twinkling stars (purple and blue) behind a section's content.
   Same twinkle as the hero illustration (.net-twinkle in globals.css), off for people who turn off motion.
@@ -20,19 +22,32 @@ export function StarField({ seed = 1, count = 50, className = "" }: { seed?: num
   const stars = Array.from({ length: count }, (_, i) => ({
     left: Math.round(rand() * 1000) / 10,
     top: Math.round(rand() * 1000) / 10,
-    size: [2, 2, 3, 3, 4][Math.floor(rand() * 5)],
+    size: [2, 2, 3, 3, 4][Math.floor(rand() * 5)], // also decides how "far" the star is (see layers below)
     delay: Math.round(rand() * 30) / 10,
     purple: i % 2 === 0,
   }));
+  // Scroll depth: small stars are "far" (drift slower than the page), big ones "near" (move a bit faster).
+  // The section sets --scroll (ScrollDepth.tsx); each layer moves by --scroll × its --depth.
+  const layers = [
+    { size: 2, depth: 0.45 },
+    { size: 3, depth: 0.2 },
+    { size: 4, depth: -0.15 },
+  ];
   return (
     <div aria-hidden="true" className={`pointer-events-none absolute inset-0 opacity-60 ${className}`}>
-      {stars.map((s, i) => (
-        <span
-          key={i}
-          data-star
-          className={`net-twinkle absolute rounded-full ${s.purple ? "bg-violet" : "bg-blue"}`}
-          style={{ left: `${s.left}%`, top: `${s.top}%`, width: s.size, height: s.size, animationDelay: `${s.delay}s` }}
-        />
+      {layers.map((layer) => (
+        <div key={layer.size} className="star-depth" style={{ "--depth": layer.depth } as CSSProperties}>
+          {stars
+            .filter((s) => s.size === layer.size)
+            .map((s, i) => (
+              <span
+                key={i}
+                data-star
+                className={`net-twinkle absolute rounded-full ${s.purple ? "bg-violet" : "bg-blue"}`}
+                style={{ left: `${s.left}%`, top: `${s.top}%`, width: s.size, height: s.size, animationDelay: `${s.delay}s` }}
+              />
+            ))}
+        </div>
       ))}
     </div>
   );

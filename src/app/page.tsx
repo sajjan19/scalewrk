@@ -17,6 +17,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { HeroNetwork } from "@/components/HeroNetwork";
 import { StarField } from "@/components/StarField";
 import { StarGuard } from "@/components/StarGuard";
+import { ScrollDepth } from "@/components/ScrollDepth";
 import { ShootingStars } from "@/components/ShootingStars";
 import { Comet } from "@/components/Comet";
 import { StarFlares } from "@/components/StarFlares";
@@ -127,6 +128,8 @@ export default function Home() {
         <StarField seed={3} count={60} />
         <StarField seed={5} count={45} className="lg:right-1/2" />
         <StarGuard />
+        {/* Stars move at different speeds as you scroll (near ones faster, far ones slower) */}
+        <ScrollDepth />
         {/* Now and then a shooting star crosses the hero */}
         <ShootingStars />
         {/* A rare comet with a long tail drifts across on a gentle curve */}

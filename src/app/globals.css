@@ -557,3 +557,11 @@ body[data-menu="open"] .mobile-book-bar {
     display: none;
   }
 }
+
+/* Scroll depth for the hero stars (StarField.tsx layers, ScrollDepth.tsx sets --scroll) */
+.star-depth {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0, calc(var(--scroll, 0px) * var(--depth, 0)), 0);
+  will-change: transform;
+}
