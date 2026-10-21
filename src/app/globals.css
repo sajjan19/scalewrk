@@ -596,3 +596,14 @@ body[data-menu="open"] .mobile-book-bar {
 .hero-night .net-halo {
   background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(99, 102, 241, 0.12) 40%, rgba(99, 102, 241, 0) 70%);
 }
+
+/* Subtle dot grid behind the Home hero: faint dots every 22px, fading out toward the edges */
+.hero-dots::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(77, 80, 249, 0.22) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 30%, transparent 100%);
+}

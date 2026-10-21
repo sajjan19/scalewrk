@@ -118,12 +118,9 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      {/* Background: twilight fade. Deep indigo at the very top fading through lavender to white at the bottom,
-          so it blends into the next section */}
-      <section
-        className="relative overflow-hidden border-b border-line"
-        style={{ background: "linear-gradient(180deg, #2a2468 0%, #6b5fd0 5%, #d9d3fa 18%, #f6f4ff 45%, #ffffff 80%)" }}
-      >
+      {/* Background: subtle dot grid. White with a faint grid of dots that fades out toward the edges
+          (.hero-dots in globals.css); the existing purple-blue glow sits behind the illustration */}
+      <section className="hero-dots relative overflow-hidden border-b border-line bg-white">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-violet/20 to-blue/20 blur-3xl"
