@@ -622,8 +622,3 @@ body[data-menu="open"] .mobile-book-bar {
 .glass-dark.btn:hover {
   background: linear-gradient(140deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.16));
 }
-
-/* Thin white outline around gradient words ("Scale" and "Talent" in the Home hero) */
-.text-outline {
-  -webkit-text-stroke: 1px #ffffff;
-}
