@@ -608,3 +608,8 @@ body[data-menu="open"] .mobile-book-bar {
 .glass-dark.btn:hover {
   background: linear-gradient(140deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.16));
 }
+
+/* A section that has scrolled out of view pauses all its animations (ScrollDepth.tsx sets data-offscreen) */
+[data-offscreen] * {
+  animation-play-state: paused !important;
+}

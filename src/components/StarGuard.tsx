@@ -26,6 +26,7 @@ export function StarGuard({ padding = 6 }: { padding?: number }) {
     // Re-check on resize and while scrolling (the stars move with scroll depth)
     let frame = 0;
     const later = () => {
+      if (section.getBoundingClientRect().bottom < 0) return; // scrolled past the section: nothing to check
       if (!frame)
         frame = requestAnimationFrame(() => {
           frame = 0;
