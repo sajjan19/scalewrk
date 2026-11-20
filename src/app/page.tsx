@@ -247,22 +247,23 @@ export default function Home() {
       {/* What we do */}
       <Section tone="mist">
         <SectionHeading eyebrow="What we do" title="We bring startups and great people together" />
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
+        {/* Side by side on every screen. Phones: icon above the title and smaller text so two cards fit */}
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4">
           {whatWeDo.map((item) => (
             <Link
               key={item.title}
               href={item.href}
-              className={`lift group flex flex-col rounded-2xl border border-line bg-white p-5 hover:border-brand/30 sm:p-8 ${item.theme}`}
+              className={`lift group flex flex-col rounded-2xl border border-line bg-white p-4 hover:border-brand/30 sm:p-8 ${item.theme}`}
             >
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
                 <IconBadge icon={item.icon} size="lg" />
                 <div>
-                  <p className="text-sm font-medium text-brand">{item.audience}</p>
-                  <p className="text-xl leading-tight font-semibold tracking-tight">{item.title}</p>
+                  <p className="text-xs font-medium text-brand sm:text-sm">{item.audience}</p>
+                  <p className="text-base leading-tight font-semibold tracking-tight sm:text-xl">{item.title}</p>
                 </div>
               </div>
-              <CheckList items={item.body} className="mt-5" />
-              <span className="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-brand group-hover:text-brand-dark">
+              <CheckList items={item.body} className="mt-4 text-sm max-sm:space-y-2 max-sm:[&_li]:gap-2 max-sm:[&_li]:leading-snug sm:mt-5 sm:text-base" />
+              <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-medium text-brand group-hover:text-brand-dark sm:pt-6 sm:text-base">
                 {item.link} <Arrow />
               </span>
             </Link>

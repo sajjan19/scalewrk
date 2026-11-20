@@ -425,3 +425,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Next.js upgraded 16.4.0 → 16.4.6 (2026-11-14): 16.4.0 had critical security advisories (npm audit), and `next build` stopped with a security error on first run. Run `npm audit` now and then.
 - Hero pauses all its animations once it scrolls out of view (ScrollDepth.tsx sets data-offscreen; rule in globals.css). StarGuard also skips its scroll checks past the hero. Saves battery on phones.
 - Recent placements: added LoanCrate (Staff Software Engineer – Platform, Series B, Mortgage AI / Fintech, Remote) as the newest, above Equall. Logo: /clients/loancrate.png (their 180×180 apple-touch-icon from loancrate.com).
+- Home "What we do": the For Startups and For Candidates cards sit side by side on every screen. On phones the icon sits above the title and the text is smaller so both fit.
