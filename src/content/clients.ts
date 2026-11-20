@@ -26,7 +26,16 @@ export type Client = {
 
 export const showClients = true;
 
+// Newest first
 export const clients: Client[] = [
+  {
+    name: "LoanCrate",
+    role: "Staff Software Engineer – Platform",
+    url: "https://loancrate.com/",
+    stage: "Series B",
+    industry: "Mortgage AI / Fintech",
+    location: "Remote",
+  },
   {
     name: "Equall",
     role: "Founding Engineer",

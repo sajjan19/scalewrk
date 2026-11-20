@@ -424,3 +424,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Floating liquid glass header removed: back to the plain sticky white header (no --header-space). Glass stays on the hero badge, "Find a role", the pills and the cards.
 - Next.js upgraded 16.4.0 → 16.4.6 (2026-11-14): 16.4.0 had critical security advisories (npm audit), and `next build` stopped with a security error on first run. Run `npm audit` now and then.
 - Hero pauses all its animations once it scrolls out of view (ScrollDepth.tsx sets data-offscreen; rule in globals.css). StarGuard also skips its scroll checks past the hero. Saves battery on phones.
+- Recent placements: added LoanCrate (Staff Software Engineer – Platform, Series B, Mortgage AI / Fintech, Remote) as the newest, above Equall. No logo file yet, so it shows a purple "L" tile; drop a square logo in /public/clients/ and set `logo` to swap it.
