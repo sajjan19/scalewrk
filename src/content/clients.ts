@@ -31,6 +31,7 @@ export const clients: Client[] = [
   {
     name: "LoanCrate",
     role: "Staff Software Engineer – Platform",
+    logo: "/clients/loancrate.png",
     url: "https://loancrate.com/",
     stage: "Series B",
     industry: "Mortgage AI / Fintech",
