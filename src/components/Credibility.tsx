@@ -99,48 +99,36 @@ function ClientCard({ client }: { client: Client }) {
   ].filter((f): f is { icon: typeof Rocket; text: string } => Boolean(f.text));
   const domain = client.url?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-  // Logo, name and website (the only part that links to their site)
-  const company = (
-    <>
-      {client.logo ? (
-        <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />
-      ) : (
-        <span className="btn-brand flex h-12 w-12 flex-none items-center justify-center rounded-xl text-lg font-semibold" aria-hidden="true">
-          {client.name.charAt(0)}
-        </span>
-      )}
-      <span className="min-w-0">
-        <span className="flex items-center gap-1 text-lg leading-tight font-semibold tracking-tight text-ink transition-colors group-hover:text-brand">
-          <Text>{client.name}</Text>
-          {client.url && (
-            <ArrowUpRight
-              className="h-4 w-4 flex-none text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
-              aria-hidden="true"
-            />
-          )}
-        </span>
-        {domain && <span className="block text-sm text-muted">{domain}</span>}
-      </span>
-    </>
-  );
-
   return (
     <div className="lift block h-full w-full max-w-md rounded-2xl border border-line bg-white p-6 text-left hover:border-brand/30">
-      {/* Company: logo, name and website */}
+      {/* Company: logo, name and website. Only the website link is clickable (opens their site in a new tab) */}
       <div className="flex items-start gap-4">
-        {client.url ? (
-          <a
-            href={client.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${client.name} website (opens in a new tab)`}
-            className="group flex min-w-0 items-center gap-3"
-          >
-            {company}
-          </a>
-        ) : (
-          <span className="flex min-w-0 items-center gap-3">{company}</span>
-        )}
+        <div className="flex min-w-0 items-center gap-3">
+          {client.logo ? (
+            <Image src={client.logo} alt="" width={96} height={96} className="h-12 w-12 flex-none rounded-xl object-cover" />
+          ) : (
+            <span className="btn-brand flex h-12 w-12 flex-none items-center justify-center rounded-xl text-lg font-semibold" aria-hidden="true">
+              {client.name.charAt(0)}
+            </span>
+          )}
+          <div className="min-w-0">
+            <p className="text-lg leading-tight font-semibold tracking-tight text-ink">
+              <Text>{client.name}</Text>
+            </p>
+            {client.url && domain && (
+              <a
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${domain} (opens in a new tab)`}
+                className="group inline-flex items-center gap-0.5 text-sm text-muted transition-colors hover:text-brand"
+              >
+                {domain}
+                <ArrowUpRight className="h-3.5 w-3.5 flex-none transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </a>
+            )}
+          </div>
+        </div>
         {/* Green "Filled" stamp, top right (just the check on very small phones, so it doesn't crowd the name) */}
         <span className="ml-auto inline-flex flex-none items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200 max-[380px]:px-1.5">
           <CircleCheck className="h-3.5 w-3.5" aria-hidden="true" />
@@ -151,8 +139,7 @@ function ClientCard({ client }: { client: Client }) {
       {/* The role we filled, as the headline of the card */}
       {client.role && (
         <div className="mt-6 border-t border-line pt-5">
-          <p className="text-xs font-semibold tracking-[0.14em] text-muted uppercase">Role filled</p>
-          <p className="mt-1 text-2xl font-semibold tracking-tight text-ink">{client.role}</p>
+          <p className="text-2xl font-semibold tracking-tight text-ink">{client.role}</p>
         </div>
       )}
 

@@ -429,3 +429,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Recent placements cards in the same row are always the same height (h-full on the card).
 - Recent placements tags: slightly smaller chips that stay on one line from 640px up (they still wrap on phones, where the card is too narrow).
 - Recent placements cards: green "Filled" badge with a check at the top right (just the check icon on phones under 380px wide).
+- Recent placements cards: "Role filled" label removed (the green Filled badge says it). Only the website line (e.g. loancrate.com ↗) links to their site; the logo and name are not clickable.
