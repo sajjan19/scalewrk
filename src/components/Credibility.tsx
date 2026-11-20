@@ -153,9 +153,9 @@ function ClientCard({ client }: { client: Client }) {
 
       {/* Stage, industry and location as small chips */}
       {facts.length > 0 && (
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap gap-1.5 sm:flex-nowrap">
           {facts.map((f) => (
-            <li key={f.text} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-sm text-body ring-1 ring-line">
+            <li key={f.text} className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[13px] whitespace-nowrap text-body ring-1 ring-line">
               <f.icon className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
               <Text>{f.text}</Text>
             </li>

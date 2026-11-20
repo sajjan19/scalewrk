@@ -427,3 +427,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Recent placements: added LoanCrate (Staff Software Engineer – Platform, Series B, Mortgage AI / Fintech, Remote) as the newest, above Equall. Logo: /clients/loancrate.png (their 180×180 apple-touch-icon from loancrate.com).
 - Home "What we do": the For Startups and For Candidates cards sit side by side on every screen. On phones the icon sits above the title and the text is smaller so both fit.
 - Recent placements cards in the same row are always the same height (h-full on the card).
+- Recent placements tags: slightly smaller chips that stay on one line from 640px up (they still wrap on phones, where the card is too narrow).
