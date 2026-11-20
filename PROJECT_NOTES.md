@@ -428,3 +428,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Home "What we do": the For Startups and For Candidates cards sit side by side on every screen. On phones the icon sits above the title and the text is smaller so both fit.
 - Recent placements cards in the same row are always the same height (h-full on the card).
 - Recent placements tags: slightly smaller chips that stay on one line from 640px up (they still wrap on phones, where the card is too narrow).
+- Recent placements cards: green "Filled" badge with a check at the top right (just the check icon on phones under 380px wide).

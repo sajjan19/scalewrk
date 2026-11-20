@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Building2, MapPin, Rocket } from "lucide-react";
+import { ArrowUpRight, Building2, CircleCheck, MapPin, Rocket } from "lucide-react";
 import { Container, Text } from "./ui";
 import { clients, showClients, type Client } from "@/content/clients";
 import { founders } from "@/content/founders";
@@ -141,6 +141,11 @@ function ClientCard({ client }: { client: Client }) {
         ) : (
           <span className="flex min-w-0 items-center gap-3">{company}</span>
         )}
+        {/* Green "Filled" stamp, top right (just the check on very small phones, so it doesn't crowd the name) */}
+        <span className="ml-auto inline-flex flex-none items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200 max-[380px]:px-1.5">
+          <CircleCheck className="h-3.5 w-3.5" aria-hidden="true" />
+          <span className="max-[380px]:sr-only">Filled</span>
+        </span>
       </div>
 
       {/* The role we filled, as the headline of the card */}
