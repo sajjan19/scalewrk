@@ -57,8 +57,7 @@ export const founders: Founder[] = [
     name: "Mandeep Sajjan",
     title: "Co-Founder, Head of Growth & Technology",
     initials: "MS",
-    photo: "/founders/mandeep-sajjan-2026.jpg",
-    photoPosition: "50% 0%", // tall photo: show from the top, so the frame takes in his head and shoulders
+    photo: "/founders/mandeep-sajjan-square.jpg",
     location: "Vancouver, Canada",
     bio: [
       "Mandeep powers the “AI” in our AI-powered sourcing. He builds the tools and workflows behind Scalewrk’s sourcing and growth, so we spend less time searching and more time with people.",
