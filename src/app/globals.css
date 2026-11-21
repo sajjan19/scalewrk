@@ -735,12 +735,12 @@ body[data-menu="open"] .mobile-book-bar {
   stroke: rgba(255, 255, 255, 0.14);
   stroke-width: 1.5px;
   stroke-dasharray: 3 4;
-  transition: stroke 0.5s ease, opacity 0.5s ease;
+  transition: stroke 0.9s ease, opacity 0.9s ease;
 }
 .bridge-line.is-on {
   stroke-width: 2.5px;
   stroke-dasharray: 6 6;
-  animation: bridge-flow 0.8s linear infinite;
+  animation: bridge-flow 1.6s linear infinite;
 }
 .bridge-line.is-left {
   stroke: #a78bfa;
@@ -754,7 +754,7 @@ body[data-menu="open"] .mobile-book-bar {
   to { stroke-dashoffset: -12; }
 }
 .bridge-card {
-  transition: box-shadow 0.4s ease, scale 0.4s ease, opacity 0.4s ease;
+  transition: box-shadow 0.9s ease, scale 0.9s ease, opacity 0.9s ease;
   opacity: 0.7;
 }
 .bridge-card.is-on {
@@ -773,7 +773,7 @@ body[data-menu="open"] .mobile-book-bar {
 }
 .bridge-hub {
   box-shadow: 0 0 30px -4px rgba(122, 47, 245, 0.7);
-  animation: bridge-hub 0.6s cubic-bezier(0.22, 1.4, 0.36, 1) both;
+  animation: bridge-hub 1s cubic-bezier(0.22, 1.4, 0.36, 1) both;
 }
 @keyframes bridge-hub {
   0% { scale: 0.9; }
@@ -781,7 +781,7 @@ body[data-menu="open"] .mobile-book-bar {
   100% { scale: 1; }
 }
 .bridge-matched {
-  animation: bridge-matched 0.5s cubic-bezier(0.22, 1.2, 0.36, 1) 0.25s both;
+  animation: bridge-matched 0.8s cubic-bezier(0.22, 1.2, 0.36, 1) 0.6s both;
 }
 @keyframes bridge-matched {
   from { opacity: 0; translate: 0 -4px; }
@@ -800,4 +800,14 @@ body[data-menu="open"] .mobile-book-bar {
   .tracker-chip {
     animation: none;
   }
+}
+/* Hero bridge: a new role or startup flips into its card */
+.bridge-swap {
+  animation: bridge-swap 0.9s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+@keyframes bridge-swap {
+  from { opacity: 0; translate: 0 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bridge-swap { animation: none; }
 }
