@@ -2,20 +2,29 @@
 
 import { useEffect, useState } from "react";
 import {
+  Boxes,
+  Braces,
   BrainCircuit,
   ChartLine,
   Cloud,
   Code,
+  Cpu,
   Database,
   Handshake,
   HeartHandshake,
   Layers,
+  Megaphone,
   Monitor,
+  Network,
   Phone,
+  Presentation,
+  Puzzle,
   Rocket,
+  ShieldCheck,
   Smartphone,
   Sparkles,
   TrendingUp,
+  Users,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -45,6 +54,16 @@ const people: { icon: LucideIcon; title: string; detail: string }[] = [
   { icon: ChartLine, title: "VP of Sales", detail: "Sales" },
   { icon: Database, title: "Data Engineer", detail: "Engineering" },
   { icon: Smartphone, title: "Mobile Engineer", detail: "Engineering" },
+  { icon: Users, title: "Engineering Manager", detail: "Engineering" },
+  { icon: Presentation, title: "Sales Engineer", detail: "Sales" },
+  { icon: ShieldCheck, title: "Security Engineer", detail: "Engineering" },
+  { icon: Network, title: "Head of Engineering", detail: "Engineering" },
+  { icon: Megaphone, title: "Head of Growth", detail: "Go-to-market" },
+  { icon: Cpu, title: "ML Engineer", detail: "Engineering" },
+  { icon: Braces, title: "Staff Engineer", detail: "Engineering" },
+  { icon: Handshake, title: "Enterprise Sales", detail: "Sales" },
+  { icon: Boxes, title: "Platform Engineer", detail: "Engineering" },
+  { icon: Puzzle, title: "Product Engineer", detail: "Engineering" },
 ];
 // Kinds of startups that rotate through the right cards: stage and industry
 const startups = [
@@ -60,6 +79,18 @@ const startups = [
   { title: "Seed", detail: "Edtech" },
   { title: "Series C", detail: "Fintech" },
   { title: "Series A", detail: "Proptech" },
+  { title: "Series B", detail: "Mortgage AI" },
+  { title: "Seed", detail: "Insurtech" },
+  { title: "Series C", detail: "Marketplace" },
+  { title: "Series A", detail: "HR tech" },
+  { title: "Pre-seed", detail: "Consumer AI" },
+  { title: "Series B", detail: "Logistics" },
+  { title: "Seed", detail: "Data infra" },
+  { title: "Series A", detail: "Biotech" },
+  { title: "Series C", detail: "Healthcare AI" },
+  { title: "Seed", detail: "Gaming" },
+  { title: "Series B", detail: "Supply chain" },
+  { title: "Series A", detail: "Space tech" },
 ];
 // Who meets whom, in order: [person, startup]
 const pairs: [number, number][] = [
