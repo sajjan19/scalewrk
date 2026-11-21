@@ -111,15 +111,15 @@ export default function AboutPage() {
                   src={f.photo}
                   alt={`${f.name}, ${f.title} at Scalewrk`}
                   width={1200}
-                  height={900}
+                  height={1200}
                   quality={90}
                   sizes="(min-width: 1152px) 520px, (min-width: 768px) 45vw, 100vw"
-                  className="aspect-[4/3] w-full rounded-xl bg-mist object-cover"
+                  className="aspect-square w-full rounded-xl bg-mist object-cover"
                   style={{ objectPosition: f.photoPosition ?? "50% 35%" }}
                 />
               ) : (
                 <div
-                  className="flex aspect-[4/3] w-full items-center justify-center rounded-xl bg-gradient-to-br from-violet to-blue text-5xl font-semibold text-white"
+                  className="flex aspect-square w-full items-center justify-center rounded-xl bg-gradient-to-br from-violet to-blue text-5xl font-semibold text-white"
                   aria-hidden="true"
                   title="PLACEHOLDER: founder photo"
                 >
