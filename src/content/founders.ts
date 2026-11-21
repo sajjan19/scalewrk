@@ -24,6 +24,7 @@ export type Founder = {
   // "Background" list on the About card: past jobs (briefcase icon) and schools (graduation cap icon)
   previouslyAt?: { name: string; detail?: string }[]; // companies they worked at in other roles
   education?: { name: string; detail?: string }[]; // schools and programs
+  email: string; // their own email for the Email button on About; while it says PLACEHOLDER, the button uses info@scalewrk.ai
   linkedin: string;
   calendlyUrl: string; // their own booking link; while it says PLACEHOLDER, the button uses the shared calendar
   outsideWork: { icon: Icon; label: string }[]; // "Outside of work" tags on the About card
@@ -42,6 +43,7 @@ export const founders: Founder[] = [
     ],
     experienceAt: ["TikTok", "PayPal", "Sully.ai"],
     education: [{ name: "British Columbia Institute of Technology (BCIT)", detail: "School of Business + Media" }],
+    email: "PLACEHOLDER",
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
@@ -72,6 +74,7 @@ export const founders: Founder[] = [
       { name: "University of British Columbia (UBC)", detail: "BSc in Computer Science" },
       { name: "British Columbia Institute of Technology (BCIT)", detail: "New Media and Web Development" },
     ],
+    email: "PLACEHOLDER",
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [

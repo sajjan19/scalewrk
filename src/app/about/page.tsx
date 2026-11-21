@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Briefcase, Compass, GraduationCap, UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle, Target } from "lucide-react";
+import { Briefcase, Compass, GraduationCap, Mail, UserRound, Filter, Flag, Globe, HeartHandshake, MapPin, MessageCircle, Target } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { IconBadge } from "@/components/visuals";
-import { Button, CalendarIcon, CheckList, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
-import { bookingHref, isSet, site } from "@/content/site";
+import { CheckList, Container, PageHero, Section, SectionHeading, Text } from "@/components/ui";
+import { isSet, site } from "@/content/site";
 import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -182,22 +182,27 @@ export default function AboutPage() {
                 </div>
               )}
 
-              {/* Book directly with this founder, plus LinkedIn */}
-              <div className="mt-auto flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <Button href={isSet(f.calendlyUrl) ? f.calendlyUrl : bookingHref} variant="brand">
-                  <CalendarIcon /> Book a call with {f.name.split(" ")[0]}
-                </Button>
-                  <a
-                    href={f.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rise inline-flex items-center gap-2 font-medium text-brand hover:text-brand-dark"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-                      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-                    </svg>
-                    {f.name.split(" ")[0]} on LinkedIn
-                  </a>
+              {/* Email and LinkedIn, side by side */}
+              <div className="mt-auto grid grid-cols-2 gap-3 pt-6">
+                <a
+                  href={`mailto:${isSet(f.email) ? f.email : site.email}`}
+                  className="lift inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-line bg-white px-4 font-medium text-ink hover:border-brand/40 hover:text-brand"
+                >
+                  <Mail className="h-5 w-5" aria-hidden="true" />
+                  Email
+                </a>
+                <a
+                  href={f.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${f.name} on LinkedIn (opens in a new tab)`}
+                  className="lift inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-line bg-white px-4 font-medium text-ink hover:border-brand/40 hover:text-brand"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                  </svg>
+                  LinkedIn
+                </a>
               </div>
             </article>
           ))}

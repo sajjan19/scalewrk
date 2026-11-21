@@ -27,9 +27,11 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [x] Punit: other companies recruited for (TikTok, PayPal, Sully.ai)
 - [x] Punit: location (Vancouver)
 - [ ] Punit: LinkedIn URL
+- [ ] Punit: email (`email` in founders.ts; until then his Email button on About goes to info@scalewrk.ai)
 - [x] Punit: photo (`public/founders/punit.jpg`)
 - [x] Mandeep: bio with prior roles (Apple, 2018–2025: sales, Genius Bar, Apple Business)
 - [ ] Mandeep: LinkedIn URL
+- [ ] Mandeep: email (`email` in founders.ts; until then his Email button on About goes to info@scalewrk.ai)
 - [x] Mandeep: photo (`public/founders/mandeep.jpg`)
 
 ## Founder booking links (optional)
