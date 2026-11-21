@@ -58,8 +58,8 @@ export const founders: Founder[] = [
     photo: "/founders/mandeep-sajjan.jpg",
     location: "Vancouver, Canada",
     bio: [
-      "Mandeep worked at Apple from 2018 to 2025 in sales, technical support and with the Apple Business team. He also helped businesses in Canada and the US grow through IT consulting.",
-      "Years of solving tech problems for everyday users and business owners taught him what founders need. Now he uses that to match engineers with startups where they can thrive.",
+      "Mandeep powers the “AI” in our AI-powered sourcing. He builds the tools and workflows behind Scalewrk’s sourcing and growth, so we spend less time searching and more time with people.",
+      "He spent seven years at Apple, from 2018 to 2025, in sales, technical support and Apple Business. He also helped businesses in Canada and the US grow through IT consulting.",
     ],
     experienceAt: [],
     previouslyAt: [
