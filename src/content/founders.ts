@@ -75,7 +75,7 @@ export const founders: Founder[] = [
       { name: "British Columbia Institute of Technology (BCIT)", detail: "New Media and Web Development" },
     ],
     email: "mandeep@scalewrk.ai",
-    linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
+    linkedin: "https://www.linkedin.com/in/mandeep-sajjan/",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
       { icon: Dumbbell, label: "Fitness" },

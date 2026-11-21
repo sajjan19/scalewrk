@@ -30,7 +30,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 - [x] Punit: email (punit@scalewrk.ai)
 - [x] Punit: photo (`public/founders/punit.jpg`)
 - [x] Mandeep: bio with prior roles (Apple, 2018–2025: sales, Genius Bar, Apple Business)
-- [ ] Mandeep: LinkedIn URL
+- [x] Mandeep: LinkedIn URL (https://www.linkedin.com/in/mandeep-sajjan/)
 - [x] Mandeep: email (mandeep@scalewrk.ai)
 - [x] Mandeep: photo (`public/founders/mandeep.jpg`)
 
