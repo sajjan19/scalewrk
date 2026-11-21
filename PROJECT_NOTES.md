@@ -431,3 +431,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Recent placements cards: green "Filled" badge with a check at the top right (just the check icon on phones under 380px wide).
 - Recent placements cards: "Role filled" label removed (the green Filled badge says it). Only the website line (e.g. loancrate.com ↗) links to their site; the logo and name are not clickable.
 - Mandeep bio rewritten to match his Cascadia bio: p1 "Mandeep powers the “AI” in our AI-powered sourcing…", p2 Apple (seven years, no dates) + IT consulting. Background list unchanged (Apple, IT consulting, UBC, BCIT).
+- Scroll to top fix: <html data-scroll-behavior="smooth"> (layout.tsx) so Next.js 16 turns off our smooth scrolling while changing pages, and new pages open at the very top. The header logo on Home now glides back to the top (Header.tsx onClick) instead of doing nothing.

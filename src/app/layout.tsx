@@ -74,7 +74,9 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-US" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    // data-scroll-behavior: the site scrolls smoothly (globals.css), so Next.js turns that off for a moment
+    // when you change page. Without it, a new page could open part-way down instead of at the very top.
+    <html lang="en-US" data-scroll-behavior="smooth" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"

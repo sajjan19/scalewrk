@@ -52,7 +52,18 @@ export function Header() {
     // No blur while the menu is open: blur would trap the full-screen menu inside the header
     <header className={`sticky top-0 z-40 border-b ${open ? "border-transparent bg-white" : "border-line/70 bg-white/90 backdrop-blur"}`}>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" aria-label="Scalewrk home" className="rise -m-1 inline-block p-1">
+        {/* Already on Home: the logo glides back to the top (a link to the same page would do nothing) */}
+        <Link
+          href="/"
+          aria-label="Scalewrk home"
+          className="rise -m-1 inline-block p-1"
+          onClick={(e) => {
+            if (pathname !== "/") return;
+            e.preventDefault(); // stops Next.js re-opening the same page, which cancels the scroll
+            const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+          }}
+        >
           <Logo />
         </Link>
 
