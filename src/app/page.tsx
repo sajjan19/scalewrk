@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   UserRound,
@@ -32,7 +31,6 @@ import { ProcessCards } from "@/components/ProcessCards";
 import { ScrollDots } from "@/components/ScrollDots";
 import { bookingHref } from "@/content/site";
 import { hasOpenJobs, latestJobs } from "@/content/jobs";
-import { founderId, founders } from "@/content/founders";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -107,14 +105,7 @@ const exampleBoard = [
   { role: "Founding Account Executive", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
 ];
 
-// ["A", "B", "C"] → "A, B and C"
-function listWithAnd(items: string[]) {
-  return items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
-}
-
 export default function Home() {
-  const punit = founders[0];
-
   return (
     <>
       {/* Hero */}
@@ -328,54 +319,6 @@ export default function Home() {
         <ScrollDots targetId="why-cards" count={reasons.length} className="lg:hidden" />
       </Section>
 
-      {/* Founders: who runs every search (same heading style as Roles) */}
-      <Section>
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Our team"
-            title="Who you'll work with"
-            intro={`Our co-founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
-          />
-          <Link href="/about" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
-            Meet the team <Arrow />
-          </Link>
-        </div>
-        <ul className="mt-8 grid gap-3 sm:mt-12 sm:gap-4 md:grid-cols-2">
-          {founders.map((f) => {
-            return (
-              <li key={f.name}>
-                <Link
-                  href={`/about#${founderId(f.name)}`}
-                  className="lift group flex h-full items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line hover:ring-brand/30 sm:p-5"
-                >
-                  {f.photo ? (
-                    <Image
-                      src={f.photo}
-                      alt={f.name}
-                      width={160}
-                      height={160}
-                      quality={90}
-                      className="h-14 w-14 flex-none rounded-full object-cover object-[60%_40%]"
-                    />
-                  ) : (
-                    <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-full text-lg font-semibold" aria-hidden="true">
-                      {f.initials}
-                    </span>
-                  )}
-                  <div className="flex-1">
-                    <p className="text-lg font-semibold group-hover:text-brand">{f.name}</p>
-                    <p className="text-body">{f.title}</p>
-                  </div>
-                  <span className="text-muted transition-colors group-hover:text-brand">
-                    <Arrow />
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </Section>
-
       {/* Roles we hire (preview tiles). Hidden for now, see showRolePreview in roles.ts */}
       {showRolePreview && (
       <Section className="theme-startup">
@@ -406,9 +349,9 @@ export default function Home() {
       </Section>
       )}
 
-      {/* Testimonials (src/content/testimonials.ts) */}
-      {/* Testimonials: the opposite background of whatever section sits right before it */}
-      <Testimonials tone={hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist"} />
+      {/* Testimonials (src/content/testimonials.ts): the opposite background of whatever section sits right
+          before it (Why us is grey, Roles white, Latest jobs grey or white) */}
+      <Testimonials tone={(hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist") === "mist" ? "white" : "mist"} />
 
       <CtaBand />
     </>
