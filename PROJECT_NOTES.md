@@ -440,3 +440,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Punit LinkedIn set: https://www.linkedin.com/in/singh-punit/
 - Mandeep LinkedIn set: https://www.linkedin.com/in/mandeep-sajjan/
 - Footer Facebook icon is now the square version (rounded square with the f cut out) to match LinkedIn.
+- Two new Home hero visuals to compare with the S illustration (HeroVisual.tsx picks one; `defaultHeroVisual` = "network" for now):
+  - "map" (HeroMap.tsx + src/content/mapDots.ts): the US and Canada as glowing dots; every 3.2s an arc links two cities with a role pill (illustrative, no real placements).
+  - "notifications" (HeroNotifications.tsx): phone-style updates from a search slide in, newest on top, three at a time (illustrative).
+  Preview on any copy of the site with /?hero=map or /?hero=notifications. On phones both use the full width.

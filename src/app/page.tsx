@@ -13,7 +13,7 @@ import {
 import { ClientsSection, FounderExperienceStrip } from "@/components/Credibility";
 import { StatsSection } from "@/components/StatsSection";
 import { CtaBand } from "@/components/CtaBand";
-import { HeroNetwork } from "@/components/HeroNetwork";
+import { HeroVisual } from "@/components/HeroVisual";
 import { StarField } from "@/components/StarField";
 import { StarGuard } from "@/components/StarGuard";
 import { ScrollDepth } from "@/components/ScrollDepth";
@@ -159,7 +159,7 @@ export default function Home() {
             {!showHeroTracker && (
               <div className="flex flex-1 items-center justify-center py-2 sm:hidden">
                 <div style={{ "--d": "450ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop w-full">
-                  <HeroNetwork phone className="!max-w-[min(290px,calc(100svh-25rem))]" />
+                  <HeroVisual phone className="!max-w-[min(290px,calc(100svh-25rem))]" />
                 </div>
               </div>
             )}
@@ -222,7 +222,7 @@ export default function Home() {
           {/* The illustration pops up too, a little after the headline */}
           {!showHeroTracker && (
             <div style={{ "--d": "300ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop hidden sm:block">
-              <HeroNetwork />
+              <HeroVisual />
             </div>
           )}
         </Container>
