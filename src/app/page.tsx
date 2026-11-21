@@ -83,7 +83,6 @@ const reasons = [
   {
     icon: UserCheck,
     title: "Hands-on from day one",
-    showFounder: true, // shows Punit's photo and background in this card (the old "Who you'll work with" section)
     body: ["Punit runs every search", "With you from the first call to the signed offer"],
     versus: "Big agencies often pass you to a junior.",
   },
@@ -320,35 +319,6 @@ export default function Home() {
                 <p className="text-xl leading-tight font-semibold tracking-tight">{r.title}</p>
               </div>
               <CheckList items={r.body} className="mt-4" />
-              {/* Who runs the search: Punit's photo, name and background, linking to his bio on About */}
-              {"showFounder" in r && (
-                <Link
-                  href={`/about#${founderId(punit.name)}`}
-                  className="group mt-5 flex items-center gap-3 rounded-xl bg-mist p-3 ring-1 ring-line transition hover:ring-brand/30"
-                >
-                  {punit.photo ? (
-                    <Image
-                      src={punit.photo}
-                      alt={punit.name}
-                      width={96}
-                      height={96}
-                      quality={90}
-                      className="h-11 w-11 flex-none rounded-full object-cover object-[60%_40%]"
-                    />
-                  ) : (
-                    <span className="btn-brand flex h-11 w-11 flex-none items-center justify-center rounded-full font-semibold" aria-hidden="true">
-                      {punit.initials}
-                    </span>
-                  )}
-                  <span className="min-w-0 flex-1">
-                    <span className="block font-semibold text-ink group-hover:text-brand">{punit.name}</span>
-                    <span className="block text-sm leading-snug text-muted">Recruited for {listWithAnd(punit.experienceAt)}</span>
-                  </span>
-                  <span className="text-muted transition-colors group-hover:text-brand">
-                    <Arrow />
-                  </span>
-                </Link>
-              )}
               <div className="mt-auto pt-6">
                 <p className="border-t border-line pt-4 text-sm leading-relaxed text-muted">{r.versus}</p>
               </div>
@@ -356,6 +326,54 @@ export default function Home() {
           ))}
         </div>
         <ScrollDots targetId="why-cards" count={reasons.length} className="lg:hidden" />
+      </Section>
+
+      {/* Founders: who runs every search (same heading style as Roles) */}
+      <Section>
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <SectionHeading
+            eyebrow="Our team"
+            title="Who you'll work with"
+            intro={`Our co-founder Punit Singh has recruited since 2018 for companies like ${listWithAnd(punit.experienceAt)}.`}
+          />
+          <Link href="/about" className="shrink-0 inline-flex items-center gap-2 nudge font-medium text-brand hover:text-brand-dark">
+            Meet the team <Arrow />
+          </Link>
+        </div>
+        <ul className="mt-8 grid gap-3 sm:mt-12 sm:gap-4 md:grid-cols-2">
+          {founders.map((f) => {
+            return (
+              <li key={f.name}>
+                <Link
+                  href={`/about#${founderId(f.name)}`}
+                  className="lift group flex h-full items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line hover:ring-brand/30 sm:p-5"
+                >
+                  {f.photo ? (
+                    <Image
+                      src={f.photo}
+                      alt={f.name}
+                      width={160}
+                      height={160}
+                      quality={90}
+                      className="h-14 w-14 flex-none rounded-full object-cover object-[60%_40%]"
+                    />
+                  ) : (
+                    <span className="btn-brand flex h-14 w-14 flex-none items-center justify-center rounded-full text-lg font-semibold" aria-hidden="true">
+                      {f.initials}
+                    </span>
+                  )}
+                  <div className="flex-1">
+                    <p className="text-lg font-semibold group-hover:text-brand">{f.name}</p>
+                    <p className="text-body">{f.title}</p>
+                  </div>
+                  <span className="text-muted transition-colors group-hover:text-brand">
+                    <Arrow />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </Section>
 
       {/* Roles we hire (preview tiles). Hidden for now, see showRolePreview in roles.ts */}
@@ -388,9 +406,9 @@ export default function Home() {
       </Section>
       )}
 
-      {/* Testimonials (src/content/testimonials.ts): the opposite background of whatever section sits right
-          before it (Why us is grey, Roles white, Latest jobs grey or white) */}
-      <Testimonials tone={(hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist") === "mist" ? "white" : "mist"} />
+      {/* Testimonials (src/content/testimonials.ts) */}
+      {/* Testimonials: the opposite background of whatever section sits right before it */}
+      <Testimonials tone={hasOpenJobs ? (showRolePreview ? "mist" : "white") : showRolePreview ? "white" : "mist"} />
 
       <CtaBand />
     </>
