@@ -114,7 +114,8 @@ export default function AboutPage() {
                   height={900}
                   quality={90}
                   sizes="(min-width: 1152px) 520px, (min-width: 768px) 45vw, 100vw"
-                  className="aspect-[4/3] w-full rounded-xl bg-mist object-cover object-[50%_35%]"
+                  className="aspect-[4/3] w-full rounded-xl bg-mist object-cover"
+                  style={{ objectPosition: f.photoPosition ?? "50% 35%" }}
                 />
               ) : (
                 <div

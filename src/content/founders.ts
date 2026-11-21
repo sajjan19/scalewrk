@@ -16,6 +16,8 @@ export type Founder = {
   title: string;
   initials: string;
   photo: string;
+  // Which part of the photo stays in view when it is cropped to 4:3 on About (CSS object-position). Default "50% 35%"
+  photoPosition?: string;
   location: string;
   bio: string[];
   experienceAt: string[]; // companies they recruited for (also shown on the Home strip)
@@ -55,7 +57,8 @@ export const founders: Founder[] = [
     name: "Mandeep Sajjan",
     title: "Co-Founder, Head of Growth & Technology",
     initials: "MS",
-    photo: "/founders/mandeep-sajjan.jpg",
+    photo: "/founders/mandeep-sajjan-2026.jpg",
+    photoPosition: "50% 10%", // tall photo: keep the top of his head in frame
     location: "Vancouver, Canada",
     bio: [
       "Mandeep powers the “AI” in our AI-powered sourcing. He builds the tools and workflows behind Scalewrk’s sourcing and growth, so we spend less time searching and more time with people.",
