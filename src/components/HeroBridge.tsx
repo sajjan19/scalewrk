@@ -2,14 +2,18 @@
 
 import { useEffect, useState } from "react";
 import {
+  Bot,
   Boxes,
   Braces,
   BrainCircuit,
   ChartLine,
   Cloud,
   Code,
+  Cog,
+  Compass,
   Cpu,
   Database,
+  FlaskConical,
   Handshake,
   HeartHandshake,
   Layers,
@@ -20,11 +24,13 @@ import {
   Presentation,
   Puzzle,
   Rocket,
+  Server,
   ShieldCheck,
   Smartphone,
   Sparkles,
   TrendingUp,
   Users,
+  Workflow,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -64,6 +70,13 @@ const people: { icon: LucideIcon; title: string; detail: string }[] = [
   { icon: Handshake, title: "Enterprise Sales", detail: "Sales" },
   { icon: Boxes, title: "Platform Engineer", detail: "Engineering" },
   { icon: Puzzle, title: "Product Engineer", detail: "Engineering" },
+  // Newer roles that are growing fast
+  { icon: Bot, title: "AI Agent Engineer", detail: "Engineering" },
+  { icon: Compass, title: "Forward Deployed", detail: "Engineer" }, // full title is too long for the card
+  { icon: Workflow, title: "GTM Engineer", detail: "Go-to-market" },
+  { icon: FlaskConical, title: "Evals Engineer", detail: "Engineering" },
+  { icon: Server, title: "AI Infra Engineer", detail: "Engineering" },
+  { icon: Cog, title: "Robotics Engineer", detail: "Engineering" },
 ];
 // Kinds of startups that rotate through the right cards: stage and industry
 const startups = [
@@ -91,6 +104,12 @@ const startups = [
   { title: "Seed", detail: "Gaming" },
   { title: "Series B", detail: "Supply chain" },
   { title: "Series A", detail: "Space tech" },
+  // Newer kinds of startups that are growing fast
+  { title: "Seed", detail: "AI agents" },
+  { title: "Series B", detail: "Defense tech" },
+  { title: "Series A", detail: "AI infra" },
+  { title: "Series C", detail: "Energy" },
+  { title: "Seed", detail: "Bio AI" },
 ];
 // Who meets whom, in order: [person, startup]
 const pairs: [number, number][] = [
