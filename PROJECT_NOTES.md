@@ -437,3 +437,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Mandeep photo swapped again for a wider square headshot (public/founders/mandeep-sajjan-square.jpg, 1200×1200). The ✦ watermark on the suit was covered with nearby suit fabric. Shows in full in the square About frame, so no photoPosition needed.
 - About founder cards: "Book a call with [name]" + LinkedIn link replaced by two side-by-side buttons, Email and LinkedIn. New `email` field per founder in founders.ts (PLACEHOLDER → falls back to info@scalewrk.ai). Personal calendlyUrl fields are no longer used on About.
 - Founder emails set: punit@scalewrk.ai, mandeep@scalewrk.ai (About Email buttons).
+- Punit LinkedIn set: https://www.linkedin.com/in/singh-punit/

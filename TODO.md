@@ -26,7 +26,7 @@ When you finish an item, tick it here (`[x]`) and update PROJECT_NOTES.md.
 
 - [x] Punit: other companies recruited for (TikTok, PayPal, Sully.ai)
 - [x] Punit: location (Vancouver)
-- [ ] Punit: LinkedIn URL
+- [x] Punit: LinkedIn URL (https://www.linkedin.com/in/singh-punit/)
 - [x] Punit: email (punit@scalewrk.ai)
 - [x] Punit: photo (`public/founders/punit.jpg`)
 - [x] Mandeep: bio with prior roles (Apple, 2018–2025: sales, Genius Bar, Apple Business)

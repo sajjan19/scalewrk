@@ -44,7 +44,7 @@ export const founders: Founder[] = [
     experienceAt: ["TikTok", "PayPal", "Sully.ai"],
     education: [{ name: "British Columbia Institute of Technology (BCIT)", detail: "School of Business + Media" }],
     email: "punit@scalewrk.ai",
-    linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
+    linkedin: "https://www.linkedin.com/in/singh-punit/",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
       { icon: Dumbbell, label: "Fitness" },
