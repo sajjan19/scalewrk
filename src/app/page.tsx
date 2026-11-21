@@ -24,7 +24,6 @@ import { RoleTiles, SeeAllRolesLink } from "@/components/RoleTiles";
 import { quickRoles, showQuickRoles, showRolePreview } from "@/content/roles";
 import { JobCard } from "@/components/JobCard";
 import { Testimonials } from "@/components/Testimonials";
-import { LogoMark } from "@/components/Logo";
 import { Arrow, CalendarIcon, Button, CheckList, Container, Section, SectionHeading } from "@/components/ui";
 import { IconBadge } from "@/components/visuals";
 import { ProcessCards } from "@/components/ProcessCards";
@@ -92,19 +91,6 @@ const reasons = [
   },
 ];
 
-// Hero "progress tracker" card (beside the headline). Hidden for now; set to true to bring it back.
-const showHeroTracker = false;
-
-// Illustrative only: shows what working with us looks like. Not real searches.
-// `step` is how far along each role is (1 to 4), matching the steps in hiringSteps.
-const hiringSteps = ["Planning", "Shortlist", "Interviews", "Offer"];
-const exampleBoard = [
-  { role: "Full-Stack Engineer", step: 1, stage: "Planning the role", tone: "bg-slate-100 text-slate-700" },
-  { role: "Founding AI Engineer", step: 2, stage: "Shortlist sent", tone: "bg-brand-soft text-brand-dark" },
-  { role: "Senior Backend Engineer", step: 3, stage: "Interviewing", tone: "bg-amber-50 text-amber-800" },
-  { role: "Founding Account Executive", step: 4, stage: "Offer out", tone: "bg-emerald-50 text-emerald-800" },
-];
-
 export default function Home() {
   return (
     <>
@@ -156,13 +142,11 @@ export default function Home() {
             </p>
             {/* Phones: the illustration sits between the subheading and the buttons, using the space left over
                 (up to 290px; smaller on short phones so the buttons still fit on screen) */}
-            {!showHeroTracker && (
-              <div className="flex flex-1 items-center justify-center py-2 sm:hidden">
-                <div style={{ "--d": "450ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop w-full">
-                  <HeroVisual phone className="!max-w-[min(290px,calc(100svh-25rem))]" />
-                </div>
+            <div className="flex flex-1 items-center justify-center py-2 sm:hidden">
+              <div style={{ "--d": "450ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop w-full">
+                <HeroVisual phone className="!max-w-[min(290px,calc(100svh-25rem))]" />
               </div>
-            )}
+            </div>
             {/* One button per audience: startups book a call, candidates go to For Candidates.
                 Side by side on every screen; on phones they share the width and "Find a role" is shorter */}
             <div style={{ "--d": "520ms" } as React.CSSProperties} className="hero-pop mt-2 flex gap-2 sm:mt-8 sm:gap-3">
@@ -176,55 +160,11 @@ export default function Home() {
             </div>
           </div>
 
-          {showHeroTracker && (
-          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
-            <div className="rounded-2xl border border-line bg-white p-5 shadow-[0_20px_60px_-20px_rgba(11,16,32,0.25)]">
-              <p className="font-semibold">We track every role from plan to offer</p>
-
-              {/* Step labels */}
-              <div className="mt-5 grid grid-cols-4 gap-1 text-center text-[11px] font-medium text-muted">
-                {hiringSteps.map((label) => (
-                  <span key={label}>{label}</span>
-                ))}
-              </div>
-
-              <ul className="mt-2 divide-y divide-line">
-                {exampleBoard.map((item) => (
-                  <li key={item.role} className="py-3.5">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-[15px] font-medium">{item.role}</span>
-                      <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${item.tone}`}>{item.stage}</span>
-                    </div>
-                    {/* Progress: one segment per step */}
-                    <div className="mt-2.5 grid grid-cols-4 gap-1" aria-label={`Step ${item.step} of 4`}>
-                      {hiringSteps.map((label, i) => (
-                        <span
-                          key={label}
-                          className={`h-1.5 rounded-full ${i < item.step ? "bg-gradient-to-r from-violet to-blue" : "bg-line"}`}
-                        />
-                      ))}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-2 flex items-center gap-3 rounded-xl bg-mist p-3 text-sm text-body">
-                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white ring-1 ring-line">
-                  <LogoMark className="h-4 w-auto" />
-                </span>
-                One recruiting partner for every tech and sales role.
-              </div>
-            </div>
+          {/* Tablets and desktop: the hero picture sits beside the text (HeroVisual.tsx picks which one).
+              It pops up too, a little after the headline */}
+          <div style={{ "--d": "300ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop hidden sm:block">
+            <HeroVisual />
           </div>
-          )}
-
-          {/* Network illustration: startups and candidates linked through Scalewrk */}
-          {/* Tablets and desktop: the illustration sits beside the text */}
-          {/* The illustration pops up too, a little after the headline */}
-          {!showHeroTracker && (
-            <div style={{ "--d": "300ms", "--s": "0.85" } as React.CSSProperties} className="hero-pop hidden sm:block">
-              <HeroVisual />
-            </div>
-          )}
         </Container>
       </section>
 

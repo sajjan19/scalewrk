@@ -444,3 +444,7 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
   - "map" (HeroMap.tsx + src/content/mapDots.ts): the US and Canada as glowing dots; every 3.2s an arc links two cities with a role pill (illustrative, no real placements).
   - "notifications" (HeroNotifications.tsx): phone-style updates from a search slide in, newest on top, three at a time (illustrative).
   Preview on any copy of the site with /?hero=map or /?hero=notifications. On phones both use the full width.
+- Two more Home hero options (same switcher, HeroVisual.tsx):
+  - "bridge" (HeroBridge.tsx): people (engineers, sales) on the left, startups (stage + industry) on the right; every 2.4s one pair lights up and a glowing line joins them through the S, with a "✓ Matched" tag.
+  - "tracker" (HeroTracker.tsx): dark-glass card, roles move Planning → Shortlist → Interviews → Offer → Hired and the bars fill. Replaces the old hidden light tracker in page.tsx (showHeroTracker removed). Phones show 3 roles and no footer row so the buttons stay on screen.
+  Preview: /?hero=bridge, /?hero=tracker. All five options keep the hero buttons on screen at 375×667.

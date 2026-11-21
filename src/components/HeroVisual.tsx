@@ -4,20 +4,24 @@ import { useSyncExternalStore } from "react";
 import { HeroNetwork } from "./HeroNetwork";
 import { HeroMap } from "./HeroMap";
 import { HeroNotifications } from "./HeroNotifications";
+import { HeroBridge } from "./HeroBridge";
+import { HeroTracker } from "./HeroTracker";
 
 /*
   The picture on the right of the Home hero (between the subheading and buttons on phones).
-  Three options to compare:
+  Options to compare:
     "network"        the S with role and stage pills (HeroNetwork.tsx)
     "map"            the US and Canada at night with glowing links (HeroMap.tsx)
     "notifications"  updates from a search sliding in (HeroNotifications.tsx)
-  `defaultHeroVisual` is what everyone sees. To preview another one, add ?hero=map or
-  ?hero=notifications to the Home page address (works on the live site too).
+    "bridge"         people on the left, startups on the right, matched through the S (HeroBridge.tsx)
+    "tracker"        roles moving from plan to offer (HeroTracker.tsx)
+  `defaultHeroVisual` is what everyone sees. To preview another one, add ?hero=map (or notifications,
+  bridge, tracker) to the Home page address (works on the live site too).
 */
 export const defaultHeroVisual: HeroVisualName = "network";
 
-type HeroVisualName = "network" | "map" | "notifications";
-const names: HeroVisualName[] = ["network", "map", "notifications"];
+type HeroVisualName = "network" | "map" | "notifications" | "bridge" | "tracker";
+const names: HeroVisualName[] = ["network", "map", "notifications", "bridge", "tracker"];
 
 // Reads ?hero= from the address. The server (and the first paint) always uses the default.
 function useHeroVisual() {
@@ -33,8 +37,10 @@ function useHeroVisual() {
 
 export function HeroVisual({ phone = false, className = "" }: { phone?: boolean; className?: string }) {
   const visual = useHeroVisual();
-  // The size limit passed in is for the S illustration; the map and the cards use the full width on phones
+  // The size limit passed in is for the S illustration; the other options use the full width on phones
   if (visual === "map") return <HeroMap className={phone ? "" : className} />;
   if (visual === "notifications") return <HeroNotifications className={phone ? "" : className} />;
+  if (visual === "bridge") return <HeroBridge className={phone ? "" : className} />;
+  if (visual === "tracker") return <HeroTracker className={phone ? "" : className} />;
   return <HeroNetwork phone={phone} className={className} />;
 }
