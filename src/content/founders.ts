@@ -59,7 +59,7 @@ export const founders: Founder[] = [
     location: "Vancouver, Canada",
     bio: [
       "Mandeep powers the “AI” in our AI-powered sourcing. He builds the tools and workflows behind Scalewrk’s sourcing and growth, so we spend less time searching and more time with people.",
-      "He spent seven years at Apple, from 2018 to 2025, in sales, technical support and Apple Business. He also helped businesses in Canada and the US grow through IT consulting.",
+      "He spent seven years at Apple in sales, technical support and Apple Business. He also helped businesses in Canada and the US grow through IT consulting.",
     ],
     experienceAt: [],
     previouslyAt: [
