@@ -43,7 +43,7 @@ export const founders: Founder[] = [
     ],
     experienceAt: ["TikTok", "PayPal", "Sully.ai"],
     education: [{ name: "British Columbia Institute of Technology (BCIT)", detail: "School of Business + Media" }],
-    email: "PLACEHOLDER",
+    email: "punit@scalewrk.ai",
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
@@ -74,7 +74,7 @@ export const founders: Founder[] = [
       { name: "University of British Columbia (UBC)", detail: "BSc in Computer Science" },
       { name: "British Columbia Institute of Technology (BCIT)", detail: "New Media and Web Development" },
     ],
-    email: "PLACEHOLDER",
+    email: "mandeep@scalewrk.ai",
     linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
     calendlyUrl: "https://calendly.com/PLACEHOLDER",
     outsideWork: [
