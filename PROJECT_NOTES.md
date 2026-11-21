@@ -439,3 +439,4 @@ See the "Decisions" section of [TODO.md](TODO.md): resume uploads, partner refer
 - Founder emails set: punit@scalewrk.ai, mandeep@scalewrk.ai (About Email buttons).
 - Punit LinkedIn set: https://www.linkedin.com/in/singh-punit/
 - Mandeep LinkedIn set: https://www.linkedin.com/in/mandeep-sajjan/
+- Footer Facebook icon is now the square version (rounded square with the f cut out) to match LinkedIn.
