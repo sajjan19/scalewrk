@@ -18,7 +18,7 @@ import { HeroTracker } from "./HeroTracker";
   `defaultHeroVisual` is what everyone sees. To preview another one, add ?hero=map (or notifications,
   bridge, tracker) to the Home page address (works on the live site too).
 */
-export const defaultHeroVisual: HeroVisualName = "network";
+export const defaultHeroVisual: HeroVisualName = "bridge";
 
 type HeroVisualName = "network" | "map" | "notifications" | "bridge" | "tracker";
 const names: HeroVisualName[] = ["network", "map", "notifications", "bridge", "tracker"];
