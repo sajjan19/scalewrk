@@ -7,6 +7,7 @@ import {
   Braces,
   BrainCircuit,
   ChartLine,
+  ClipboardList,
   Cloud,
   Code,
   Cog,
@@ -19,7 +20,10 @@ import {
   Layers,
   Megaphone,
   Monitor,
+  Lightbulb,
   Network,
+  Palette,
+  PenTool,
   Phone,
   Presentation,
   Puzzle,
@@ -51,22 +55,26 @@ const people: { icon: LucideIcon; title: string; detail: string }[] = [
   { icon: Handshake, title: "Account Executive", detail: "Sales" },
   { icon: TrendingUp, title: "Head of Sales", detail: "Sales" },
   { icon: Sparkles, title: "Founding Engineer", detail: "Engineering" },
+  { icon: ClipboardList, title: "Product Manager", detail: "Product" },
   { icon: Phone, title: "Sales Manager", detail: "Sales" },
   { icon: Monitor, title: "Frontend Engineer", detail: "Engineering" },
   { icon: Wrench, title: "Solutions Engineer", detail: "Sales" },
   { icon: Layers, title: "Full-Stack Engineer", detail: "Engineering" },
   { icon: HeartHandshake, title: "Customer Success", detail: "Go-to-market" },
+  { icon: Palette, title: "Product Designer", detail: "Design" },
   { icon: Cloud, title: "DevOps Engineer", detail: "Engineering" },
   { icon: ChartLine, title: "VP of Sales", detail: "Sales" },
   { icon: Database, title: "Data Engineer", detail: "Engineering" },
   { icon: Smartphone, title: "Mobile Engineer", detail: "Engineering" },
   { icon: Users, title: "Engineering Manager", detail: "Engineering" },
+  { icon: Lightbulb, title: "Head of Product", detail: "Product" },
   { icon: Presentation, title: "Sales Engineer", detail: "Sales" },
   { icon: ShieldCheck, title: "Security Engineer", detail: "Engineering" },
   { icon: Network, title: "Head of Engineering", detail: "Engineering" },
   { icon: Megaphone, title: "Head of Growth", detail: "Go-to-market" },
   { icon: Cpu, title: "ML Engineer", detail: "Engineering" },
   { icon: Braces, title: "Staff Engineer", detail: "Engineering" },
+  { icon: PenTool, title: "Head of Design", detail: "Design" },
   { icon: Handshake, title: "Enterprise Sales", detail: "Sales" },
   { icon: Boxes, title: "Platform Engineer", detail: "Engineering" },
   { icon: Puzzle, title: "Product Engineer", detail: "Engineering" },
@@ -78,38 +86,14 @@ const people: { icon: LucideIcon; title: string; detail: string }[] = [
   { icon: Server, title: "AI Infra Engineer", detail: "Engineering" },
   { icon: Cog, title: "Robotics Engineer", detail: "Engineering" },
 ];
-// Kinds of startups that rotate through the right cards: stage and industry
-const startups = [
-  { title: "Seed", detail: "AI startup" },
-  { title: "Series A", detail: "Fintech" },
-  { title: "Series B", detail: "Health tech" },
-  { title: "Series A", detail: "Dev tools" },
-  { title: "Pre-seed", detail: "Climate tech" },
-  { title: "Series C", detail: "Cybersecurity" },
-  { title: "Seed", detail: "Legal tech" },
-  { title: "Series B", detail: "E-commerce" },
-  { title: "Series A", detail: "Robotics" },
-  { title: "Seed", detail: "Edtech" },
-  { title: "Series C", detail: "Fintech" },
-  { title: "Series A", detail: "Proptech" },
-  { title: "Series B", detail: "Mortgage AI" },
-  { title: "Seed", detail: "Insurtech" },
-  { title: "Series C", detail: "Marketplace" },
-  { title: "Series A", detail: "HR tech" },
-  { title: "Pre-seed", detail: "Consumer AI" },
-  { title: "Series B", detail: "Logistics" },
-  { title: "Seed", detail: "Data infra" },
-  { title: "Series A", detail: "Biotech" },
-  { title: "Series C", detail: "Healthcare AI" },
-  { title: "Seed", detail: "Gaming" },
-  { title: "Series B", detail: "Supply chain" },
-  { title: "Series A", detail: "Space tech" },
-  // Newer kinds of startups that are growing fast
-  { title: "Seed", detail: "AI agents" },
-  { title: "Series B", detail: "Defense tech" },
-  { title: "Series A", detail: "AI infra" },
-  { title: "Series C", detail: "Energy" },
-  { title: "Seed", detail: "Bio AI" },
+// Startups on the right cards: a stage and an industry, picked separately so every industry turns up at
+// every stage over time (5 stages x 28 industries = 140 mixes before any repeats)
+const stages = ["Seed", "Series A", "Series B", "Pre-seed", "Series C"];
+const industries = [
+  "AI startup", "Fintech", "Health tech", "Dev tools", "Climate tech", "Cybersecurity", "Legal tech",
+  "E-commerce", "Robotics", "Edtech", "Proptech", "Mortgage AI", "Insurtech", "Marketplace", "HR tech",
+  "Consumer AI", "Logistics", "Data infra", "Biotech", "Healthcare AI", "Gaming", "Supply chain",
+  "Space tech", "AI agents", "Defense tech", "AI infra", "Energy", "Bio AI",
 ];
 // Who meets whom, in order: [person, startup]
 const pairs: [number, number][] = [
@@ -138,9 +122,10 @@ export function HeroBridge({ className = "" }: { className?: string }) {
   // What each card shows: the cards start with the first four of each list. Once a match is done and the
   // line moves on to the next pair, the two cards that were just matched swap in a new role and a new startup.
   // (The next pair is never on the same cards, so a card never changes while it is lit.)
-  const shown = (side: 0 | 1, slot: number, pool: number) => {
+  // Returns a running count (0, 1, 2, ...); each list wraps it with % its own length.
+  const shown = (side: 0 | 1, slot: number) => {
     for (let n = step; n >= 1 && n > step - pairs.length; n--) {
-      if (pairs[(n - 1) % pairs.length][side] === slot) return (3 + n) % pool;
+      if (pairs[(n - 1) % pairs.length][side] === slot) return 3 + n;
     }
     return slot;
   };
@@ -159,8 +144,8 @@ export function HeroBridge({ className = "" }: { className?: string }) {
 
       {/* People */}
       {rows.map((_, i) => {
-        const at = shown(0, i, people.length);
-        const person = people[at];
+        const at = shown(0, i);
+        const person = people[at % people.length];
         return (
           <div
             key={`p${i}`}
@@ -183,8 +168,8 @@ export function HeroBridge({ className = "" }: { className?: string }) {
 
       {/* Startups */}
       {rows.map((_, i) => {
-        const at = shown(1, i, startups.length);
-        const startup = startups[at];
+        const at = shown(1, i);
+        const startup = { title: stages[at % stages.length], detail: industries[at % industries.length] };
         return (
           <div
             key={`s${i}`}
