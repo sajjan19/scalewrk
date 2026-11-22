@@ -70,14 +70,24 @@ const industries = [
   "E-commerce", "Robotics", "Edtech", "Proptech", "Mortgage AI", "Insurtech", "Marketplace", "HR tech",
   "Consumer AI", "Logistics", "Data infra", "Biotech", "Healthcare AI", "Gaming", "Supply chain",
   "Space tech", "AI agents", "Defense tech", "AI infra", "Energy", "Bio AI",
+  // Newer industries growing out of AI
+  "AI coding", "Voice AI", "AI security", "Humanoids", "Autonomy", "AI chips", "Nuclear", "Drug discovery",
 ];
 // Specialist roles only meet the industries that hire them (everyone else can meet any industry)
-const robotics = ["Robotics", "Defense tech", "Space tech", "Energy", "Logistics", "Supply chain"];
-const aiApps = ["AI agents", "AI startup", "Legal tech", "Healthcare AI", "Fintech", "Mortgage AI", "Consumer AI", "HR tech", "Insurtech"];
-const aiModels = ["AI agents", "AI startup", "AI infra", "Consumer AI", "Healthcare AI", "Legal tech", "Bio AI", "Mortgage AI"];
-const aiInfra = ["AI infra", "AI startup", "AI agents", "Data infra", "Dev tools"];
-const deployed = ["AI agents", "AI startup", "Defense tech", "Healthcare AI", "Fintech", "Data infra", "Supply chain"];
-const consumer = ["Consumer AI", "Fintech", "Health tech", "E-commerce", "Edtech", "Gaming", "Proptech", "Marketplace", "Insurtech", "Logistics"];
+const robotics = ["Robotics", "Defense tech", "Space tech", "Energy", "Logistics", "Supply chain", "Humanoids", "Autonomy"];
+const aiApps = ["AI agents", "AI startup", "Legal tech", "Healthcare AI", "Fintech", "Mortgage AI", "Consumer AI", "HR tech", "Insurtech", "AI coding", "Voice AI"];
+const aiModels = ["AI agents", "AI startup", "AI infra", "Consumer AI", "Healthcare AI", "Legal tech", "Bio AI", "Mortgage AI", "AI coding", "Voice AI", "AI security", "Drug discovery"];
+const aiInfra = ["AI infra", "AI startup", "AI agents", "Data infra", "Dev tools", "AI chips", "AI coding"];
+const deployed = ["AI agents", "AI startup", "Defense tech", "Healthcare AI", "Fintech", "Data infra", "Supply chain", "Voice AI", "AI security"];
+const consumer = ["Consumer AI", "Fintech", "Health tech", "E-commerce", "Edtech", "Gaming", "Proptech", "Marketplace", "Insurtech", "Logistics", "Voice AI"];
+
+// Picks an item for match number m, stepping through the list in a scattered order that still reaches
+// every item (the step size shares no factor with the list length, so it never gets stuck on one item)
+const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a);
+const pick = <T,>(list: readonly T[], m: number) => {
+  const jump = [7, 11, 13, 17, 19].find((k) => gcd(k, list.length) === 1) ?? 1;
+  return list[(m * jump + 1) % list.length];
+};
 
 type Role = { icon: LucideIcon; title: string; detail: string; at: Stage[]; in?: string[] };
 const people: Role[] = [
@@ -164,7 +174,7 @@ export function HeroBridge({ className = "" }: { className?: string }) {
     while (pairs[m % pairs.length][1] !== slot) m++;
     const role = people[roleCount(pairs[m % pairs.length][0], m) % people.length];
     const pool = role.in ?? industries;
-    return { match: m, title: role.at[(m * 5 + 1) % role.at.length], detail: pool[(m * 11) % pool.length] };
+    return { match: m, title: pick(role.at, m), detail: pick(pool, m) };
   };
 
   return (
