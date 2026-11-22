@@ -21,17 +21,21 @@ import {
   Megaphone,
   Monitor,
   Lightbulb,
+  Magnet,
   Network,
+  Newspaper,
   Palette,
   PenTool,
   Phone,
   Presentation,
   Puzzle,
   Rocket,
+  Radio,
   Server,
   ShieldCheck,
   Smartphone,
   Sparkles,
+  Target,
   TrendingUp,
   Users,
   Workflow,
@@ -41,7 +45,7 @@ import {
 import { LogoMark } from "./Logo";
 
 /*
-  Home hero option "bridge": people on the left (engineers and salespeople), startups on the right and
+  Home hero option "bridge": people on the left (engineering, product, design, sales and marketing), startups on the right and
   Scalewrk in the middle. Every couple of seconds one person and one startup light up and a glowing line joins
   them through the S, with a "Matched" tag. When it moves on, those two cards swap in a new role and startup.
   Purely illustrative (no real people or companies). Styles: "Hero bridge" in globals.css.
@@ -53,21 +57,25 @@ const people: { icon: LucideIcon; title: string; detail: string }[] = [
   { icon: BrainCircuit, title: "AI Engineer", detail: "Engineering" },
   { icon: Code, title: "Backend Engineer", detail: "Engineering" },
   { icon: Handshake, title: "Account Executive", detail: "Sales" },
+  { icon: Target, title: "Head of Marketing", detail: "Marketing" },
   { icon: TrendingUp, title: "Head of Sales", detail: "Sales" },
   { icon: Sparkles, title: "Founding Engineer", detail: "Engineering" },
   { icon: ClipboardList, title: "Product Manager", detail: "Product" },
   { icon: Phone, title: "Sales Manager", detail: "Sales" },
   { icon: Monitor, title: "Frontend Engineer", detail: "Engineering" },
   { icon: Wrench, title: "Solutions Engineer", detail: "Sales" },
+  { icon: Radio, title: "Product Marketer", detail: "Marketing" },
   { icon: Layers, title: "Full-Stack Engineer", detail: "Engineering" },
   { icon: HeartHandshake, title: "Customer Success", detail: "Go-to-market" },
   { icon: Palette, title: "Product Designer", detail: "Design" },
   { icon: Cloud, title: "DevOps Engineer", detail: "Engineering" },
   { icon: ChartLine, title: "VP of Sales", detail: "Sales" },
   { icon: Database, title: "Data Engineer", detail: "Engineering" },
+  { icon: Magnet, title: "Demand Gen Manager", detail: "Marketing" },
   { icon: Smartphone, title: "Mobile Engineer", detail: "Engineering" },
   { icon: Users, title: "Engineering Manager", detail: "Engineering" },
   { icon: Lightbulb, title: "Head of Product", detail: "Product" },
+  { icon: Newspaper, title: "Content Marketer", detail: "Marketing" },
   { icon: Presentation, title: "Sales Engineer", detail: "Sales" },
   { icon: ShieldCheck, title: "Security Engineer", detail: "Engineering" },
   { icon: Network, title: "Head of Engineering", detail: "Engineering" },
@@ -77,6 +85,7 @@ const people: { icon: LucideIcon; title: string; detail: string }[] = [
   { icon: PenTool, title: "Head of Design", detail: "Design" },
   { icon: Handshake, title: "Enterprise Sales", detail: "Sales" },
   { icon: Boxes, title: "Platform Engineer", detail: "Engineering" },
+  { icon: TrendingUp, title: "Growth Marketer", detail: "Marketing" },
   { icon: Puzzle, title: "Product Engineer", detail: "Engineering" },
   // Newer roles that are growing fast
   { icon: Bot, title: "AI Agent Engineer", detail: "Engineering" },
