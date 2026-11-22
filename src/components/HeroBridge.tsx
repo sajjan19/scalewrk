@@ -54,15 +54,15 @@ import { LogoMark } from "./Logo";
 
 // Roles that rotate through the left cards
 // Startup stages, youngest first
-const stages = ["Pre-seed", "Seed", "Series A", "Series B", "Series C"] as const;
+const stages = ["Pre-seed", "Seed", "Series A", "Series B", "Series C", "Series D"] as const;
 type Stage = (typeof stages)[number];
 // Which stages hire each kind of role (so a Founding Engineer never meets a Series C company)
 const early: Stage[] = ["Pre-seed", "Seed"]; // first hires
 const any: Stage[] = [...stages];
-const funded: Stage[] = ["Seed", "Series A", "Series B", "Series C"];
+const funded: Stage[] = ["Seed", "Series A", "Series B", "Series C", "Series D"];
 const headOf: Stage[] = ["Seed", "Series A", "Series B"]; // first leader for a team
-const scaling: Stage[] = ["Series A", "Series B", "Series C"]; // roles that come once a team is growing
-const late: Stage[] = ["Series B", "Series C"]; // big-team and big-customer roles
+const scaling: Stage[] = ["Series A", "Series B", "Series C", "Series D"]; // roles that come once a team is growing
+const late: Stage[] = ["Series B", "Series C", "Series D"]; // big-team and big-customer roles
 
 // Industries on the startup cards
 const industries = [
